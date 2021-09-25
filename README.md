@@ -1,4 +1,4 @@
-# Hotel_Reservation_Project_Group4
+# Project-Nomad
 Group 4: Andres De La Rosa, Raymond Jackson, Jalyn Merritt, Aden Rojas, Christa Baca
 Name of Software: Nomad+
 
