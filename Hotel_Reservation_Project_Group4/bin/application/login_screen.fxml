@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="anchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginController">
+   <children>
+      <ImageView fx:id="image" fitHeight="600.0" fitWidth="503.0" layoutX="450.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../model/login_hotel_img.png" />
+         </image></ImageView>
+      <Label fx:id="label2" layoutX="148.0" layoutY="218.0" text="Welcome" textFill="WHITE">
+         <font>
+            <Font name="Corbel Bold" size="36.0" />
+         </font>
+      </Label>
+      <Button fx:id="button" layoutX="86.0" layoutY="454.0" mnemonicParsing="false" onAction="#handleLogin" prefHeight="39.0" prefWidth="273.0" scaleShape="false" style="-fx-background-color: white; -fx-background-radius: 20;" text="LOGIN" textFill="#ff3366">
+         <font>
+            <Font name="Corbel Bold" size="18.0" />
+         </font>
+      </Button>
+      <PasswordField fx:id="passwordfield" layoutX="86.0" layoutY="378.0" prefHeight="39.0" prefWidth="273.0" />
+      <TextField fx:id="textfield" layoutX="86.0" layoutY="296.0" prefHeight="39.0" prefWidth="273.0" />
+      <Label fx:id="label3" layoutX="86.0" layoutY="273.0" text="email" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="label4" layoutX="86.0" layoutY="355.0" text="password" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Hyperlink fx:id="hyperlink" focusTraversable="false" layoutX="251.0" layoutY="510.0" onAction="#handleSignUp" text="Sign up here." textFill="#91cd75">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Hyperlink>
+      <Label fx:id="label5" layoutX="111.0" layoutY="514.0" text="Don't have an account?" textFill="WHITE">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <Circle fx:id="circle1" fill="WHITE" layoutX="220.0" layoutY="159.0" radius="14.0" stroke="WHITE" strokeType="INSIDE" />
+      <Ellipse fx:id="ellipse" fill="WHITE" layoutX="220.0" layoutY="182.0" radiusX="22.5" radiusY="15.0" stroke="WHITE" strokeType="INSIDE" />
+      <Circle fx:id="circle2" fill="TRANSPARENT" layoutX="220.0" layoutY="168.0" radius="35.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="3.0" />
+      <Label fx:id="label1" layoutX="83.0" layoutY="29.0" text="PROJECT NAME" textFill="WHITE">
+         <font>
+            <Font name="Javanese Text" size="35.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.net.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="anchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" stylesheets="@../application/style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AccountSettingsController">
+   <children>
+      <Hyperlink fx:id="hyperlink1" focusTraversable="false" layoutX="28.0" layoutY="21.0" onAction="#handleBackToHomePage" text="PROJECT NAME">
+         <font>
+            <Font name="Javanese Text" size="34.0" />
+         </font>
+      </Hyperlink>
+      <Hyperlink fx:id="hyperlink2" focusTraversable="false" layoutX="436.0" layoutY="61.0" onAction="#handleMyReservation" text="My Reservation" textFill="#91cd75">
+         <font>
+            <Font name="Corbel" size="22.0" />
+         </font>
+      </Hyperlink>
+      <Hyperlink fx:id="hyperlink4" focusTraversable="false" layoutX="788.0" layoutY="61.0" onAction="#handleLogout" text="Logout" textFill="#91cd75">
+         <font>
+            <Font name="Corbel" size="22.0" />
+         </font>
+      </Hyperlink>
+      <Hyperlink fx:id="hyperlink3" focusTraversable="false" layoutX="605.0" layoutY="61.0" text="Account Settings" textFill="#91cd75">
+         <font>
+            <Font name="Corbel" size="22.0" />
+         </font>
+      </Hyperlink>
+      <Label fx:id="label1" layoutX="85.0" layoutY="145.0" text="Account Settings:" textFill="WHITE">
+         <font>
+            <Font name="Corbel Light" size="33.0" />
+         </font>
+      </Label>
+      <Button fx:id="button" layoutX="439.0" layoutY="389.0" mnemonicParsing="false" onAction="#handleBackToHomePage" prefHeight="39.0" prefWidth="273.0" style="-fx-background-color: white; -fx-background-radius: 20;" text="SAVE CHANGES" textFill="#ff3366">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Button>
+      <Label fx:id="label3" layoutX="85.0" layoutY="287.0" text="last name" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="label2" layoutX="85.0" layoutY="205.0" text="first name" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="textfield" layoutX="85.0" layoutY="228.0" prefHeight="39.0" prefWidth="273.0" />
+      <PasswordField fx:id="passwordfield" layoutX="85.0" layoutY="310.0" prefHeight="39.0" prefWidth="273.0" />
+      <PasswordField fx:id="passwordfield1" layoutX="85.0" layoutY="474.0" prefHeight="39.0" prefWidth="273.0" />
+      <TextField fx:id="textfield1" layoutX="85.0" layoutY="392.0" prefHeight="39.0" prefWidth="273.0" />
+      <Label fx:id="label4" layoutX="85.0" layoutY="369.0" text="email" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="label5" layoutX="85.0" layoutY="451.0" text="phone number" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="label6" layoutX="439.0" layoutY="205.0" text="password" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <PasswordField fx:id="passwordfield11" layoutX="439.0" layoutY="228.0" prefHeight="39.0" prefWidth="273.0" />
+      <PasswordField fx:id="passwordfield111" layoutX="439.0" layoutY="310.0" prefHeight="39.0" prefWidth="273.0" />
+      <Label fx:id="label7" layoutX="439.0" layoutY="287.0" text="new password" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

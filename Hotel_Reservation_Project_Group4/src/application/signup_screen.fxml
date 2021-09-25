@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="anchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SignUpController">
+   <children>
+      <Label fx:id="label2" layoutX="350.0" layoutY="52.0" text="Create Account" textFill="WHITE">
+         <font>
+            <Font name="Corbel Bold" size="36.0" />
+         </font>
+      </Label>
+      <Button fx:id="button" layoutX="380.0" layoutY="290.0" mnemonicParsing="false" onAction="#handleSignIn" prefHeight="39.0" prefWidth="273.0" scaleShape="false" style="-fx-background-color: white; -fx-background-radius: 20;" text="JOIN" textFill="#ff3366">
+         <font>
+            <Font name="Corbel Bold" size="18.0" />
+         </font>
+      </Button>
+      <PasswordField fx:id="passwordfield" layoutX="35.0" layoutY="413.0" prefHeight="39.0" prefWidth="273.0" />
+      <TextField fx:id="textfield" layoutX="35.0" layoutY="275.0" prefHeight="39.0" prefWidth="273.0" />
+      <Label fx:id="label5" layoutX="35.0" layoutY="252.0" text="email" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="label7" layoutX="36.0" layoutY="390.0" text="password" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Hyperlink fx:id="hyperlink" focusTraversable="false" layoutX="557.0" layoutY="346.0" onAction="#handleLoginPage" text="Login here." textFill="#91cd75">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Hyperlink>
+      <Label fx:id="label9" layoutX="402.0" layoutY="350.0" text="Already have an account?" textFill="WHITE">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="label1" layoutX="38.0" layoutY="26.0" text="PROJECT NAME" textFill="WHITE">
+         <font>
+            <Font name="Javanese Text" size="34.0" />
+         </font>
+      </Label>
+      <Label fx:id="label8" layoutX="35.0" layoutY="459.0" text="account type" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="label4" layoutX="35.0" layoutY="183.0" text="last name" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="textfield1" layoutX="35.0" layoutY="206.0" prefHeight="39.0" prefWidth="273.0" />
+      <Label fx:id="label3" layoutX="35.0" layoutY="114.0" text="first name" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="textfield2" layoutX="35.0" layoutY="137.0" prefHeight="39.0" prefWidth="273.0" />
+      <Label fx:id="label6" layoutX="35.0" layoutY="321.0" text="phone number" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="textfield3" layoutX="35.0" layoutY="344.0" prefHeight="39.0" prefWidth="273.0" />
+      <ComboBox fx:id="combobox" layoutX="35.0" layoutY="482.0" prefHeight="39.0" prefWidth="273.0" style="-fx-background-color: white;" />
+   </children>
+</AnchorPane>
