@@ -1,11 +1,15 @@
 # Project-Nomad
 Group 4: Andres De La Rosa, Raymond Jackson, Jalyn Merritt, Aden Rojas, Christa Baca
+
 Name of Software: Nomad+
 
 Objective: Develop a software product that manages hotel reservations across a group of hotels of varying characteristics. The software must have 
 the following features: 
+
 • Create/Modify User Information 
+
 • Create/Modify Hotel Properties 
+
 • Hotels must include at least:  
   - Amenities: gym, spa, pool, business office, WiFi  
   - Types of Rooms and number of rooms  
