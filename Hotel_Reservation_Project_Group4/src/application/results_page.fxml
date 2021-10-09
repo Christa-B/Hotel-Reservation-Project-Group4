@@ -28,9 +28,9 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Button>
-      <Hyperlink fx:id="hyperlink1" focusTraversable="false" layoutX="28.0" layoutY="21.0" onAction="#handleBackToHomePage" text="PROJECT NAME">
+      <Hyperlink fx:id="hyperlink1" focusTraversable="false" layoutX="20.0" layoutY="5.0" onAction="#handleBackToHomePage" text="NOMAD+" textFill="WHITE">
          <font>
-            <Font name="Javanese Text" size="34.0" />
+            <Font name="Javanese Text" size="48.0" />
          </font>
       </Hyperlink>
       <Hyperlink fx:id="hyperlink2" focusTraversable="false" layoutX="436.0" layoutY="61.0" onAction="#handleMyReservation" text="My Reservation" textFill="#91cd75">
