@@ -50,10 +50,10 @@
       <Circle fx:id="circle1" fill="WHITE" layoutX="220.0" layoutY="159.0" radius="14.0" stroke="WHITE" strokeType="INSIDE" />
       <Ellipse fx:id="ellipse" fill="WHITE" layoutX="220.0" layoutY="182.0" radiusX="22.5" radiusY="15.0" stroke="WHITE" strokeType="INSIDE" />
       <Circle fx:id="circle2" fill="TRANSPARENT" layoutX="220.0" layoutY="168.0" radius="35.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="3.0" />
-      <Label fx:id="label1" layoutX="83.0" layoutY="29.0" text="PROJECT NAME" textFill="WHITE">
+      <Hyperlink fx:id="homehandler" contentDisplay="CENTER" layoutX="102.0" onAction="#handleBackToHomePage" prefHeight="157.0" prefWidth="239.0" text="NOMAD+" textAlignment="CENTER" textFill="WHITE">
          <font>
-            <Font name="Javanese Text" size="35.0" />
+            <Font name="Javanese Text" size="48.0" />
          </font>
-      </Label>
+      </Hyperlink>
    </children>
 </AnchorPane>
