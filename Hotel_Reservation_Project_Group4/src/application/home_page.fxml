@@ -9,26 +9,28 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane fx:id="anchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" stylesheets="@../application/style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.HomePageController">
+<AnchorPane fx:id="anchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" stylesheets="@../application/style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.HomePageController">
    <children>
-      <BorderPane layoutY="114.0" prefHeight="451.0" prefWidth="900.0" style="-fx-background-color: black;">
+      <BorderPane layoutY="114.0" style="-fx-background-color: black;">
          <opaqueInsets>
             <Insets />
          </opaqueInsets>
+         <center>
+            <ImageView fx:id="image" fitHeight="543.0" fitWidth="1200.0" opacity="0.7" pickOnBounds="true" BorderPane.alignment="CENTER">
+               <image>
+                  <Image url="@../model/hotel_homepage_image.png" />
+               </image>
+               <effect>
+                  <ColorAdjust contrast="-0.25" />
+               </effect>
+               <viewport>
+                  <Rectangle2D width="1240.0" />
+               </viewport>
+            </ImageView>
+         </center>
       </BorderPane>
-      <ImageView fx:id="image" fitHeight="451.0" fitWidth="900.0" layoutY="114.0" opacity="0.7" pickOnBounds="true">
-         <image>
-            <Image url="@../model/hotel_homepage_image.png" />
-         </image>
-         <effect>
-            <ColorAdjust contrast="-0.25" />
-         </effect>
-         <viewport>
-            <Rectangle2D width="1240.0" />
-         </viewport>
-      </ImageView>
-      <DatePicker fx:id="datepicker" focusTraversable="false" layoutX="37.0" layoutY="217.0" prefHeight="39.0" prefWidth="222.0" promptText="Check in &amp; out date" style="-fx-background-color: white;" />
-      <MenuButton fx:id="menubutton" layoutX="444.0" layoutY="217.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="200.0" style="-fx-background-color: white;" text="Amenities">
+      <DatePicker fx:id="datepicker" focusTraversable="false" layoutX="37.0" layoutY="317.0" prefHeight="39.0" prefWidth="222.0" promptText="Check in &amp; out date" style="-fx-background-color: white;" />
+      <MenuButton fx:id="menubutton" layoutX="430.0" layoutY="317.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="200.0" style="-fx-background-color: white;" text="Amenities">
         <items>
             <CheckMenuItem fx:id="checkmenuitem1" mnemonicParsing="false" text="Gym" />
             <CheckMenuItem fx:id="checkmenuitem2" mnemonicParsing="false" text="Spa" />
@@ -37,26 +39,26 @@
             <CheckMenuItem fx:id="checkmenuitem5" mnemonicParsing="false" text="Wifi" />
         </items>
       </MenuButton>
-      <ComboBox fx:id="combobox1" layoutX="276.0" layoutY="217.0" prefHeight="39.0" prefWidth="150.0" promptText="1 Room" style="-fx-background-color: white;" />
-      <ComboBox fx:id="combobox2" layoutX="662.0" layoutY="217.0" prefHeight="39.0" prefWidth="200.0" promptText="Price range" style="-fx-background-color: white;" />
-      <Button fx:id="button" layoutX="273.0" layoutY="281.0" mnemonicParsing="false" onAction="#handleSearch" prefHeight="39.0" prefWidth="354.0" style="-fx-background-color: white; -fx-background-radius: 20;" text="SEARCH" textFill="#ff3366">
+      <ComboBox fx:id="combobox1" layoutX="270.0" layoutY="317.0" prefHeight="39.0" prefWidth="150.0" promptText="# of Rooms?" style="-fx-background-color: white;" />
+      <ComboBox fx:id="combobox2" layoutX="640.0" layoutY="317.0" prefHeight="40.0" prefWidth="170.0" promptText="# of Guests (Adults)?" style="-fx-background-color: white;" />
+      <Button fx:id="button" layoutX="500.0" layoutY="400.0" mnemonicParsing="false" onAction="#handleSearch" prefHeight="39.0" prefWidth="354.0" style="-fx-background-color: white; -fx-background-radius: 20;" text="SEARCH" textFill="#ff3366">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Button>
-      <Hyperlink fx:id="hyperlink2" focusTraversable="false" layoutX="436.0" layoutY="61.0" onAction="#handleMyReservation" text="My Reservation" textFill="#91cd75">
+      <Hyperlink fx:id="hyperlink2" focusTraversable="false" layoutX="542.0" layoutY="39.0" onAction="#handleMyReservation" text="My Reservation" textFill="#91cd75">
          <font>
-            <Font name="Corbel" size="22.0" />
+            <Font name="Corbel" size="28.0" />
          </font>
       </Hyperlink>
-      <Hyperlink fx:id="hyperlink4" focusTraversable="false" layoutX="788.0" layoutY="61.0" onAction="#handleLogout" text="Logout" textFill="#91cd75">
+      <Hyperlink fx:id="hyperlink4" focusTraversable="false" layoutX="953.0" layoutY="39.0" onAction="#handleLogout" text="Login / SignUp Here" textFill="#91cd75">
          <font>
-            <Font name="Corbel" size="22.0" />
+            <Font name="Corbel" size="28.0" />
          </font>
       </Hyperlink>
-      <Hyperlink fx:id="hyperlink3" focusTraversable="false" layoutX="605.0" layoutY="61.0" onAction="#handleAccountSettings" text="Account Settings" textFill="#91cd75">
+      <Hyperlink fx:id="hyperlink3" focusTraversable="false" layoutX="738.0" layoutY="39.0" onAction="#handleAccountSettings" text="Account Settings" textFill="#91cd75">
          <font>
-            <Font name="Corbel" size="22.0" />
+            <Font name="Corbel" size="28.0" />
          </font>
       </Hyperlink>
       <Label fx:id="label1" layoutX="38.0" layoutY="153.0" text="Find the best hotels at the best price, here." textFill="WHITE">
@@ -64,10 +66,17 @@
             <Font name="Corbel Light" size="33.0" />
          </font>
       </Label>
-      <Hyperlink fx:id="hyperlink1" focusTraversable="false" layoutX="28.0" layoutY="21.0" text="PROJECT NAME">
+      <Hyperlink fx:id="hyperlink1" focusTraversable="false" layoutX="54.0" text="NOMAD+" textFill="#f8f8f8">
          <font>
-            <Font name="Javanese Text" size="34.0" />
+            <Font name="Javanese Text" size="45.0" />
          </font>
       </Hyperlink>
+      <ComboBox fx:id="combobox21" layoutX="1000.0" layoutY="317.0" prefHeight="40.0" prefWidth="170.0" promptText="Price range" style="-fx-background-color: white;" />
+      <TextField layoutX="36.0" layoutY="209.0" prefHeight="78.0" prefWidth="1138.0" promptText="Where are we going?">
+         <font>
+            <Font name="Yu Gothic UI Light" size="48.0" />
+         </font>
+      </TextField>
+      <ComboBox fx:id="combobox22" layoutX="820.0" layoutY="317.0" prefHeight="40.0" prefWidth="170.0" promptText="Type of Room?" style="-fx-background-color: white;" />
    </children>
 </AnchorPane>
