@@ -41,9 +41,9 @@
             <Font name="Corbel Light" size="26.0" />
          </font>
       </Label>
-      <Hyperlink fx:id="hyperlink1" focusTraversable="false" layoutX="28.0" layoutY="21.0" onAction="#handleBackToHomePage" text="PROJECT NAME">
+      <Hyperlink fx:id="hyperlink1" focusTraversable="false" layoutX="93.0" layoutY="5.0" onAction="#handleBackToHomePage" text="NOMAD+" textFill="#fcfcfc">
          <font>
-            <Font name="Javanese Text" size="34.0" />
+            <Font name="Javanese Text" size="48.0" />
          </font>
       </Hyperlink>
    </children>
