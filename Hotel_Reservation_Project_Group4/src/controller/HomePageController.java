@@ -73,15 +73,23 @@ public class HomePageController implements Initializable{
 	private ComboBox<String> combobox1; // Number of Rooms
 	
 	@FXML
-	private ComboBox<String> combobox2; // Price Ranges
+	private ComboBox<String> combobox2; // # of Guests (Adults)
+	
+	@FXML
+	private ComboBox<String> combobox22; // Price Ranges
+	
+	@FXML
+	private ComboBox<String> combobox21; // Types of Rooms / Beds
 	
 	// DatePickers 
 	@FXML
 	private DatePicker datepicker; // Check-in/Check-out dates
 	
 	// List of items for ComboBoxes (prices and rooms)
-	ObservableList<String> list1 = FXCollections.observableArrayList("2 Rooms", "3 Rooms", "4 Rooms", "5 Rooms", "6 Rooms", "7 Rooms");
+	ObservableList<String> list1 = FXCollections.observableArrayList("1 Room", "2 Rooms", "3 Rooms", "4 Rooms", "5 Rooms", "6 Rooms", "7 Rooms");
 	ObservableList<String> list2 = FXCollections.observableArrayList("Low", "Mid", "High");
+	ObservableList<String> list3 = FXCollections.observableArrayList("1 - 2 Guests", "3 Guests", "4 Guests", "5 Guests", "6+ Guests");
+	ObservableList<String> list4 = FXCollections.observableArrayList("1 King", "1 Queen", "2 King", "2 Queen", "Suites");
 
 	// Static variables to set style for button when mouse is away/hovering
 	private static String normal_button_style = "-fx-background-color: white; -fx-background-radius: 20";
@@ -97,7 +105,9 @@ public class HomePageController implements Initializable{
 	public void initialize( URL location, ResourceBundle resources ) {
 		// Sets list items for ComboBoxes
 		combobox1.setItems(list1);
-		combobox2.setItems(list2);
+		combobox22.setItems(list4);
+		combobox2.setItems(list3);
+		combobox21.setItems(list2);
 		
 		// Normal button style set to white
 	    button.setStyle(normal_button_style);
