@@ -43,11 +43,11 @@
             <Font size="13.0" />
          </font>
       </Label>
-      <Label fx:id="label1" layoutX="38.0" layoutY="26.0" text="PROJECT NAME" textFill="WHITE">
+      <Hyperlink fx:id="homehandler" layoutX="52.0" layoutY="-2.0" onAction="#handleBackToHomePage" prefHeight="130.0" prefWidth="239.0" text="NOMAD+" textFill="#f8f7f7">
          <font>
-            <Font name="Javanese Text" size="34.0" />
+            <Font name="Javanese Text" size="48.0" />
          </font>
-      </Label>
+      </Hyperlink>
       <Label fx:id="label8" layoutX="35.0" layoutY="459.0" text="account type" textFill="WHITE">
          <font>
             <Font name="System Bold" size="14.0" />
