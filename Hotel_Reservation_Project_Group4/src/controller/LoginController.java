@@ -62,6 +62,9 @@ public class LoginController implements Initializable {
 	@FXML
 	private Hyperlink hyperlink; // Sign up here
 	
+	@FXML
+	private Hyperlink homehandler;
+	
 	// Static variables to set style for button when mouse is away/hovering
 	private static String normal_button_style = "-fx-background-color: white; -fx-background-radius: 20;";
 	private static String hovered_button_style = "-fx-background-color: #d3d3d3; -fx-background-radius: 20;";
@@ -92,6 +95,21 @@ public class LoginController implements Initializable {
 	 */
 	@FXML
 	public void handleLogin( ActionEvent event ) throws IOException {
+		// Loads the FXML document for home_page and displays it
+		Parent root = FXMLLoader.load(getClass().getResource("/application/home_page.fxml"));
+		Stage window = (Stage)button.getScene().getWindow();
+		window.setScene(new Scene (root));
+	}
+	
+	/**
+	 * Changes view to the HOME PAGE after button is clicked
+	 * 
+	 * @param event	 event in which user clicks on the Project Name button
+	 * @throws IOException	if a file is unable to be read
+	 */
+	
+	@FXML
+	public void handleBackToHomePage( ActionEvent event ) throws IOException {
 		// Loads the FXML document for home_page and displays it
 		Parent root = FXMLLoader.load(getClass().getResource("/application/home_page.fxml"));
 		Stage window = (Stage)button.getScene().getWindow();
