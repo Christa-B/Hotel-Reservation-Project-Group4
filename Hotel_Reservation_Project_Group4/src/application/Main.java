@@ -30,11 +30,11 @@ public class Main extends Application {
 		// Try and catch block for exception handling
 		try {	
 			// Load the FXML document
-			Parent root = FXMLLoader.load( getClass().getResource( "/application/login_screen.fxml"));
+			Parent root = FXMLLoader.load( getClass().getResource( "/application/home_page.fxml"));
 			
 			// Set the scene to stage and show the stage to the user
-			Scene scene = new Scene( root, 900, 600 );
-			pStage.setTitle( "Hotel Reservation Project" );
+			Scene scene = new Scene( root );
+			pStage.setTitle( "Nomad+" );
 			pStage.setScene( scene );
 			pStage.show();
 		} 
