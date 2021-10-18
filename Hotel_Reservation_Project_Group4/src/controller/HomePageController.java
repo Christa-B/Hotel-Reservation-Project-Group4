@@ -148,13 +148,13 @@ public class HomePageController implements Initializable{
 	}
 	
 	/**
-	 * Handles event in which user wants to logout from account
+	 * EDIT: Handles event in which user wants to login or sign in
 	 * 
 	 * @param event  event in which user clicks Logout HyperLink
 	 * @throws IOException  if a file is unable to be read
 	 */
 	@FXML
-	public void handleLogout(ActionEvent event) throws IOException {
+	public void handleLoginSignIn(ActionEvent event) throws IOException {
 		// Loads the FXML document for login_screen and displays it
 		Parent root = FXMLLoader.load(getClass().getResource("/application/login_screen.fxml"));
 		Stage window = (Stage)button.getScene().getWindow();
