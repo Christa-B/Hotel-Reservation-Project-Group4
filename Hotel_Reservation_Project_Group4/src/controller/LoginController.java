@@ -124,8 +124,6 @@ public class LoginController implements Initializable {
 					+ "/userData?autoReconnect=true&useSSL=false", "admin", "adminthisisjustaproject92521");
 			if (textField.getText() != null && !textField.getText().isEmpty() 
 				&& passwordField.getText() != null && !passwordField.getText().isEmpty()) { // Check if textField/passwordField is empty
-				System.out.println(textField.getText());
-				System.out.println(passwordField.getText());
 				for (int i = 0; i < userDataAccessor.getUserList().size(); i++) { // If textField is not empty, check if credentials are valid
 					if (textField.getText().equals(userDataAccessor.getUserList().get(i).getEmailAd()) &&
 							passwordField.getText().equals(userDataAccessor.getUserList().get(i).getPassW())) {
