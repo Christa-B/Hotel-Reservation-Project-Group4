@@ -60,6 +60,9 @@ public class LoginController implements Initializable {
 	private Label label5; // Don't have an account?
 	
 	@FXML
+	private Label errorText; // To display errors to User
+	
+	@FXML
 	private TextField textField;
 	
 	@FXML
@@ -125,7 +128,21 @@ public class LoginController implements Initializable {
 			if (textField.getText() != null && !textField.getText().isEmpty() 
 				&& passwordField.getText() != null && !passwordField.getText().isEmpty()) { // Check if textField/passwordField is empty
 				for (int i = 0; i < userDataAccessor.getUserList().size(); i++) { // If textField is not empty, check if credentials are valid
-					if (textField.getText().equals(userDataAccessor.getUserList().get(i).getEmailAd()) &&
+					
+					if(textField.getText().equals(userDataAccessor.getUserList().get(i).getEmailAd()) && 
+							!passwordField.getText().equals(userDataAccessor.getUserList().get(i).getPassW())) {
+						errorText.setText("Your password is incorrect.");
+						errorText.setStyle("-fx-font-weight: bold");
+						errorText.setVisible(true);
+					}
+					else if (!textField.getText().equals(userDataAccessor.getUserList().get(i).getEmailAd()) &&
+							!passwordField.getText().equals(userDataAccessor.getUserList().get(i).getPassW())) {
+						
+						errorText.setText("Your username and/or password is incorrect.");
+						errorText.setStyle("-fx-font-weight: bold");
+						errorText.setVisible(true);
+					}
+					else if (textField.getText().equals(userDataAccessor.getUserList().get(i).getEmailAd()) &&
 							passwordField.getText().equals(userDataAccessor.getUserList().get(i).getPassW())) {
 						// If credentials are valid, loads the FXML document for home_page and display it
 						Parent root = FXMLLoader.load(getClass().getResource("/application/home_page.fxml"));
@@ -134,8 +151,9 @@ public class LoginController implements Initializable {
 					}
 				}
 			} else {
-				// Do nothing because credentials were invalid or textField was empty
-				// TODO: Add label to show that field was left empty or credentials were invalid
+				errorText.setText("Please enter information into both fields.");
+				errorText.setStyle("-fx-font-weight: bold");
+				errorText.setVisible(true);
 			}
 		} catch (ClassNotFoundException e1) {
 			// TODO Auto-generated catch block
