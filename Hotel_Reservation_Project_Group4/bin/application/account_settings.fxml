@@ -9,11 +9,11 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane fx:id="anchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" stylesheets="@../application/style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AccountSettingsController">
+<AnchorPane fx:id="anchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1020.0" prefWidth="1920.0" stylesheets="@../application/style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AccountSettingsController">
    <children>
-      <Hyperlink fx:id="hyperlink1" focusTraversable="false" layoutX="28.0" layoutY="21.0" onAction="#handleBackToHomePage" text="PROJECT NAME">
+      <Hyperlink fx:id="hyperlink1" focusTraversable="false" layoutX="85.0" layoutY="5.0" onAction="#handleBackToHomePage" prefHeight="150.0" prefWidth="243.0" text="NOMAD+" textFill="#fcfcfc">
          <font>
-            <Font name="Javanese Text" size="34.0" />
+            <Font name="Javanese Text" size="48.0" />
          </font>
       </Hyperlink>
       <Hyperlink fx:id="hyperlink2" focusTraversable="false" layoutX="436.0" layoutY="61.0" onAction="#handleMyReservation" text="My Reservation" textFill="#91cd75">

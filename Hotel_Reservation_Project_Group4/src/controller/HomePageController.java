@@ -58,7 +58,7 @@ public class HomePageController implements Initializable{
 	private Hyperlink hyperlink3; // Account Settings
 	
 	@FXML
-	private Hyperlink hyperlink4; // Logout
+	private Hyperlink hyperlink4; // Logout //NOW LOGIN/SIGNUP
 	
 	// MenuButtons
 	@FXML
@@ -127,6 +127,8 @@ public class HomePageController implements Initializable{
 	 */
 	@FXML
 	public void handleMyReservation(ActionEvent event) throws IOException {
+		hyperlink2.setUnderline(false);
+		
 		// Loads the FXML document for account_settings and displays it
 		Parent root = FXMLLoader.load(getClass().getResource("/application/user_reservation.fxml"));
 		Stage window = (Stage)button.getScene().getWindow();
@@ -141,6 +143,8 @@ public class HomePageController implements Initializable{
 	 */
 	@FXML
 	public void handleAccountSettings(ActionEvent event) throws IOException {
+		hyperlink3.setUnderline(false);
+		
 		// Loads the FXML document for account_settings and displays it
 		Parent root = FXMLLoader.load(getClass().getResource("/application/account_settings.fxml"));
 		Stage window = (Stage)button.getScene().getWindow();
@@ -155,6 +159,8 @@ public class HomePageController implements Initializable{
 	 */
 	@FXML
 	public void handleLoginSignIn(ActionEvent event) throws IOException {
+		hyperlink4.setUnderline(false);
+		
 		// Loads the FXML document for login_screen and displays it
 		Parent root = FXMLLoader.load(getClass().getResource("/application/login_screen.fxml"));
 		Stage window = (Stage)button.getScene().getWindow();
