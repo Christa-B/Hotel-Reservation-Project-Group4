@@ -7,8 +7,11 @@
 package controller;
 
 import application.Main;
+import application.application.UserDataAccessor;
+
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -20,6 +23,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 import javafx.scene.image.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.effect.DropShadow;
@@ -54,6 +59,15 @@ public class LoginController implements Initializable {
 	@FXML
 	private Label label5; // Don't have an account?
 	
+	@FXML
+	private Label errorText; // To display errors to User
+	
+	@FXML
+	private TextField textField;
+	
+	@FXML
+	private PasswordField passwordField;
+	
 	// Images
 	@FXML
 	private ImageView image; // Background Image
@@ -85,6 +99,18 @@ public class LoginController implements Initializable {
 	    
 	    // Changes back to normal button style when mouse stops hovering
 	    button.setOnMouseExited(e -> button.setStyle(normal_button_style));
+	    
+		try {
+			UserDataAccessor userDataAccessor = new UserDataAccessor(
+					"jdbc:mysql://awsmysql-nomadplus.c8lezqhu83hc.us-east-2.rds.amazonaws.com:3306"
+					+ "/userData?autoReconnect=true&useSSL=false", "admin", "adminthisisjustaproject92521");
+		} catch (ClassNotFoundException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 	}
 	
 	/**
@@ -95,10 +121,47 @@ public class LoginController implements Initializable {
 	 */
 	@FXML
 	public void handleLogin( ActionEvent event ) throws IOException {
-		// Loads the FXML document for home_page and displays it
-		Parent root = FXMLLoader.load(getClass().getResource("/application/home_page.fxml"));
-		Stage window = (Stage)button.getScene().getWindow();
-		window.setScene(new Scene (root));
+		try {
+			UserDataAccessor userDataAccessor = new UserDataAccessor( // Initialize data accessor via link to DB
+					"jdbc:mysql://awsmysql-nomadplus.c8lezqhu83hc.us-east-2.rds.amazonaws.com:3306"
+					+ "/userData?autoReconnect=true&useSSL=false", "admin", "adminthisisjustaproject92521");
+			if (textField.getText() != null && !textField.getText().isEmpty() 
+				&& passwordField.getText() != null && !passwordField.getText().isEmpty()) { // Check if textField/passwordField is empty
+				for (int i = 0; i < userDataAccessor.getUserList().size(); i++) { // If textField is not empty, check if credentials are valid
+					
+					if(textField.getText().equals(userDataAccessor.getUserList().get(i).getEmailAd()) && 
+							!passwordField.getText().equals(userDataAccessor.getUserList().get(i).getPassW())) {
+						errorText.setText("Your password is incorrect.");
+						errorText.setStyle("-fx-font-weight: bold");
+						errorText.setVisible(true);
+					}
+					else if (!textField.getText().equals(userDataAccessor.getUserList().get(i).getEmailAd()) &&
+							!passwordField.getText().equals(userDataAccessor.getUserList().get(i).getPassW())) {
+						
+						errorText.setText("Your username and/or password is incorrect.");
+						errorText.setStyle("-fx-font-weight: bold");
+						errorText.setVisible(true);
+					}
+					else if (textField.getText().equals(userDataAccessor.getUserList().get(i).getEmailAd()) &&
+							passwordField.getText().equals(userDataAccessor.getUserList().get(i).getPassW())) {
+						// If credentials are valid, loads the FXML document for home_page and display it
+						Parent root = FXMLLoader.load(getClass().getResource("/application/home_page.fxml"));
+						Stage window = (Stage)button.getScene().getWindow();
+						window.setScene(new Scene (root));
+					}
+				}
+			} else {
+				errorText.setText("Please enter information into both fields.");
+				errorText.setStyle("-fx-font-weight: bold");
+				errorText.setVisible(true);
+			}
+		} catch (ClassNotFoundException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 	}
 	
 	/**
