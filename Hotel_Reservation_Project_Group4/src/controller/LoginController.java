@@ -7,12 +7,15 @@
 package controller;
 
 import application.Main;
+import application.application.User;
 import application.application.UserDataAccessor;
 
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
+import java.util.regex.Pattern;
+
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -110,29 +113,40 @@ public class LoginController implements Initializable {
 	@FXML
 	public void handleLogin( ActionEvent event ) throws IOException {
 		try {
-			UserDataAccessor userDataAccessor = new UserDataAccessor( // Initialize data accessor via link to DB
+			// Initialize data accessor via link to DB
+			UserDataAccessor userDataAccessor = new UserDataAccessor( 
 					"jdbc:mysql://awsmysql-nomadplus.c8lezqhu83hc.us-east-2.rds.amazonaws.com:3306"
-					+ "/userData?autoReconnect=true&useSSL=false", "admin", "adminthisisjustaproject92521");
+					+ "/userData?autoReconnect=true&useSSL=false", "admin", "adminthisisjustaproject92521");			
+			String regexPattern = "^[a-zA-Z0-9_!#$%&'*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$";
+			boolean stopFlag = false;
+			// Check if textField/passwordField is empty
 			if (textField.getText() != null && !textField.getText().isEmpty() 
-				&& passwordField.getText() != null && !passwordField.getText().isEmpty()) { // Check if textField/passwordField is empty
-				for (int i = 0; i < userDataAccessor.getUserList().size(); i++) { // If textField is not empty, check if credentials are valid
-					
-					if(textField.getText().equals(userDataAccessor.getUserList().get(i).getEmailAd()) && 
-							!passwordField.getText().equals(userDataAccessor.getUserList().get(i).getPassW())) {
+				&& passwordField.getText() != null && !passwordField.getText().isEmpty()) { 
+				// Validate email format was entered
+				if (!patternMatches(textField.getText(), regexPattern)){ 
+					errorText.setText("Please enter a valid email.");
+					errorText.setStyle("-fx-font-weight: bold");
+					errorText.setVisible(true);
+					stopFlag = true;
+				}
+				// If textField is not empty and input is correct, check if credentials are valid
+				if (stopFlag == false) {
+					// Initialize User, retrieve data from DB
+					User currentUser = new User();
+					currentUser = userDataAccessor.getUser(textField.getText(), passwordField.getText());
+					// Check if user record exists
+					if (currentUser == null) {
+						errorText.setText("User does not exist.");
+						errorText.setStyle("-fx-font-weight: bold");
+						errorText.setVisible(true);
+					} // Check if password is correct
+					else if(currentUser.getFirstName() == "exists") {
 						errorText.setText("Your password is incorrect.");
 						errorText.setStyle("-fx-font-weight: bold");
 						errorText.setVisible(true);
-					}
-					else if (!textField.getText().equals(userDataAccessor.getUserList().get(i).getEmailAd()) &&
-							!passwordField.getText().equals(userDataAccessor.getUserList().get(i).getPassW())) {
-						
-						errorText.setText("Your username and/or password is incorrect.");
-						errorText.setStyle("-fx-font-weight: bold");
-						errorText.setVisible(true);
-					}
-					else if (textField.getText().equals(userDataAccessor.getUserList().get(i).getEmailAd()) &&
-							passwordField.getText().equals(userDataAccessor.getUserList().get(i).getPassW())) {
-						// If credentials are valid, loads the FXML document for home_page and display it
+					} // If credentials are valid, loads the FXML document for home_page and display it
+					else if (textField.getText().equals(currentUser.getEmailAd()) &&
+					passwordField.getText().equals(currentUser.getPassW())) {
 						Parent root = FXMLLoader.load(getClass().getResource("/application/home_page.fxml"));
 						Stage window = (Stage)button.getScene().getWindow();
 						window.setScene(new Scene (root));
@@ -178,5 +192,11 @@ public class LoginController implements Initializable {
 		Parent root = FXMLLoader.load(getClass().getResource("/application/signup_screen.fxml"));
 		Stage window = (Stage)button.getScene().getWindow();
 		window.setScene(new Scene (root));
+	}
+	
+	public static boolean patternMatches(String emailAddress, String regexPattern) {
+	    return Pattern.compile(regexPattern)
+	      .matcher(emailAddress)
+	      .matches();
 	}
 }
