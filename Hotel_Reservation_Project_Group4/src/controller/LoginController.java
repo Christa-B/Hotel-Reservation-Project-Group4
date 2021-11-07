@@ -105,25 +105,27 @@ public class LoginController implements Initializable {
 	}
 	
 	/**
-	 * Changes view to the HOME PAGE after button is clicked
+	 * Changes view to the HOME PAGE after button is clicked and credentials are verified
 	 * 
 	 * @param event	 event in which user clicks on the LOGIN button
 	 * @throws IOException	if a file is unable to be read
+	 * @throws ClassNotFoundException	if a class cannot be found
+	 * @throws SQLException	if SQL Database cannot be reached
 	 */
 	@FXML
 	public void handleLogin( ActionEvent event ) throws IOException {
 		try {
 			// Initialize data accessor via link to DB
 			UserDataAccessor userDataAccessor = new UserDataAccessor( 
-					"jdbc:mysql://awsmysql-nomadplus.c8lezqhu83hc.us-east-2.rds.amazonaws.com:3306"
-					+ "/userData?autoReconnect=true&useSSL=false", "admin", "adminthisisjustaproject92521");			
-			String regexPattern = "^[a-zA-Z0-9_!#$%&'*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$";
+				"jdbc:mysql://awsmysql-nomadplus.c8lezqhu83hc.us-east-2.rds.amazonaws.com:3306"
+				+ "/userData?autoReconnect=true&useSSL=false", "admin", "adminthisisjustaproject92521");			
+			String emailRegexPattern = "^[a-zA-Z0-9_!#$%&'*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$";
 			boolean stopFlag = false;
 			// Check if textField/passwordField is empty
 			if (textField.getText() != null && !textField.getText().isEmpty() 
 				&& passwordField.getText() != null && !passwordField.getText().isEmpty()) { 
 				// Validate email format was entered
-				if (!patternMatches(textField.getText(), regexPattern)){ 
+				if (!patternMatches(textField.getText(), emailRegexPattern)){ 
 					errorText.setText("Please enter a valid email.");
 					errorText.setStyle("-fx-font-weight: bold");
 					errorText.setVisible(true);
@@ -152,7 +154,7 @@ public class LoginController implements Initializable {
 						window.setScene(new Scene (root));
 					}
 				}
-			} else {
+			} else { // Run if one or more fields are empty
 				errorText.setText("Please enter information into both fields.");
 				errorText.setStyle("-fx-font-weight: bold");
 				errorText.setVisible(true);
