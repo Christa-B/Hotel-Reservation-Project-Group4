@@ -52,7 +52,7 @@ public class UserDataAccessor {
     				User currentUser = new User(userId, firstName, lastName, phoneNum, emailAd, passW, acctType);
     				connection.close();
     				return currentUser;
-    			} else { connection.close(); return new User(0, "exists", "", "", "", "", "");}
+    			} else { connection.close(); return new User(0, "exists-but-passW-is-wrong", "", "", "", "", "");}
     		}
     	}
     }

@@ -142,7 +142,7 @@ public class LoginController implements Initializable {
 						errorText.setStyle("-fx-font-weight: bold");
 						errorText.setVisible(true);
 					} // Check if password is correct
-					else if(currentUser.getFirstName() == "exists") {
+					else if(currentUser.getFirstName() == "exists-but-passW-is-wrong") {
 						errorText.setText("Your password is incorrect.");
 						errorText.setStyle("-fx-font-weight: bold");
 						errorText.setVisible(true);
