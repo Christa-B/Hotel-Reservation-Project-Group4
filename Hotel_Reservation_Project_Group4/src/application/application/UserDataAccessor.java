@@ -1,12 +1,9 @@
 package application.application;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.sql.ResultSet;
-
-import java.util.List;
-import java.util.ArrayList;
 
 public class UserDataAccessor {
     // in real life, use a connection pool....
@@ -27,25 +24,37 @@ public class UserDataAccessor {
         }
     }
 
-    public List<User> getUserList() throws SQLException {
-        try (
-            Statement stmnt = connection.createStatement();
-            ResultSet rs = stmnt.executeQuery("select * from usrData");
+    public User getUser(String inputEmailAd, String inputPassW) throws SQLException {
+    	// Initialize two queries, one to check if email exists, two to retrieve all the data
+    	String emailQuery = "SELECT * FROM usrData WHERE emailAd = ?";
+        String query = "SELECT * FROM usrData WHERE emailAd = ? AND passW = ?";
+    	try (
+    		PreparedStatement emailStatement = connection.prepareStatement(emailQuery);
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
         ){
-            List<User> userList = new ArrayList<>();
-            while (rs.next()) {
-            	int userId = rs.getObject("userID", Integer.class);
-                String firstName = rs.getString("firstName");
-                String lastName = rs.getString("lastName");
-                String phoneNum = rs.getString("phoneNum");
-                String emailAd = rs.getString("emailAd");
-                String passW = rs.getString("passW");
-                String acctType = rs.getString("acctType");
-                User user = new User(userId, firstName, lastName, phoneNum, emailAd, passW, acctType);
-                userList.add(user);
-            }
-            return userList ;
-        } 
+    		emailStatement.setString(1, inputEmailAd);
+    		ResultSet emailRs = emailStatement.executeQuery();
+    		if ((emailRs.next() == false)) {
+    			connection.close();
+    			return null;
+    		} else {
+    			preparedStatement.setString(1, inputEmailAd);
+    			preparedStatement.setString(2, inputPassW);
+    			ResultSet rs = preparedStatement.executeQuery();
+    			if (rs.next()) {
+    				int userId = rs.getObject("userID", Integer.class);
+    				String firstName = rs.getString("firstName");
+    				String lastName = rs.getString("lastName");
+    				String phoneNum = rs.getString("phoneNum");
+    				String emailAd = rs.getString("emailAd");
+    				String passW = rs.getString("passW");
+    				String acctType = rs.getString("acctType");
+    				User currentUser = new User(userId, firstName, lastName, phoneNum, emailAd, passW, acctType);
+    				connection.close();
+    				return currentUser;
+    			} else { return new User(0, "exists", "", "", "", "", "");}
+    		}
+    	}
     }
 
     // other methods, eg. addUser(...) etc
