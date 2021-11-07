@@ -23,6 +23,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.effect.DropShadow;
@@ -72,13 +73,16 @@ public class SignUpController implements Initializable {
 	private TextField textFieldFirstName; // first name
 	
 	@FXML
-	private TextField textFieldLastName; // first name
+	private TextField textFieldLastName; // last name
+	
+	@FXML
+	private TextField textFieldEmail; // email
 	
 	@FXML
 	private TextField textFieldNumber; // phone number
 	
 	@FXML
-	private TextField textfield3; 
+	private PasswordField passwordField; 
 	
 	// HyperLinks
 	@FXML
@@ -89,7 +93,7 @@ public class SignUpController implements Initializable {
 	
 	// ChoiceBoxes
 	@FXML
-	private ComboBox comboBoxAccount; // Option for customer/administrator account type
+	private ComboBox<String> comboBoxAccount; // Option for customer/administrator account type
 	
 	// Static variables to set style for button when mouse is away/hovering
 	private static String normal_button_style = "-fx-background-color: white; -fx-background-radius: 20;";
