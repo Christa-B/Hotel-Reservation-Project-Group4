@@ -133,6 +133,8 @@ public class HomePageController implements Initializable{
 		Parent root = FXMLLoader.load(getClass().getResource("/application/user_reservation.fxml"));
 		Stage window = (Stage)button.getScene().getWindow();
 		window.setScene(new Scene (root));
+		window.setMaximized(true);
+		
 	}
 	
 	/**
@@ -165,6 +167,8 @@ public class HomePageController implements Initializable{
 		Parent root = FXMLLoader.load(getClass().getResource("/application/login_screen.fxml"));
 		Stage window = (Stage)button.getScene().getWindow();
 		window.setScene(new Scene (root));
+		window.setMaximized(true);
+		
 	}
 	
 	/**
@@ -175,9 +179,11 @@ public class HomePageController implements Initializable{
 	 */
 	@FXML
 	public void handleSearch(ActionEvent event) throws IOException {
-		// Loads the FXML document for account_settings and displays it
+		// Loads the FXML document for search results and displays it
 		Parent root = FXMLLoader.load(getClass().getResource("/application/results_page.fxml"));
 		Stage window = (Stage)button.getScene().getWindow();
 		window.setScene(new Scene (root));
+		window.setMaximized(true);
+		
 	}
 }
