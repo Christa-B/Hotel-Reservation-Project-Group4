@@ -143,7 +143,7 @@ public class LoginController implements Initializable {
 						errorText.setVisible(true);
 					} // Check if password is correct
 					else if(currentUser.getFirstName() == "exists-but-passW-is-wrong") {
-						errorText.setText("Your password is incorrect.");
+						errorText.setText("Your username and/or password is incorrect.");
 						errorText.setStyle("-fx-font-weight: bold");
 						errorText.setVisible(true);
 					} // If credentials are valid, loads the FXML document for home_page and display it

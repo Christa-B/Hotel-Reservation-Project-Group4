@@ -7,8 +7,15 @@
 package controller;
 
 import application.Main;
+import application.application.UserDataAccessor;
+
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
+import java.util.ResourceBundle;
+import java.util.regex.Pattern;
+
+
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -82,7 +89,10 @@ public class SignUpController implements Initializable {
 	private TextField textFieldNumber; // phone number
 	
 	@FXML
-	private PasswordField passwordField; 
+	private PasswordField passwordFieldOne; // User password
+	
+	@FXML
+	private PasswordField passwordFieldTwo; // To confirm password
 	
 	// HyperLinks
 	@FXML
@@ -146,10 +156,23 @@ public class SignUpController implements Initializable {
 	 */
 	@FXML
 	public void handleSignIn( ActionEvent event ) throws IOException {
+		try {
+		UserDataAccessor userDataAccessor = new UserDataAccessor( 
+				"jdbc:mysql://awsmysql-nomadplus.c8lezqhu83hc.us-east-2.rds.amazonaws.com:3306"
+				+ "/userData?autoReconnect=true&useSSL=false", "admin", "adminthisisjustaproject92521");
+		
 		// Loads the FXML document for home_page and displays it
 		Parent root = FXMLLoader.load(getClass().getResource("/application/home_page.fxml"));
 		Stage window = (Stage)button.getScene().getWindow();
 		window.setScene(new Scene (root));
+		
+		} catch (ClassNotFoundException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 	}
 	
 	/**
