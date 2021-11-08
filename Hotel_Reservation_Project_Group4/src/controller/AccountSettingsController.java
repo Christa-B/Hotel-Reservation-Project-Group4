@@ -106,6 +106,7 @@ public class AccountSettingsController implements Initializable {
 		Parent root = FXMLLoader.load(getClass().getResource("/application/user_reservation.fxml"));
 		Stage window = (Stage)button.getScene().getWindow();
 		window.setScene(new Scene (root));
+		window.setMaximized(true);
 	}
 	
 	/**
@@ -120,6 +121,7 @@ public class AccountSettingsController implements Initializable {
 		Parent root = FXMLLoader.load(getClass().getResource("/application/home_page.fxml"));
 		Stage window = (Stage)button.getScene().getWindow();
 		window.setScene(new Scene (root));
+		window.setMaximized(true);
 	}
 	
 	/**
@@ -133,6 +135,7 @@ public class AccountSettingsController implements Initializable {
 		// Loads the FXML document for login_screen and displays it
 		Parent root = FXMLLoader.load(getClass().getResource("/application/login_screen.fxml"));
 		Stage window = (Stage)button.getScene().getWindow();
+		window.setMaximized(true);
 		window.setScene(new Scene (root));
 	}
 }
