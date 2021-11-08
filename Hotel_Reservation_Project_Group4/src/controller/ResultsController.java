@@ -120,6 +120,7 @@ public class ResultsController implements Initializable{
 		Parent root = FXMLLoader.load(getClass().getResource("/application/user_reservation.fxml"));
 		Stage window = (Stage)button.getScene().getWindow();
 		window.setScene(new Scene (root));
+		window.setMaximized(true);
 	}
 	
 	/**
@@ -134,6 +135,7 @@ public class ResultsController implements Initializable{
 		Parent root = FXMLLoader.load(getClass().getResource("/application/home_page.fxml"));
 		Stage window = (Stage)button.getScene().getWindow();
 		window.setScene(new Scene (root));
+		window.setMaximized(true);
 	}
 	
 	/**
@@ -148,6 +150,7 @@ public class ResultsController implements Initializable{
 		Parent root = FXMLLoader.load(getClass().getResource("/application/account_settings.fxml"));
 		Stage window = (Stage)button.getScene().getWindow();
 		window.setScene(new Scene (root));
+		window.setMaximized(true);
 	}
 	
 	/**
@@ -162,5 +165,6 @@ public class ResultsController implements Initializable{
 		Parent root = FXMLLoader.load(getClass().getResource("/application/login_screen.fxml"));
 		Stage window = (Stage)button.getScene().getWindow();
 		window.setScene(new Scene (root));
+		window.setMaximized(true);
 	}
 }
