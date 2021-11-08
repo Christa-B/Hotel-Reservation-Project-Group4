@@ -157,10 +157,21 @@ public class SignUpController implements Initializable {
 	@FXML
 	public void handleSignIn( ActionEvent event ) throws IOException {
 		try {
+		// Initialize data accessor via link to DB
 		UserDataAccessor userDataAccessor = new UserDataAccessor( 
 				"jdbc:mysql://awsmysql-nomadplus.c8lezqhu83hc.us-east-2.rds.amazonaws.com:3306"
 				+ "/userData?autoReconnect=true&useSSL=false", "admin", "adminthisisjustaproject92521");
+		//setting up variables for adduser function
+		int thisUsrId = userDataAccessor.makeNewId();
+		String fstNm = textFieldFirstName.getText();
+		String lstNm = textFieldLastName.getText();
+		String email = textFieldEmail.getText();
+		String phnNum = textFieldNumber.getText();
+		String pWrd = passwordFieldOne.getText();
+		String buttonRes = comboBoxAccount.getValue();
 		
+		
+		userDataAccessor.addUser(thisUsrId, fstNm, lstNm, phnNum, email, pWrd, buttonRes);
 		// Loads the FXML document for home_page and displays it
 		Parent root = FXMLLoader.load(getClass().getResource("/application/home_page.fxml"));
 		Stage window = (Stage)button.getScene().getWindow();
