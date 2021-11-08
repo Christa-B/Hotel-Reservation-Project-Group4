@@ -99,18 +99,6 @@ public class LoginController implements Initializable {
 	    
 	    // Changes back to normal button style when mouse stops hovering
 	    button.setOnMouseExited(e -> button.setStyle(normal_button_style));
-	    
-		try {
-			UserDataAccessor userDataAccessor = new UserDataAccessor(
-					"jdbc:mysql://awsmysql-nomadplus.c8lezqhu83hc.us-east-2.rds.amazonaws.com:3306"
-					+ "/userData?autoReconnect=true&useSSL=false", "admin", "adminthisisjustaproject92521");
-		} catch (ClassNotFoundException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		} catch (SQLException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
 	}
 	
 	/**
@@ -177,6 +165,7 @@ public class LoginController implements Initializable {
 		Parent root = FXMLLoader.load(getClass().getResource("/application/home_page.fxml"));
 		Stage window = (Stage)button.getScene().getWindow();
 		window.setScene(new Scene (root));
+		window.setMaximized(true);
 	}
 	
 	/**
@@ -190,5 +179,6 @@ public class LoginController implements Initializable {
 		Parent root = FXMLLoader.load(getClass().getResource("/application/signup_screen.fxml"));
 		Stage window = (Stage)button.getScene().getWindow();
 		window.setScene(new Scene (root));
+		window.setMaximized(true);
 	}
 }
