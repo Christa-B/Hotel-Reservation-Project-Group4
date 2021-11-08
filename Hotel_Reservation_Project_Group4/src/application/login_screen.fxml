@@ -9,53 +9,53 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane fx:id="anchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="694.0" prefWidth="1294.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginController">
+<AnchorPane fx:id="anchor" prefHeight="1020.0" prefWidth="1920.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginController">
    <children>
-      <Label fx:id="label5" layoutX="245.0" layoutY="550.0" prefHeight="89.0" prefWidth="326.0" text="Don't have an account?" textFill="WHITE">
+      <Label fx:id="label5" layoutX="405.0" layoutY="725.0" prefHeight="89.0" prefWidth="326.0" text="Don't have an account?" textFill="WHITE">
          <font>
             <Font size="30.0" />
          </font>
       </Label>
-      <ImageView fx:id="image" fitHeight="694.0" fitWidth="528.0" layoutX="775.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="image" fitHeight="1024.0" fitWidth="769.0" layoutX="1165.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../model/login_hotel_img.png" />
          </image></ImageView>
-      <Label fx:id="label2" alignment="TOP_CENTER" layoutX="330.0" layoutY="275.0" text="Welcome!" textFill="WHITE">
+      <Label fx:id="label2" alignment="TOP_CENTER" layoutX="490.0" layoutY="375.0" text="Welcome!" textFill="WHITE">
          <font>
             <Font name="Corbel Bold" size="36.0" />
          </font>
       </Label>
-      <Button fx:id="button" layoutX="273.0" layoutY="518.0" mnemonicParsing="false" onAction="#handleLogin" prefHeight="39.0" prefWidth="273.0" scaleShape="false" style="-fx-background-color: white; -fx-background-radius: 20;" text="LOGIN" textFill="#ff3366">
+      <Button fx:id="button" layoutX="433.0" layoutY="618.0" mnemonicParsing="false" onAction="#handleLogin" prefHeight="39.0" prefWidth="273.0" scaleShape="false" style="-fx-background-color: white; -fx-background-radius: 20;" text="LOGIN" textFill="#ff3366">
          <font>
             <Font name="Corbel Bold" size="18.0" />
          </font>
       </Button>
-      <PasswordField fx:id="passwordField" layoutX="273.0" layoutY="442.0" prefHeight="39.0" prefWidth="273.0" />
-      <TextField fx:id="textField" layoutX="273.0" layoutY="380.0" prefHeight="39.0" prefWidth="273.0" />
-      <Label fx:id="label3" layoutX="179.0" layoutY="350.0" prefHeight="100.0" prefWidth="140.0" text="email" textFill="WHITE">
+      <PasswordField fx:id="passwordField" layoutX="433.0" layoutY="542.0" prefHeight="39.0" prefWidth="273.0" />
+      <TextField fx:id="textField" layoutX="433.0" layoutY="455.0" prefHeight="39.0" prefWidth="273.0" />
+      <Label fx:id="label3" layoutX="339.0" layoutY="425.0" prefHeight="100.0" prefWidth="140.0" text="email" textFill="WHITE">
          <font>
             <Font name="System Bold" size="30.0" />
          </font>
       </Label>
-      <Label fx:id="label4" layoutX="121.0" layoutY="412.0" prefHeight="100.0" prefWidth="140.0" text="password" textFill="WHITE">
+      <Label fx:id="label4" layoutX="281.0" layoutY="512.0" prefHeight="100.0" prefWidth="140.0" text="password" textFill="WHITE">
          <font>
             <Font name="System Bold" size="30.0" />
          </font>
       </Label>
-      <Hyperlink fx:id="hyperlink" focusTraversable="false" layoutX="299.0" layoutY="600.0" onAction="#handleSignUp" prefHeight="57.0" prefWidth="183.0" text="Sign up here!" textFill="#91cd75">
+      <Hyperlink fx:id="hyperlink" focusTraversable="false" layoutX="474.0" layoutY="799.0" onAction="#handleSignUp" prefHeight="57.0" prefWidth="183.0" text="Sign up here!" textFill="#91cd75">
          <font>
             <Font size="28.0" />
          </font>
       </Hyperlink>
-      <Circle fx:id="circle1" fill="WHITE" layoutX="407.0" layoutY="209.0" radius="14.0" stroke="WHITE" strokeType="INSIDE" />
-      <Ellipse fx:id="ellipse" fill="WHITE" layoutX="407.0" layoutY="232.0" radiusX="22.5" radiusY="15.0" stroke="WHITE" strokeType="INSIDE" />
-      <Circle fx:id="circle2" fill="TRANSPARENT" layoutX="407.0" layoutY="218.0" radius="35.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="3.0" />
-      <Hyperlink fx:id="homehandler" contentDisplay="CENTER" layoutX="215.0" layoutY="-15.0" onAction="#handleBackToHomePage" prefHeight="267.0" prefWidth="429.0" text="NOMAD+" textAlignment="CENTER" textFill="WHITE">
+      <Circle fx:id="circle1" fill="WHITE" layoutX="566.0" layoutY="287.0" radius="14.0" stroke="WHITE" strokeType="INSIDE" />
+      <Ellipse fx:id="ellipse" fill="WHITE" layoutX="566.0" layoutY="310.0" radiusX="22.5" radiusY="15.0" stroke="WHITE" strokeType="INSIDE" />
+      <Circle fx:id="circle2" fill="TRANSPARENT" layoutX="566.0" layoutY="296.0" radius="35.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="3.0" />
+      <Hyperlink fx:id="homehandler" contentDisplay="CENTER" layoutX="366.0" layoutY="9.0" onAction="#handleBackToHomePage" prefHeight="303.0" prefWidth="407.0" text="NOMAD+" textAlignment="CENTER" textFill="WHITE">
          <font>
-            <Font name="Javanese Text" size="85.0" />
+            <Font name="Sitka Banner Bold" size="90.0" />
          </font>
       </Hyperlink>
-      <Label fx:id="errorText" alignment="CENTER" contentDisplay="CENTER" ellipsisString="" layoutX="239.0" layoutY="350.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="20.0" prefWidth="342.0" text="This text will display errors." textAlignment="JUSTIFY" textFill="#eeff04" textOverrun="CLIP" visible="false" wrapText="true">
+      <Label fx:id="errorText" alignment="CENTER" contentDisplay="CENTER" ellipsisString="" layoutX="400.0" layoutY="422.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="20.0" prefWidth="342.0" text="This text will display errors." textAlignment="JUSTIFY" textFill="#eeff04" textOverrun="CLIP" visible="false" wrapText="true">
          <font>
             <Font size="14.0" />
          </font>
