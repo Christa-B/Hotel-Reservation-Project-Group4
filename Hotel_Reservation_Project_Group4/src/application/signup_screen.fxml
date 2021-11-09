@@ -16,7 +16,7 @@
             <Font name="Javanese Text" size="85.0" />
          </font>
       </Hyperlink>
-      <ImageView fitHeight="695.0" fitWidth="917.0" layoutX="748.0" pickOnBounds="true">
+      <ImageView fx:id="phoneNumberErrorText" fitHeight="695.0" fitWidth="917.0" layoutX="748.0" pickOnBounds="true">
          <image>
             <Image url="@../model/signupphoto.jpg" />
          </image>
@@ -26,7 +26,7 @@
             <Font name="Corbel Bold" size="43.0" />
          </font>
       </Label>
-      <Button fx:id="button" layoutX="238.0" layoutY="557.0" mnemonicParsing="false" onAction="#handleSignIn" prefHeight="39.0" prefWidth="273.0" scaleShape="false" style="-fx-background-color: white; -fx-background-radius: 20;" text="JOIN" textFill="#ff3366">
+      <Button fx:id="button" layoutX="229.0" layoutY="582.0" mnemonicParsing="false" onAction="#handleSignIn" prefHeight="39.0" prefWidth="273.0" scaleShape="false" style="-fx-background-color: white; -fx-background-radius: 20;" text="JOIN" textFill="#ff3366">
          <font>
             <Font name="Corbel Bold" size="18.0" />
          </font>
@@ -43,17 +43,17 @@
             <Font name="System Bold" size="16.0" />
          </font>
       </Label>
-      <Hyperlink fx:id="hyperlink" focusTraversable="false" layoutX="421.0" layoutY="596.0" onAction="#handleLoginPage" text="Login here." textFill="#91cd75">
+      <Hyperlink fx:id="hyperlink" focusTraversable="false" layoutX="411.0" layoutY="621.0" onAction="#handleLoginPage" text="Login here." textFill="#91cd75">
          <font>
             <Font size="16.0" />
          </font>
       </Hyperlink>
-      <Label fx:id="label9" layoutX="241.0" layoutY="600.0" text="Already have an account?" textFill="WHITE">
+      <Label fx:id="label9" layoutX="229.0" layoutY="625.0" text="Already have an account?" textFill="WHITE">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <Label fx:id="label8" layoutX="80.0" layoutY="462.0" text="Account Type" textFill="WHITE">
+      <Label fx:id="label8" layoutX="80.0" layoutY="491.0" text="Account Type" textFill="WHITE">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
@@ -76,12 +76,49 @@
          </font>
       </Label>
       <TextField fx:id="textFieldNumber" layoutX="376.0" layoutY="323.0" prefHeight="32.0" prefWidth="273.0" />
-      <ComboBox fx:id="comboBoxAccount" layoutX="80.0" layoutY="487.0" prefHeight="32.0" prefWidth="273.0" style="-fx-background-color: white;" />
+      <ComboBox fx:id="comboBoxAccount" layoutX="80.0" layoutY="516.0" prefHeight="32.0" prefWidth="273.0" style="-fx-background-color: white;" />
       <PasswordField fx:id="passwordFieldTwo" layoutX="376.0" layoutY="405.0" prefHeight="32.0" prefWidth="273.0" />
       <Label fx:id="label71" layoutX="376.0" layoutY="380.0" text="Confirm Password" textFill="WHITE">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </Label>
+      <Label fx:id="overallNameErrorText" alignment="CENTER" contentDisplay="CENTER" ellipsisString="" layoutX="80.0" layoutY="275.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="20.0" prefWidth="570.0" text="This text will display overall name errors." textAlignment="JUSTIFY" textFill="#eeff04" textOverrun="CLIP" visible="false" wrapText="true" />
+      <Label fx:id="overallErrorText" alignment="CENTER" contentDisplay="CENTER" ellipsisString="" layoutX="80.0" layoutY="200.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="20.0" prefWidth="570.0" text="This text will display errors." textAlignment="JUSTIFY" textFill="#eeff04" textOverrun="CLIP" visible="false" wrapText="true">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="firstNameErrorText" alignment="CENTER" contentDisplay="CENTER" ellipsisString="" layoutX="80.0" layoutY="275.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="20.0" prefWidth="273.0" text="This text will display first name errors." textAlignment="JUSTIFY" textFill="#eeff04" textOverrun="CLIP" visible="false" wrapText="true">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="lastNameErrorText" alignment="CENTER" contentDisplay="CENTER" ellipsisString="" layoutX="377.0" layoutY="275.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="20.0" prefWidth="273.0" text="This text will display last name errors." textAlignment="JUSTIFY" textFill="#eeff04" textOverrun="CLIP" visible="false" wrapText="true">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="emailErrorText" alignment="CENTER" contentDisplay="CENTER" ellipsisString="" layoutX="78.0" layoutY="360.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="20.0" prefWidth="273.0" text="This text will display email errors." textAlignment="JUSTIFY" textFill="#eeff04" textOverrun="CLIP" visible="false" wrapText="true">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="numberErrorText" alignment="CENTER" contentDisplay="CENTER" ellipsisString="" layoutX="377.0" layoutY="360.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="20.0" prefWidth="273.0" text="This text will display phone number errors." textAlignment="JUSTIFY" textFill="#eeff04" textOverrun="CLIP" visible="false" wrapText="true">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="passwordErrorText" alignment="CENTER" contentDisplay="CENTER" ellipsisString="" layoutX="78.0" layoutY="442.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="50.0" prefWidth="570.0" text="This text will display password errors." textAlignment="JUSTIFY" textFill="#eeff04" textOverrun="CLIP" visible="false" wrapText="true">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="accountTypeErrorText" alignment="CENTER" contentDisplay="CENTER" ellipsisString="" layoutX="80.0" layoutY="555.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="20.0" prefWidth="273.0" text="This text will display account type errors." textAlignment="JUSTIFY" textFill="#eeff04" textOverrun="CLIP" visible="false" wrapText="true">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <PasswordField fx:id="adminpasswordField" layoutX="377.0" layoutY="516.0" prefHeight="32.0" prefWidth="273.0" visible="false" />
    </children>
 </AnchorPane>

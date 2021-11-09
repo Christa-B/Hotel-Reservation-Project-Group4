@@ -16,7 +16,6 @@ import java.util.ResourceBundle;
 import java.util.regex.Pattern;
 
 
-import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -77,6 +76,30 @@ public class SignUpController implements Initializable {
 	private Label label9; // Already have an account?
 	
 	@FXML
+	private Label overallErrorText; // No info entered and sign in button clicked
+	
+	@FXML
+	private Label overallNameErrorText; // If first & last both have errors
+	
+	@FXML
+	private Label firstNameErrorText; // first name error only
+	
+	@FXML
+	private Label lastNameErrorText; // last name error only
+	
+	@FXML
+	private Label emailErrorText; // email errors
+
+	@FXML
+	private Label numberErrorText; // phone number errors
+	
+	@FXML
+	private Label passwordErrorText; // password errors
+	
+	@FXML
+	private Label accountTypeErrorText; // password errors
+	
+	@FXML
 	private TextField textFieldFirstName; // first name
 	
 	@FXML
@@ -93,6 +116,9 @@ public class SignUpController implements Initializable {
 	
 	@FXML
 	private PasswordField passwordFieldTwo; // To confirm password
+	
+	@FXML
+	private PasswordField adminpasswordField; // To confirm password
 	
 	// HyperLinks
 	@FXML
@@ -161,21 +187,148 @@ public class SignUpController implements Initializable {
 		UserDataAccessor userDataAccessor = new UserDataAccessor( 
 				"jdbc:mysql://awsmysql-nomadplus.c8lezqhu83hc.us-east-2.rds.amazonaws.com:3306"
 				+ "/userData?autoReconnect=true&useSSL=false", "admin", "adminthisisjustaproject92521");
-		//setting up variables for adduser function
+		
+		// Make regex for ensuring secure user input
+		String nameRegexPattern = "(?i)(^[A-Za-zÀ-ÖØ-öø-ÿ])((?![ .,'-]$)[A-Za-zÀ-ÖØ-öø-ÿ .,'-]){0,254}[\\.]{0,1}$"; //Can take most special names, even accented ones
+		String emailRegexPattern = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$"; // Even reads cases like MyNavyFederal@email.nfcu.org
+		String phoneNumRegexPattern = "^\\D?(\\d{3})\\D?\\D?(\\d{3})\\D?(\\d{4})$"; // takes the variations 9999999999, 999-999-9999, and (999) 999-9999
+		String passwordRegexPattern = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_=+])(?=\\S+$).{8,254}$"; //requirements listed in error message
+		
+		
+		//setting up variables for addUser function
 		int thisUsrId = userDataAccessor.makeNewId();
-		String fstNm = textFieldFirstName.getText();
-		String lstNm = textFieldLastName.getText();
-		String email = textFieldEmail.getText();
-		String phnNum = textFieldNumber.getText();
-		String pWrd = passwordFieldOne.getText();
-		String buttonRes = comboBoxAccount.getValue();
+		int nameFlag = 0;
+		int ValidationFlag = 0;
+		String fstNm = null;
+		String lstNm = null;
+		String email = null;
+		String phnNum = null;
+		String pWrd = null;
+		String buttonRes = null;
 		
+			//check for correct first name format
+			if(textFieldFirstName.getText() == null || textFieldFirstName.getText().isEmpty()) {
+				firstNameErrorText.setText("Please enter your first name.");
+				firstNameErrorText.setStyle("-fx-font-weight: bold");
+				firstNameErrorText.setVisible(true);
+			}
+			else {
+				firstNameErrorText.setVisible(false);
+				nameFlag++;
+			}
+			
+			//check for correct last name format
+			if(textFieldLastName.getText() == null || textFieldLastName.getText().isEmpty()) {
+				lastNameErrorText.setText("Please enter your last name.");
+				lastNameErrorText.setStyle("-fx-font-weight: bold");
+				lastNameErrorText.setVisible(true);
+			}
+			else {
+				lastNameErrorText.setVisible(false);
+				nameFlag++;
+			}
 		
-		userDataAccessor.addUser(thisUsrId, fstNm, lstNm, phnNum, email, pWrd, buttonRes);
-		// Loads the FXML document for home_page and displays it
-		Parent root = FXMLLoader.load(getClass().getResource("/application/home_page.fxml"));
-		Stage window = (Stage)button.getScene().getWindow();
-		window.setScene(new Scene (root));
+			//check for correct overall format
+			if ((nameFlag == 2) && (!patternMatches(textFieldFirstName.getText(), nameRegexPattern) || !patternMatches(textFieldLastName.getText(), nameRegexPattern))){ 
+				overallNameErrorText.setText("Please only enter letters and apostrophes. Titles like 'the third' should be entered as 'III'.");
+				overallNameErrorText.setStyle("-fx-font-weight: bold");
+				overallNameErrorText.setVisible(true);
+			}
+			else {
+				overallNameErrorText.setVisible(false);
+				fstNm = textFieldFirstName.getText();
+				lstNm = textFieldLastName.getText();
+				ValidationFlag += 2;
+			}
+			
+			//check for correct email format
+			if(textFieldEmail.getText() == null || textFieldEmail.getText().isEmpty()) {
+				emailErrorText.setText("Please enter your email.");
+				emailErrorText.setStyle("-fx-font-weight: bold");
+				emailErrorText.setVisible(true);
+			}
+			else if(!patternMatches(textFieldEmail.getText(), emailRegexPattern)){ 
+				emailErrorText.setText("Please enter a valid email.");
+				emailErrorText.setStyle("-fx-font-weight: bold");
+				emailErrorText.setVisible(true);
+			}
+			else {
+				emailErrorText.setVisible(false);
+				email = textFieldEmail.getText();
+				ValidationFlag++;
+			}
+			
+			//check for correct phone number format
+			if(textFieldNumber.getText() == null || textFieldNumber.getText().isEmpty()) {
+				numberErrorText.setText("Please enter your phone number.");
+				numberErrorText.setStyle("-fx-font-weight: bold");
+				numberErrorText.setVisible(true);
+			}
+			else if(!patternMatches(textFieldNumber.getText(), phoneNumRegexPattern)){ 
+				numberErrorText.setText("Please enter a valid phone number.");
+				numberErrorText.setStyle("-fx-font-weight: bold");
+				numberErrorText.setVisible(true);
+			}
+			else {
+				numberErrorText.setVisible(false);
+				phnNum = textFieldNumber.getText();
+				ValidationFlag++;
+			}
+			
+			//check for correct password format & confirming password
+			if(passwordFieldOne.getText() == null || passwordFieldOne.getText().isEmpty()) {
+				passwordErrorText.setText("Please enter a password.");
+				passwordErrorText.setStyle("-fx-font-weight: bold");
+				passwordErrorText.setVisible(true);
+			}
+			else if(!patternMatches(passwordFieldOne.getText(), passwordRegexPattern)){ 
+				passwordErrorText.setText("Passwords must be 8 characters or longer. Must have one digit, one lowercase letter, one uppercase letter, one special character"
+						+ " and no whitespaces.");
+				passwordErrorText.setStyle("-fx-font-weight: bold");
+				passwordErrorText.setVisible(true);
+			}
+			else if(!passwordFieldOne.getText().equals(passwordFieldTwo.getText())){
+				passwordErrorText.setText("Please confirm your password.");
+				passwordErrorText.setStyle("-fx-font-weight: bold");
+				passwordErrorText.setVisible(true);
+			}
+			else {
+				passwordErrorText.setVisible(false);
+				pWrd = passwordFieldOne.getText();
+				ValidationFlag++;
+			}
+			
+			//check for account selection
+			if(comboBoxAccount.getValue() == null || comboBoxAccount.getValue().isEmpty()) {
+				accountTypeErrorText.setText("Please choose an account type.");
+				accountTypeErrorText.setStyle("-fx-font-weight: bold");
+				accountTypeErrorText.setVisible(true);
+			}
+			else {
+				accountTypeErrorText.setVisible(false);
+				buttonRes = comboBoxAccount.getValue();
+				ValidationFlag++;
+			}
+		
+		if(ValidationFlag == 6 && buttonRes.equals("Admin")) {
+			adminpasswordField.setVisible(true);
+			
+			//We can set this to a different passcode later
+			if(adminpasswordField.getText().equals("Arbitrary")) {
+				userDataAccessor.addUser(thisUsrId, fstNm, lstNm, phnNum, email, pWrd, buttonRes);
+				// Loads the FXML document for home_page and displays it
+				Parent root = FXMLLoader.load(getClass().getResource("/application/home_page.fxml"));
+				Stage window = (Stage)button.getScene().getWindow();
+				window.setScene(new Scene (root));
+			}
+		}
+		else if(ValidationFlag == 6) { //Regular customer case
+			userDataAccessor.addUser(thisUsrId, fstNm, lstNm, phnNum, email, pWrd, buttonRes);
+			// Loads the FXML document for home_page and displays it
+			Parent root = FXMLLoader.load(getClass().getResource("/application/home_page.fxml"));
+			Stage window = (Stage)button.getScene().getWindow();
+			window.setScene(new Scene (root));
+		}
 		
 		} catch (ClassNotFoundException e1) {
 			// TODO Auto-generated catch block
@@ -198,5 +351,11 @@ public class SignUpController implements Initializable {
 		Parent root = FXMLLoader.load(getClass().getResource("/application/login_screen.fxml"));
 		Stage window = (Stage)button.getScene().getWindow();
 		window.setScene(new Scene (root));
+	}
+	
+	public static boolean patternMatches(String emailAddress, String regexPattern) {
+	    return Pattern.compile(regexPattern)
+	      .matcher(emailAddress)
+	      .matches();
 	}
 }

@@ -58,31 +58,30 @@ public class UserDataAccessor {
     }
     
     public void addUser(int userId, String firstName, String lastName, String phoneNum, String emailAd, String passW, String acctType) throws SQLException {
-    	System.out.println("SUCCESS!");
-//    	String query = "INSERT INTO usrData (userID, firstName, lastName, phoneNum, emailAd, passW, acctType) values (?, ?, ?, ?, ?, ?, ?)";
-//    	try(PreparedStatement preparedStatement = connection.prepareStatement(query);){
-//    		preparedStatement.setObject(1, userId);
-//    		preparedStatement.setString(2, firstName);
-//    		preparedStatement.setString(3, lastName);
-//    		preparedStatement.setString(4, phoneNum);
-//    		preparedStatement.setString(5, emailAd);
-//    		preparedStatement.setString(6, passW);
-//    		preparedStatement.setString(7, acctType);
-//    		preparedStatement.executeQuery();
-//    		connection.close();
-//    	}
+    	String query = "INSERT INTO usrData (userID, firstName, lastName, phoneNum, emailAd, passW, acctType) values (?, ?, ?, ?, ?, ?, ?)";
+    	try(PreparedStatement preparedStatement = connection.prepareStatement(query);){
+    		preparedStatement.setObject(1, userId);
+    		preparedStatement.setString(2, firstName);
+    		preparedStatement.setString(3, lastName);
+    		preparedStatement.setString(4, phoneNum);
+    		preparedStatement.setString(5, emailAd);
+    		preparedStatement.setString(6, passW);
+    		preparedStatement.setString(7, acctType);
+    		preparedStatement.executeUpdate();
+    		connection.close();
+    	}
     }
     
     public int makeNewId() throws SQLException {
-    	String query = "SELECT * FROM usrData";
+    	//Looks at the row count in usrData
+    	String query = "SELECT COUNT(*) FROM usrData";
     	try(PreparedStatement preparedStatement = connection.prepareStatement(query);){
-    		int usrCnt = 1;
+    		int usrCnt = 0;
     		ResultSet rs = preparedStatement.executeQuery();
     		while (rs.next()) {
-    			usrCnt++;
+    			//Just get the Count and add 1
+    			usrCnt = rs.getInt(1) + 1;
     		}
-    		System.out.println("This would be the new user Id = " + usrCnt);
-    		//connection.close();
     		return usrCnt;
     	}
     }

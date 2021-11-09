@@ -119,7 +119,7 @@ public class LoginController implements Initializable {
 			UserDataAccessor userDataAccessor = new UserDataAccessor( 
 				"jdbc:mysql://awsmysql-nomadplus.c8lezqhu83hc.us-east-2.rds.amazonaws.com:3306"
 				+ "/userData?autoReconnect=true&useSSL=false", "admin", "adminthisisjustaproject92521");			
-			String emailRegexPattern = "^[a-zA-Z0-9_!#$%&'*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$";
+			String emailRegexPattern = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";
 			boolean stopFlag = false;
 			// Check if textField/passwordField is empty
 			if (textField.getText() != null && !textField.getText().isEmpty() 
