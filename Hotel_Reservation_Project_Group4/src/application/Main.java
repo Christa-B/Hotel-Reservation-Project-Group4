@@ -30,7 +30,7 @@ public class Main extends Application {
 		// Try and catch block for exception handling
 		try {	
 			// Load the FXML document
-			Parent root = FXMLLoader.load( getClass().getResource( "/application/home_page3.fxml"));
+			Parent root = FXMLLoader.load( getClass().getResource( "/application/home_page.fxml"));
 			
 			// Set the scene to stage and show the stage to the user
 			//Scene scene = new Scene( root, 1294, 694 );

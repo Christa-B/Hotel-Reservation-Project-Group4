@@ -9,10 +9,11 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<ScrollPane hbarPolicy="NEVER" prefHeight="1220.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.HomePageController">
+<ScrollPane hbarPolicy="NEVER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1422.0" prefWidth="1920.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ResultsController">
    <content>
-      <AnchorPane fx:id="anchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1220.0" prefWidth="1920.0" stylesheets="@../../../../git/Project-Nomad/Hotel_Reservation_Project_Group4/src/application/style.css">
+      <AnchorPane fx:id="anchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1422.0" prefWidth="1920.0" stylesheets="@style.css">
          <children>
+            <Pane layoutX="-8.0" layoutY="124.0" prefHeight="1053.0" prefWidth="1924.0" style="-fx-background-color: #212121;" />
             <BorderPane id="borderpane" layoutY="-4.0" opacity="0.0" prefHeight="119.0" prefWidth="1920.0" stylesheets="@../../../../git/Project-Nomad/Hotel_Reservation_Project_Group4/src/application/style.css">
                <opaqueInsets>
                   <Insets />
@@ -22,19 +23,6 @@
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
-               <top>
-                  <ImageView fx:id="image" fitHeight="811.0" fitWidth="1922.0" opacity="0.7" pickOnBounds="true" BorderPane.alignment="CENTER">
-                     <image>
-                        <Image url="@../model/hotel_homepage_image.png" />
-                     </image>
-                     <effect>
-                        <ColorAdjust contrast="-0.25" />
-                     </effect>
-                     <viewport>
-                        <Rectangle2D width="1240.0" />
-                     </viewport>
-                  </ImageView>
-               </top>
             </BorderPane>
             <DatePicker fx:id="datepicker1" focusTraversable="false" layoutX="786.0" layoutY="375.0" prefHeight="32.0" prefWidth="100.0" promptText="Check in" style="-fx-background-color: white; -fx-background-radius: 0;" />
             <MenuButton fx:id="menubutton" layoutX="1062.0" layoutY="480.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="170.0" style="-fx-background-color: white; -fx-background-radius: 0;" text="Amenities">
@@ -53,17 +41,22 @@
                   <Font name="System Bold" size="18.0" />
                </font>
             </Button>
-            <Hyperlink fx:id="hyperlink2" focusTraversable="false" layoutX="1700.0" layoutY="70.0" onAction="#handleLogin" text="Login" textFill="WHITE">
+            <Hyperlink fx:id="hyperlink4" focusTraversable="false" layoutX="1415.0" layoutY="70.0" onAction="#handleMyReservation" text="My Reservation" textFill="WHITE">
                <font>
                   <Font name="Yu Gothic Regular" size="20.0" />
                </font>
             </Hyperlink>
-            <Label fx:id="label1" layoutX="573.0" layoutY="230.0" prefHeight="79.0" prefWidth="791.0" text="Start planning for your next getaway now" textFill="WHITE">
+            <Hyperlink fx:id="hyperlink5" focusTraversable="false" layoutX="1600.0" layoutY="70.0" onAction="#handleAccountSettings" text="Account Settings" textFill="WHITE">
+               <font>
+                  <Font name="Yu Gothic Regular" size="20.0" />
+               </font>
+            </Hyperlink>
+            <Label fx:id="label1" layoutX="573.0" layoutY="230.0" prefHeight="79.0" prefWidth="791.0" text="RESULTS" textFill="WHITE">
                <font>
                   <Font name="Corbel Light" size="48.0" />
                </font>
             </Label>
-            <Hyperlink fx:id="hyperlink1" focusTraversable="false" layoutX="33.0" layoutY="34.0" text="Nomad+" textFill="#f8f8f8">
+            <Hyperlink fx:id="hyperlink1" focusTraversable="false" layoutX="33.0" layoutY="34.0" onAction="#handleBackToHomePage" style="-fx-underline: none;" text="Nomad+" textFill="#f8f8f8">
                <font>
                   <Font size="48.0" />
                </font>
@@ -72,65 +65,32 @@
             <TextField fx:id="location_input" layoutX="554.0" layoutY="375.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="32.0" prefWidth="222.0" promptText="Where are we going?" style="-fx-background-color: white; -fx-background-radius: 0;" stylesheets="@style.css" />
             <ComboBox fx:id="combobox22" editable="true" layoutX="702.0" layoutY="480.0" prefHeight="32.0" prefWidth="170.0" promptText="Room Type" style="-fx-background-color: white; -fx-background-radius: 0;" />
             <BorderPane id="accentborder" layoutY="113.0" prefHeight="11.0" prefWidth="1920.0" style="-fx-background-color: darkorange;" />
-            <Hyperlink fx:id="hyperlink3" focusTraversable="false" layoutX="1800.0" layoutY="70.0" onAction="#handleSignUp" text="Sign up" textFill="WHITE">
+            <Hyperlink fx:id="hyperlink6" focusTraversable="false" layoutX="1800.0" layoutY="70.0" onAction="#handleLogout" text="Logout" textFill="WHITE">
                <font>
                   <Font name="Yu Gothic Regular" size="20.0" />
                </font>
             </Hyperlink>
             <DatePicker fx:id="datepicker2" focusTraversable="false" layoutX="900.0" layoutY="375.0" prefHeight="32.0" prefWidth="100.0" promptText="Check out" style="-fx-background-color: white; -fx-background-radius: 0;" />
-            <Pane layoutX="-4.0" layoutY="920.0" prefHeight="255.0" prefWidth="1924.0" style="-fx-background-color: #212121;">
-               <children>
-                  <Label layoutX="107.0" layoutY="90.0" prefHeight="0.0" prefWidth="708.0" text="At Nomad+, we believe that travel should always be made easy-peasy, lemon s-queezy." textFill="WHITE">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="107.0" layoutY="115.0" prefHeight="27.0" prefWidth="765.0" text="We prioritize enhancing the experience of our members in all processes from booking," textFill="WHITE">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="107.0" layoutY="140.0" text="hotel management, and planning." textFill="WHITE">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="107.0" layoutY="32.0" text="WHY CHOOSE NOMAD+?" textFill="WHITE">
-                     <font>
-                        <Font name="System Bold" size="24.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="1050.0" layoutY="32.0" text="CONTACT US" textFill="WHITE">
-                     <font>
-                        <Font name="System Bold" size="24.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="1050.0" layoutY="90.0" prefHeight="27.0" prefWidth="184.0" text="CALL FOR BOOKINGS:" textFill="WHITE">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="1050.0" layoutY="115.0" prefHeight="27.0" prefWidth="180.0" text="SEND US AN EMAIL:" textFill="WHITE">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="1250.0" layoutY="115.0" prefHeight="27.0" prefWidth="252.0" text="support@nomadplus.com" textFill="WHITE">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="1250.0" layoutY="90.0" prefHeight="27.0" prefWidth="252.0" text="855-308-6410" textFill="WHITE">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Label>
-               </children></Pane>
             <Pane layoutX="-22.0" layoutY="1157.0" prefHeight="66.0" prefWidth="1952.0" style="-fx-background-color: #121212;">
                <children>
                   <Label layoutX="887.0" layoutY="21.0" text="2021 Copyright: NomadPlus.com" textFill="WHITE" />
                </children>
             </Pane>
+            <Hyperlink fx:id="hyperlink3" focusTraversable="false" layoutX="1170.0" layoutY="70.0" onAction="#handleManageReservations" text="Manage Reservations" textFill="WHITE">
+               <font>
+                  <Font name="Yu Gothic Regular" size="20.0" />
+               </font>
+            </Hyperlink>
+            <Hyperlink fx:id="hyperlink2" focusTraversable="false" layoutX="990.0" layoutY="70.0" onAction="#handleManageHotels" text="Manage Hotels" textFill="WHITE">
+               <font>
+                  <Font name="Yu Gothic Regular" size="20.0" />
+               </font>
+            </Hyperlink>
+            <Label fx:id="label11" layoutX="583.0" layoutY="290.0" prefHeight="79.0" prefWidth="791.0" text="new search:" textFill="WHITE">
+               <font>
+                  <Font name="Corbel Light" size="24.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
    </content>
