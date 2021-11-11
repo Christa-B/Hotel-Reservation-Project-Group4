@@ -49,16 +49,13 @@ public class HomePageController implements Initializable{
 	
 	// HyperLinks
 	@FXML
-	private Hyperlink hyperlink1; // PROJECT NAME
+	private Hyperlink hyperlink1; // Nomad+/link to homepage
 	
 	@FXML
-	private Hyperlink hyperlink2; // My Reservation
+	private Hyperlink hyperlink2; // Login
 	
 	@FXML
-	private Hyperlink hyperlink3; // Account Settings
-	
-	@FXML
-	private Hyperlink hyperlink4; // Logout //NOW LOGIN/SIGNUP
+	private Hyperlink hyperlink3; // Sign in
 	
 	// MenuButtons
 	@FXML
@@ -83,7 +80,10 @@ public class HomePageController implements Initializable{
 	
 	// DatePickers 
 	@FXML
-	private DatePicker datepicker; // Check-in/Check-out dates
+	private DatePicker datepicker1; // Check-in
+	
+	@FXML
+	private DatePicker datepicker2;	//check-out
 	
 	// List of items for ComboBoxes (prices and rooms)
 	ObservableList<String> list1 = FXCollections.observableArrayList("1 Room", "2 Rooms", "3 Rooms", "4 Rooms", "5 Rooms", "6 Rooms", "7 Rooms");
@@ -127,12 +127,12 @@ public class HomePageController implements Initializable{
 	 */
 	@FXML
 	public void handleMyReservation(ActionEvent event) throws IOException {
-		hyperlink2.setUnderline(false);
-		
 		// Loads the FXML document for account_settings and displays it
 		Parent root = FXMLLoader.load(getClass().getResource("/application/user_reservation.fxml"));
 		Stage window = (Stage)button.getScene().getWindow();
 		window.setScene(new Scene (root));
+		window.setMaximized(true);
+		
 	}
 	
 	/**
@@ -143,8 +143,6 @@ public class HomePageController implements Initializable{
 	 */
 	@FXML
 	public void handleAccountSettings(ActionEvent event) throws IOException {
-		hyperlink3.setUnderline(false);
-		
 		// Loads the FXML document for account_settings and displays it
 		Parent root = FXMLLoader.load(getClass().getResource("/application/account_settings.fxml"));
 		Stage window = (Stage)button.getScene().getWindow();
@@ -158,13 +156,29 @@ public class HomePageController implements Initializable{
 	 * @throws IOException  if a file is unable to be read
 	 */
 	@FXML
-	public void handleLoginSignIn(ActionEvent event) throws IOException {
-		hyperlink4.setUnderline(false);
-		
+	public void handleLogin(ActionEvent event) throws IOException {
 		// Loads the FXML document for login_screen and displays it
 		Parent root = FXMLLoader.load(getClass().getResource("/application/login_screen.fxml"));
 		Stage window = (Stage)button.getScene().getWindow();
 		window.setScene(new Scene (root));
+		window.setMaximized(true);
+		
+	}
+	
+	/**
+	 * EDIT: Handles event in which user wants to login or sign in
+	 * 
+	 * @param event  event in which user clicks Logout HyperLink
+	 * @throws IOException  if a file is unable to be read
+	 */
+	@FXML
+	public void handleSignUp(ActionEvent event) throws IOException {
+		// Loads the FXML document for login_screen and displays it
+		Parent root = FXMLLoader.load(getClass().getResource("/application/signup_screen.fxml"));
+		Stage window = (Stage)button.getScene().getWindow();
+		window.setScene(new Scene (root));
+		window.setMaximized(true);
+		
 	}
 	
 	/**
@@ -175,9 +189,11 @@ public class HomePageController implements Initializable{
 	 */
 	@FXML
 	public void handleSearch(ActionEvent event) throws IOException {
-		// Loads the FXML document for account_settings and displays it
+		// Loads the FXML document for search results and displays it
 		Parent root = FXMLLoader.load(getClass().getResource("/application/results_page.fxml"));
 		Stage window = (Stage)button.getScene().getWindow();
 		window.setScene(new Scene (root));
+		window.setMaximized(true);
+		
 	}
 }

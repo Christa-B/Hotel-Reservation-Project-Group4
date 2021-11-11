@@ -149,9 +149,11 @@ public class LoginController implements Initializable {
 					} // If credentials are valid, loads the FXML document for home_page and display it
 					else if (textField.getText().equals(currentUser.getEmailAd()) &&
 					passwordField.getText().equals(currentUser.getPassW())) {
-						Parent root = FXMLLoader.load(getClass().getResource("/application/home_page.fxml"));
+						Parent root = FXMLLoader.load(getClass().getResource("/application/home_page_admin_loggedin2.fxml"));
 						Stage window = (Stage)button.getScene().getWindow();
-						window.setScene(new Scene (root));
+						window.setScene(new Scene (root, 1920, 1220));
+						window.setMaximized(true);
+						
 					}
 				}
 			} else { // Run if one or more fields are empty
@@ -178,7 +180,7 @@ public class LoginController implements Initializable {
 	@FXML
 	public void handleBackToHomePage( ActionEvent event ) throws IOException {
 		// Loads the FXML document for home_page and displays it
-		Parent root = FXMLLoader.load(getClass().getResource("/application/home_page.fxml"));
+		Parent root = FXMLLoader.load(getClass().getResource("/application/home_page3.fxml"));
 		Stage window = (Stage)button.getScene().getWindow();
 		window.setScene(new Scene (root));
 	}
