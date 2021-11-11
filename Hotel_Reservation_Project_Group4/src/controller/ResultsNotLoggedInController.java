@@ -33,8 +33,8 @@ import javafx.scene.control.DateCell;
 import javafx.scene.input.*;
 
 /**
- * HomePageController is a class that handles events that occur when the user
- * interacts with home_page.fxml
+ * ResultsNotLoggedInController is a class that handles events that occur when the user
+ * interacts with results_not_loggedin.fxml
  * 
  * @author Christa Baca
  */
@@ -49,13 +49,13 @@ public class ResultsNotLoggedInController implements Initializable{
 	
 	// HyperLinks
 	@FXML
-	private Hyperlink hyperlink1; // PROJECT NAME
+	private Hyperlink hyperlink1; // Nomad+, links to home_page
 	
 	@FXML
-	private Hyperlink hyperlink2; // manage hotels
+	private Hyperlink hyperlink2; // login
 	
 	@FXML
-	private Hyperlink hyperlink3; // manage reservations
+	private Hyperlink hyperlink3; // signup
 	
 	// MenuButtons
 	@FXML
@@ -119,9 +119,9 @@ public class ResultsNotLoggedInController implements Initializable{
 	}
 
 	/**
-	 * EDIT: Handles event in which user wants to login or sign in
+	 * Handles event in which user wants to login
 	 * 
-	 * @param event  event in which user clicks Logout HyperLink
+	 * @param event  event in which user clicks Login HyperLink
 	 * @throws IOException  if a file is unable to be read
 	 */
 	@FXML
@@ -135,14 +135,14 @@ public class ResultsNotLoggedInController implements Initializable{
 	}
 	
 	/**
-	 * EDIT: Handles event in which user wants to login or sign in
+	 * Handles event in which user wants to sign in
 	 * 
-	 * @param event  event in which user clicks Logout HyperLink
+	 * @param event  event in which user clicks signup HyperLink
 	 * @throws IOException  if a file is unable to be read
 	 */
 	@FXML
 	public void handleSignUp(ActionEvent event) throws IOException {
-		// Loads the FXML document for login_screen and displays it
+		// Loads the FXML document for signup_screen and displays it
 		Parent root = FXMLLoader.load(getClass().getResource("/application/signup_screen.fxml"));
 		Stage window = (Stage)button.getScene().getWindow();
 		window.setScene(new Scene (root));
@@ -167,16 +167,16 @@ public class ResultsNotLoggedInController implements Initializable{
 	}
 	
 	/**
-	 * Changes view to the HOME PAGE after button is clicked
+	 * Changes view to the first HOME PAGE after link is clicked
 	 * 
-	 * @param event	 event in which user clicks on the Project Name button
+	 * @param event	 event in which user clicks on the Nomad+ hyperlink
 	 * @throws IOException	if a file is unable to be read
 	 */
 	
 	@FXML
 	public void handleBackToHomePage( ActionEvent event ) throws IOException {
 		// Loads the FXML document for home_page and displays it
-		Parent root = FXMLLoader.load(getClass().getResource("/application/home_page3.fxml"));
+		Parent root = FXMLLoader.load(getClass().getResource("/application/home_page.fxml"));
 		Stage window = (Stage)button.getScene().getWindow();
 		window.setScene(new Scene (root));
 	}

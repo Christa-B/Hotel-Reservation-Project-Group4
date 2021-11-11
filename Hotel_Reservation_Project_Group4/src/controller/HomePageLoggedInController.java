@@ -34,11 +34,11 @@ import javafx.scene.input.*;
 
 /**
  * HomePageController is a class that handles events that occur when the user
- * interacts with home_page.fxml
+ * interacts with home_page_customer_loggedin.fxml
  * 
  * @author Christa Baca
  */
-public class HomePageController implements Initializable{
+public class HomePageLoggedInController implements Initializable{
 	// Buttons
 	@FXML
 	private Button button; // Search Button
@@ -49,7 +49,7 @@ public class HomePageController implements Initializable{
 	
 	// HyperLinks
 	@FXML
-	private Hyperlink hyperlink1; // PROJECT NAME
+	private Hyperlink hyperlink1; // Nomad+, links to home_page_customer_loggedin
 	
 	@FXML
 	private Hyperlink hyperlink2; // My Reservation
@@ -58,7 +58,7 @@ public class HomePageController implements Initializable{
 	private Hyperlink hyperlink3; // Account Settings
 	
 	@FXML
-	private Hyperlink hyperlink4; // Logout //NOW LOGIN/SIGNUP
+	private Hyperlink hyperlink4; // Logout 
 	
 	// MenuButtons
 	@FXML
@@ -127,10 +127,8 @@ public class HomePageController implements Initializable{
 	 */
 	@FXML
 	public void handleMyReservation(ActionEvent event) throws IOException {
-		hyperlink2.setUnderline(false);
-		
 		// Loads the FXML document for account_settings and displays it
-		Parent root = FXMLLoader.load(getClass().getResource("/application/user_reservation.fxml"));
+		Parent root = FXMLLoader.load(getClass().getResource("/application/my_reservation.fxml"));
 		Stage window = (Stage)button.getScene().getWindow();
 		window.setScene(new Scene (root));
 		window.setMaximized(true);
@@ -145,31 +143,12 @@ public class HomePageController implements Initializable{
 	 */
 	@FXML
 	public void handleAccountSettings(ActionEvent event) throws IOException {
-		hyperlink3.setUnderline(false);
-		
 		// Loads the FXML document for account_settings and displays it
 		Parent root = FXMLLoader.load(getClass().getResource("/application/account_settings.fxml"));
 		Stage window = (Stage)button.getScene().getWindow();
 		window.setScene(new Scene (root));
 	}
 	
-	/**
-	 * EDIT: Handles event in which user wants to login or sign in
-	 * 
-	 * @param event  event in which user clicks Logout HyperLink
-	 * @throws IOException  if a file is unable to be read
-	 */
-	@FXML
-	public void handleLoginSignIn(ActionEvent event) throws IOException {
-		hyperlink4.setUnderline(false);
-		
-		// Loads the FXML document for login_screen and displays it
-		Parent root = FXMLLoader.load(getClass().getResource("/application/login_screen.fxml"));
-		Stage window = (Stage)button.getScene().getWindow();
-		window.setScene(new Scene (root));
-		window.setMaximized(true);
-		
-	}
 	
 	/**
 	 * Handles event in which user clicks to search hotels
@@ -180,10 +159,41 @@ public class HomePageController implements Initializable{
 	@FXML
 	public void handleSearch(ActionEvent event) throws IOException {
 		// Loads the FXML document for search results and displays it
-		Parent root = FXMLLoader.load(getClass().getResource("/application/results2.fxml"));
+		Parent root = FXMLLoader.load(getClass().getResource("/application/results.fxml"));
 		Stage window = (Stage)button.getScene().getWindow();
 		window.setScene(new Scene (root));
 		window.setMaximized(true);
 		
+	}
+	
+	/**
+	 * Changes view to the LOGGED IN (customer) HOME PAGE after button is clicked
+	 * 
+	 * @param event	 event in which user clicks on the Project Name button
+	 * @throws IOException	if a file is unable to be read
+	 */
+	
+	@FXML
+	public void handleBackToHomePage( ActionEvent event ) throws IOException {
+		// Loads the FXML document for home_page_customer_loggedin and displays it
+		Parent root = FXMLLoader.load(getClass().getResource("/application/home_page_customer_loggedin.fxml"));
+		Stage window = (Stage)button.getScene().getWindow();
+		window.setScene(new Scene (root));
+	}
+	
+	
+	/**
+	 * Changes view to the first HOME PAGE after button is clicked
+	 * 
+	 * @param event	 event in which user clicks on the Project Name button
+	 * @throws IOException	if a file is unable to be read
+	 */
+	
+	@FXML
+	public void handleLogout( ActionEvent event ) throws IOException {
+		// Loads the FXML document for home_page and displays it
+		Parent root = FXMLLoader.load(getClass().getResource("/application/home_page.fxml"));
+		Stage window = (Stage)button.getScene().getWindow();
+		window.setScene(new Scene (root));
 	}
 }

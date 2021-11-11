@@ -86,6 +86,7 @@ public class LoginController implements Initializable {
 	private static String normal_button_style = "-fx-background-color: white; -fx-background-radius: 20;";
 	private static String hovered_button_style = "-fx-background-color: #d3d3d3; -fx-background-radius: 20;";
 
+	
 	/**
 	 * This method will set a different style for button depending on whether or not mouse hovers it
 	 * 
@@ -103,6 +104,7 @@ public class LoginController implements Initializable {
 	    // Changes back to normal button style when mouse stops hovering
 	    button.setOnMouseExited(e -> button.setStyle(normal_button_style));
 	}
+
 	
 	/**
 	 * Changes view to the HOME PAGE after button is clicked and credentials are verified
@@ -149,7 +151,7 @@ public class LoginController implements Initializable {
 					} // If credentials are valid, loads the FXML document for home_page and display it
 					else if (textField.getText().equals(currentUser.getEmailAd()) &&
 					passwordField.getText().equals(currentUser.getPassW())) {
-						Parent root = FXMLLoader.load(getClass().getResource("/application/home_page_admin_loggedin2.fxml"));
+						Parent root = FXMLLoader.load(getClass().getResource("/application/home_page_admin_loggedin.fxml"));
 						Stage window = (Stage)button.getScene().getWindow();
 						window.setScene(new Scene (root, 1920, 1220));
 						window.setMaximized(true);
@@ -170,20 +172,21 @@ public class LoginController implements Initializable {
 		}
 	}
 	
+	
 	/**
 	 * Changes view to the HOME PAGE after button is clicked
 	 * 
 	 * @param event	 event in which user clicks on the Project Name button
 	 * @throws IOException	if a file is unable to be read
 	 */
-	
 	@FXML
 	public void handleBackToHomePage( ActionEvent event ) throws IOException {
 		// Loads the FXML document for home_page and displays it
-		Parent root = FXMLLoader.load(getClass().getResource("/application/home_page3.fxml"));
+		Parent root = FXMLLoader.load(getClass().getResource("/application/home_page.fxml"));
 		Stage window = (Stage)button.getScene().getWindow();
 		window.setScene(new Scene (root));
 	}
+	
 	
 	/**
 	 * Changes view to the SIGN-UP PAGE after HyperLink is clicked

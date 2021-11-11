@@ -162,17 +162,17 @@ public class SignUpController implements Initializable {
 	    button.setOnMouseExited(e -> button.setStyle(normal_button_style));
 	}
 	
+	
 	/**
-	 * Changes view to the HOME PAGE after button is clicked
+	 * Changes view to the first HOME PAGE after button is clicked
 	 * 
 	 * @param event	 event in which user clicks on the Project Name button
 	 * @throws IOException	if a file is unable to be read
 	 */
-	
 	@FXML
 	public void handleBackToHomePage( ActionEvent event ) throws IOException {
 		// Loads the FXML document for home_page and displays it
-		Parent root = FXMLLoader.load(getClass().getResource("/application/home_page3.fxml"));
+		Parent root = FXMLLoader.load(getClass().getResource("/application/home_page.fxml"));
 		Stage window = (Stage)button.getScene().getWindow();
 		window.setScene(new Scene (root));
 	}
