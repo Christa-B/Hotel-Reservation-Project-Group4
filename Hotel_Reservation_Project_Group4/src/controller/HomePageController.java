@@ -120,36 +120,6 @@ public class HomePageController implements Initializable{
 	}
 	
 	/**
-	 * Handles event in which user wants to check their reservation
-	 * 
-	 * @param event  event in which user clicks My Reservation HyperLink
-	 * @throws IOException  if a file is unable to be read
-	 */
-	@FXML
-	public void handleMyReservation(ActionEvent event) throws IOException {
-		// Loads the FXML document for account_settings and displays it
-		Parent root = FXMLLoader.load(getClass().getResource("/application/user_reservation.fxml"));
-		Stage window = (Stage)button.getScene().getWindow();
-		window.setScene(new Scene (root));
-		window.setMaximized(true);
-		
-	}
-	
-	/**
-	 * Handles event in which user wants to change account settings
-	 * 
-	 * @param event  event in which user clicks Account Settings HyperLink
-	 * @throws IOException  if a file is unable to be read
-	 */
-	@FXML
-	public void handleAccountSettings(ActionEvent event) throws IOException {
-		// Loads the FXML document for account_settings and displays it
-		Parent root = FXMLLoader.load(getClass().getResource("/application/account_settings.fxml"));
-		Stage window = (Stage)button.getScene().getWindow();
-		window.setScene(new Scene (root));
-	}
-	
-	/**
 	 * EDIT: Handles event in which user wants to login or sign in
 	 * 
 	 * @param event  event in which user clicks Logout HyperLink
@@ -190,7 +160,7 @@ public class HomePageController implements Initializable{
 	@FXML
 	public void handleSearch(ActionEvent event) throws IOException {
 		// Loads the FXML document for search results and displays it
-		Parent root = FXMLLoader.load(getClass().getResource("/application/results_page.fxml"));
+		Parent root = FXMLLoader.load(getClass().getResource("/application/results_not_loggedin.fxml"));
 		Stage window = (Stage)button.getScene().getWindow();
 		window.setScene(new Scene (root));
 		window.setMaximized(true);

@@ -156,7 +156,7 @@ public class ResultsController implements Initializable{
 	@FXML
 	public void handleManageHotels(ActionEvent event) throws IOException {
 		// Loads the FXML document for account_settings and displays it
-		Parent root = FXMLLoader.load(getClass().getResource("/application/manage_hotels.fxml"));
+		Parent root = FXMLLoader.load(getClass().getResource("/application/manage_hotels2.fxml"));
 		Stage window = (Stage)button.getScene().getWindow();
 		window.setScene(new Scene (root));
 		window.setMaximized(true);
@@ -188,25 +188,9 @@ public class ResultsController implements Initializable{
 	@FXML
 	public void handleAccountSettings(ActionEvent event) throws IOException {
 		// Loads the FXML document for account_settings and displays it
-		Parent root = FXMLLoader.load(getClass().getResource("/application/account_settings2.fxml"));
+		Parent root = FXMLLoader.load(getClass().getResource("/application/account_settings3.fxml"));
 		Stage window = (Stage)button.getScene().getWindow();
 		window.setScene(new Scene (root));
-	}
-	
-	/**
-	 * EDIT: Handles event in which user wants to login or sign in
-	 * 
-	 * @param event  event in which user clicks Logout HyperLink
-	 * @throws IOException  if a file is unable to be read
-	 */
-	@FXML
-	public void handleLoginSignIn(ActionEvent event) throws IOException {
-		// Loads the FXML document for login_screen and displays it
-		Parent root = FXMLLoader.load(getClass().getResource("/application/login_screen.fxml"));
-		Stage window = (Stage)button.getScene().getWindow();
-		window.setScene(new Scene (root));
-		window.setMaximized(true);
-		
 	}
 	
 	/**
@@ -235,7 +219,22 @@ public class ResultsController implements Initializable{
 	@FXML
 	public void handleBackToHomePage( ActionEvent event ) throws IOException {
 		// Loads the FXML document for home_page and displays it
-		Parent root = FXMLLoader.load(getClass().getResource("/application/home_page3.fxml"));
+		Parent root = FXMLLoader.load(getClass().getResource("/application/home_page_admin_loggedin2.fxml"));
+		Stage window = (Stage)button.getScene().getWindow();
+		window.setScene(new Scene (root));
+	}
+	
+	/**
+	 * Changes view to the HOME PAGE after button is clicked
+	 * 
+	 * @param event	 event in which user clicks on the Project Name button
+	 * @throws IOException	if a file is unable to be read
+	 */
+	
+	@FXML
+	public void handleLogout( ActionEvent event ) throws IOException {
+		// Loads the FXML document for home_page and displays it
+		Parent root = FXMLLoader.load(getClass().getResource("/application/home_page3"));
 		Stage window = (Stage)button.getScene().getWindow();
 		window.setScene(new Scene (root));
 	}

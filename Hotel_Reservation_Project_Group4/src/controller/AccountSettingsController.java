@@ -82,12 +82,6 @@ public class AccountSettingsController implements Initializable{
 	 */
 	@Override
 	public void initialize( URL location, ResourceBundle resources ) {
-		// Sets list items for ComboBoxes
-		combobox1.setItems(list1);
-		combobox22.setItems(list4);
-		combobox2.setItems(list3);
-		combobox21.setItems(list2);
-		
 		// Normal button style set to white
 	    button.setStyle(normal_button_style);
 	    
@@ -123,7 +117,7 @@ public class AccountSettingsController implements Initializable{
 	@FXML
 	public void handleManageHotels(ActionEvent event) throws IOException {
 		// Loads the FXML document for account_settings and displays it
-		Parent root = FXMLLoader.load(getClass().getResource("/application/manage_hotels.fxml"));
+		Parent root = FXMLLoader.load(getClass().getResource("/application/manage_hotels2.fxml"));
 		Stage window = (Stage)button.getScene().getWindow();
 		window.setScene(new Scene (root));
 		window.setMaximized(true);
@@ -139,7 +133,7 @@ public class AccountSettingsController implements Initializable{
 	@FXML
 	public void handleMyReservation(ActionEvent event) throws IOException {
 		// Loads the FXML document for account_settings and displays it
-		Parent root = FXMLLoader.load(getClass().getResource("/application/my_reservation.fxml"));
+		Parent root = FXMLLoader.load(getClass().getResource("/application/my_reservation2.fxml"));
 		Stage window = (Stage)button.getScene().getWindow();
 		window.setScene(new Scene (root));
 		window.setMaximized(true);
@@ -155,41 +149,24 @@ public class AccountSettingsController implements Initializable{
 	@FXML
 	public void handleAccountSettings(ActionEvent event) throws IOException {
 		// Loads the FXML document for account_settings and displays it
-		Parent root = FXMLLoader.load(getClass().getResource("/application/account_settings2.fxml"));
+		Parent root = FXMLLoader.load(getClass().getResource("/application/account_settings3.fxml"));
 		Stage window = (Stage)button.getScene().getWindow();
 		window.setScene(new Scene (root));
 	}
-	
+
 	/**
-	 * EDIT: Handles event in which user wants to login or sign in
+	 * Changes view to the HOME PAGE after button is clicked
 	 * 
-	 * @param event  event in which user clicks Logout HyperLink
-	 * @throws IOException  if a file is unable to be read
+	 * @param event	 event in which user clicks on the Project Name button
+	 * @throws IOException	if a file is unable to be read
 	 */
+	
 	@FXML
-	public void handleLoginSignIn(ActionEvent event) throws IOException {
-		// Loads the FXML document for login_screen and displays it
-		Parent root = FXMLLoader.load(getClass().getResource("/application/login_screen.fxml"));
+	public void handleBackToHomePage( ActionEvent event ) throws IOException {
+		// Loads the FXML document for home_page and displays it
+		Parent root = FXMLLoader.load(getClass().getResource("/application/home_page_admin_loggedin2.fxml"));
 		Stage window = (Stage)button.getScene().getWindow();
 		window.setScene(new Scene (root));
-		window.setMaximized(true);
-		
-	}
-	
-	/**
-	 * Handles event in which user clicks to search hotels
-	 * 
-	 * @param event  event in which user clicks SEARCH button
-	 * @throws IOException  if a file is unable to be read
-	 */
-	@FXML
-	public void handleSearch(ActionEvent event) throws IOException {
-		// Loads the FXML document for search results and displays it
-		Parent root = FXMLLoader.load(getClass().getResource("/application/results_page.fxml"));
-		Stage window = (Stage)button.getScene().getWindow();
-		window.setScene(new Scene (root));
-		window.setMaximized(true);
-		
 	}
 	
 	/**
@@ -200,7 +177,7 @@ public class AccountSettingsController implements Initializable{
 	 */
 	
 	@FXML
-	public void handleBackToHomePage( ActionEvent event ) throws IOException {
+	public void handleLogout( ActionEvent event ) throws IOException {
 		// Loads the FXML document for home_page and displays it
 		Parent root = FXMLLoader.load(getClass().getResource("/application/home_page3.fxml"));
 		Stage window = (Stage)button.getScene().getWindow();

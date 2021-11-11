@@ -88,7 +88,7 @@ public class UserReservationController implements Initializable {
 	@FXML
 	public void handleAccountSettings(ActionEvent event) throws IOException {
 		// Loads the FXML document for account_settings and displays it
-		Parent root = FXMLLoader.load(getClass().getResource("/application/account_settings.fxml"));
+		Parent root = FXMLLoader.load(getClass().getResource("/application/account_settings2.fxml"));
 		Stage window = (Stage)button.getScene().getWindow();
 		window.setScene(new Scene (root));
 		window.setMaximized(true);
@@ -103,7 +103,7 @@ public class UserReservationController implements Initializable {
 	@FXML
 	public void handleBackToHomePage( ActionEvent event ) throws IOException {
 		// Loads the FXML document for home_page and displays it
-		Parent root = FXMLLoader.load(getClass().getResource("/application/home_page.fxml"));
+		Parent root = FXMLLoader.load(getClass().getResource("/application/home_page3.fxml"));
 		Stage window = (Stage)button.getScene().getWindow();
 		window.setScene(new Scene (root));
 		window.setMaximized(true);
