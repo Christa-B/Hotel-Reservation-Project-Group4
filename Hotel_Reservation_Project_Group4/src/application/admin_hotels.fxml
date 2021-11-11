@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.net.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="anchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1020.0" prefWidth="1920.0" stylesheets="@../../../../git/Project-Nomad/Hotel_Reservation_Project_Group4/src/application/style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.UserReservationController">
+   <children>
+      <Hyperlink fx:id="hyperlink2" focusTraversable="false" layoutX="1415.0" layoutY="61.0" text="My Reservation" textFill="#91cd75">
+         <font>
+            <Font name="Corbel" size="22.0" />
+         </font>
+      </Hyperlink>
+      <Hyperlink fx:id="hyperlink4" focusTraversable="false" layoutX="1796.0" layoutY="61.0" onAction="#handleLogout" text="Logout" textFill="#91cd75">
+         <font>
+            <Font name="Corbel" size="22.0" />
+         </font>
+      </Hyperlink>
+      <Hyperlink fx:id="hyperlink3" focusTraversable="false" layoutX="1599.0" layoutY="61.0" onAction="#handleAccountSettings" text="Account Settings" textFill="#91cd75">
+         <font>
+            <Font name="Corbel" size="22.0" />
+         </font>
+      </Hyperlink>
+      <Label fx:id="label1" layoutX="65.0" layoutY="187.0" text="Here are your hotels:" textFill="WHITE">
+         <font>
+            <Font name="Corbel Light" size="33.0" />
+         </font>
+      </Label>
+      <Hyperlink fx:id="hyperlink1" focusTraversable="false" layoutX="61.0" layoutY="31.0" onAction="#handleBackToHomePage" text="NOMAD+" textFill="#fcfcfc">
+         <font>
+            <Font name="Sitka Banner" size="68.0" />
+         </font>
+      </Hyperlink>
+      <ScrollPane layoutX="15.0" layoutY="236.0" prefHeight="770.0" prefWidth="1888.0">
+         <content>
+            <ScrollBar prefHeight="24.0" prefWidth="1886.0" />
+         </content>
+      </ScrollPane>
+   </children>
+</AnchorPane>
