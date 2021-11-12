@@ -27,6 +27,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuButton;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.DateCell;
@@ -94,8 +95,9 @@ public class AdminLoggedInController implements Initializable{
 	@FXML
 	private DatePicker datepicker2;	//check-out
 	
-	//@FXML
-	//private ScrollPane scrollpane;
+	@FXML
+	private ScrollPane scrollpane;
+	
 	
 	// List of items for ComboBoxes (prices and rooms)
 	ObservableList<String> list1 = FXCollections.observableArrayList("1 - 2 Guests", "3 Guests", "4 Guests", "5 Guests", "6 Guests", "7 Guests", "8 Guests", "9 Guests", "10 Guests");
@@ -146,6 +148,10 @@ public class AdminLoggedInController implements Initializable{
 	    
 	    // Changes back to normal button style when mouse stops hovering
 	    button.setOnMouseExited(e -> button.setStyle(normal_button_style));
+	    
+	    
+	    //hmmmmmmmmmm
+	    scrollpane.setPrefSize(1920, 1220);
 	}
 	
 	/**
@@ -239,7 +245,8 @@ public class AdminLoggedInController implements Initializable{
 		// Loads the FXML document for home_page_admin_loggedin and displays it
 		Parent root = FXMLLoader.load(getClass().getResource("/application/home_page_admin_loggedin.fxml"));
 		Stage window = (Stage)button.getScene().getWindow();
-		window.setScene(new Scene (root));
+		window.setMaximized(true);
+		window.setScene(new Scene (root, 1920, 1050));
 	}
 	
 	
@@ -255,6 +262,7 @@ public class AdminLoggedInController implements Initializable{
 		// Loads the FXML document for home_page and displays it
 		Parent root = FXMLLoader.load(getClass().getResource("/application/home_page.fxml"));
 		Stage window = (Stage)button.getScene().getWindow();
-		window.setScene(new Scene (root));
+		window.setMaximized(true);
+		window.setScene(new Scene (root, 1920, 1050));
 	}
 }

@@ -191,8 +191,8 @@ public class AccountSettingsController implements Initializable {
 		// Loads the FXML document for home_page and displays it
 		Parent root = FXMLLoader.load(getClass().getResource("/application/home_page_admin_loggedin.fxml"));
 		Stage window = (Stage)button.getScene().getWindow();
-		window.setScene(new Scene (root));
 		window.setMaximized(true);
+		window.setScene(new Scene (root, 1920, 1220));
 	}
 	
 	
@@ -207,7 +207,7 @@ public class AccountSettingsController implements Initializable {
 		// Loads the FXML document for home_page and displays it
 		Parent root = FXMLLoader.load(getClass().getResource("/application/home_page.fxml"));
 		Stage window = (Stage)button.getScene().getWindow();
-		window.setScene(new Scene (root));
 		window.setMaximized(true);
+		window.setScene(new Scene (root, 1920, 1050));
 	}
 }
