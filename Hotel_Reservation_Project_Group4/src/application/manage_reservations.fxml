@@ -15,11 +15,31 @@
          <children>
             <Pane layoutX="-4.0" layoutY="118.0" prefHeight="1057.0" prefWidth="1924.0" style="-fx-background-color: #212121;">
                <children>
-                  <Label fx:id="label11" layoutX="75.0" layoutY="119.0" prefHeight="79.0" prefWidth="1190.0" text="Manage reservations-- cancel reservations, edit check-in &amp; out dates ONLY IF the desired hotel room is available" textFill="WHITE">
+                  <Label fx:id="label11" layoutX="107.0" layoutY="50.0" prefHeight="79.0" prefWidth="1190.0" text="Manage reservations-- cancel reservations, edit check-in &amp; out dates ONLY IF the desired hotel room is available" textFill="WHITE">
                      <font>
                         <Font name="Corbel Light" size="24.0" />
                      </font>
                   </Label>
+                  <Button fx:id="button" layoutX="129.0" layoutY="490.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="354.0" style="-fx-background-color: white; -fx-background-radius: 20;" text="Make changes" textFill="#ff3366">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Button>
+                  <ScrollPane hbarPolicy="NEVER" layoutX="1055.0" layoutY="222.0" prefHeight="414.0" prefWidth="457.0">
+                     <content>
+                        <TableView prefHeight="592.0" prefWidth="449.0">
+                          <columns>
+                            <TableColumn prefWidth="75.0" text="Hotel" />
+                              <TableColumn prefWidth="75.0" text="Room" />
+                              <TableColumn prefWidth="75.0" text="Room type" />
+                            <TableColumn prefWidth="75.0" text="Check in" />
+                              <TableColumn prefWidth="75.0" text="Check out" />
+                              <TableColumn prefWidth="75.0" text="First name" />
+                              <TableColumn prefWidth="75.0" text="Last name" />
+                          </columns>
+                        </TableView>
+                     </content>
+                  </ScrollPane>
                </children></Pane>
             <BorderPane id="borderpane" layoutX="-10.0" opacity="0.0" prefHeight="119.0" prefWidth="1920.0" stylesheets="@style.css">
                <opaqueInsets>
@@ -31,11 +51,6 @@
                   <Insets />
                </opaqueInsets>
             </BorderPane>
-            <Button fx:id="button" layoutX="790.0" layoutY="570.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="354.0" style="-fx-background-color: white; -fx-background-radius: 20;" text="Make changes" textFill="#ff3366">
-               <font>
-                  <Font name="System Bold" size="18.0" />
-               </font>
-            </Button>
             <Hyperlink fx:id="hyperlink4" focusTraversable="false" layoutX="1415.0" layoutY="70.0" onAction="#handleMyReservation" text="My Reservation" textFill="WHITE">
                <font>
                   <Font name="Yu Gothic Regular" size="20.0" />

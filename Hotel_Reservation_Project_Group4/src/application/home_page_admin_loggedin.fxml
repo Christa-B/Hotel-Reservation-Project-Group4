@@ -25,7 +25,7 @@
                <top>
                   <ImageView fx:id="image" fitHeight="811.0" fitWidth="1922.0" opacity="0.7" pickOnBounds="true" BorderPane.alignment="CENTER">
                      <image>
-                        <Image url="@../model/hotel_homepage_image.png" />
+                        <Image url="@../model/hotel_img9.png" />
                      </image>
                      <effect>
                         <ColorAdjust contrast="-0.25" />
@@ -37,7 +37,7 @@
                </top>
             </BorderPane>
             <DatePicker fx:id="datepicker1" focusTraversable="false" layoutX="786.0" layoutY="375.0" prefHeight="32.0" prefWidth="100.0" promptText="Check in" style="-fx-background-color: white; -fx-background-radius: 0;" />
-            <MenuButton fx:id="menubutton" layoutX="1062.0" layoutY="480.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="170.0" style="-fx-background-color: white; -fx-background-radius: 0;" text="Amenities">
+            <MenuButton fx:id="menubutton" layoutX="1053.0" layoutY="480.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="170.0" style="-fx-background-color: white; -fx-background-radius: 0;" text="Amenities">
               <items>
                   <CheckMenuItem fx:id="checkmenuitem1" mnemonicParsing="false" text="Gym" />
                   <CheckMenuItem fx:id="checkmenuitem2" mnemonicParsing="false" text="Spa" />
@@ -46,9 +46,9 @@
                   <CheckMenuItem fx:id="checkmenuitem5" mnemonicParsing="false" text="Wifi" />
               </items>
             </MenuButton>
-            <ComboBox fx:id="combobox1" editable="true" layoutX="1198.0" layoutY="375.0" prefHeight="32.0" prefWidth="170.0" promptText="1 Room" style="-fx-background-color: white; -fx-background-radius: 0;" />
-            <ComboBox fx:id="combobox2" editable="true" layoutX="1018.0" layoutY="375.0" prefHeight="32.0" prefWidth="170.0" promptText="Guests" style="-fx-background-color: white; -fx-background-radius: 0;" />
-            <Button fx:id="button" layoutX="790.0" layoutY="570.0" mnemonicParsing="false" onAction="#handleSearch" prefHeight="39.0" prefWidth="354.0" style="-fx-background-color: white; -fx-background-radius: 20;" text="SEARCH" textFill="#ff3366">
+            <ComboBox fx:id="combobox2" editable="true" layoutX="1186.0" layoutY="375.0" prefHeight="32.0" prefWidth="170.0" promptText="1 Room" style="-fx-background-color: white; -fx-background-radius: 0;" />
+            <ComboBox fx:id="combobox1" editable="true" layoutX="1006.0" layoutY="375.0" prefHeight="32.0" prefWidth="170.0" promptText="Guests" style="-fx-background-color: white; -fx-background-radius: 0;" />
+            <Button fx:id="button" layoutX="783.0" layoutY="570.0" mnemonicParsing="false" onAction="#handleSearch" prefHeight="39.0" prefWidth="354.0" style="-fx-background-color: white; -fx-background-radius: 20;" text="SEARCH" textFill="#ff3366">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
@@ -73,16 +73,16 @@
                   <Font size="48.0" />
                </font>
             </Hyperlink>
-            <ComboBox fx:id="combobox21" editable="true" layoutX="882.0" layoutY="480.0" prefHeight="32.0" prefWidth="170.0" promptText="Price range" style="-fx-background-color: white; -fx-background-radius: 0;" />
+            <ComboBox fx:id="combobox4" editable="true" layoutX="873.0" layoutY="480.0" prefHeight="32.0" prefWidth="170.0" promptText="Price range" style="-fx-background-color: white; -fx-background-radius: 0;" />
             <TextField fx:id="location_input" layoutX="554.0" layoutY="375.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="32.0" prefWidth="222.0" promptText="Where are we going?" style="-fx-background-color: white; -fx-background-radius: 0;" stylesheets="@style.css" />
-            <ComboBox fx:id="combobox22" editable="true" layoutX="702.0" layoutY="480.0" prefHeight="32.0" prefWidth="170.0" promptText="Room Type" style="-fx-background-color: white; -fx-background-radius: 0;" />
+            <ComboBox fx:id="combobox3" editable="true" layoutX="693.0" layoutY="480.0" prefHeight="32.0" prefWidth="170.0" promptText="Room Type" style="-fx-background-color: white; -fx-background-radius: 0;" />
             <BorderPane id="accentborder" layoutY="113.0" prefHeight="11.0" prefWidth="1920.0" style="-fx-background-color: darkorange;" />
             <Hyperlink fx:id="hyperlink6" focusTraversable="false" layoutX="1800.0" layoutY="70.0" onAction="#handleLogout" text="Logout" textFill="WHITE">
                <font>
                   <Font name="Yu Gothic Regular" size="20.0" />
                </font>
             </Hyperlink>
-            <DatePicker fx:id="datepicker2" focusTraversable="false" layoutX="900.0" layoutY="375.0" prefHeight="32.0" prefWidth="100.0" promptText="Check out" style="-fx-background-color: white; -fx-background-radius: 0;" />
+            <DatePicker fx:id="datepicker2" focusTraversable="false" layoutX="896.0" layoutY="375.0" prefHeight="32.0" prefWidth="100.0" promptText="Check out" style="-fx-background-color: white; -fx-background-radius: 0;" />
             <Pane layoutX="-4.0" layoutY="920.0" prefHeight="255.0" prefWidth="1924.0" style="-fx-background-color: #212121;">
                <children>
                   <Label layoutX="107.0" layoutY="90.0" prefHeight="0.0" prefWidth="708.0" text="At Nomad+, we believe that travel should always be made easy-peasy, lemon s-queezy." textFill="WHITE">
