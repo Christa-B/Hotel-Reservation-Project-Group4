@@ -50,6 +50,11 @@
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Button>
+                  <Hyperlink fx:id="hyperlink7" focusTraversable="false" layoutX="1578.0" layoutY="90.0" onAction="#handleBackToHomePage" text="Go back" textFill="#91cd75">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Hyperlink>
                </children></Pane>
             <Hyperlink fx:id="hyperlink1" focusTraversable="false" layoutX="33.0" layoutY="34.0" onAction="#handleBackToHomePage" text="Nomad+" textFill="#f8f8f8">
                <font>

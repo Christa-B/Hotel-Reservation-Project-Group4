@@ -25,6 +25,11 @@
                         <Font name="Corbel Light" size="24.0" />
                      </font>
                   </Label>
+                  <Hyperlink fx:id="hyperlink4" focusTraversable="false" layoutX="1673.0" layoutY="64.0" onAction="#handleBackToHomePage" text="Go back" textFill="#91cd75">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Hyperlink>
                </children></Pane>
             <BorderPane id="borderpane" layoutY="-4.0" opacity="0.0" prefHeight="119.0" prefWidth="1920.0" stylesheets="@../../../../git/Project-Nomad/Hotel_Reservation_Project_Group4/src/application/style.css">
                <opaqueInsets>
@@ -46,8 +51,8 @@
                   <CheckMenuItem fx:id="checkmenuitem5" mnemonicParsing="false" text="Wifi" />
               </items>
             </MenuButton>
-            <ComboBox fx:id="combobox1" editable="true" layoutX="100.0" layoutY="500.0" prefHeight="32.0" prefWidth="200.0" promptText="1 Room" style="-fx-background-color: white; -fx-background-radius: 0;" />
-            <ComboBox fx:id="combobox2" editable="true" layoutX="100.0" layoutY="450.0" prefHeight="32.0" prefWidth="200.0" promptText="Guests" style="-fx-background-color: white; -fx-background-radius: 0;" />
+            <ComboBox fx:id="combobox2" editable="true" layoutX="100.0" layoutY="500.0" prefHeight="32.0" prefWidth="200.0" promptText="1 Room" style="-fx-background-color: white; -fx-background-radius: 0;" />
+            <ComboBox fx:id="combobox1" editable="true" layoutX="100.0" layoutY="450.0" prefHeight="32.0" prefWidth="200.0" promptText="Guests" style="-fx-background-color: white; -fx-background-radius: 0;" />
             <Button fx:id="button" layoutX="100.0" layoutY="720.0" mnemonicParsing="false" onAction="#handleSearch" prefHeight="39.0" prefWidth="200.0" style="-fx-background-color: white; -fx-background-radius: 20;" text="SEARCH" textFill="#ff3366">
                <font>
                   <Font name="System Bold" size="18.0" />
@@ -63,9 +68,9 @@
                   <Font size="48.0" />
                </font>
             </Hyperlink>
-            <ComboBox fx:id="combobox21" editable="true" layoutX="100.0" layoutY="600.0" prefHeight="32.0" prefWidth="200.0" promptText="Price range" style="-fx-background-color: white; -fx-background-radius: 0;" />
+            <ComboBox fx:id="combobox4" editable="true" layoutX="100.0" layoutY="600.0" prefHeight="32.0" prefWidth="200.0" promptText="Price range" style="-fx-background-color: white; -fx-background-radius: 0;" />
             <TextField fx:id="location_input" layoutX="100.0" layoutY="300.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="32.0" prefWidth="200.0" promptText="Where are we going?" style="-fx-background-color: white; -fx-background-radius: 0;" stylesheets="@style.css" />
-            <ComboBox fx:id="combobox22" editable="true" layoutX="100.0" layoutY="550.0" prefHeight="32.0" prefWidth="200.0" promptText="Room Type" style="-fx-background-color: white; -fx-background-radius: 0;" />
+            <ComboBox fx:id="combobox3" editable="true" layoutX="100.0" layoutY="550.0" prefHeight="32.0" prefWidth="200.0" promptText="Room Type" style="-fx-background-color: white; -fx-background-radius: 0;" />
             <BorderPane id="accentborder" layoutY="113.0" prefHeight="11.0" prefWidth="1920.0" style="-fx-background-color: darkorange;" />
             <Hyperlink fx:id="hyperlink3" focusTraversable="false" layoutX="1800.0" layoutY="70.0" onAction="#handleSignUp" text="Sign up" textFill="WHITE">
                <font>

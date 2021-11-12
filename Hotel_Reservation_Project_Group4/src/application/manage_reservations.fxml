@@ -40,6 +40,11 @@
                         </TableView>
                      </content>
                   </ScrollPane>
+                  <Hyperlink fx:id="hyperlink7" focusTraversable="false" layoutX="1542.0" layoutY="78.0" onAction="#handleBackToHomePage" text="Go back" textFill="#91cd75">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Hyperlink>
                </children></Pane>
             <BorderPane id="borderpane" layoutX="-10.0" opacity="0.0" prefHeight="119.0" prefWidth="1920.0" stylesheets="@style.css">
                <opaqueInsets>

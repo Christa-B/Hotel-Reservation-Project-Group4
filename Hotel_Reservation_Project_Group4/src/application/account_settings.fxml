@@ -32,7 +32,10 @@
                   <Label layoutX="887.0" layoutY="21.0" text="2021 Copyright: NomadPlus.com" textFill="WHITE" />
                </children>
             </Pane>
-            <Hyperlink fx:id="hyperlink7" focusTraversable="false" layoutX="928.0" layoutY="725.0" onAction="#handleBackToHomePage" text="Go back" textFill="#91cd75" />
+            <Hyperlink fx:id="hyperlink7" focusTraversable="false" layoutX="928.0" layoutY="725.0" onAction="#handleBackToHomePage" text="Go back" textFill="#91cd75">
+               <font>
+                  <Font size="16.0" />
+               </font></Hyperlink>
             <Label layoutX="600.0" layoutY="220.0" prefHeight="25.0" prefWidth="146.0" text="First Name" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="16.0" />

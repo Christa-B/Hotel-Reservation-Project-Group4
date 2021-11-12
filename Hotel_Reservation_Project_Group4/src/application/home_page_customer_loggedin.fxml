@@ -141,6 +141,16 @@
                   <Font name="Corbel Light" size="24.0" />
                </font>
             </Label>
+            <Label layoutX="700.0" layoutY="810.0" text="Not enough room?" textFill="#ff8e73">
+               <font>
+                  <Font name="System Bold Italic" size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="855.0" layoutY="810.0" text="Call or send an email for large group reservations!" textFill="#d7c6c6">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
    </content>
