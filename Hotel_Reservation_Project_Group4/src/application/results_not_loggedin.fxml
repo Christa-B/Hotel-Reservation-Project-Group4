@@ -58,7 +58,7 @@
                   <Font name="Yu Gothic Regular" size="20.0" />
                </font>
             </Hyperlink>
-            <Hyperlink fx:id="hyperlink1" focusTraversable="false" layoutX="33.0" layoutY="34.0" onAction="#handleBackToHomePage" style="-fx-underline: none;" text="Nomad+" textFill="#f8f8f8">
+            <Hyperlink fx:id="hyperlink1" focusTraversable="false" layoutX="33.0" layoutY="34.0" onAction="#handleBackToHomePage" text="Nomad+" textFill="#f8f8f8">
                <font>
                   <Font size="48.0" />
                </font>
