@@ -29,6 +29,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.*;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.ImageView;
@@ -206,4 +208,66 @@ public class LoginController implements Initializable {
 	      .matcher(emailAddress)
 	      .matches();
 	}
+	
+	// Performs login functionality if user hits enter key instead of button (must be focused on either textfield)
+	@FXML
+	public void handleLoginEnter(KeyEvent event) throws IOException {
+	    if (event.getCode() == KeyCode.ENTER) {
+	    	try {
+				// Initialize data accessor via link to DB
+				UserDataAccessor userDataAccessor = new UserDataAccessor( 
+					"jdbc:mysql://awsmysql-nomadplus.c8lezqhu83hc.us-east-2.rds.amazonaws.com:3306"
+					+ "/userData?autoReconnect=true&useSSL=false", "admin", "adminthisisjustaproject92521");			
+				String emailRegexPattern = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";
+				boolean stopFlag = false;
+				// Check if textField/passwordField is empty
+				if (textField.getText() != null && !textField.getText().isEmpty() 
+					&& passwordField.getText() != null && !passwordField.getText().isEmpty()) { 
+					// Validate email format was entered
+					if (!patternMatches(textField.getText(), emailRegexPattern)){ 
+						errorText.setText("Please enter a valid email.");
+						errorText.setStyle("-fx-font-weight: bold");
+						errorText.setVisible(true);
+						stopFlag = true;
+					}
+					// If textField is not empty and input is correct, check if credentials are valid
+					if (stopFlag == false) {
+						// Initialize User, retrieve data from DB
+						User currentUser = new User();
+						currentUser = userDataAccessor.getUser(textField.getText(), passwordField.getText());
+						// Check if user record exists
+						if (currentUser == null) {
+							errorText.setText("User does not exist.");
+							errorText.setStyle("-fx-font-weight: bold");
+							errorText.setVisible(true);
+						} // Check if password is correct
+						else if(currentUser.getFirstName() == "exists-but-passW-is-wrong") {
+							errorText.setText("Your username and/or password is incorrect.");
+							errorText.setStyle("-fx-font-weight: bold");
+							errorText.setVisible(true);
+						} // If credentials are valid, loads the FXML document for home_page and display it
+						else if (textField.getText().equals(currentUser.getEmailAd()) &&
+						passwordField.getText().equals(currentUser.getPassW())) {
+							Parent root = FXMLLoader.load(getClass().getResource("/application/home_page_admin_loggedin.fxml"));
+							Stage window = (Stage)button.getScene().getWindow();
+							window.setScene(new Scene (root, 1920, 1220));
+							window.setMaximized(true);
+							
+						}
+					}
+				} else { // Run if one or more fields are empty
+					errorText.setText("Please enter information into both fields.");
+					errorText.setStyle("-fx-font-weight: bold");
+					errorText.setVisible(true);
+				}
+			} catch (ClassNotFoundException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			} 
+	    }
+	}
+	
 }

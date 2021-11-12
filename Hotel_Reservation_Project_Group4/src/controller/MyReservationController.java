@@ -71,6 +71,9 @@ public class MyReservationController implements Initializable{
 	
 	@FXML
 	private Hyperlink hyperlink6; // Logout 
+	
+	@FXML
+	private Hyperlink hyperlink7; // Go back
 
 	// Static variables to set style for button when mouse is away/hovering
 	private static String normal_button_style = "-fx-background-color: white; -fx-background-radius: 20";

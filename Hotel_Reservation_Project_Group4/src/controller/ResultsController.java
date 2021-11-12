@@ -66,6 +66,9 @@ public class ResultsController implements Initializable{
 	@FXML
 	private Hyperlink hyperlink6; // Logout 
 	
+	@FXML
+	private Hyperlink hyperlink7; // Go back
+	
 	// MenuButtons
 	@FXML
 	private MenuButton menubutton; // Amenities
@@ -76,16 +79,17 @@ public class ResultsController implements Initializable{
 	
 	// ComboBoxes
 	@FXML
-	private ComboBox<String> combobox1; // Number of Rooms
-	
+	private ComboBox<String> combobox1; // # of Guests (adults)
+		
 	@FXML
-	private ComboBox<String> combobox2; // # of Guests (Adults)
-	
+	private ComboBox<String> combobox2; // # of rooms
+		
 	@FXML
-	private ComboBox<String> combobox22; // Price Ranges
-	
+	private ComboBox<String> combobox3; // Room types
+		
 	@FXML
-	private ComboBox<String> combobox21; // Types of Rooms / Beds
+	private ComboBox<String> combobox4; // Price ranges
+		
 	
 	// DatePickers 
 	@FXML
@@ -95,10 +99,10 @@ public class ResultsController implements Initializable{
 	private DatePicker datepicker2;	//check-out
 	
 	// List of items for ComboBoxes (prices and rooms)
-	ObservableList<String> list1 = FXCollections.observableArrayList("1 Room", "2 Rooms", "3 Rooms", "4 Rooms", "5 Rooms", "6 Rooms", "7 Rooms");
-	ObservableList<String> list2 = FXCollections.observableArrayList("Less than $75", "$75 - $150", "$150+");
-	ObservableList<String> list3 = FXCollections.observableArrayList("1 - 2 Guests", "3 Guests", "4 Guests", "5 Guests", "6+ Guests");
-	ObservableList<String> list4 = FXCollections.observableArrayList("Standard", "Queen", "King");
+	ObservableList<String> list1 = FXCollections.observableArrayList("1 - 2 Guests", "3 Guests", "4 Guests", "5 Guests", "6 Guests", "7 Guests", "8 Guests", "9 Guests", "10 Guests");
+	ObservableList<String> list2 = FXCollections.observableArrayList("1 Room", "2 Rooms", "3 Rooms", "4 Rooms", "5 Rooms", "6 Rooms", "7 Rooms", "8 Rooms", "9 Rooms", "10 Rooms");
+	ObservableList<String> list3 = FXCollections.observableArrayList("Standard", "Queen", "King");
+	ObservableList<String> list4 = FXCollections.observableArrayList("Less than $75", "$75 - $150", "$150+");
 
 	// Static variables to set style for button when mouse is away/hovering
 	private static String normal_button_style = "-fx-background-color: white; -fx-background-radius: 20";
@@ -115,9 +119,25 @@ public class ResultsController implements Initializable{
 	public void initialize( URL location, ResourceBundle resources ) {
 		// Sets list items for ComboBoxes
 		combobox1.setItems(list1);
-		combobox22.setItems(list4);
-		combobox2.setItems(list3);
-		combobox21.setItems(list2);
+		combobox2.setItems(list2);
+		combobox3.setItems(list3);
+		combobox4.setItems(list4);
+		
+		// Set combobox items to default value
+		combobox1.getSelectionModel().selectFirst();
+		combobox2.getSelectionModel().selectFirst();
+		combobox3.getSelectionModel().selectFirst();
+		combobox4.getSelectionModel().selectFirst();
+		
+		// Prevents text input but allows user to copy text in comboboxes
+		combobox1.setEditable(true);
+		combobox1.getEditor().setEditable(false);
+		combobox2.setEditable(true);
+		combobox2.getEditor().setEditable(false);
+		combobox3.setEditable(true);
+		combobox3.getEditor().setEditable(false);
+		combobox4.setEditable(true);
+		combobox4.getEditor().setEditable(false);
 		
 		// Normal button style set to white
 	    button.setStyle(normal_button_style);
