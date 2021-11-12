@@ -87,9 +87,9 @@ public class HomePageLoggedInController implements Initializable{
 	
 	// List of items for ComboBoxes (prices and rooms)
 	ObservableList<String> list1 = FXCollections.observableArrayList("1 Room", "2 Rooms", "3 Rooms", "4 Rooms", "5 Rooms", "6 Rooms", "7 Rooms");
-	ObservableList<String> list2 = FXCollections.observableArrayList("Low", "Mid", "High");
+	ObservableList<String> list2 = FXCollections.observableArrayList("Less than $75", "$75 - $150", "$150+");
 	ObservableList<String> list3 = FXCollections.observableArrayList("1 - 2 Guests", "3 Guests", "4 Guests", "5 Guests", "6+ Guests");
-	ObservableList<String> list4 = FXCollections.observableArrayList("1 King", "1 Queen", "2 King", "2 Queen", "Suites");
+	ObservableList<String> list4 = FXCollections.observableArrayList("Standard", "Queen", "King");
 
 	// Static variables to set style for button when mouse is away/hovering
 	private static String normal_button_style = "-fx-background-color: white; -fx-background-radius: 20";
