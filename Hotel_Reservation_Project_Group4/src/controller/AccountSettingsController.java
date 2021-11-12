@@ -27,6 +27,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuButton;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.DateCell;
@@ -66,6 +68,30 @@ public class AccountSettingsController implements Initializable {
 	@FXML
 	private Hyperlink hyperlink6; // Logout 
 	
+	@FXML
+	private Hyperlink hyperlink7; // Go back (to home page)
+	
+	//Textfields
+	@FXML
+	private TextField textfield1; // first name
+	
+	@FXML
+	private TextField textfield2; // last name
+	
+	@FXML
+	private TextField textfield3; // email
+	
+	@FXML
+	private TextField textfield4; // phone number
+	
+	@FXML
+	private PasswordField passwordfield1; // old password
+	
+	@FXML
+	private PasswordField passwordfield2; // new password
+	
+	@FXML
+	private PasswordField passwordfield3; // confirm new password
 	
 	// Static variables to set style for button when mouse is away/hovering
 	private static String normal_button_style = "-fx-background-color: white; -fx-background-radius: 20";
