@@ -33,12 +33,12 @@ import javafx.scene.control.DateCell;
 import javafx.scene.input.*;
 
 /**
- * HomePageController is a class that handles events that occur when the user
- * interacts with home_page.fxml
+ * ResultsNotLoggedInController is a class that handles events that occur when the user
+ * interacts with results_not_loggedin.fxml
  * 
  * @author Christa Baca
  */
-public class HomePageController implements Initializable{
+public class ResultsNotLoggedInController implements Initializable{
 	// Buttons
 	@FXML
 	private Button button; // Search Button
@@ -49,32 +49,28 @@ public class HomePageController implements Initializable{
 	
 	// HyperLinks
 	@FXML
-	private Hyperlink hyperlink1; // Nomad+/link to homepage
+	private Hyperlink hyperlink1; // Nomad+, links to home_page
 	
 	@FXML
-	private Hyperlink hyperlink2; // Login
+	private Hyperlink hyperlink2; // login
 	
 	@FXML
-	private Hyperlink hyperlink3; // Sign in
+	private Hyperlink hyperlink3; // signup
 	
 	// MenuButtons
 	@FXML
 	private MenuButton menubutton; // Amenities
 	
-	// Images
-	@FXML
-	private ImageView image; // Background Image
-	
 	// ComboBoxes
 	@FXML
 	private ComboBox<String> combobox1; // # of Guests (adults)
-	
+		
 	@FXML
 	private ComboBox<String> combobox2; // # of rooms
-	
+		
 	@FXML
 	private ComboBox<String> combobox3; // Room types
-	
+		
 	@FXML
 	private ComboBox<String> combobox4; // Price ranges
 	
@@ -85,14 +81,15 @@ public class HomePageController implements Initializable{
 	@FXML
 	private DatePicker datepicker2;	//check-out
 	
+	//@FXML
+	//private ScrollPane scrollpane;
+	
 	// List of items for ComboBoxes (prices and rooms)
 	ObservableList<String> list1 = FXCollections.observableArrayList("1 - 2 Guests", "3 Guests", "4 Guests", "5 Guests", "6 Guests", "7 Guests", "8 Guests", "9 Guests", "10 Guests");
 	ObservableList<String> list2 = FXCollections.observableArrayList("1 Room", "2 Rooms", "3 Rooms", "4 Rooms", "5 Rooms", "6 Rooms", "7 Rooms", "8 Rooms", "9 Rooms", "10 Rooms");
 	ObservableList<String> list3 = FXCollections.observableArrayList("Standard", "Queen", "King");
 	ObservableList<String> list4 = FXCollections.observableArrayList("Less than $75", "$75 - $150", "$150+");
-	// Room & guest limitations based off of Booking.com, which maxes at 30 guests and 30 rooms.
 
-	
 	// Static variables to set style for button when mouse is away/hovering
 	private static String normal_button_style = "-fx-background-color: white; -fx-background-radius: 20";
 	private static String hovered_button_style = "-fx-background-color: #d3d3d3; -fx-background-radius: 20;";
@@ -136,11 +133,11 @@ public class HomePageController implements Initializable{
 	    // Changes back to normal button style when mouse stops hovering
 	    button.setOnMouseExited(e -> button.setStyle(normal_button_style));
 	}
-	
+
 	/**
-	 * EDIT: Handles event in which user wants to login or sign in
+	 * Handles event in which user wants to login
 	 * 
-	 * @param event  event in which user clicks Logout HyperLink
+	 * @param event  event in which user clicks Login HyperLink
 	 * @throws IOException  if a file is unable to be read
 	 */
 	@FXML
@@ -154,14 +151,14 @@ public class HomePageController implements Initializable{
 	}
 	
 	/**
-	 * EDIT: Handles event in which user wants to login or sign in
+	 * Handles event in which user wants to sign in
 	 * 
-	 * @param event  event in which user clicks Logout HyperLink
+	 * @param event  event in which user clicks signup HyperLink
 	 * @throws IOException  if a file is unable to be read
 	 */
 	@FXML
 	public void handleSignUp(ActionEvent event) throws IOException {
-		// Loads the FXML document for login_screen and displays it
+		// Loads the FXML document for signup_screen and displays it
 		Parent root = FXMLLoader.load(getClass().getResource("/application/signup_screen.fxml"));
 		Stage window = (Stage)button.getScene().getWindow();
 		window.setScene(new Scene (root));
@@ -183,5 +180,21 @@ public class HomePageController implements Initializable{
 		window.setScene(new Scene (root));
 		window.setMaximized(true);
 		
+	}
+	
+	/**
+	 * Changes view to the first HOME PAGE after link is clicked
+	 * 
+	 * @param event	 event in which user clicks on the Nomad+ hyperlink
+	 * @throws IOException	if a file is unable to be read
+	 */
+	
+	@FXML
+	public void handleBackToHomePage( ActionEvent event ) throws IOException {
+		// Loads the FXML document for home_page and displays it
+		Parent root = FXMLLoader.load(getClass().getResource("/application/home_page.fxml"));
+		Stage window = (Stage)button.getScene().getWindow();
+		window.setMaximized(true);
+		window.setScene(new Scene (root, 1920, 1050));
 	}
 }

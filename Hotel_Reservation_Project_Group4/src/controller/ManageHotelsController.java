@@ -27,31 +27,32 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuButton;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.DateCell;
 import javafx.scene.input.*;
 
 /**
- * AccountSettingsController is a class that handles events that occur when the user
- * interacts with account_settings.fxml
+ * ManageHotels is a class that handles events that occur when the user
+ * interacts with manage_hotels.fxml
  * 
  * @author Christa Baca
  */
-public class AccountSettingsController implements Initializable {
+public class ManageHotelsController implements Initializable{
 	// Buttons
 	@FXML
-	private Button button; // Submit changes button
+	private Button button1; // add hotel
+	
+	@FXML
+	private Button button2; // submit changes
 	
 	// Labels
 	@FXML
-	private Label label1; // Edit your account
+	private Label label1; // Find the best hotels at the best price, here
 	
 	// HyperLinks
 	@FXML
-	private Hyperlink hyperlink1; // Nomad+, link to home page
+	private Hyperlink hyperlink1; // Nomad+, links to home_page_admin_loggedin
 	
 	@FXML
 	private Hyperlink hyperlink2; // manage hotels
@@ -69,33 +70,12 @@ public class AccountSettingsController implements Initializable {
 	private Hyperlink hyperlink6; // Logout 
 	
 	@FXML
-	private Hyperlink hyperlink7; // Go back (to home page)
-	
-	//Textfields
-	@FXML
-	private TextField textfield1; // first name
-	
-	@FXML
-	private TextField textfield2; // last name
-	
-	@FXML
-	private TextField textfield3; // email
-	
-	@FXML
-	private TextField textfield4; // phone number
-	
-	@FXML
-	private PasswordField passwordfield1; // old password
-	
-	@FXML
-	private PasswordField passwordfield2; // new password
-	
-	@FXML
-	private PasswordField passwordfield3; // confirm new password
-	
+	private Hyperlink hyperlink7; // Go back
+
 	// Static variables to set style for button when mouse is away/hovering
 	private static String normal_button_style = "-fx-background-color: white; -fx-background-radius: 20";
 	private static String hovered_button_style = "-fx-background-color: #d3d3d3; -fx-background-radius: 20;";
+	
 	
 	/**
 	 * Initializes items for Number of Rooms and Price Range ComboBoxes
@@ -106,27 +86,30 @@ public class AccountSettingsController implements Initializable {
 	@Override
 	public void initialize( URL location, ResourceBundle resources ) {
 		// Normal button style set to white
-	    button.setStyle(normal_button_style);
+	    button1.setStyle(normal_button_style);
+	    button2.setStyle(normal_button_style);
 	    
 	    // Changes to hovered button style, set to a light grey
-	    button.setOnMouseEntered(e -> button.setStyle(hovered_button_style));
+	    button1.setOnMouseEntered(e -> button1.setStyle(hovered_button_style));
+	    button2.setOnMouseEntered(e -> button2.setStyle(hovered_button_style));
 	    
 	    // Changes back to normal button style when mouse stops hovering
-	    button.setOnMouseExited(e -> button.setStyle(normal_button_style));
+	    button1.setOnMouseExited(e -> button1.setStyle(normal_button_style));  
+	    button2.setOnMouseExited(e -> button2.setStyle(normal_button_style));
 	}
 	
 	
 	/**
-	 * Handles event in which user wants to manage hotel reservations
+	 * Handles event in which user wants to manage reservations
 	 * 
-	 * @param event  event in which user clicks Manage Reservations HyperLink
+	 * @param event  event in which user clicks My Reservation HyperLink
 	 * @throws IOException  if a file is unable to be read
 	 */
 	@FXML
 	public void handleManageReservations(ActionEvent event) throws IOException {
 		// Loads the FXML document for manage_reservations and displays it
 		Parent root = FXMLLoader.load(getClass().getResource("/application/manage_reservations.fxml"));
-		Stage window = (Stage)button.getScene().getWindow();
+		Stage window = (Stage)button1.getScene().getWindow();
 		window.setScene(new Scene (root));
 		window.setMaximized(true);
 	}
@@ -135,14 +118,14 @@ public class AccountSettingsController implements Initializable {
 	/**
 	 * Handles event in which user wants to manage hotel properties
 	 * 
-	 * @param event  event in which user clicks Manage Hotels HyperLink
+	 * @param event  event in which user clicks My Reservation HyperLink
 	 * @throws IOException  if a file is unable to be read
 	 */
 	@FXML
 	public void handleManageHotels(ActionEvent event) throws IOException {
 		// Loads the FXML document for manage_hotels and displays it
 		Parent root = FXMLLoader.load(getClass().getResource("/application/manage_hotels.fxml"));
-		Stage window = (Stage)button.getScene().getWindow();
+		Stage window = (Stage)button1.getScene().getWindow();
 		window.setScene(new Scene (root));
 		window.setMaximized(true);
 	}
@@ -156,9 +139,9 @@ public class AccountSettingsController implements Initializable {
 	 */
 	@FXML
 	public void handleMyReservation(ActionEvent event) throws IOException {
-		// Loads the FXML document for my_reservation and displays it
+		// Loads the FXML document for my_account and displays it
 		Parent root = FXMLLoader.load(getClass().getResource("/application/my_reservation.fxml"));
-		Stage window = (Stage)button.getScene().getWindow();
+		Stage window = (Stage)button1.getScene().getWindow();
 		window.setScene(new Scene (root));
 		window.setMaximized(true);
 	}
@@ -174,12 +157,12 @@ public class AccountSettingsController implements Initializable {
 	public void handleAccountSettings(ActionEvent event) throws IOException {
 		// Loads the FXML document for account_settings and displays it
 		Parent root = FXMLLoader.load(getClass().getResource("/application/account_settings.fxml"));
-		Stage window = (Stage)button.getScene().getWindow();
+		Stage window = (Stage)button1.getScene().getWindow();
 		window.setScene(new Scene (root));
 		window.setMaximized(true);
 	}
-
 	
+
 	/**
 	 * Changes view to the LOGGED IN (admin) HOME PAGE after link is clicked
 	 * 
@@ -188,9 +171,9 @@ public class AccountSettingsController implements Initializable {
 	 */
 	@FXML
 	public void handleBackToHomePage( ActionEvent event ) throws IOException {
-		// Loads the FXML document for home_page and displays it
+		// Loads the FXML document for home_page_admin_loggedin and displays it
 		Parent root = FXMLLoader.load(getClass().getResource("/application/home_page_admin_loggedin.fxml"));
-		Stage window = (Stage)button.getScene().getWindow();
+		Stage window = (Stage)button1.getScene().getWindow();
 		window.setMaximized(true);
 		window.setScene(new Scene (root, 1920, 1220));
 	}
@@ -206,7 +189,7 @@ public class AccountSettingsController implements Initializable {
 	public void handleLogout( ActionEvent event ) throws IOException {
 		// Loads the FXML document for home_page and displays it
 		Parent root = FXMLLoader.load(getClass().getResource("/application/home_page.fxml"));
-		Stage window = (Stage)button.getScene().getWindow();
+		Stage window = (Stage)button1.getScene().getWindow();
 		window.setMaximized(true);
 		window.setScene(new Scene (root, 1920, 1050));
 	}
