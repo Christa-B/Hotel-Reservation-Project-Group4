@@ -5,3 +5,14 @@
 #borderpane{
 	-fx-background-color:rgb(51,51,51);
 }
+
+.hyperlink{
+      text-decoration: none;
+      color: inherit;
+      -fx-underline: none;
+}
+
+#pane{
+	-fx-background-color:rgb(51,51,51);
+}
+

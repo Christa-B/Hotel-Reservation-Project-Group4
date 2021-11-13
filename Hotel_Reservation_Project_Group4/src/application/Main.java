@@ -36,6 +36,7 @@ public class Main extends Application {
 			//Scene scene = new Scene( root, 1294, 694 );
 			Scene scene = new Scene(root);
 			pStage.setMaximized(true);
+			pStage.setResizable(false);
 			//pStage.setFullScreen(true); //toggle this instead of setMaximized to set to full screen, esc to exit
 			pStage.setTitle( "Nomad+" );
 			pStage.setScene( scene );
