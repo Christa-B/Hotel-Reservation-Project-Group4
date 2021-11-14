@@ -195,7 +195,7 @@ public class CustomerLoggedInController implements Initializable{
 		Parent root = FXMLLoader.load(getClass().getResource("/application/home_page_customer_loggedin.fxml"));
 		Stage window = (Stage)button.getScene().getWindow();
 		window.setMaximized(true);
-		window.setScene(new Scene (root, 1920, 1050));
+		window.setScene(new Scene (root, 1920, 1260));
 	}
 	
 	

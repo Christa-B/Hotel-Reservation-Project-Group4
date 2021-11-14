@@ -159,7 +159,7 @@ public class LoginController implements Initializable {
 						if(curUser.getAcctType().equals("Customer")) {
 							Parent root = FXMLLoader.load(getClass().getResource("/application/home_page_customer_loggedin.fxml"));
 							Stage window = (Stage)button.getScene().getWindow();
-							window.setScene(new Scene (root));
+							window.setScene(new Scene (root, 1920, 1260));
 							window.setMaximized(true);	
 						}
 						
