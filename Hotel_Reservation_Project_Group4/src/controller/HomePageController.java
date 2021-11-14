@@ -10,6 +10,7 @@ import application.Main;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
 import javafx.util.Callback;
@@ -182,6 +183,5 @@ public class HomePageController implements Initializable{
 		Stage window = (Stage)button.getScene().getWindow();
 		window.setScene(new Scene (root));
 		window.setMaximized(true);
-		
 	}
 }

@@ -113,6 +113,11 @@ public class AccountSettingsController implements Initializable {
 	    
 	    // Changes back to normal button style when mouse stops hovering
 	    button.setOnMouseExited(e -> button.setStyle(normal_button_style));
+	    
+	    if(LoginController.curUser.getAcctType().equals("Customer")) {
+	    	hyperlink2.setVisible(false);
+	    	hyperlink3.setVisible(false);
+	    }
 	}
 	
 	
@@ -188,11 +193,19 @@ public class AccountSettingsController implements Initializable {
 	 */
 	@FXML
 	public void handleBackToHomePage( ActionEvent event ) throws IOException {
-		// Loads the FXML document for home_page and displays it
-		Parent root = FXMLLoader.load(getClass().getResource("/application/home_page_admin_loggedin.fxml"));
-		Stage window = (Stage)button.getScene().getWindow();
-		window.setMaximized(true);
-		window.setScene(new Scene (root, 1920, 1220));
+		if(LoginController.curUser.getAcctType().equals("Customer")) {
+			Parent root = FXMLLoader.load(getClass().getResource("/application/home_page_customer_loggedin.fxml"));
+			Stage window = (Stage)button.getScene().getWindow();
+			window.setMaximized(true);
+			window.setScene(new Scene (root, 1920, 1220));
+		}
+		
+		if(LoginController.curUser.getAcctType().equals("Admin")) {
+			Parent root = FXMLLoader.load(getClass().getResource("/application/home_page_admin_loggedin.fxml"));
+			Stage window = (Stage)button.getScene().getWindow();
+			window.setMaximized(true);
+			window.setScene(new Scene (root, 1920, 1220));
+		}
 	}
 	
 	
@@ -204,6 +217,7 @@ public class AccountSettingsController implements Initializable {
 	 */
 	@FXML
 	public void handleLogout( ActionEvent event ) throws IOException {
+		LoginController.curUser = null; //Cancels out the user session
 		// Loads the FXML document for home_page and displays it
 		Parent root = FXMLLoader.load(getClass().getResource("/application/home_page.fxml"));
 		Stage window = (Stage)button.getScene().getWindow();

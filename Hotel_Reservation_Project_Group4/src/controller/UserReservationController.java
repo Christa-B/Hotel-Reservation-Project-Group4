@@ -103,10 +103,10 @@ public class UserReservationController implements Initializable {
 	@FXML
 	public void handleBackToHomePage( ActionEvent event ) throws IOException {
 		// Loads the FXML document for home_page and displays it
-		Parent root = FXMLLoader.load(getClass().getResource("/application/home_page.fxml"));
+		Parent root = FXMLLoader.load(getClass().getResource("/application/home_page_customer_loggedin.fxml"));
 		Stage window = (Stage)button.getScene().getWindow();
-		window.setScene(new Scene (root));
 		window.setMaximized(true);
+		window.setScene(new Scene (root, 1920, 1220));
 	}
 	
 	/**
@@ -117,6 +117,7 @@ public class UserReservationController implements Initializable {
 	 */
 	@FXML
 	public void handleLogout(ActionEvent event) throws IOException {
+		LoginController.curUser = null; //Cancels out the user session
 		// Loads the FXML document for login_screen and displays it
 		Parent root = FXMLLoader.load(getClass().getResource("/application/login_screen.fxml"));
 		Stage window = (Stage)button.getScene().getWindow();

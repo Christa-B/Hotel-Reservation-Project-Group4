@@ -7,6 +7,7 @@
 package controller;
 
 import application.Main;
+import application.application.User;
 import application.application.UserDataAccessor;
 
 import java.io.IOException;
@@ -320,18 +321,24 @@ public class SignUpController implements Initializable {
 			//We can set this to a different passcode later
 			if(adminpasswordField.getText().equals("Arbitrary")) {
 				userDataAccessor.addUser(thisUsrId, fstNm, lstNm, phnNum, email, pWrd, buttonRes);
+				LoginController.curUser = new User();
+				LoginController.curUser = userDataAccessor.getUser(textFieldEmail.getText(), passwordFieldOne.getText());
 				// Loads the FXML document for home_page and displays it
-				Parent root = FXMLLoader.load(getClass().getResource("/application/home_page.fxml"));
+				Parent root = FXMLLoader.load(getClass().getResource("/application/home_page_admin_loggedin.fxml"));
 				Stage window = (Stage)button.getScene().getWindow();
-				window.setScene(new Scene (root));
+				window.setMaximized(true);
+				window.setScene(new Scene (root, 1920, 1220));
 			}
 		}
 		else if(ValidationFlag == 6) { //Regular customer case
 			userDataAccessor.addUser(thisUsrId, fstNm, lstNm, phnNum, email, pWrd, buttonRes);
+			LoginController.curUser = new User();
+			LoginController.curUser = userDataAccessor.getUser(textFieldEmail.getText(), passwordFieldOne.getText());
 			// Loads the FXML document for home_page and displays it
-			Parent root = FXMLLoader.load(getClass().getResource("/application/home_page.fxml"));
+			Parent root = FXMLLoader.load(getClass().getResource("/application/home_page_customer_loggedin.fxml"));
 			Stage window = (Stage)button.getScene().getWindow();
-			window.setScene(new Scene (root));
+			window.setMaximized(true);
+			window.setScene(new Scene (root, 1920, 1220));
 		}
 		
 		} catch (ClassNotFoundException e1) {

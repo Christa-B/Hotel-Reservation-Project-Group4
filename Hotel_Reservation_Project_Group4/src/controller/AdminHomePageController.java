@@ -148,6 +148,7 @@ public class AdminHomePageController implements Initializable{
 	 */
 	@FXML
 	public void handleLogout(ActionEvent event) throws IOException {
+		LoginController.curUser = null; //Cancels out the user session
 		// Loads the FXML document for login_screen and displays it
 		Parent root = FXMLLoader.load(getClass().getResource("/application/login_screen.fxml"));
 		Stage window = (Stage)button.getScene().getWindow();

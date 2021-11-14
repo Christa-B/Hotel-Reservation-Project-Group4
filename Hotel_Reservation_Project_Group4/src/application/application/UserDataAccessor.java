@@ -50,7 +50,7 @@ public class UserDataAccessor {
     				String passW = rs.getString("passW");
     				String acctType = rs.getString("acctType");
     				User currentUser = new User(userId, firstName, lastName, phoneNum, emailAd, passW, acctType);
-    				connection.close();
+    				//connection.close();
     				return currentUser;
     			} else { connection.close(); return new User(0, "exists-but-passW-is-wrong", "", "", "", "", "");}
     		}
@@ -68,23 +68,70 @@ public class UserDataAccessor {
     		preparedStatement.setString(6, passW);
     		preparedStatement.setString(7, acctType);
     		preparedStatement.executeUpdate();
-    		connection.close();
+    		//connection.close();
     	}
     }
     
     public int makeNewId() throws SQLException {
-    	//Looks at the row count in usrData
-    	String query = "SELECT COUNT(*) FROM usrData";
-    	try(PreparedStatement preparedStatement = connection.prepareStatement(query);){
+    	int errNum = -1; //Error case
+    	String giveRow = "SELECT COUNT(*) FROM usrData"; //Gets the row amount
+    	String doSort = "select userID from usrData order by userID"; //sorts the userId numbers
+    	try(PreparedStatement doSortStatement = connection.prepareStatement(doSort);
+    		PreparedStatement giveRowStatement = connection.prepareStatement(giveRow);){
     		int usrCnt = 0;
-    		ResultSet rs = preparedStatement.executeQuery();
-    		while (rs.next()) {
-    			//Just get the Count and add 1
-    			usrCnt = rs.getInt(1) + 1;
+    		int curNum = 0;
+    		int lstNum = 0;
+    		int numRes = 0;
+    		ResultSet rows = giveRowStatement.executeQuery();
+    		ResultSet rs = doSortStatement.executeQuery();
+    		
+    		rows.next();
+    		
+    		if(rows.getInt(1) == 0) //For empty usrData set case
+    			return usrCnt + 1;
+    		
+    		if(rows.getInt(1) == 1) //For singular entry usrData set case
+    			return usrCnt + 2;
+    		
+    		rs.next(); //Starts the row probing
+    		for(int i = 0; i < rows.getInt(1); i++) {
+    			lstNum = rs.getObject("userID", Integer.class);
+    			
+    			//To ensure that the sql cursor doesn't go beyond the scope of the row count
+    			if(i == rows.getInt(1) - 1)
+    				return lstNum + 1;
+    			
+    			rs.next();
+    			curNum = rs.getObject("userID", Integer.class);
+    			
+    			//This is for gap situations, i.e. userId 5 |gap| userId 9
+    			if(curNum - lstNum > 1) {
+    				numRes = lstNum + 1;
+    				return numRes; //resulting userId
+    			}
     		}
-    		return usrCnt;
-    	}
+    		return errNum; //Base error result, should never arrive here
+    	} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+    	return errNum; //Base error result, should never arrive here
     }
+    
+    //depreciated function
+//    public int makeNewId() throws SQLException {
+//    	//Looks at the row count in usrData
+//    	String query = "SELECT COUNT(*) FROM usrData";
+//    	try(PreparedStatement preparedStatement = connection.prepareStatement(query);){
+//    		int usrCnt = 0;
+//    		ResultSet rs = preparedStatement.executeQuery();
+//    		while (rs.next()) {
+//    			//Just get the Count and add 1
+//    			usrCnt = rs.getInt(1) + 1;
+//    		}
+//    		return usrCnt;
+//    	}
+//    }
         
 
     // other methods, eg. addUser(...) etc

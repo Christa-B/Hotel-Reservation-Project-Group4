@@ -181,6 +181,7 @@ public class ManageReservationsController implements Initializable{
 	
 	@FXML
 	public void handleLogout( ActionEvent event ) throws IOException {
+		LoginController.curUser = null; //Cancels out the user session
 		// Loads the FXML document for home_page and displays it
 		Parent root = FXMLLoader.load(getClass().getResource("/application/home_page.fxml"));
 		Stage window = (Stage)button.getScene().getWindow();
