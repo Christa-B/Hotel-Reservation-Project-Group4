@@ -141,6 +141,41 @@
                   <Font name="System Bold" size="16.0" />
                </font>
             </Label>
+            <Label layoutX="554.0" layoutY="345.0" text="Destination" textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="786.0" layoutY="345.0" prefHeight="25.0" prefWidth="169.0" text="Check in &amp; out date" textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="1006.0" layoutY="345.0" prefHeight="25.0" prefWidth="169.0" text="Number of guests" textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="1186.0" layoutY="345.0" prefHeight="25.0" prefWidth="169.0" text="Number of rooms" textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="693.0" layoutY="452.0" prefHeight="25.0" prefWidth="169.0" text="Room type" textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="873.0" layoutY="452.0" prefHeight="25.0" prefWidth="169.0" text="Price range" textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="1053.0" layoutY="452.0" prefHeight="25.0" prefWidth="169.0" text="Amenities" textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
    </content>

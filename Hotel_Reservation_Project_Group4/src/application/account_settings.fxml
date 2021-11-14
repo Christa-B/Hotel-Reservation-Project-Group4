@@ -11,69 +11,81 @@
 
 <AnchorPane fx:id="anchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AccountSettingsController">
    <children>
-      <Pane layoutX="-4.0" layoutY="116.0" prefHeight="1059.0" prefWidth="1924.0" style="-fx-background-color: #212121;">
+      <Pane layoutX="-4.0" layoutY="116.0" prefHeight="971.0" prefWidth="1924.0" style="-fx-background-color: #212121;">
          <children>
-            <Label fx:id="label1" layoutX="600.0" layoutY="76.0" prefHeight="79.0" prefWidth="791.0" text="Edit your account" textFill="WHITE">
+            <Label fx:id="label1" layoutX="534.0" layoutY="58.0" prefHeight="79.0" prefWidth="335.0" text="User details:" textFill="WHITE">
                <font>
-                  <Font name="Corbel Light" size="48.0" />
+                  <Font name="Corbel Light" size="40.0" />
                </font>
             </Label>
-            <Button fx:id="button" layoutX="780.0" layoutY="660.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="354.0" style="-fx-background-color: white; -fx-background-radius: 20;" text="SUBMIT CHANGES" textFill="#ff3366">
+            <Button fx:id="button" layoutX="787.0" layoutY="736.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="354.0" style="-fx-background-color: white; -fx-background-radius: 20;" text="SUBMIT CHANGES" textFill="#ff3366">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </Button>
-            <TextField fx:id="textfield1" layoutX="600.0" layoutY="250.0" prefHeight="32.0" prefWidth="273.0" style="-fx-background-radius: 0; -fx-background-color: white;" />
-            <TextField fx:id="textfield2" layoutX="1030.0" layoutY="250.0" prefHeight="32.0" prefWidth="273.0" style="-fx-background-radius: 0; -fx-background-color: white;" />
-            <TextField fx:id="textfield3" layoutX="600.0" layoutY="350.0" prefHeight="32.0" prefWidth="273.0" style="-fx-background-radius: 0; -fx-background-color: white;" />
-            <TextField fx:id="textfield4" layoutX="1030.0" layoutY="350.0" prefHeight="32.0" prefWidth="273.0" style="-fx-background-radius: 0; -fx-background-color: white;" />
-            <Pane layoutY="990.0" prefHeight="68.0" prefWidth="1930.0" style="-fx-background-color: #121212;">
+            <TextField fx:id="textfield1" layoutX="534.0" layoutY="184.0" prefHeight="32.0" prefWidth="273.0" style="-fx-background-radius: 0; -fx-background-color: white;" />
+            <TextField fx:id="textfield2" layoutX="534.0" layoutY="359.0" prefHeight="32.0" prefWidth="273.0" style="-fx-background-radius: 0; -fx-background-color: white;" />
+            <TextField fx:id="textfield3" layoutX="534.0" layoutY="273.0" prefHeight="32.0" prefWidth="273.0" style="-fx-background-radius: 0; -fx-background-color: white;" />
+            <TextField fx:id="textfield4" layoutX="534.0" layoutY="447.0" prefHeight="32.0" prefWidth="273.0" style="-fx-background-radius: 0; -fx-background-color: white;" />
+            <Pane layoutY="902.0" prefHeight="68.0" prefWidth="1930.0" style="-fx-background-color: #121212;">
                <children>
                   <Label layoutX="887.0" layoutY="21.0" text="2021 Copyright: NomadPlus.com" textFill="WHITE" />
                </children>
             </Pane>
-            <Hyperlink fx:id="hyperlink7" focusTraversable="false" layoutX="928.0" layoutY="725.0" onAction="#handleBackToHomePage" text="Go back" textFill="#91cd75">
+            <Hyperlink fx:id="hyperlink7" focusTraversable="false" layoutX="921.0" layoutY="786.0" onAction="#handleBackToHomePage" text="Go back" textFill="#91cd75">
                <font>
                   <Font size="16.0" />
                </font></Hyperlink>
-            <Label layoutX="600.0" layoutY="220.0" prefHeight="25.0" prefWidth="146.0" text="First Name" textFill="WHITE">
+            <Label layoutX="534.0" layoutY="154.0" prefHeight="25.0" prefWidth="146.0" text="First Name" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
             </Label>
-            <Label layoutX="1030.0" layoutY="220.0" prefHeight="25.0" prefWidth="146.0" text="Last Name" textFill="WHITE">
+            <Label layoutX="534.0" layoutY="329.0" prefHeight="25.0" prefWidth="146.0" text="Last Name" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
             </Label>
-            <Label layoutX="600.0" layoutY="320.0" prefHeight="25.0" prefWidth="146.0" text="Email" textFill="WHITE">
+            <Label layoutX="534.0" layoutY="243.0" prefHeight="25.0" prefWidth="146.0" text="Email" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
             </Label>
-            <Label layoutX="1030.0" layoutY="320.0" prefHeight="25.0" prefWidth="146.0" text="Phone Number" textFill="WHITE">
+            <Label layoutX="534.0" layoutY="416.0" prefHeight="25.0" prefWidth="146.0" text="Phone Number" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
             </Label>
-            <Label layoutX="819.0" layoutY="430.0" prefHeight="25.0" prefWidth="146.0" text="Old Password" textFill="WHITE">
+            <Label layoutX="1086.0" layoutY="154.0" prefHeight="25.0" prefWidth="146.0" text="Old Password" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
             </Label>
-            <Label layoutX="600.0" layoutY="530.0" prefHeight="25.0" prefWidth="146.0" text="New Password" textFill="WHITE">
+            <Label layoutX="1086.0" layoutY="243.0" prefHeight="25.0" prefWidth="146.0" text="New Password" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
             </Label>
-            <Label layoutX="1030.0" layoutY="530.0" prefHeight="25.0" prefWidth="196.0" text="Confirm New Password" textFill="WHITE">
+            <Label layoutX="1086.0" layoutY="329.0" prefHeight="25.0" prefWidth="196.0" text="Confirm New Password" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
             </Label>
-            <PasswordField fx:id="passwordfield1" layoutX="819.0" layoutY="460.0" prefHeight="32.0" prefWidth="273.0" style="-fx-background-color: white; -fx-background-radius: 0;" />
-            <PasswordField fx:id="passwordfield2" layoutX="600.0" layoutY="560.0" prefHeight="32.0" prefWidth="273.0" style="-fx-background-color: white; -fx-background-radius: 0;" />
-            <PasswordField fx:id="passwordfield3" layoutX="1030.0" layoutY="560.0" prefHeight="32.0" prefWidth="273.0" style="-fx-background-color: white; -fx-background-radius: 0;" />
+            <PasswordField fx:id="passwordfield1" layoutX="1086.0" layoutY="184.0" prefHeight="32.0" prefWidth="273.0" style="-fx-background-color: white; -fx-background-radius: 0;" />
+            <PasswordField fx:id="passwordfield2" layoutX="1086.0" layoutY="273.0" prefHeight="32.0" prefWidth="273.0" style="-fx-background-color: white; -fx-background-radius: 0;" />
+            <PasswordField fx:id="passwordfield3" layoutX="1086.0" layoutY="359.0" prefHeight="32.0" prefWidth="273.0" style="-fx-background-color: white; -fx-background-radius: 0;" />
+            <Label fx:id="label11" layoutX="1086.0" layoutY="58.0" prefHeight="79.0" prefWidth="441.0" text="Change password:" textFill="WHITE">
+               <font>
+                  <Font name="Corbel Light" size="40.0" />
+               </font>
+            </Label>
+            <Label fx:id="label12" layoutX="534.0" layoutY="519.0" prefHeight="79.0" prefWidth="335.0" text="Delete account:" textFill="WHITE">
+               <font>
+                  <Font name="Corbel Light" size="40.0" />
+               </font>
+            </Label>
+            <ComboBox layoutX="534.0" layoutY="616.0" prefHeight="32.0" prefWidth="277.0" style="-fx-background-color: white; -fx-background-radius: 0;" />
+            <Label layoutX="907.0" layoutY="624.0" text="//Delete account can be a button or something else, ask user &quot;are you sure?&quot;" textFill="WHITE" />
          </children>
       </Pane>
       <BorderPane id="borderpane" layoutY="-4.0" opacity="0.0" prefHeight="119.0" prefWidth="1920.0" stylesheets="@../../../../git/Project-Nomad/Hotel_Reservation_Project_Group4/src/application/style.css">
