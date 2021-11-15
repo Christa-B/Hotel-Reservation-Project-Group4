@@ -40,7 +40,7 @@
                         </TableView>
                      </content>
                   </ScrollPane>
-                  <Hyperlink fx:id="hyperlink7" focusTraversable="false" layoutX="1542.0" layoutY="78.0" onAction="#handleBackToHomePage" text="Go back" textFill="#91cd75">
+                  <Hyperlink fx:id="go_back_link" focusTraversable="false" layoutX="1542.0" layoutY="78.0" onAction="#handleBackToHomePage" text="Go back" textFill="#91cd75">
                      <font>
                         <Font size="16.0" />
                      </font>
@@ -56,23 +56,23 @@
                   <Insets />
                </opaqueInsets>
             </BorderPane>
-            <Hyperlink fx:id="hyperlink4" focusTraversable="false" layoutX="1415.0" layoutY="70.0" onAction="#handleMyReservation" text="My Reservation" textFill="WHITE">
+            <Hyperlink fx:id="my_reservation_link" focusTraversable="false" layoutX="1415.0" layoutY="70.0" onAction="#handleMyReservation" text="My Reservation" textFill="WHITE">
                <font>
                   <Font name="Yu Gothic Regular" size="20.0" />
                </font>
             </Hyperlink>
-            <Hyperlink fx:id="hyperlink5" focusTraversable="false" layoutX="1600.0" layoutY="70.0" onAction="#handleAccountSettings" text="Account Settings" textFill="WHITE">
+            <Hyperlink fx:id="account_settings_link" focusTraversable="false" layoutX="1600.0" layoutY="70.0" onAction="#handleAccountSettings" text="Account Settings" textFill="WHITE">
                <font>
                   <Font name="Yu Gothic Regular" size="20.0" />
                </font>
             </Hyperlink>
-            <Hyperlink fx:id="hyperlink1" focusTraversable="false" layoutX="33.0" layoutY="34.0" onAction="#handleBackToHomePage" text="Nomad+" textFill="#f8f8f8">
+            <Hyperlink fx:id="nomadplus_link" focusTraversable="false" layoutX="33.0" layoutY="34.0" onAction="#handleBackToHomePage" text="Nomad+" textFill="#f8f8f8">
                <font>
                   <Font size="48.0" />
                </font>
             </Hyperlink>
             <BorderPane id="accentborder" layoutY="113.0" prefHeight="11.0" prefWidth="1920.0" style="-fx-background-color: darkorange;" />
-            <Hyperlink fx:id="hyperlink6" focusTraversable="false" layoutX="1800.0" layoutY="70.0" onAction="#handleLogout" text="Logout" textFill="WHITE">
+            <Hyperlink fx:id="logout_link" focusTraversable="false" layoutX="1800.0" layoutY="70.0" onAction="#handleLogout" text="Logout" textFill="WHITE">
                <font>
                   <Font name="Yu Gothic Regular" size="20.0" />
                </font>
@@ -82,12 +82,12 @@
                   <Label layoutX="887.0" layoutY="21.0" text="2021 Copyright: NomadPlus.com" textFill="WHITE" />
                </children>
             </Pane>
-            <Hyperlink fx:id="hyperlink3" focusTraversable="false" layoutX="1170.0" layoutY="70.0" onAction="#handleManageReservations" text="Manage Reservations" textFill="WHITE">
+            <Hyperlink fx:id="manage_reservations_link" focusTraversable="false" layoutX="1170.0" layoutY="70.0" onAction="#handleManageReservations" text="Manage Reservations" textFill="WHITE">
                <font>
                   <Font name="Yu Gothic Regular" size="20.0" />
                </font>
             </Hyperlink>
-            <Hyperlink fx:id="hyperlink2" focusTraversable="false" layoutX="990.0" layoutY="70.0" onAction="#handleManageHotels" text="Manage Hotels" textFill="WHITE">
+            <Hyperlink fx:id="manage_hotels_link" focusTraversable="false" layoutX="990.0" layoutY="70.0" onAction="#handleManageHotels" text="Manage Hotels" textFill="WHITE">
                <font>
                   <Font name="Yu Gothic Regular" size="20.0" />
                </font>

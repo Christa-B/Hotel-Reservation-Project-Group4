@@ -20,7 +20,7 @@
                         <Font name="Corbel Light" size="48.0" />
                      </font>
                   </Label>
-                  <Hyperlink fx:id="hyperlink7" focusTraversable="false" layoutX="1624.0" layoutY="118.0" onAction="#handleBackToHomePage" text="Go back" textFill="#91cd75">
+                  <Hyperlink fx:id="go_back_link" focusTraversable="false" layoutX="1624.0" layoutY="118.0" onAction="#handleBackToHomePage" text="Go back" textFill="#91cd75">
                      <font>
                         <Font size="16.0" />
                      </font>
@@ -36,8 +36,8 @@
                   <Insets />
                </opaqueInsets>
             </BorderPane>
-            <DatePicker fx:id="datepicker1" focusTraversable="false" layoutX="100.0" layoutY="350.0" prefHeight="32.0" prefWidth="200.0" promptText="Check in" style="-fx-background-color: white; -fx-background-radius: 0;" />
-            <MenuButton fx:id="menubutton" layoutX="100.0" layoutY="650.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="200.0" style="-fx-background-color: white; -fx-background-radius: 0;" text="Amenities">
+            <DatePicker fx:id="check_in_datepicker" focusTraversable="false" layoutX="100.0" layoutY="350.0" prefHeight="32.0" prefWidth="200.0" promptText="Check in" style="-fx-background-color: white; -fx-background-radius: 0;" />
+            <MenuButton fx:id="amenities_menui" layoutX="100.0" layoutY="650.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="200.0" style="-fx-background-color: white; -fx-background-radius: 0;" text="Amenities">
               <items>
                   <CheckMenuItem fx:id="checkmenuitem1" mnemonicParsing="false" text="Gym" />
                   <CheckMenuItem fx:id="checkmenuitem2" mnemonicParsing="false" text="Spa" />
@@ -46,49 +46,49 @@
                   <CheckMenuItem fx:id="checkmenuitem5" mnemonicParsing="false" text="Wifi" />
               </items>
             </MenuButton>
-            <ComboBox fx:id="combobox2" editable="true" layoutX="100.0" layoutY="500.0" prefHeight="32.0" prefWidth="200.0" promptText="1 Room" style="-fx-background-color: white; -fx-background-radius: 0;" />
-            <ComboBox fx:id="combobox1" editable="true" layoutX="100.0" layoutY="450.0" prefHeight="32.0" prefWidth="200.0" promptText="Guests" style="-fx-background-color: white; -fx-background-radius: 0;" />
-            <Button fx:id="button" layoutX="100.0" layoutY="700.0" mnemonicParsing="false" onAction="#handleSearch" prefHeight="39.0" prefWidth="200.0" style="-fx-background-color: white; -fx-background-radius: 20;" text="SEARCH" textFill="#ff3366">
+            <ComboBox fx:id="num_rooms_combobox" editable="true" layoutX="100.0" layoutY="500.0" prefHeight="32.0" prefWidth="200.0" promptText="1 Room" style="-fx-background-color: white; -fx-background-radius: 0;" />
+            <ComboBox fx:id="num_guests_combobox" editable="true" layoutX="100.0" layoutY="450.0" prefHeight="32.0" prefWidth="200.0" promptText="Guests" style="-fx-background-color: white; -fx-background-radius: 0;" />
+            <Button fx:id="search_button" layoutX="100.0" layoutY="700.0" mnemonicParsing="false" onAction="#handleSearch" prefHeight="39.0" prefWidth="200.0" style="-fx-background-color: white; -fx-background-radius: 20;" text="SEARCH" textFill="#ff3366">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </Button>
-            <Hyperlink fx:id="hyperlink4" focusTraversable="false" layoutX="1415.0" layoutY="70.0" onAction="#handleMyReservation" text="My Reservation" textFill="WHITE">
+            <Hyperlink fx:id="my_reservation_link" focusTraversable="false" layoutX="1415.0" layoutY="70.0" onAction="#handleMyReservation" text="My Reservation" textFill="WHITE">
                <font>
                   <Font name="Yu Gothic Regular" size="20.0" />
                </font>
             </Hyperlink>
-            <Hyperlink fx:id="hyperlink5" focusTraversable="false" layoutX="1600.0" layoutY="70.0" onAction="#handleAccountSettings" text="Account Settings" textFill="WHITE">
+            <Hyperlink fx:id="account_settings_link" focusTraversable="false" layoutX="1600.0" layoutY="70.0" onAction="#handleAccountSettings" text="Account Settings" textFill="WHITE">
                <font>
                   <Font name="Yu Gothic Regular" size="20.0" />
                </font>
             </Hyperlink>
-            <Hyperlink fx:id="hyperlink1" focusTraversable="false" layoutX="33.0" layoutY="34.0" onAction="#handleBackToHomePage" text="Nomad+" textFill="#f8f8f8">
+            <Hyperlink fx:id="nomadplus_link" focusTraversable="false" layoutX="33.0" layoutY="34.0" onAction="#handleBackToHomePage" text="Nomad+" textFill="#f8f8f8">
                <font>
                   <Font size="48.0" />
                </font>
             </Hyperlink>
-            <ComboBox fx:id="combobox4" editable="true" layoutX="100.0" layoutY="600.0" prefHeight="32.0" prefWidth="200.0" promptText="Price range" style="-fx-background-color: white; -fx-background-radius: 0;" />
+            <ComboBox fx:id="price_range_combobox" editable="true" layoutX="100.0" layoutY="600.0" prefHeight="32.0" prefWidth="200.0" promptText="Price range" style="-fx-background-color: white; -fx-background-radius: 0;" />
             <TextField fx:id="location_input" layoutX="100.0" layoutY="300.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="32.0" prefWidth="200.0" promptText="Where are we going?" style="-fx-background-color: white; -fx-background-radius: 0;" stylesheets="@style.css" />
-            <ComboBox fx:id="combobox3" editable="true" layoutX="100.0" layoutY="550.0" prefHeight="32.0" prefWidth="200.0" promptText="Room Type" style="-fx-background-color: white; -fx-background-radius: 0;" />
+            <ComboBox fx:id="room_type_combobox" editable="true" layoutX="100.0" layoutY="550.0" prefHeight="32.0" prefWidth="200.0" promptText="Room Type" style="-fx-background-color: white; -fx-background-radius: 0;" />
             <BorderPane id="accentborder" layoutY="113.0" prefHeight="11.0" prefWidth="1920.0" style="-fx-background-color: darkorange;" />
-            <Hyperlink fx:id="hyperlink6" focusTraversable="false" layoutX="1800.0" layoutY="70.0" onAction="#handleLogout" text="Logout" textFill="WHITE">
+            <Hyperlink fx:id="logout_link" focusTraversable="false" layoutX="1800.0" layoutY="70.0" onAction="#handleLogout" text="Logout" textFill="WHITE">
                <font>
                   <Font name="Yu Gothic Regular" size="20.0" />
                </font>
             </Hyperlink>
-            <DatePicker fx:id="datepicker2" focusTraversable="false" layoutX="100.0" layoutY="400.0" prefHeight="32.0" prefWidth="200.0" promptText="Check out" style="-fx-background-color: white; -fx-background-radius: 0;" />
+            <DatePicker fx:id="check_out_datepicker" focusTraversable="false" layoutX="100.0" layoutY="400.0" prefHeight="32.0" prefWidth="200.0" promptText="Check out" style="-fx-background-color: white; -fx-background-radius: 0;" />
             <Pane layoutX="-22.0" layoutY="1157.0" prefHeight="66.0" prefWidth="1952.0" style="-fx-background-color: #121212;">
                <children>
                   <Label layoutX="887.0" layoutY="21.0" text="2021 Copyright: NomadPlus.com" textFill="WHITE" />
                </children>
             </Pane>
-            <Hyperlink fx:id="hyperlink3" focusTraversable="false" layoutX="1170.0" layoutY="70.0" onAction="#handleManageReservations" text="Manage Reservations" textFill="WHITE">
+            <Hyperlink fx:id="manage_reservations_link" focusTraversable="false" layoutX="1170.0" layoutY="70.0" onAction="#handleManageReservations" text="Manage Reservations" textFill="WHITE">
                <font>
                   <Font name="Yu Gothic Regular" size="20.0" />
                </font>
             </Hyperlink>
-            <Hyperlink fx:id="hyperlink2" focusTraversable="false" layoutX="990.0" layoutY="70.0" onAction="#handleManageHotels" text="Manage Hotels" textFill="WHITE">
+            <Hyperlink fx:id="manage_hotels_link" focusTraversable="false" layoutX="990.0" layoutY="70.0" onAction="#handleManageHotels" text="Manage Hotels" textFill="WHITE">
                <font>
                   <Font name="Yu Gothic Regular" size="20.0" />
                </font>
