@@ -24,8 +24,8 @@
                </font>
             </Button>
             <TextField fx:id="textfield1" layoutX="534.0" layoutY="184.0" prefHeight="32.0" prefWidth="273.0" style="-fx-background-radius: 0; -fx-background-color: white;" />
-            <TextField fx:id="textfield2" layoutX="534.0" layoutY="359.0" prefHeight="32.0" prefWidth="273.0" style="-fx-background-radius: 0; -fx-background-color: white;" />
-            <TextField fx:id="textfield3" layoutX="534.0" layoutY="273.0" prefHeight="32.0" prefWidth="273.0" style="-fx-background-radius: 0; -fx-background-color: white;" />
+            <TextField fx:id="textfield2" layoutX="534.0" layoutY="273.0" prefHeight="32.0" prefWidth="273.0" style="-fx-background-radius: 0; -fx-background-color: white;" />
+            <TextField fx:id="textfield3" layoutX="534.0" layoutY="359.0" prefHeight="32.0" prefWidth="273.0" style="-fx-background-radius: 0; -fx-background-color: white;" />
             <TextField fx:id="textfield4" layoutX="534.0" layoutY="447.0" prefHeight="32.0" prefWidth="273.0" style="-fx-background-radius: 0; -fx-background-color: white;" />
             <Pane layoutY="902.0" prefHeight="68.0" prefWidth="1930.0" style="-fx-background-color: #121212;">
                <children>
@@ -36,22 +36,22 @@
                <font>
                   <Font size="16.0" />
                </font></Hyperlink>
-            <Label layoutX="534.0" layoutY="154.0" prefHeight="25.0" prefWidth="146.0" text="First Name" textFill="WHITE">
+            <Label layoutX="534.0" layoutY="154.0" prefHeight="25.0" prefWidth="146.0" text="New First Name" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
             </Label>
-            <Label layoutX="534.0" layoutY="329.0" prefHeight="25.0" prefWidth="146.0" text="Last Name" textFill="WHITE">
+            <Label layoutX="534.0" layoutY="243.0" prefHeight="25.0" prefWidth="146.0" text="New Last Name" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
             </Label>
-            <Label layoutX="534.0" layoutY="243.0" prefHeight="25.0" prefWidth="146.0" text="Email" textFill="WHITE">
+            <Label layoutX="534.0" layoutY="329.0" prefHeight="25.0" prefWidth="146.0" text="New Email" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
             </Label>
-            <Label layoutX="534.0" layoutY="416.0" prefHeight="25.0" prefWidth="146.0" text="Phone Number" textFill="WHITE">
+            <Label layoutX="534.0" layoutY="416.0" prefHeight="25.0" prefWidth="162.0" text="New Phone Number" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
@@ -86,6 +86,11 @@
             </Label>
             <ComboBox layoutX="534.0" layoutY="616.0" prefHeight="32.0" prefWidth="277.0" style="-fx-background-color: white; -fx-background-radius: 0;" />
             <Label layoutX="907.0" layoutY="624.0" text="//Delete account can be a button or something else, ask user &quot;are you sure?&quot;" textFill="WHITE" />
+            <Label layoutX="529.0" layoutY="42.0" prefHeight="32.0" prefWidth="335.0" text="Enter new account details at your leisure." textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
          </children>
       </Pane>
       <BorderPane id="borderpane" layoutY="-4.0" opacity="0.0" prefHeight="119.0" prefWidth="1920.0" stylesheets="@../../../../git/Project-Nomad/Hotel_Reservation_Project_Group4/src/application/style.css">
