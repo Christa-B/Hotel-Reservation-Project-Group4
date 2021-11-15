@@ -55,9 +55,6 @@ public class AccountSettingsController implements Initializable {
 	@FXML
 	private Label label1; // Edit your account
 	
-	@FXML
-	private Label label2; // hidden label for admin
-	
 	// HyperLinks
 	@FXML
 	private Hyperlink hyperlink1; // Nomad+, link to home page
@@ -97,12 +94,6 @@ public class AccountSettingsController implements Initializable {
 	private Label overallNameErrorText; // If first & last both have errors
 	
 	@FXML
-	private Label firstNameErrorText; // first name error only
-	
-	@FXML
-	private Label lastNameErrorText; // last name error only
-	
-	@FXML
 	private Label emailErrorText; // email errors
 
 	@FXML
@@ -123,19 +114,9 @@ public class AccountSettingsController implements Initializable {
 	@FXML
 	private PasswordField passwordfield3; // confirm new password
 	
-	@FXML
-	private PasswordField adminpasswordField; // To confirm admin passcode
-	
-	// ChoiceBoxes
-	@FXML
-	private ComboBox<String> comboBoxAccount; // Option for customer/administrator account type
-	
 	// Static variables to set style for button when mouse is away/hovering
 	private static String normal_button_style = "-fx-background-color: white; -fx-background-radius: 20";
 	private static String hovered_button_style = "-fx-background-color: #d3d3d3; -fx-background-radius: 20;";
-	
-	// List of items for ComboBoxes (prices and rooms)
-	ObservableList<String> list1 = FXCollections.observableArrayList("Customer", "Admin");
 	
 	/**
 	 * Initializes items for Number of Rooms and Price Range ComboBoxes
@@ -145,9 +126,6 @@ public class AccountSettingsController implements Initializable {
 	 */
 	@Override
 	public void initialize( URL location, ResourceBundle resources ) {
-		// Sets choicebox items
-		comboBoxAccount.setItems(list1);
-		
 		// Normal button style set to white
 	    button.setStyle(normal_button_style);
 	    
@@ -161,22 +139,6 @@ public class AccountSettingsController implements Initializable {
 	    	hyperlink2.setVisible(false);
 	    	hyperlink3.setVisible(false);
 	    }
-	    
-		if(LoginController.curUser.getAcctType().equals("Admin")) {
-			label2.setVisible(true);
-			comboBoxAccount.setVisible(true);
-			adminpasswordField.setVisible(true);
-			
-			passwordErrorText.setText("If trying to edit another user in the system. Please enter info into the appropriate places." +
-			" Otherwise, continue editing your account.");
-			passwordErrorText.setStyle("-fx-font-weight: bold");
-			passwordErrorText.setVisible(true);
-			
-			overallNameErrorText.setText("You must have the email and password information of the account if you are trying to change another" 
-					+ " user in the system. Enter them in New Email and Old Password respectively.");
-			overallNameErrorText.setStyle("-fx-font-weight: bold");
-			overallNameErrorText.setVisible(true);
-		}
 	}
 	
 	/**
@@ -210,21 +172,6 @@ public class AccountSettingsController implements Initializable {
 			String phnNum = "";
 			String pWrd = "";
 			String acctType = LoginController.curUser.getAcctType();
-			
-			
-			/*
-			 * String fstNm = LoginController.curUser.getFirstName();
-			String lstNm = LoginController.curUser.getLastName();
-			String email = LoginController.curUser.getEmailAd();
-			String phnNum = LoginController.curUser.getPhoneNum();
-			String pWrd = LoginController.curUser.getPassW();
-			String acctType = LoginController.curUser.getAcctType();
-			 * 
-			 * 
-			 * 			User tmpUsr = new User();
-				tmpUsr = userDataAccessor.getUser(textfield3.getText(), passwordfield1.getText());
-				thisUsrId = tmpUsr.getUserId();	
-			 */
 		
 			//check for correct naming format
 			if(textfield1.getText() == null || textfield1.getText().isEmpty()) {
@@ -353,17 +300,8 @@ public class AccountSettingsController implements Initializable {
 				}
 			}
 			
-			if(ValidationFlag == 5 && LoginController.curUser.getAcctType().equals("Admin")) {
-				//We can set this to a different passcode later
-				if(adminpasswordField.getText().equals("Arbitrary")) {
-					if(comboBoxAccount.getValue() == null || comboBoxAccount.getValue().isEmpty()) {
-						LoginController.curUser.getAcctType();
-					}
-					else {
-						acctType = comboBoxAccount.getValue();
-					}
-					
-					acctType = LoginController.curUser.getAcctType();
+			if(ValidationFlag == 5) {
+				if(LoginController.curUser.getAcctType().equals("Admin")) { //admin case
 					userDataAccessor.updateUser(thisUsrId, fstNm, lstNm, phnNum, email, pWrd, acctType);
 					LoginController.curUser = userDataAccessor.getUser(textfield3.getText(), passwordfield2.getText());
 					// Loads the FXML document for home_page and displays it
@@ -372,48 +310,16 @@ public class AccountSettingsController implements Initializable {
 					window.setMaximized(true);
 					window.setScene(new Scene (root, 1920, 1220));
 				}
+				else { //customer case
+					userDataAccessor.updateUser(thisUsrId, fstNm, lstNm, phnNum, email, pWrd, acctType);
+					LoginController.curUser = userDataAccessor.getUser(textfield3.getText(), passwordfield2.getText());
+					Parent root = FXMLLoader.load(getClass().getResource("/application/home_page_customer_loggedin.fxml"));
+					Stage window = (Stage)button.getScene().getWindow();
+					window.setScene(new Scene (root, 1920, 1260));
+					window.setMaximized(true);	
+				}	
 			}
-			else if(ValidationFlag == 5) { //customer case
-				userDataAccessor.updateUser(thisUsrId, fstNm, lstNm, phnNum, email, pWrd, acctType);
-				LoginController.curUser = userDataAccessor.getUser(textfield3.getText(), passwordfield2.getText());
-				Parent root = FXMLLoader.load(getClass().getResource("/application/home_page_customer_loggedin.fxml"));
-				Stage window = (Stage)button.getScene().getWindow();
-				window.setScene(new Scene (root, 1920, 1260));
-				window.setMaximized(true);	
-			}
-			else if(LoginController.curUser.getAcctType().equals("Admin")){
-				User tmpUsr = new User();
-				tmpUsr = userDataAccessor.getUser(textfield3.getText(), passwordfield1.getText());
-				thisUsrId = tmpUsr.getUserId();	
-				
-				if(thisUsrId == 0) {
-					passwordErrorText.setText("Incorrect user information.");
-					passwordErrorText.setStyle("-fx-font-weight: bold");
-					passwordErrorText.setVisible(true);
-				}
-				else if(comboBoxAccount.getValue() == null || comboBoxAccount.getValue().isEmpty()){
-					passwordErrorText.setText("Please choose an account type.");
-					passwordErrorText.setStyle("-fx-font-weight: bold");
-					passwordErrorText.setVisible(true);
-				}
-				else {
-					if(adminpasswordField.getText().equals("Arbitrary")) {
-						fstNm = tmpUsr.getFirstName();	
-						lstNm = tmpUsr.getLastName();	
-						email = textfield3.getText();
-						phnNum = tmpUsr.getPhoneNum();
-						pWrd = passwordfield1.getText();
-						acctType = comboBoxAccount.getValue();
-						userDataAccessor.updateUser(thisUsrId, fstNm, lstNm, phnNum, email, pWrd, acctType);
-						
-						// Loads the FXML document for login_screen and displays it
-						Parent root = FXMLLoader.load(getClass().getResource("/application/login_screen.fxml"));
-						Stage window = (Stage)hyperlink2.getScene().getWindow();
-						window.setScene(new Scene (root));
-						window.setMaximized(true);
-					}
-				}
-			}
+			
 			
 		} catch (ClassNotFoundException e1) {
 			// TODO Auto-generated catch block
