@@ -41,39 +41,36 @@ import javafx.scene.input.*;
 public class MyReservationController implements Initializable{
 	// Buttons
 	@FXML
-	private Button button; // Search Button
+	private Button submit_changes_button; // Submit changes
 	
 	@FXML
-	private Button button1; // Submit changes
-	
-	@FXML
-	private Button button2; // Cancel Reservation
+	private Button cancel_reservation_button; // Cancel Reservation
 	
 	// Labels
 	@FXML
-	private Label label1; // Find the best hotels at the best price, here
+	private Label label1; 
 	
 	// HyperLinks
 	@FXML
-	private Hyperlink hyperlink1; // Nomad+, links to home_page_admin_loggedin **may need to copy for customer ver.
+	private Hyperlink nomadplus_link; // Nomad+, links to home_page_admin_loggedin **may need to copy for customer ver.
 	
 	@FXML
-	private Hyperlink hyperlink2; // manage hotels
+	private Hyperlink manage_hotels_link; // manage hotels
 	
 	@FXML
-	private Hyperlink hyperlink3; // manage reservations
+	private Hyperlink manage_reservations_link; // manage reservations
 	
 	@FXML
-	private Hyperlink hyperlink4; // my reservation
+	private Hyperlink my_reservation_link; // my reservation
 	
 	@FXML
-	private Hyperlink hyperlink5; // account settings
+	private Hyperlink account_settings_link; // account settings
 	
 	@FXML
-	private Hyperlink hyperlink6; // Logout 
+	private Hyperlink logout_link; // Logout 
 	
 	@FXML
-	private Hyperlink hyperlink7; // Go back
+	private Hyperlink go_back_link; // Go back
 
 	// Static variables to set style for button when mouse is away/hovering
 	private static String normal_button_style = "-fx-background-color: white; -fx-background-radius: 20";
@@ -89,20 +86,20 @@ public class MyReservationController implements Initializable{
 	@Override
 	public void initialize( URL location, ResourceBundle resources ) {
 		// Normal button style set to white
-	    button1.setStyle(normal_button_style);
-	    button2.setStyle(normal_button_style);
+	    submit_changes_button.setStyle(normal_button_style);
+	    cancel_reservation_button.setStyle(normal_button_style);
 	    
 	    // Changes to hovered button style, set to a light grey
-	    button1.setOnMouseEntered(e -> button1.setStyle(hovered_button_style));
-	    button2.setOnMouseEntered(e -> button2.setStyle(hovered_button_style));
+	    submit_changes_button.setOnMouseEntered(e -> submit_changes_button.setStyle(hovered_button_style));
+	    cancel_reservation_button.setOnMouseEntered(e -> cancel_reservation_button.setStyle(hovered_button_style));
 	    
 	    // Changes back to normal button style when mouse stops hovering
-	    button1.setOnMouseExited(e -> button1.setStyle(normal_button_style));
-	    button2.setOnMouseExited(e -> button2.setStyle(normal_button_style));
+	    submit_changes_button.setOnMouseExited(e -> submit_changes_button.setStyle(normal_button_style));
+	    cancel_reservation_button.setOnMouseExited(e -> cancel_reservation_button.setStyle(normal_button_style));
 	    
 	    if(LoginController.curUser.getAcctType().equals("Customer")) {
-	    	hyperlink2.setVisible(false);
-	    	hyperlink3.setVisible(false);
+	    	manage_hotels_link.setVisible(false);
+	    	manage_reservations_link.setVisible(false);
 	    }
 	}
 	
@@ -117,7 +114,7 @@ public class MyReservationController implements Initializable{
 	public void handleManageReservations(ActionEvent event) throws IOException {
 		// Loads the FXML document for manage_reservations and displays it
 		Parent root = FXMLLoader.load(getClass().getResource("/application/manage_reservations.fxml"));
-		Stage window = (Stage)hyperlink3.getScene().getWindow();
+		Stage window = (Stage)manage_reservations_link.getScene().getWindow();
 		window.setScene(new Scene (root));
 		window.setMaximized(true);
 	}
@@ -133,7 +130,7 @@ public class MyReservationController implements Initializable{
 	public void handleManageHotels(ActionEvent event) throws IOException {
 		// Loads the FXML document for manage_hotels and displays it
 		Parent root = FXMLLoader.load(getClass().getResource("/application/manage_hotels.fxml"));
-		Stage window = (Stage)hyperlink2.getScene().getWindow();
+		Stage window = (Stage)manage_hotels_link.getScene().getWindow();
 		window.setScene(new Scene (root));
 		window.setMaximized(true);
 	}
@@ -149,7 +146,7 @@ public class MyReservationController implements Initializable{
 	public void handleMyReservation(ActionEvent event) throws IOException {
 		// Loads the FXML document for my_reservation and displays it
 		Parent root = FXMLLoader.load(getClass().getResource("/application/my_reservation.fxml"));
-		Stage window = (Stage)hyperlink4.getScene().getWindow();
+		Stage window = (Stage)my_reservation_link.getScene().getWindow();
 		window.setScene(new Scene (root));
 		window.setMaximized(true);
 	}
@@ -165,7 +162,7 @@ public class MyReservationController implements Initializable{
 	public void handleAccountSettings(ActionEvent event) throws IOException {
 		// Loads the FXML document for account_settings and displays it
 		Parent root = FXMLLoader.load(getClass().getResource("/application/account_settings.fxml"));
-		Stage window = (Stage)hyperlink5.getScene().getWindow();
+		Stage window = (Stage)account_settings_link.getScene().getWindow();
 		window.setScene(new Scene (root));
 		window.setMaximized(true);
 	}
@@ -183,14 +180,14 @@ public class MyReservationController implements Initializable{
 		// Loads the FXML document for home_page_loggedinand displays it
 		if(LoginController.curUser.getAcctType().equals("Customer")) {
 			Parent root = FXMLLoader.load(getClass().getResource("/application/home_page_customer_loggedin.fxml"));
-			Stage window = (Stage)hyperlink1.getScene().getWindow();
+			Stage window = (Stage)nomadplus_link.getScene().getWindow();
 			window.setMaximized(true);
 			window.setScene(new Scene (root, 1920, 1260));
 		}
 		
 		if(LoginController.curUser.getAcctType().equals("Admin")) {
 			Parent root = FXMLLoader.load(getClass().getResource("/application/home_page_admin_loggedin.fxml"));
-			Stage window = (Stage)hyperlink1.getScene().getWindow();
+			Stage window = (Stage)nomadplus_link.getScene().getWindow();
 			window.setMaximized(true);
 			window.setScene(new Scene (root, 1920, 1220));
 		}
@@ -208,7 +205,7 @@ public class MyReservationController implements Initializable{
 		LoginController.curUser = null; //Cancels out the user session
 		// Loads the FXML document for home_page and displays it
 		Parent root = FXMLLoader.load(getClass().getResource("/application/home_page.fxml"));
-		Stage window = (Stage)hyperlink6.getScene().getWindow();
+		Stage window = (Stage)logout_link.getScene().getWindow();
 		window.setMaximized(true);
 		window.setScene(new Scene (root, 1920, 1050));
 	}

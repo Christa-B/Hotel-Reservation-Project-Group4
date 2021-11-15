@@ -49,25 +49,25 @@ public class ManageReservationsController implements Initializable{
 	
 	// HyperLinks
 	@FXML
-	private Hyperlink hyperlink1; // Nomad+, links to home_page_admin_loggedin
+	private Hyperlink nomadplus_link; // Nomad+, links to home_page_admin_loggedin
 	
 	@FXML
-	private Hyperlink hyperlink2; // manage hotels
+	private Hyperlink manage_hotels_link; // manage hotels
 	
 	@FXML
-	private Hyperlink hyperlink3; // manage reservations
+	private Hyperlink manage_reservations_link; // manage reservations
 	
 	@FXML
 	private Hyperlink hyperlink4; // my reservation
 	
 	@FXML
-	private Hyperlink hyperlink5; // account settings
+	private Hyperlink account_settings_link; // account settings
 	
 	@FXML
-	private Hyperlink hyperlink6; // Logout 
+	private Hyperlink logout_link; // Logout 
 	
 	@FXML
-	private Hyperlink hyperlink7; // Go back
+	private Hyperlink go_back_link; // Go back
 	
 	// Static variables to set style for button when mouse is away/hovering
 	private static String normal_button_style = "-fx-background-color: white; -fx-background-radius: 20";
@@ -103,7 +103,7 @@ public class ManageReservationsController implements Initializable{
 	public void handleManageReservations(ActionEvent event) throws IOException {
 		// Loads the FXML document for manage_reservations and displays it
 		Parent root = FXMLLoader.load(getClass().getResource("/application/manage_reservations.fxml"));
-		Stage window = (Stage)hyperlink3.getScene().getWindow();
+		Stage window = (Stage)manage_reservations_link.getScene().getWindow();
 		window.setScene(new Scene (root));
 		window.setMaximized(true);
 	}
@@ -119,7 +119,7 @@ public class ManageReservationsController implements Initializable{
 	public void handleManageHotels(ActionEvent event) throws IOException {
 		// Loads the FXML document for mange_hotels and displays it
 		Parent root = FXMLLoader.load(getClass().getResource("/application/manage_hotels.fxml"));
-		Stage window = (Stage)hyperlink2.getScene().getWindow();
+		Stage window = (Stage)manage_hotels_link.getScene().getWindow();
 		window.setScene(new Scene (root));
 		window.setMaximized(true);
 		
@@ -151,7 +151,7 @@ public class ManageReservationsController implements Initializable{
 	public void handleAccountSettings(ActionEvent event) throws IOException {
 		// Loads the FXML document for account_settings and displays it
 		Parent root = FXMLLoader.load(getClass().getResource("/application/account_settings.fxml"));
-		Stage window = (Stage)hyperlink5.getScene().getWindow();
+		Stage window = (Stage)account_settings_link.getScene().getWindow();
 		window.setScene(new Scene (root));
 		window.setMaximized(true);
 	}
@@ -167,7 +167,7 @@ public class ManageReservationsController implements Initializable{
 	public void handleBackToHomePage( ActionEvent event ) throws IOException {
 		// Loads the FXML document for home_page_admin_loggedin and displays it
 		Parent root = FXMLLoader.load(getClass().getResource("/application/home_page_admin_loggedin.fxml"));
-		Stage window = (Stage)hyperlink1.getScene().getWindow();
+		Stage window = (Stage)nomadplus_link.getScene().getWindow();
 		window.setMaximized(true);
 		window.setScene(new Scene (root, 1920, 1220));
 	}
@@ -184,7 +184,7 @@ public class ManageReservationsController implements Initializable{
 		LoginController.curUser = null; //Cancels out the user session
 		// Loads the FXML document for home_page and displays it
 		Parent root = FXMLLoader.load(getClass().getResource("/application/home_page.fxml"));
-		Stage window = (Stage)hyperlink6.getScene().getWindow();
+		Stage window = (Stage)logout_link.getScene().getWindow();
 		window.setMaximized(true);
 		window.setScene(new Scene (root, 1920, 1050));
 	}

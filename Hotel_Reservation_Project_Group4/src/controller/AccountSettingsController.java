@@ -49,46 +49,46 @@ import javafx.scene.input.*;
 public class AccountSettingsController implements Initializable {
 	// Buttons
 	@FXML
-	private Button button; // Submit changes button
+	private Button submit_button; // Submit changes submit_button
 	
 	// Labels
 	@FXML
-	private Label label1; // Edit your account
+	private Label user_details_label; // User details
 	
 	// HyperLinks
 	@FXML
-	private Hyperlink hyperlink1; // Nomad+, link to home page
+	private Hyperlink nomadplus_link; // Nomad+, link to home page
 	
 	@FXML
-	private Hyperlink hyperlink2; // manage hotels
+	private Hyperlink manage_hotels_link; // manage hotels
 	
 	@FXML
-	private Hyperlink hyperlink3; // manage reservations
+	private Hyperlink manage_reservations_link; // manage reservations
 	
 	@FXML
-	private Hyperlink hyperlink4; // my reservation
+	private Hyperlink my_reservation_link; // my reservation
 	
 	@FXML
-	private Hyperlink hyperlink5; // account settings
+	private Hyperlink account_settings_link; // account settings
 	
 	@FXML
-	private Hyperlink hyperlink6; // Logout 
+	private Hyperlink logout_link; // Logout 
 	
 	@FXML
-	private Hyperlink hyperlink7; // Go back (to home page)
+	private Hyperlink go_back_link; // Go back (to home page)
 	
 	//Textfields
 	@FXML
-	private TextField textfield1; // first name
+	private TextField first_name_textfield; // first name
 	
 	@FXML
-	private TextField textfield2; // last name
+	private TextField last_name_textfield; // last name
 	
 	@FXML
-	private TextField textfield3; // email
+	private TextField email_textfield; // email
 	
 	@FXML
-	private TextField textfield4; // phone number
+	private TextField phone_num_textfield; // phone number
 	
 	@FXML
 	private Label overallNameErrorText; // If first & last both have errors
@@ -106,17 +106,17 @@ public class AccountSettingsController implements Initializable {
 	private Label accountTypeErrorText; // password errors
 	
 	@FXML
-	private PasswordField passwordfield1; // old password
+	private PasswordField old_passwordfield; // old password
 	
 	@FXML
-	private PasswordField passwordfield2; // new password
+	private PasswordField new_passwordfield; // new password
 	
 	@FXML
-	private PasswordField passwordfield3; // confirm new password
+	private PasswordField confirm_passwordfield; // confirm new password
 	
-	// Static variables to set style for button when mouse is away/hovering
-	private static String normal_button_style = "-fx-background-color: white; -fx-background-radius: 20";
-	private static String hovered_button_style = "-fx-background-color: #d3d3d3; -fx-background-radius: 20;";
+	// Static variables to set style for submit_button when mouse is away/hovering
+	private static String normal_submit_button_style = "-fx-background-color: white; -fx-background-radius: 20";
+	private static String hovered_submit_button_style = "-fx-background-color: #d3d3d3; -fx-background-radius: 20;";
 	
 	/**
 	 * Initializes items for Number of Rooms and Price Range ComboBoxes
@@ -126,25 +126,43 @@ public class AccountSettingsController implements Initializable {
 	 */
 	@Override
 	public void initialize( URL location, ResourceBundle resources ) {
-		// Normal button style set to white
-	    button.setStyle(normal_button_style);
+		// Normal submit_button style set to white
+	    submit_button.setStyle(normal_submit_button_style);
 	    
-	    // Changes to hovered button style, set to a light grey
-	    button.setOnMouseEntered(e -> button.setStyle(hovered_button_style));
+	    // Changes to hovered submit_button style, set to a light grey
+	    submit_button.setOnMouseEntered(e -> submit_button.setStyle(hovered_submit_button_style));
 	    
-	    // Changes back to normal button style when mouse stops hovering
-	    button.setOnMouseExited(e -> button.setStyle(normal_button_style));
+	    // Changes back to normal submit_button style when mouse stops hovering
+	    submit_button.setOnMouseExited(e -> submit_button.setStyle(normal_submit_button_style));
 	    
 	    if(LoginController.curUser.getAcctType().equals("Customer")) {
-	    	hyperlink2.setVisible(false);
-	    	hyperlink3.setVisible(false);
+	    	manage_hotels_link.setVisible(false);
+	    	manage_reservations_link.setVisible(false);
 	    }
+	 
+	    
+	    /*** POPULATE FIELDS WITH LOGGED IN USER INFO ***/
+	    String firstname = LoginController.curUser.getFirstName();
+	    first_name_textfield.setText(firstname);
+	   
+	    String lastname = LoginController.curUser.getLastName();
+	    last_name_textfield.setText(lastname);
+	    
+	    String email = LoginController.curUser.getEmailAd();
+	    email_textfield.setText(email);
+	    
+	    String phone_num = LoginController.curUser.getPhoneNum();
+	    phone_num_textfield.setText(phone_num);
+	    
+	    String oldPass = LoginController.curUser.getPassW();
+	    old_passwordfield.setText(oldPass);
+	    
 	}
 	
 	/**
-	 * Changes view to the HOME PAGE after button is clicked and credentials are verified
+	 * Changes view to the HOME PAGE after submit_button is clicked and credentials are verified
 	 * 
-	 * @param event	 event in which user clicks on the LOGIN button
+	 * @param event	 event in which user clicks on the LOGIN submit_button
 	 * @throws IOException	if a file is unable to be read
 	 * @throws ClassNotFoundException	if a class cannot be found
 	 * @throws SQLException	if SQL Database cannot be reached
@@ -174,7 +192,7 @@ public class AccountSettingsController implements Initializable {
 			String acctType = LoginController.curUser.getAcctType();
 		
 			//check for correct naming format
-			if(textfield1.getText() == null || textfield1.getText().isEmpty()) {
+			if(first_name_textfield.getText() == null || first_name_textfield.getText().isEmpty()) {
 				fstNm = LoginController.curUser.getFirstName();
 				ValidationFlag++;
 			}
@@ -182,7 +200,7 @@ public class AccountSettingsController implements Initializable {
 				nameFlag++;
 			}
 			
-			if(textfield2.getText() == null || textfield2.getText().isEmpty()) {
+			if(last_name_textfield.getText() == null || last_name_textfield.getText().isEmpty()) {
 				lstNm = LoginController.curUser.getLastName();
 				ValidationFlag++;
 			}
@@ -191,7 +209,7 @@ public class AccountSettingsController implements Initializable {
 			}
 			
 			
-			if((nameFlag >= 1) && (!patternMatches(textfield1.getText(), nameRegexPattern) || !patternMatches(textfield2.getText(), nameRegexPattern))){ 
+			if((nameFlag >= 1) && (!patternMatches(first_name_textfield.getText(), nameRegexPattern) || !patternMatches(last_name_textfield.getText(), nameRegexPattern))){ 
 				overallNameErrorText.setText("Please only enter letters and apostrophes. Titles like 'the third' should be entered as 'III'.");
 				overallNameErrorText.setStyle("-fx-font-weight: bold");
 				overallNameErrorText.setVisible(true);
@@ -199,31 +217,31 @@ public class AccountSettingsController implements Initializable {
 			else {
 				overallNameErrorText.setVisible(false);
 				
-				if(textfield1.getText() == null || textfield1.getText().isEmpty()) {
+				if(first_name_textfield.getText() == null || first_name_textfield.getText().isEmpty()) {
 					fstNm = LoginController.curUser.getFirstName();
 					ValidationFlag++;
 				}
 				else {
-					fstNm = textfield1.getText();
+					fstNm = first_name_textfield.getText();
 					ValidationFlag++;
 				}
 				
-				if(textfield2.getText() == null || textfield2.getText().isEmpty()) {
+				if(last_name_textfield.getText() == null || last_name_textfield.getText().isEmpty()) {
 					lstNm = LoginController.curUser.getLastName();
 					ValidationFlag++;
 				}
 				else {
-					lstNm = textfield2.getText();
+					lstNm = last_name_textfield.getText();
 					ValidationFlag++;
 				}
 			}
 		
 			//check for correct email format
-			if(textfield3.getText() == null || textfield3.getText().isEmpty()) {
+			if(email_textfield.getText() == null || email_textfield.getText().isEmpty()) {
 				email = LoginController.curUser.getEmailAd();
 				ValidationFlag++;
 			}
-			else if(!patternMatches(textfield3.getText(), emailRegexPattern)){ 
+			else if(!patternMatches(email_textfield.getText(), emailRegexPattern)){ 
 				emailErrorText.setText("Please enter a valid email.");
 				emailErrorText.setStyle("-fx-font-weight: bold");
 				emailErrorText.setVisible(true);
@@ -231,22 +249,22 @@ public class AccountSettingsController implements Initializable {
 			else {
 				emailErrorText.setVisible(false);
 				
-				if(textfield3.getText() == null || textfield3.getText().isEmpty()) {
+				if(email_textfield.getText() == null || email_textfield.getText().isEmpty()) {
 					email = LoginController.curUser.getEmailAd();
 				}
 				else {
-					email = textfield3.getText();
+					email = email_textfield.getText();
 				}
 				
 				ValidationFlag++;
 			}
 		
 			//check for correct phone number format
-			if(textfield4.getText() == null || textfield4.getText().isEmpty()) {
+			if(phone_num_textfield.getText() == null || phone_num_textfield.getText().isEmpty()) {
 				phnNum = LoginController.curUser.getPhoneNum();
 				ValidationFlag++;
 			}
-			else if(!patternMatches(textfield4.getText(), phoneNumRegexPattern)){ 
+			else if(!patternMatches(phone_num_textfield.getText(), phoneNumRegexPattern)){ 
 				numberErrorText.setText("Please enter a valid phone number.");
 				numberErrorText.setStyle("-fx-font-weight: bold");
 				numberErrorText.setVisible(true);
@@ -254,18 +272,18 @@ public class AccountSettingsController implements Initializable {
 			else {
 				numberErrorText.setVisible(false);
 				
-				if(textfield4.getText() == null || textfield4.getText().isEmpty()) {
+				if(phone_num_textfield.getText() == null || phone_num_textfield.getText().isEmpty()) {
 					phnNum = LoginController.curUser.getPhoneNum();
 				}
 				else {
-					phnNum = textfield4.getText();
+					phnNum = phone_num_textfield.getText();
 				}
 				
 				ValidationFlag++;
 			}
 			
-			if(passwordfield1.getText() == null || passwordfield1.getText().isEmpty()) {
-				if(passwordfield2.getText() != null || !passwordfield2.getText().isEmpty()) {
+			if(old_passwordfield.getText() == null || old_passwordfield.getText().isEmpty()) {
+				if(new_passwordfield.getText() != null || !new_passwordfield.getText().isEmpty()) {
 					passwordErrorText.setText("Enter old password first.");
 					passwordErrorText.setStyle("-fx-font-weight: bold");
 					passwordErrorText.setVisible(true);
@@ -275,27 +293,27 @@ public class AccountSettingsController implements Initializable {
 					ValidationFlag++;
 				}
 			}
-			else if(!passwordfield1.getText().equals(LoginController.curUser.getPassW())){
+			else if(!old_passwordfield.getText().equals(LoginController.curUser.getPassW())){
 				passwordErrorText.setText("Incorrect old password.");
 				passwordErrorText.setStyle("-fx-font-weight: bold");
 				passwordErrorText.setVisible(true);
 			}
 			else {
 				//check for correct password format
-				if(!patternMatches(passwordfield2.getText(), passwordRegexPattern)){ 
+				if(!patternMatches(new_passwordfield.getText(), passwordRegexPattern)){ 
 					passwordErrorText.setText("Passwords must be 8 characters or longer. Must have one digit, one lowercase letter, one uppercase letter, one special character"
 							+ " and no whitespaces.");
 					passwordErrorText.setStyle("-fx-font-weight: bold");
 					passwordErrorText.setVisible(true);
 				}
-				else if(!passwordfield2.getText().equals(passwordfield3.getText())){
+				else if(!new_passwordfield.getText().equals(confirm_passwordfield.getText())){
 					passwordErrorText.setText("Please confirm your new password.");
 					passwordErrorText.setStyle("-fx-font-weight: bold");
 					passwordErrorText.setVisible(true);
 				}
 				else {
 					passwordErrorText.setVisible(false);
-					pWrd = passwordfield2.getText();
+					pWrd = new_passwordfield.getText();
 					ValidationFlag++;
 				}
 			}
@@ -303,18 +321,18 @@ public class AccountSettingsController implements Initializable {
 			if(ValidationFlag == 5) {
 				if(LoginController.curUser.getAcctType().equals("Admin")) { //admin case
 					userDataAccessor.updateUser(thisUsrId, fstNm, lstNm, phnNum, email, pWrd, acctType);
-					LoginController.curUser = userDataAccessor.getUser(textfield3.getText(), passwordfield2.getText());
+					LoginController.curUser = userDataAccessor.getUser(email_textfield.getText(), new_passwordfield.getText());
 					// Loads the FXML document for home_page and displays it
 					Parent root = FXMLLoader.load(getClass().getResource("/application/home_page_admin_loggedin.fxml"));
-					Stage window = (Stage)button.getScene().getWindow();
+					Stage window = (Stage)submit_button.getScene().getWindow();
 					window.setMaximized(true);
 					window.setScene(new Scene (root, 1920, 1220));
 				}
 				else { //customer case
 					userDataAccessor.updateUser(thisUsrId, fstNm, lstNm, phnNum, email, pWrd, acctType);
-					LoginController.curUser = userDataAccessor.getUser(textfield3.getText(), passwordfield2.getText());
+					LoginController.curUser = userDataAccessor.getUser(email_textfield.getText(), new_passwordfield.getText());
 					Parent root = FXMLLoader.load(getClass().getResource("/application/home_page_customer_loggedin.fxml"));
-					Stage window = (Stage)button.getScene().getWindow();
+					Stage window = (Stage)submit_button.getScene().getWindow();
 					window.setScene(new Scene (root, 1920, 1260));
 					window.setMaximized(true);	
 				}	
@@ -342,7 +360,7 @@ public class AccountSettingsController implements Initializable {
 	public void handleManageReservations(ActionEvent event) throws IOException {
 		// Loads the FXML document for manage_reservations and displays it
 		Parent root = FXMLLoader.load(getClass().getResource("/application/manage_reservations.fxml"));
-		Stage window = (Stage)hyperlink3.getScene().getWindow();
+		Stage window = (Stage)manage_reservations_link.getScene().getWindow();
 		window.setScene(new Scene (root));
 		window.setMaximized(true);
 	}
@@ -358,7 +376,7 @@ public class AccountSettingsController implements Initializable {
 	public void handleManageHotels(ActionEvent event) throws IOException {
 		// Loads the FXML document for manage_hotels and displays it
 		Parent root = FXMLLoader.load(getClass().getResource("/application/manage_hotels.fxml"));
-		Stage window = (Stage)hyperlink2.getScene().getWindow();
+		Stage window = (Stage)manage_hotels_link.getScene().getWindow();
 		window.setScene(new Scene (root));
 		window.setMaximized(true);
 	}
@@ -374,7 +392,7 @@ public class AccountSettingsController implements Initializable {
 	public void handleMyReservation(ActionEvent event) throws IOException {
 		// Loads the FXML document for my_reservation and displays it
 		Parent root = FXMLLoader.load(getClass().getResource("/application/my_reservation.fxml"));
-		Stage window = (Stage)hyperlink4.getScene().getWindow();
+		Stage window = (Stage)my_reservation_link.getScene().getWindow();
 		window.setScene(new Scene (root));
 		window.setMaximized(true);
 	}
@@ -390,7 +408,7 @@ public class AccountSettingsController implements Initializable {
 	public void handleAccountSettings(ActionEvent event) throws IOException {
 		// Loads the FXML document for account_settings and displays it
 		Parent root = FXMLLoader.load(getClass().getResource("/application/account_settings.fxml"));
-		Stage window = (Stage)hyperlink5.getScene().getWindow();
+		Stage window = (Stage)account_settings_link.getScene().getWindow();
 		window.setScene(new Scene (root));
 		window.setMaximized(true);
 	}
@@ -406,14 +424,14 @@ public class AccountSettingsController implements Initializable {
 	public void handleBackToHomePage( ActionEvent event ) throws IOException {
 		if(LoginController.curUser.getAcctType().equals("Customer")) {
 			Parent root = FXMLLoader.load(getClass().getResource("/application/home_page_customer_loggedin.fxml"));
-			Stage window = (Stage)hyperlink1.getScene().getWindow();
+			Stage window = (Stage)nomadplus_link.getScene().getWindow();
 			window.setMaximized(true);
 			window.setScene(new Scene (root, 1920, 1260));
 		}
 		
 		if(LoginController.curUser.getAcctType().equals("Admin")) {
 			Parent root = FXMLLoader.load(getClass().getResource("/application/home_page_admin_loggedin.fxml"));
-			Stage window = (Stage)hyperlink1.getScene().getWindow();
+			Stage window = (Stage)nomadplus_link.getScene().getWindow();
 			window.setMaximized(true);
 			window.setScene(new Scene (root, 1920, 1220));
 		}
@@ -431,7 +449,7 @@ public class AccountSettingsController implements Initializable {
 		LoginController.curUser = null; //Cancels out the user session
 		// Loads the FXML document for home_page and displays it
 		Parent root = FXMLLoader.load(getClass().getResource("/application/home_page.fxml"));
-		Stage window = (Stage)hyperlink6.getScene().getWindow();
+		Stage window = (Stage)logout_link.getScene().getWindow();
 		window.setMaximized(true);
 		window.setScene(new Scene (root, 1920, 1050));
 	}

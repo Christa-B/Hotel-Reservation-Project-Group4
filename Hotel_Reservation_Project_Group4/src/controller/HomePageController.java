@@ -28,6 +28,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuButton;
+import javafx.scene.control.TextField;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.DateCell;
@@ -48,19 +49,22 @@ public class HomePageController implements Initializable{
 	@FXML
 	private Label label1; // Find the best hotels at the best price, here
 	
+	// Textfields
+	private TextField location_input;
+	
 	// HyperLinks
 	@FXML
-	private Hyperlink hyperlink1; // Nomad+/link to homepage
+	private Hyperlink nomadplus_link; // Nomad+/link to homepage
 	
 	@FXML
-	private Hyperlink hyperlink2; // Login
+	private Hyperlink login_link; // Login
 	
 	@FXML
-	private Hyperlink hyperlink3; // Sign in
+	private Hyperlink signup_link; // Sign in
 	
 	// MenuButtons
 	@FXML
-	private MenuButton menubutton; // Amenities
+	private MenuButton amenities_menu; // Amenities
 	
 	// Images
 	@FXML
@@ -68,23 +72,23 @@ public class HomePageController implements Initializable{
 	
 	// ComboBoxes
 	@FXML
-	private ComboBox<String> combobox1; // # of Guests (adults)
+	private ComboBox<String> num_guests_combobox; // # of Guests (adults)
 	
 	@FXML
-	private ComboBox<String> combobox2; // # of rooms
+	private ComboBox<String> num_rooms_combobox; // # of rooms
 	
 	@FXML
-	private ComboBox<String> combobox3; // Room types
+	private ComboBox<String> room_type_combobox; // Room types
 	
 	@FXML
-	private ComboBox<String> combobox4; // Price ranges
+	private ComboBox<String> price_range_combobox; // Price ranges
 	
 	// DatePickers 
 	@FXML
-	private DatePicker datepicker1; // Check-in
+	private DatePicker check_in_datepicker; // Check-in
 	
 	@FXML
-	private DatePicker datepicker2;	//check-out
+	private DatePicker check_out_datepicker;	//check-out
 	
 	// List of items for ComboBoxes (prices and rooms)
 	ObservableList<String> list1 = FXCollections.observableArrayList("1 - 2 Guests", "3 Guests", "4 Guests", "5 Guests", "6 Guests", "7 Guests", "8 Guests", "9 Guests", "10 Guests");
@@ -111,41 +115,41 @@ public class HomePageController implements Initializable{
 	@Override
 	public void initialize( URL location, ResourceBundle resources ) {
 		// Sets list items for ComboBoxes
-		combobox1.setItems(list1);
-		combobox2.setItems(list2);
-		combobox3.setItems(list3);
-		combobox4.setItems(list4);
+		num_guests_combobox.setItems(list1);
+		num_rooms_combobox.setItems(list2);
+		room_type_combobox.setItems(list3);
+		price_range_combobox.setItems(list4);
 		
 		// Set combobox items to default value
-		combobox1.getSelectionModel().selectFirst();
-		combobox2.getSelectionModel().selectFirst();
-		combobox3.getSelectionModel().selectFirst();
-		combobox4.getSelectionModel().selectFirst();
+		num_guests_combobox.getSelectionModel().selectFirst();
+		num_rooms_combobox.getSelectionModel().selectFirst();
+		room_type_combobox.getSelectionModel().selectFirst();
+		price_range_combobox.getSelectionModel().selectFirst();
 		
 		// Prevents text input but allows user to copy text in comboboxes
-		combobox1.setEditable(true);
-		combobox1.getEditor().setEditable(false);
-		combobox2.setEditable(true);
-		combobox2.getEditor().setEditable(false);
-		combobox3.setEditable(true);
-		combobox3.getEditor().setEditable(false);
-		combobox4.setEditable(true);
-		combobox4.getEditor().setEditable(false);
+		num_guests_combobox.setEditable(true);
+		num_guests_combobox.getEditor().setEditable(false);
+		num_rooms_combobox.setEditable(true);
+		num_rooms_combobox.getEditor().setEditable(false);
+		room_type_combobox.setEditable(true);
+		room_type_combobox.getEditor().setEditable(false);
+		price_range_combobox.setEditable(true);
+		price_range_combobox.getEditor().setEditable(false);
 		
 		// Normal button/hyperlink style set to white
 	    button.setStyle(normal_button_style);
-	    hyperlink2.setStyle(normal_login_button_style);
-	    hyperlink3.setStyle(normal_signup_button_style);
+	    login_link.setStyle(normal_login_button_style);
+	    signup_link.setStyle(normal_signup_button_style);
 	    
 	    // Changes to hovered button/hyperlink style, set to a light grey and deep sky blue respectively
 	    button.setOnMouseEntered(e -> button.setStyle(hovered_button_style));
-	    hyperlink2.setOnMouseEntered(e -> hyperlink2.setStyle(hovered_login_button_style));
-	    hyperlink3.setOnMouseEntered(e -> hyperlink3.setStyle(hovered_signup_button_style));
+	    login_link.setOnMouseEntered(e -> login_link.setStyle(hovered_login_button_style));
+	    signup_link.setOnMouseEntered(e -> signup_link.setStyle(hovered_signup_button_style));
 	    
 	    // Changes back to normal button style when mouse stops hovering
 	    button.setOnMouseExited(e -> button.setStyle(normal_button_style));
-	    hyperlink2.setOnMouseExited(e -> hyperlink2.setStyle(normal_login_button_style));
-	    hyperlink3.setOnMouseExited(e -> hyperlink3.setStyle(normal_signup_button_style));
+	    login_link.setOnMouseExited(e -> login_link.setStyle(normal_login_button_style));
+	    signup_link.setOnMouseExited(e -> signup_link.setStyle(normal_signup_button_style));
 	}
 	
 	/**
@@ -158,7 +162,7 @@ public class HomePageController implements Initializable{
 	public void handleLogin(ActionEvent event) throws IOException {
 		// Loads the FXML document for login_screen and displays it
 		Parent root = FXMLLoader.load(getClass().getResource("/application/login_screen.fxml"));
-		Stage window = (Stage)hyperlink2.getScene().getWindow();
+		Stage window = (Stage)login_link.getScene().getWindow();
 		window.setScene(new Scene (root));
 		window.setMaximized(true);
 		
@@ -174,7 +178,7 @@ public class HomePageController implements Initializable{
 	public void handleSignUp(ActionEvent event) throws IOException {
 		// Loads the FXML document for login_screen and displays it
 		Parent root = FXMLLoader.load(getClass().getResource("/application/signup_screen.fxml"));
-		Stage window = (Stage)hyperlink3.getScene().getWindow();
+		Stage window = (Stage)signup_link.getScene().getWindow();
 		window.setScene(new Scene (root));
 		window.setMaximized(true);
 		

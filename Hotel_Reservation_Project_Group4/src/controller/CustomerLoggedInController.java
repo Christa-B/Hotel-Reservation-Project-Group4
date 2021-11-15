@@ -27,6 +27,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuButton;
+import javafx.scene.control.TextField;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.DateCell;
@@ -41,28 +42,31 @@ import javafx.scene.input.*;
 public class CustomerLoggedInController implements Initializable{
 	// Buttons
 	@FXML
-	private Button button; // Search Button
+	private Button search_button; // Search Button
 	
 	// Labels
 	@FXML
-	private Label label1; // Find the best hotels at the best price, here
+	private Label welcome_label; // Welcome, (user first name)
+	
+	// Textfields
+	private TextField location_input;
 	
 	// HyperLinks
 	@FXML
-	private Hyperlink hyperlink1; // Nomad+, links to home_page_customer_loggedin
+	private Hyperlink nomadplus_link; // Nomad+, links to home_page_customer_loggedin
 	
 	@FXML
-	private Hyperlink hyperlink2; // My Reservation
+	private Hyperlink my_reservation_link; // My Reservation
 	
 	@FXML
-	private Hyperlink hyperlink3; // Account Settings
+	private Hyperlink account_settings_link; // Account Settings
 	
 	@FXML
-	private Hyperlink hyperlink4; // Logout 
+	private Hyperlink logout_link; // Logout 
 	
 	// MenuButtons
 	@FXML
-	private MenuButton menubutton; // Amenities
+	private MenuButton amenities_menu; // Amenities
 	
 	// Images
 	@FXML
@@ -70,20 +74,23 @@ public class CustomerLoggedInController implements Initializable{
 	
 	// ComboBoxes
 	@FXML
-	private ComboBox<String> combobox1; // # of Guests (adults)
+	private ComboBox<String> num_guests_combobox; // # of Guests (adults)
 	
 	@FXML
-	private ComboBox<String> combobox2; // # of rooms
+	private ComboBox<String> num_rooms_combobox; // # of rooms
 	
 	@FXML
-	private ComboBox<String> combobox3; // Room types
+	private ComboBox<String> room_type_combobox; // Room types
 	
 	@FXML
-	private ComboBox<String> combobox4; // Price ranges
+	private ComboBox<String> price_range_combobox; // Price ranges
 	
 	// DatePickers 
 	@FXML
-	private DatePicker datepicker; // Check-in/Check-out dates
+	private DatePicker check_in_datepicker; // Check in date
+	
+	@FXML
+	private DatePicker check_out_datepicker; // Check out dates
 	
 	// List of items for ComboBoxes (prices and rooms)
 	ObservableList<String> list1 = FXCollections.observableArrayList("1 - 2 Guests", "3 Guests", "4 Guests", "5 Guests", "6 Guests", "7 Guests", "8 Guests", "9 Guests", "10 Guests");
@@ -91,9 +98,9 @@ public class CustomerLoggedInController implements Initializable{
 	ObservableList<String> list3 = FXCollections.observableArrayList("Standard", "Queen", "King");
 	ObservableList<String> list4 = FXCollections.observableArrayList("Less than $75", "$75 - $150", "$150+");
 
-	// Static variables to set style for button when mouse is away/hovering
-	private static String normal_button_style = "-fx-background-color: white; -fx-background-radius: 20";
-	private static String hovered_button_style = "-fx-background-color: #d3d3d3; -fx-background-radius: 20;";
+	// Static variables to set style for search_button when mouse is away/hovering
+	private static String normal_search_button_style = "-fx-background-color: white; -fx-background-radius: 20";
+	private static String hovered_search_button_style = "-fx-background-color: #d3d3d3; -fx-background-radius: 20;";
 	
 	/**
 	 * Initializes items for Number of Rooms and Price Range ComboBoxes
@@ -104,35 +111,39 @@ public class CustomerLoggedInController implements Initializable{
 	@Override
 	public void initialize( URL location, ResourceBundle resources ) {
 		// Sets list items for ComboBoxes
-		combobox1.setItems(list1);
-		combobox2.setItems(list2);
-		combobox3.setItems(list3);
-		combobox4.setItems(list4);
+		num_guests_combobox.setItems(list1);
+		num_rooms_combobox.setItems(list2);
+		room_type_combobox.setItems(list3);
+		price_range_combobox.setItems(list4);
 		
 		// Set combobox items to default value
-		combobox1.getSelectionModel().selectFirst();
-		combobox2.getSelectionModel().selectFirst();
-		combobox3.getSelectionModel().selectFirst();
-		combobox4.getSelectionModel().selectFirst();
+		num_guests_combobox.getSelectionModel().selectFirst();
+		num_rooms_combobox.getSelectionModel().selectFirst();
+		room_type_combobox.getSelectionModel().selectFirst();
+		price_range_combobox.getSelectionModel().selectFirst();
 		
 		// Prevents text input but allows user to copy text in comboboxes
-		combobox1.setEditable(true);
-		combobox1.getEditor().setEditable(false);
-		combobox2.setEditable(true);
-		combobox2.getEditor().setEditable(false);
-		combobox3.setEditable(true);
-		combobox3.getEditor().setEditable(false);
-		combobox4.setEditable(true);
-		combobox4.getEditor().setEditable(false);
+		num_guests_combobox.setEditable(true);
+		num_guests_combobox.getEditor().setEditable(false);
+		num_rooms_combobox.setEditable(true);
+		num_rooms_combobox.getEditor().setEditable(false);
+		room_type_combobox.setEditable(true);
+		room_type_combobox.getEditor().setEditable(false);
+		price_range_combobox.setEditable(true);
+		price_range_combobox.getEditor().setEditable(false);
 		
-		// Normal button style set to white
-	    button.setStyle(normal_button_style);
+		// Normal search_button style set to white
+	    search_button.setStyle(normal_search_button_style);
 	    
-	    // Changes to hovered button style, set to a light grey
-	    button.setOnMouseEntered(e -> button.setStyle(hovered_button_style));
+	    // Changes to hovered search_button style, set to a light grey
+	    search_button.setOnMouseEntered(e -> search_button.setStyle(hovered_search_button_style));
 	    
-	    // Changes back to normal button style when mouse stops hovering
-	    button.setOnMouseExited(e -> button.setStyle(normal_button_style));
+	    // Changes back to normal search_button style when mouse stops hovering
+	    search_button.setOnMouseExited(e -> search_button.setStyle(normal_search_button_style));
+	    
+	    //Indicates user logged in
+	    String firstname = LoginController.curUser.getFirstName();
+	    welcome_label.setText("Welcome, " + firstname);
 	}
 	
 	/**
@@ -145,7 +156,7 @@ public class CustomerLoggedInController implements Initializable{
 	public void handleMyReservation(ActionEvent event) throws IOException {
 		// Loads the FXML document for account_settings and displays it
 		Parent root = FXMLLoader.load(getClass().getResource("/application/my_reservation.fxml"));
-		Stage window = (Stage)hyperlink2.getScene().getWindow();
+		Stage window = (Stage)my_reservation_link.getScene().getWindow();
 		window.setScene(new Scene (root));
 		window.setMaximized(true);
 		
@@ -161,7 +172,7 @@ public class CustomerLoggedInController implements Initializable{
 	public void handleAccountSettings(ActionEvent event) throws IOException {
 		// Loads the FXML document for account_settings and displays it
 		Parent root = FXMLLoader.load(getClass().getResource("/application/account_settings.fxml"));
-		Stage window = (Stage)hyperlink3.getScene().getWindow();
+		Stage window = (Stage)account_settings_link.getScene().getWindow();
 		window.setScene(new Scene (root));
 	}
 	
@@ -169,23 +180,23 @@ public class CustomerLoggedInController implements Initializable{
 	/**
 	 * Handles event in which user clicks to search hotels
 	 * 
-	 * @param event  event in which user clicks SEARCH button
+	 * @param event  event in which user clicks SEARCH search_button
 	 * @throws IOException  if a file is unable to be read
 	 */
 	@FXML
 	public void handleSearch(ActionEvent event) throws IOException {
 		// Loads the FXML document for search results and displays it
 		Parent root = FXMLLoader.load(getClass().getResource("/application/results.fxml"));
-		Stage window = (Stage)button.getScene().getWindow();
+		Stage window = (Stage)search_button.getScene().getWindow();
 		window.setScene(new Scene (root));
 		window.setMaximized(true);
 		
 	}
 	
 	/**
-	 * Changes view to the LOGGED IN (customer) HOME PAGE after button is clicked
+	 * Changes view to the LOGGED IN (customer) HOME PAGE after search_button is clicked
 	 * 
-	 * @param event	 event in which user clicks on the Project Name button
+	 * @param event	 event in which user clicks on the Project Name search_button
 	 * @throws IOException	if a file is unable to be read
 	 */
 	
@@ -193,16 +204,16 @@ public class CustomerLoggedInController implements Initializable{
 	public void handleBackToHomePage( ActionEvent event ) throws IOException {
 		// Loads the FXML document for home_page_customer_loggedin and displays it
 		Parent root = FXMLLoader.load(getClass().getResource("/application/home_page_customer_loggedin.fxml"));
-		Stage window = (Stage)hyperlink1.getScene().getWindow();
+		Stage window = (Stage)nomadplus_link.getScene().getWindow();
 		window.setMaximized(true);
 		window.setScene(new Scene (root, 1920, 1260));
 	}
 	
 	
 	/**
-	 * Changes view to the first HOME PAGE after button is clicked
+	 * Changes view to the first HOME PAGE after search_button is clicked
 	 * 
-	 * @param event	 event in which user clicks on the Project Name button
+	 * @param event	 event in which user clicks on the Project Name search_button
 	 * @throws IOException	if a file is unable to be read
 	 */
 	
@@ -211,7 +222,7 @@ public class CustomerLoggedInController implements Initializable{
 		LoginController.curUser = null; //Cancels out the user session
 		// Loads the FXML document for home_page and displays it
 		Parent root = FXMLLoader.load(getClass().getResource("/application/home_page.fxml"));
-		Stage window = (Stage)hyperlink4.getScene().getWindow();
+		Stage window = (Stage)logout_link.getScene().getWindow();
 		window.setMaximized(true);
 		window.setScene(new Scene (root, 1920, 1050));
 	}

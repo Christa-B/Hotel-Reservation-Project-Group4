@@ -27,6 +27,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuButton;
+import javafx.scene.control.TextField;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.DateCell;
@@ -41,45 +42,51 @@ import javafx.scene.input.*;
 public class ResultsNotLoggedInController implements Initializable{
 	// Buttons
 	@FXML
-	private Button button; // Search Button
+	private Button search_button; // Search Button
 	
 	// Labels
 	@FXML
-	private Label label1; // Find the best hotels at the best price, here
+	private Label label1; 
+	
+	// Textfields
+	private TextField location_input;
 	
 	// HyperLinks
 	@FXML
-	private Hyperlink hyperlink1; // Nomad+, links to home_page
+	private Hyperlink nomadplus_link; // Nomad+, links to home_page
 	
 	@FXML
-	private Hyperlink hyperlink2; // login
+	private Hyperlink login_link; // login
 	
 	@FXML
-	private Hyperlink hyperlink3; // signup
+	private Hyperlink signup_link; // signup
+	
+	@FXML
+	private Hyperlink go_back_link;
 	
 	// MenuButtons
 	@FXML
-	private MenuButton menubutton; // Amenities
+	private MenuButton amenities_menu; // Amenities
 	
 	// ComboBoxes
 	@FXML
-	private ComboBox<String> combobox1; // # of Guests (adults)
+	private ComboBox<String> num_guests_combobox; // # of Guests (adults)
 		
 	@FXML
-	private ComboBox<String> combobox2; // # of rooms
+	private ComboBox<String> num_rooms_combobox; // # of rooms
 		
 	@FXML
-	private ComboBox<String> combobox3; // Room types
+	private ComboBox<String> room_type_combobox; // Room types
 		
 	@FXML
-	private ComboBox<String> combobox4; // Price ranges
+	private ComboBox<String> price_range_combobox; // Price ranges
 	
 	// DatePickers 
 	@FXML
-	private DatePicker datepicker1; // Check-in
+	private DatePicker check_in_datepicker; // Check-in
 	
 	@FXML
-	private DatePicker datepicker2;	//check-out
+	private DatePicker check_out_datepicker;	//check-out
 	
 	//@FXML
 	//private ScrollPane scrollpane;
@@ -90,7 +97,7 @@ public class ResultsNotLoggedInController implements Initializable{
 	ObservableList<String> list3 = FXCollections.observableArrayList("Standard", "Queen", "King");
 	ObservableList<String> list4 = FXCollections.observableArrayList("Less than $75", "$75 - $150", "$150+");
 
-	// Static variables to set style for button when mouse is away/hovering
+	// Static variables to set style for search_button when mouse is away/hovering
 	private static String normal_button_style = "-fx-background-color: white; -fx-background-radius: 20";
 	private static String hovered_button_style = "-fx-background-color: #d3d3d3; -fx-background-radius: 20;";
 	
@@ -103,35 +110,35 @@ public class ResultsNotLoggedInController implements Initializable{
 	@Override
 	public void initialize( URL location, ResourceBundle resources ) {
 		// Sets list items for ComboBoxes
-		combobox1.setItems(list1);
-		combobox2.setItems(list2);
-		combobox3.setItems(list3);
-		combobox4.setItems(list4);
+		num_guests_combobox.setItems(list1);
+		num_rooms_combobox.setItems(list2);
+		room_type_combobox.setItems(list3);
+		price_range_combobox.setItems(list4);
 		
 		// Set combobox items to default value
-		combobox1.getSelectionModel().selectFirst();
-		combobox2.getSelectionModel().selectFirst();
-		combobox3.getSelectionModel().selectFirst();
-		combobox4.getSelectionModel().selectFirst();
+		num_guests_combobox.getSelectionModel().selectFirst();
+		num_rooms_combobox.getSelectionModel().selectFirst();
+		room_type_combobox.getSelectionModel().selectFirst();
+		price_range_combobox.getSelectionModel().selectFirst();
 		
 		// Prevents text input but allows user to copy text in comboboxes
-		combobox1.setEditable(true);
-		combobox1.getEditor().setEditable(false);
-		combobox2.setEditable(true);
-		combobox2.getEditor().setEditable(false);
-		combobox3.setEditable(true);
-		combobox3.getEditor().setEditable(false);
-		combobox4.setEditable(true);
-		combobox4.getEditor().setEditable(false);
+		num_guests_combobox.setEditable(true);
+		num_guests_combobox.getEditor().setEditable(false);
+		num_rooms_combobox.setEditable(true);
+		num_rooms_combobox.getEditor().setEditable(false);
+		room_type_combobox.setEditable(true);
+		room_type_combobox.getEditor().setEditable(false);
+		price_range_combobox.setEditable(true);
+		price_range_combobox.getEditor().setEditable(false);
 		
-		// Normal button style set to white
-	    button.setStyle(normal_button_style);
+		// Normal search_button style set to white
+	    search_button.setStyle(normal_button_style);
 	    
-	    // Changes to hovered button style, set to a light grey
-	    button.setOnMouseEntered(e -> button.setStyle(hovered_button_style));
+	    // Changes to hovered search_button style, set to a light grey
+	    search_button.setOnMouseEntered(e -> search_button.setStyle(hovered_button_style));
 	    
-	    // Changes back to normal button style when mouse stops hovering
-	    button.setOnMouseExited(e -> button.setStyle(normal_button_style));
+	    // Changes back to normal search_button style when mouse stops hovering
+	    search_button.setOnMouseExited(e -> search_button.setStyle(normal_button_style));
 	}
 
 	/**
@@ -144,7 +151,7 @@ public class ResultsNotLoggedInController implements Initializable{
 	public void handleLogin(ActionEvent event) throws IOException {
 		// Loads the FXML document for login_screen and displays it
 		Parent root = FXMLLoader.load(getClass().getResource("/application/login_screen.fxml"));
-		Stage window = (Stage)hyperlink2.getScene().getWindow();
+		Stage window = (Stage)login_link.getScene().getWindow();
 		window.setScene(new Scene (root));
 		window.setMaximized(true);
 		
@@ -160,7 +167,7 @@ public class ResultsNotLoggedInController implements Initializable{
 	public void handleSignUp(ActionEvent event) throws IOException {
 		// Loads the FXML document for signup_screen and displays it
 		Parent root = FXMLLoader.load(getClass().getResource("/application/signup_screen.fxml"));
-		Stage window = (Stage)hyperlink3.getScene().getWindow();
+		Stage window = (Stage)signup_link.getScene().getWindow();
 		window.setScene(new Scene (root));
 		window.setMaximized(true);
 		
@@ -169,14 +176,14 @@ public class ResultsNotLoggedInController implements Initializable{
 	/**
 	 * Handles event in which user clicks to search hotels
 	 * 
-	 * @param event  event in which user clicks SEARCH button
+	 * @param event  event in which user clicks SEARCH search_button
 	 * @throws IOException  if a file is unable to be read
 	 */
 	@FXML
 	public void handleSearch(ActionEvent event) throws IOException {
 		// Loads the FXML document for search results and displays it
 		Parent root = FXMLLoader.load(getClass().getResource("/application/results_not_loggedin.fxml"));
-		Stage window = (Stage)button.getScene().getWindow();
+		Stage window = (Stage)search_button.getScene().getWindow();
 		window.setScene(new Scene (root));
 		window.setMaximized(true);
 		
@@ -193,7 +200,7 @@ public class ResultsNotLoggedInController implements Initializable{
 	public void handleBackToHomePage( ActionEvent event ) throws IOException {
 		// Loads the FXML document for home_page and displays it
 		Parent root = FXMLLoader.load(getClass().getResource("/application/home_page.fxml"));
-		Stage window = (Stage)hyperlink1.getScene().getWindow();
+		Stage window = (Stage)nomadplus_link.getScene().getWindow();
 		window.setMaximized(true);
 		window.setScene(new Scene (root, 1920, 1050));
 	}
