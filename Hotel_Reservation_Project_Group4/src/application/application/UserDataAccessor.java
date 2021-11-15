@@ -133,7 +133,23 @@ public class UserDataAccessor {
 //    	}
 //    }
     
-    
+    public void updateUser(int userId, String firstName, String lastName, String phoneNum, String emailAd, String passW, String acctType) throws SQLException {
+    	String query = "UPDATE usrData SET userId = ?, firstName = ?, lastName = ?, phoneNum = ?, emailAd = ?, passW = ?, acctType = ? WHERE userId = ?;";
+    	try(PreparedStatement preparedStatement = connection.prepareStatement(query);){
+    		preparedStatement.setObject(1, userId);
+    		preparedStatement.setString(2, firstName);
+    		preparedStatement.setString(3, lastName);
+    		preparedStatement.setString(4, phoneNum);
+    		preparedStatement.setString(5, emailAd);
+    		preparedStatement.setString(6, passW);
+    		preparedStatement.setString(7, acctType);
+    		preparedStatement.setObject(8, userId);
+    		preparedStatement.executeUpdate();
+    		//connection.close();
+    	} catch (SQLException e) {
+            e.printStackTrace();
+        } 
+    }
         
 
     // other methods, eg. addUser(...) etc

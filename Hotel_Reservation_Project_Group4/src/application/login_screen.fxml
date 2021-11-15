@@ -64,7 +64,7 @@
       <Circle fx:id="circle1" fill="WHITE" layoutX="485.0" layoutY="309.0" radius="14.0" stroke="WHITE" strokeType="INSIDE" />
       <Ellipse fx:id="ellipse" fill="WHITE" layoutX="485.0" layoutY="332.0" radiusX="22.5" radiusY="15.0" stroke="WHITE" strokeType="INSIDE" />
       <Circle fx:id="circle2" fill="TRANSPARENT" layoutX="485.0" layoutY="318.0" radius="35.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="3.0" />
-      <Hyperlink fx:id="homehandler" contentDisplay="CENTER" focusTraversable="false" layoutX="302.0" layoutY="65.0" onAction="#handleBackToHomePage" prefHeight="267.0" prefWidth="392.0" text="Nomad+" textAlignment="CENTER" textFill="WHITE">
+      <Hyperlink fx:id="homehandler" contentDisplay="CENTER" focusTraversable="false" layoutX="302.0" layoutY="64.0" onAction="#handleBackToHomePage" prefHeight="268.0" prefWidth="454.0" text="Nomad+" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font size="85.0" />
          </font>
@@ -74,7 +74,7 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <Hyperlink fx:id="hyperlink2" focusTraversable="false" layoutX="451.0" layoutY="721.0" onAction="#handleBackToHomePage" prefHeight="33.0" prefWidth="70.0" text="Go back" textFill="#91cd75">
+      <Hyperlink fx:id="hyperlink2" focusTraversable="false" layoutX="451.0" layoutY="721.0" onAction="#handleBackToHomePage" prefHeight="33.0" prefWidth="84.0" text="Go back" textFill="#91cd75">
          <font>
             <Font size="16.0" />
          </font>

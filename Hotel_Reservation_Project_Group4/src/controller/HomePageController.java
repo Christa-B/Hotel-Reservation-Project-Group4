@@ -56,7 +56,7 @@ public class HomePageController implements Initializable{
 	private Hyperlink hyperlink2; // Login
 	
 	@FXML
-	private Hyperlink hyperlink3; // Sign up
+	private Hyperlink hyperlink3; // Sign in
 	
 	// MenuButtons
 	@FXML
@@ -158,7 +158,7 @@ public class HomePageController implements Initializable{
 	public void handleLogin(ActionEvent event) throws IOException {
 		// Loads the FXML document for login_screen and displays it
 		Parent root = FXMLLoader.load(getClass().getResource("/application/login_screen.fxml"));
-		Stage window = (Stage)button.getScene().getWindow();
+		Stage window = (Stage)hyperlink2.getScene().getWindow();
 		window.setScene(new Scene (root));
 		window.setMaximized(true);
 		
@@ -174,7 +174,7 @@ public class HomePageController implements Initializable{
 	public void handleSignUp(ActionEvent event) throws IOException {
 		// Loads the FXML document for login_screen and displays it
 		Parent root = FXMLLoader.load(getClass().getResource("/application/signup_screen.fxml"));
-		Stage window = (Stage)button.getScene().getWindow();
+		Stage window = (Stage)hyperlink3.getScene().getWindow();
 		window.setScene(new Scene (root));
 		window.setMaximized(true);
 		

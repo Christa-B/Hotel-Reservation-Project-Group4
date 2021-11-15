@@ -119,7 +119,7 @@ public class SignUpController implements Initializable {
 	private PasswordField passwordFieldTwo; // To confirm password
 	
 	@FXML
-	private PasswordField adminpasswordField; // To confirm password
+	private PasswordField adminpasswordField; // To confirm admin passcode
 	
 	// HyperLinks
 	@FXML
@@ -144,6 +144,7 @@ public class SignUpController implements Initializable {
 	private static String hovered_goback_button_style = "-fx-text-fill: white; -fx-font-weight: bold;";
 	private static String normal_homehandler_button_style = "-fx-text-fill: white;";
 	private static String hovered_homehandler_button_style = "-fx-text-fill: deepskyblue; -fx-font-weight: bold;";
+	
 	// List of items for ComboBoxes (prices and rooms)
 	ObservableList<String> list1 = FXCollections.observableArrayList("Customer", "Admin");
 
@@ -188,7 +189,7 @@ public class SignUpController implements Initializable {
 	public void handleBackToHomePage( ActionEvent event ) throws IOException {
 		// Loads the FXML document for home_page and displays it
 		Parent root = FXMLLoader.load(getClass().getResource("/application/home_page.fxml"));
-		Stage window = (Stage)button.getScene().getWindow();
+		Stage window = (Stage)homehandler.getScene().getWindow();
 		window.setMaximized(true);
 		window.setScene(new Scene (root, 1920, 1050));	//Weird solution to fix scrollpane issue.
 	}
@@ -374,7 +375,7 @@ public class SignUpController implements Initializable {
 	public void handleLoginPage( ActionEvent event ) throws IOException {
 		// Loads the FXML document for login_screen and displays it
 		Parent root = FXMLLoader.load(getClass().getResource("/application/login_screen.fxml"));
-		Stage window = (Stage)button.getScene().getWindow();
+		Stage window = (Stage)hyperlink.getScene().getWindow();
 		window.setScene(new Scene (root));
 	}
 	
