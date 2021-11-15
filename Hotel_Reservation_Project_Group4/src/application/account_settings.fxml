@@ -94,13 +94,6 @@
             <Label fx:id="emailErrorText" alignment="CENTER" contentDisplay="CENTER" ellipsisString="" layoutX="534.0" layoutY="392.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="25.0" prefWidth="273.0" text="This text will display email errors." textAlignment="JUSTIFY" textFill="#eeff04" textOverrun="CLIP" visible="false" wrapText="true" />
             <Label fx:id="numberErrorText" alignment="CENTER" contentDisplay="CENTER" ellipsisString="" layoutX="534.0" layoutY="486.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="25.0" prefWidth="273.0" text="This text will display phone number errors." textAlignment="JUSTIFY" textFill="#eeff04" textOverrun="CLIP" visible="false" wrapText="true" />
             <Label fx:id="passwordErrorText" alignment="CENTER" contentDisplay="CENTER" ellipsisString="" layoutX="1365.0" layoutY="193.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="126.0" prefWidth="259.0" text="This text will display password errors." textAlignment="JUSTIFY" textFill="#eeff04" textOverrun="CLIP" visible="false" wrapText="true" />
-            <Label fx:id="label2" layoutX="1086.0" layoutY="416.0" text="Change Account Type" textFill="WHITE" visible="false">
-               <font>
-                  <Font name="System Bold" size="16.0" />
-               </font>
-            </Label>
-            <ComboBox fx:id="comboBoxAccount" layoutX="1086.0" layoutY="447.0" prefHeight="32.0" prefWidth="273.0" style="-fx-background-color: white; -fx-background-radius: 0;" visible="false" />
-            <PasswordField fx:id="adminpasswordField" layoutX="1086.0" layoutY="495.0" prefHeight="32.0" prefWidth="273.0" visible="false" />
             <Button fx:id="button1" layoutX="484.0" layoutY="612.0" mnemonicParsing="false" onAction="#handleSubmitChanges" prefHeight="39.0" prefWidth="354.0" style="-fx-background-color: white; -fx-background-radius: 20;" text="SUBMIT CHANGES" textFill="#ff3366">
                <font>
                   <Font name="System Bold" size="18.0" />
