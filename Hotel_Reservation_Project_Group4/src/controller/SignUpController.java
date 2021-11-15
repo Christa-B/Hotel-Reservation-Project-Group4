@@ -135,10 +135,15 @@ public class SignUpController implements Initializable {
 	@FXML
 	private ComboBox<String> comboBoxAccount; // Option for customer/administrator account type
 	
-	// Static variables to set style for button when mouse is away/hovering
+	// Static variables to set style for button/hyperlinks when mouse is away/hovering
 	private static String normal_button_style = "-fx-background-color: white; -fx-background-radius: 20;";
 	private static String hovered_button_style = "-fx-background-color: #d3d3d3; -fx-background-radius: 20;";
-	
+	private static String normal_login_button_style = "-fx-text-fill: #91cd75;";
+	private static String hovered_login_button_style = "-fx-text-fill: white; -fx-font-weight: bold;";
+	private static String normal_goback_button_style = "-fx-text-fill: #91cd75;";
+	private static String hovered_goback_button_style = "-fx-text-fill: white; -fx-font-weight: bold;";
+	private static String normal_homehandler_button_style = "-fx-text-fill: white;";
+	private static String hovered_homehandler_button_style = "-fx-text-fill: deepskyblue; -fx-font-weight: bold;";
 	// List of items for ComboBoxes (prices and rooms)
 	ObservableList<String> list1 = FXCollections.observableArrayList("Customer", "Admin");
 
@@ -153,14 +158,23 @@ public class SignUpController implements Initializable {
 		// Sets choicebox items
 		comboBoxAccount.setItems(list1);
 		
-		// Normal button style set to white
+		// Set button/hyperlink styles to normal
 	    button.setStyle(normal_button_style);
+	    hyperlink.setStyle(normal_login_button_style);
+	    hyperlink2.setStyle(normal_goback_button_style);
+	    homehandler.setStyle(normal_homehandler_button_style);
 	    
 	    // Changes to hovered button style, set to a light grey
 	    button.setOnMouseEntered(e -> button.setStyle(hovered_button_style));
+	    hyperlink.setOnMouseEntered(e -> hyperlink.setStyle(hovered_login_button_style));
+	    hyperlink2.setOnMouseEntered(e -> hyperlink2.setStyle(hovered_goback_button_style));
+	    homehandler.setOnMouseEntered(e -> homehandler.setStyle(hovered_homehandler_button_style));
 	    
 	    // Changes back to normal button style when mouse stops hovering
 	    button.setOnMouseExited(e -> button.setStyle(normal_button_style));
+	    hyperlink.setOnMouseExited(e -> hyperlink.setStyle(normal_login_button_style));
+	    hyperlink2.setOnMouseExited(e -> hyperlink2.setStyle(normal_goback_button_style));
+	    homehandler.setOnMouseExited(e -> homehandler.setStyle(normal_homehandler_button_style));
 	}
 	
 	
@@ -174,7 +188,7 @@ public class SignUpController implements Initializable {
 	public void handleBackToHomePage( ActionEvent event ) throws IOException {
 		// Loads the FXML document for home_page and displays it
 		Parent root = FXMLLoader.load(getClass().getResource("/application/home_page.fxml"));
-		Stage window = (Stage)homehandler.getScene().getWindow();
+		Stage window = (Stage)button.getScene().getWindow();
 		window.setMaximized(true);
 		window.setScene(new Scene (root, 1920, 1050));	//Weird solution to fix scrollpane issue.
 	}
@@ -360,7 +374,7 @@ public class SignUpController implements Initializable {
 	public void handleLoginPage( ActionEvent event ) throws IOException {
 		// Loads the FXML document for login_screen and displays it
 		Parent root = FXMLLoader.load(getClass().getResource("/application/login_screen.fxml"));
-		Stage window = (Stage)hyperlink.getScene().getWindow();
+		Stage window = (Stage)button.getScene().getWindow();
 		window.setScene(new Scene (root));
 	}
 	

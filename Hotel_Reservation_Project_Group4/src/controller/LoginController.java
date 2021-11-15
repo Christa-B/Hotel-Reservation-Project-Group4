@@ -85,11 +85,20 @@ public class LoginController implements Initializable {
 	private Hyperlink hyperlink; // Sign up here
 	
 	@FXML
+	private Hyperlink hyperlink2; // Go Back button
+	
+	@FXML
 	private Hyperlink homehandler;
 	
 	// Static variables to set style for button when mouse is away/hovering
 	private static String normal_button_style = "-fx-background-color: white; -fx-background-radius: 20;";
 	private static String hovered_button_style = "-fx-background-color: #d3d3d3; -fx-background-radius: 20;";
+	private static String normal_signup_button_style = "-fx-text-fill: #91cd75;";
+	private static String hovered_signup_button_style = "-fx-text-fill: white; -fx-font-weight: bold;";
+	private static String normal_homehandler_button_style = "-fx-text-fill: white;";
+	private static String hovered_homehandler_button_style = "-fx-text-fill: white; -fx-font-weight: bold;";
+	private static String normal_goback_button_style = "-fx-text-fill: #91cd75;";
+	private static String hovered_goback_button_style = "-fx-text-fill: white; -fx-font-weight: bold;";
 
 	
 	/**
@@ -100,14 +109,24 @@ public class LoginController implements Initializable {
 	 */
 	@Override
 	public void initialize( URL location, ResourceBundle resources ) {
-		// Normal button style set to white
+		// Normal button/hyperlink style set to normal
 	    button.setStyle(normal_button_style);
+	    hyperlink.setStyle(normal_signup_button_style);
+	    homehandler.setStyle(normal_homehandler_button_style);
+	    hyperlink2.setStyle(normal_goback_button_style);
 	    
 	    // Changes to hovered button style, set to a light grey
 	    button.setOnMouseEntered(e -> button.setStyle(hovered_button_style));
+	    hyperlink.setOnMouseEntered(e -> hyperlink.setStyle(hovered_signup_button_style));
+	    homehandler.setOnMouseEntered(e -> homehandler.setStyle(hovered_homehandler_button_style));
+	    hyperlink2.setOnMouseEntered(e -> hyperlink2.setStyle(hovered_goback_button_style));
 	    
 	    // Changes back to normal button style when mouse stops hovering
 	    button.setOnMouseExited(e -> button.setStyle(normal_button_style));
+	    hyperlink.setOnMouseExited(e -> hyperlink.setStyle(normal_signup_button_style));
+	    homehandler.setOnMouseExited(e -> homehandler.setStyle(normal_homehandler_button_style));
+	    hyperlink2.setOnMouseExited(e -> hyperlink2.setStyle(normal_goback_button_style));
+	    
 	}
 
 	
@@ -196,7 +215,7 @@ public class LoginController implements Initializable {
 	public void handleBackToHomePage( ActionEvent event ) throws IOException {
 		// Loads the FXML document for home_page and displays it
 		Parent root = FXMLLoader.load(getClass().getResource("/application/home_page.fxml"));
-		Stage window = (Stage)homehandler.getScene().getWindow();
+		Stage window = (Stage)button.getScene().getWindow();
 		window.setMaximized(true);
 		window.setScene(new Scene (root, 1920, 1050));	//Weird solution to fix scrollpane issue.
 	}
@@ -211,7 +230,7 @@ public class LoginController implements Initializable {
 	public void handleSignUp( ActionEvent event ) throws IOException {
 		// Loads the FXML document for the signup_screen and displays it
 		Parent root = FXMLLoader.load(getClass().getResource("/application/signup_screen.fxml"));
-		Stage window = (Stage)hyperlink.getScene().getWindow();
+		Stage window = (Stage)button.getScene().getWindow();
 		window.setScene(new Scene (root));
 	}
 	

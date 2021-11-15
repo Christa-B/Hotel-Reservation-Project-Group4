@@ -56,7 +56,7 @@ public class HomePageController implements Initializable{
 	private Hyperlink hyperlink2; // Login
 	
 	@FXML
-	private Hyperlink hyperlink3; // Sign in
+	private Hyperlink hyperlink3; // Sign up
 	
 	// MenuButtons
 	@FXML
@@ -94,9 +94,13 @@ public class HomePageController implements Initializable{
 	// Room & guest limitations based off of Booking.com, which maxes at 30 guests and 30 rooms.
 
 	
-	// Static variables to set style for button when mouse is away/hovering
+	// Static variables to set style for button/labels when mouse is away/hovering
 	private static String normal_button_style = "-fx-background-color: white; -fx-background-radius: 20";
 	private static String hovered_button_style = "-fx-background-color: #d3d3d3; -fx-background-radius: 20;";
+	private static String normal_login_button_style = "-fx-text-fill: white;";
+	private static String hovered_login_button_style = "-fx-text-fill: deepskyblue; -fx-font-weight: bold";
+	private static String normal_signup_button_style = "-fx-text-fill: white;";
+	private static String hovered_signup_button_style = "-fx-text-fill: deepskyblue; -fx-font-weight: bold;";
 	
 	/**
 	 * Initializes items for Number of Rooms and Price Range ComboBoxes
@@ -128,14 +132,20 @@ public class HomePageController implements Initializable{
 		combobox4.setEditable(true);
 		combobox4.getEditor().setEditable(false);
 		
-		// Normal button style set to white
+		// Normal button/hyperlink style set to white
 	    button.setStyle(normal_button_style);
+	    hyperlink2.setStyle(normal_login_button_style);
+	    hyperlink3.setStyle(normal_signup_button_style);
 	    
-	    // Changes to hovered button style, set to a light grey
+	    // Changes to hovered button/hyperlink style, set to a light grey and deep sky blue respectively
 	    button.setOnMouseEntered(e -> button.setStyle(hovered_button_style));
+	    hyperlink2.setOnMouseEntered(e -> hyperlink2.setStyle(hovered_login_button_style));
+	    hyperlink3.setOnMouseEntered(e -> hyperlink3.setStyle(hovered_signup_button_style));
 	    
 	    // Changes back to normal button style when mouse stops hovering
 	    button.setOnMouseExited(e -> button.setStyle(normal_button_style));
+	    hyperlink2.setOnMouseExited(e -> hyperlink2.setStyle(normal_login_button_style));
+	    hyperlink3.setOnMouseExited(e -> hyperlink3.setStyle(normal_signup_button_style));
 	}
 	
 	/**
@@ -148,7 +158,7 @@ public class HomePageController implements Initializable{
 	public void handleLogin(ActionEvent event) throws IOException {
 		// Loads the FXML document for login_screen and displays it
 		Parent root = FXMLLoader.load(getClass().getResource("/application/login_screen.fxml"));
-		Stage window = (Stage)hyperlink2.getScene().getWindow();
+		Stage window = (Stage)button.getScene().getWindow();
 		window.setScene(new Scene (root));
 		window.setMaximized(true);
 		
@@ -164,7 +174,7 @@ public class HomePageController implements Initializable{
 	public void handleSignUp(ActionEvent event) throws IOException {
 		// Loads the FXML document for login_screen and displays it
 		Parent root = FXMLLoader.load(getClass().getResource("/application/signup_screen.fxml"));
-		Stage window = (Stage)hyperlink3.getScene().getWindow();
+		Stage window = (Stage)button.getScene().getWindow();
 		window.setScene(new Scene (root));
 		window.setMaximized(true);
 		

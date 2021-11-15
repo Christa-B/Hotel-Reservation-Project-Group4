@@ -145,7 +145,7 @@ public class CustomerLoggedInController implements Initializable{
 	public void handleMyReservation(ActionEvent event) throws IOException {
 		// Loads the FXML document for account_settings and displays it
 		Parent root = FXMLLoader.load(getClass().getResource("/application/my_reservation.fxml"));
-		Stage window = (Stage)hyperlink2.getScene().getWindow();
+		Stage window = (Stage)button.getScene().getWindow();
 		window.setScene(new Scene (root));
 		window.setMaximized(true);
 		
@@ -161,7 +161,7 @@ public class CustomerLoggedInController implements Initializable{
 	public void handleAccountSettings(ActionEvent event) throws IOException {
 		// Loads the FXML document for account_settings and displays it
 		Parent root = FXMLLoader.load(getClass().getResource("/application/account_settings.fxml"));
-		Stage window = (Stage)hyperlink3.getScene().getWindow();
+		Stage window = (Stage)button.getScene().getWindow();
 		window.setScene(new Scene (root));
 	}
 	
@@ -193,7 +193,7 @@ public class CustomerLoggedInController implements Initializable{
 	public void handleBackToHomePage( ActionEvent event ) throws IOException {
 		// Loads the FXML document for home_page_customer_loggedin and displays it
 		Parent root = FXMLLoader.load(getClass().getResource("/application/home_page_customer_loggedin.fxml"));
-		Stage window = (Stage)hyperlink1.getScene().getWindow();
+		Stage window = (Stage)button.getScene().getWindow();
 		window.setMaximized(true);
 		window.setScene(new Scene (root, 1920, 1260));
 	}
@@ -211,7 +211,7 @@ public class CustomerLoggedInController implements Initializable{
 		LoginController.curUser = null; //Cancels out the user session
 		// Loads the FXML document for home_page and displays it
 		Parent root = FXMLLoader.load(getClass().getResource("/application/home_page.fxml"));
-		Stage window = (Stage)hyperlink4.getScene().getWindow();
+		Stage window = (Stage)button.getScene().getWindow();
 		window.setMaximized(true);
 		window.setScene(new Scene (root, 1920, 1050));
 	}
