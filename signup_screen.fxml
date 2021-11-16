@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="anchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SignUpController">
+   <children>
+      <Pane layoutX="-1.0" layoutY="853.0" prefHeight="230.0" prefWidth="970.0" style="-fx-background-color: #3a3b3c;">
+         <children>
+            <Label layoutX="292.0" layoutY="105.0" prefHeight="25.0" prefWidth="452.0" text="At Nomad+, we do not sell any of your personal information." textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="159.0" layoutY="63.0" prefHeight="25.0" prefWidth="713.0" text="By signing in or creating an account, you agree with our Terms &amp; Conditions and Privacy Statement." textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Hyperlink fx:id="homehandler" focusTraversable="false" layoutX="303.0" onAction="#handleBackToHomePage" prefHeight="267.0" prefWidth="428.0" text="Nomad+" textFill="#f8f7f7">
+         <font>
+            <Font size="85.0" />
+         </font>
+      </Hyperlink>
+      <ImageView fx:id="phoneNumberErrorText" fitHeight="1087.0" fitWidth="960.0" layoutX="968.0" layoutY="-4.0" pickOnBounds="true">
+         <image>
+            <Image url="@../model/signin.jpg" />
+         </image>
+      </ImageView>
+      <Label fx:id="label2" layoutX="340.0" layoutY="197.0" text="Create Account" textFill="WHITE">
+         <font>
+            <Font name="Corbel Bold" size="43.0" />
+         </font>
+      </Label>
+      <Button fx:id="button" layoutX="349.0" layoutY="699.0" mnemonicParsing="false" onAction="#handleSignIn" prefHeight="39.0" prefWidth="273.0" scaleShape="false" style="-fx-background-color: white; -fx-background-radius: 20;" text="JOIN" textFill="#ff3366">
+         <font>
+            <Font name="Corbel Bold" size="18.0" />
+         </font>
+      </Button>
+      <Hyperlink fx:id="hyperlink" focusTraversable="false" layoutX="539.0" layoutY="745.0" onAction="#handleLoginPage" text="Login here." textFill="#91cd75">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Hyperlink>
+      <Label fx:id="label9" layoutX="348.0" layoutY="749.0" text="Already have an account?" textFill="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="label3" layoutX="199.0" layoutY="308.0" text="First Name" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <TextField fx:id="textFieldFirstName" layoutX="199.0" layoutY="336.0" prefHeight="32.0" prefWidth="273.0" style="-fx-background-radius: 0;" />
+      <Label fx:id="label4" layoutX="496.0" layoutY="308.0" text="Last Name" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <TextField fx:id="textFieldLastName" layoutX="497.0" layoutY="336.0" prefHeight="32.0" prefWidth="273.0" style="-fx-background-radius: 0;" />
+      <Label fx:id="label5" layoutX="199.0" layoutY="388.0" text="Email" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <TextField fx:id="textFieldEmail" layoutX="199.0" layoutY="416.0" prefHeight="32.0" prefWidth="273.0" style="-fx-background-radius: 0;" />
+      <Label fx:id="label6" layoutX="497.0" layoutY="388.0" text="Phone Number" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <TextField fx:id="textFieldNumber" layoutX="497.0" layoutY="416.0" prefHeight="32.0" prefWidth="273.0" style="-fx-background-radius: 0;" />
+      <Label fx:id="label7" layoutX="199.0" layoutY="473.0" text="Password" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <PasswordField fx:id="passwordFieldOne" layoutX="199.0" layoutY="498.0" prefHeight="32.0" prefWidth="273.0" style="-fx-background-radius: 0;" />
+      <Label fx:id="label71" layoutX="497.0" layoutY="473.0" text="Confirm Password" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <PasswordField fx:id="passwordFieldTwo" layoutX="497.0" layoutY="498.0" prefHeight="32.0" prefWidth="273.0" style="-fx-background-radius: 0;" />
+      <Label fx:id="overallNameErrorText" alignment="CENTER" contentDisplay="CENTER" ellipsisString="" layoutX="201.0" layoutY="368.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="20.0" prefWidth="570.0" text="This text will display overall name errors." textAlignment="JUSTIFY" textFill="#eeff04" textOverrun="CLIP" visible="false" wrapText="true" />
+      <Label fx:id="overallErrorText" alignment="CENTER" contentDisplay="CENTER" ellipsisString="" layoutX="201.0" layoutY="293.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="20.0" prefWidth="570.0" text="This text will display errors." textAlignment="JUSTIFY" textFill="#eeff04" textOverrun="CLIP" visible="false" wrapText="true">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="firstNameErrorText" alignment="CENTER" contentDisplay="CENTER" ellipsisString="" layoutX="201.0" layoutY="368.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="20.0" prefWidth="273.0" text="This text will display first name errors." textAlignment="JUSTIFY" textFill="#eeff04" textOverrun="CLIP" visible="false" wrapText="true">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="lastNameErrorText" alignment="CENTER" contentDisplay="CENTER" ellipsisString="" layoutX="498.0" layoutY="368.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="20.0" prefWidth="273.0" text="This text will display last name errors." textAlignment="JUSTIFY" textFill="#eeff04" textOverrun="CLIP" visible="false" wrapText="true">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="emailErrorText" alignment="CENTER" contentDisplay="CENTER" ellipsisString="" layoutX="199.0" layoutY="453.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="20.0" prefWidth="273.0" text="This text will display email errors." textAlignment="JUSTIFY" textFill="#eeff04" textOverrun="CLIP" visible="false" wrapText="true">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="numberErrorText" alignment="CENTER" contentDisplay="CENTER" ellipsisString="" layoutX="498.0" layoutY="453.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="20.0" prefWidth="273.0" text="This text will display phone number errors." textAlignment="JUSTIFY" textFill="#eeff04" textOverrun="CLIP" visible="false" wrapText="true">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="passwordErrorText" alignment="CENTER" contentDisplay="CENTER" ellipsisString="" layoutX="199.0" layoutY="535.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="50.0" prefWidth="570.0" text="This text will display password errors." textAlignment="JUSTIFY" textFill="#eeff04" textOverrun="CLIP" visible="false" wrapText="true">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="label8" layoutX="345.0" layoutY="591.0" text="Account Type" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="comboBoxAccount" layoutX="345.0" layoutY="616.0" prefHeight="32.0" prefWidth="273.0" style="-fx-background-color: white; -fx-background-radius: 0;" />
+      <Label fx:id="accountTypeErrorText" alignment="CENTER" contentDisplay="CENTER" ellipsisString="" layoutX="345.0" layoutY="655.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="20.0" prefWidth="273.0" text="This text will display account type errors." textAlignment="JUSTIFY" textFill="#eeff04" textOverrun="CLIP" visible="false" wrapText="true">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <PasswordField fx:id="adminpasswordField" layoutX="347.0" layoutY="659.0" prefHeight="32.0" prefWidth="273.0" visible="false" />
+      <Hyperlink fx:id="hyperlink2" focusTraversable="false" layoutX="449.0" layoutY="779.0" onAction="#handleBackToHomePage" text="Go back" textFill="#91cd75">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Hyperlink>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="-48.0" layoutY="635.0" pickOnBounds="true" preserveRatio="true" />
+   </children>
+</AnchorPane>
