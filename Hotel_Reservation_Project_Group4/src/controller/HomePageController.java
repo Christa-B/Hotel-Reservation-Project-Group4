@@ -211,9 +211,11 @@ public class HomePageController implements Initializable{
 	@FXML
 	public void handleSearch(ActionEvent event) throws IOException {
 		// Loads the FXML document for search results and displays it
+		if (true) {
 		Parent root = FXMLLoader.load(getClass().getResource("/application/results_not_loggedin.fxml"));
 		Stage window = (Stage)button.getScene().getWindow();
 		window.setScene(new Scene (root));
 		window.setMaximized(true);
+		}
 	}
 }
