@@ -211,7 +211,8 @@ public class SignUpController implements Initializable {
 		// Make regex for ensuring secure user input
 		String nameRegexPattern = "(?i)(^[A-Za-zÀ-ÖØ-öø-ÿ])((?![ .,'-]$)[A-Za-zÀ-ÖØ-öø-ÿ .,'-]){0,254}[\\.]{0,1}$"; //Can take most special names, even accented ones
 		String emailRegexPattern = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$"; // Even reads cases like MyNavyFederal@email.nfcu.org
-		String phoneNumRegexPattern = "^\\D?(\\d{3})\\D?\\D?(\\d{3})\\D?(\\d{4})$"; // takes the variations 9999999999, 999-999-9999, and (999) 999-9999
+		String phoneNumRegexPattern = "^(1-)?\\d{3}-\\d{3}-\\d{4}$"; // takes only 999-999-9999 format
+				//^\\D?(\\d{3})\\D?\\D?(\\d{3})\\D?(\\d{4})$ Old phone number regex
 		String passwordRegexPattern = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_=+])(?=\\S+$).{8,254}$"; //requirements listed in error message
 		
 		
@@ -249,16 +250,23 @@ public class SignUpController implements Initializable {
 			}
 		
 			//check for correct overall format
-			if ((nameFlag == 2) && (!patternMatches(textFieldFirstName.getText(), nameRegexPattern) || !patternMatches(textFieldLastName.getText(), nameRegexPattern))){ 
-				overallNameErrorText.setText("Please only enter letters and apostrophes. Titles like 'the third' should be entered as 'III'.");
+			if(textFieldFirstName.getText().length() > 255 || textFieldLastName.getText().length() > 255) {
+				overallNameErrorText.setText("Invalid name length(s).");
 				overallNameErrorText.setStyle("-fx-font-weight: bold");
 				overallNameErrorText.setVisible(true);
 			}
 			else {
-				overallNameErrorText.setVisible(false);
-				fstNm = textFieldFirstName.getText();
-				lstNm = textFieldLastName.getText();
-				ValidationFlag += 2;
+				if ((nameFlag == 2) && (!patternMatches(textFieldFirstName.getText(), nameRegexPattern) || !patternMatches(textFieldLastName.getText(), nameRegexPattern))){ 
+					overallNameErrorText.setText("Please only enter letters and apostrophes. Titles like 'the third' should be entered as 'III'.");
+					overallNameErrorText.setStyle("-fx-font-weight: bold");
+					overallNameErrorText.setVisible(true);
+				}
+				else {
+					overallNameErrorText.setVisible(false);
+					fstNm = textFieldFirstName.getText();
+					lstNm = textFieldLastName.getText();
+					ValidationFlag += 2;
+				}
 			}
 			
 			//check for correct email format
@@ -273,9 +281,16 @@ public class SignUpController implements Initializable {
 				emailErrorText.setVisible(true);
 			}
 			else {
-				emailErrorText.setVisible(false);
-				email = textFieldEmail.getText();
-				ValidationFlag++;
+				if(textFieldEmail.getText().length() > 255) {
+					emailErrorText.setText("Invalid email length.");
+					emailErrorText.setStyle("-fx-font-weight: bold");
+					emailErrorText.setVisible(true);
+				}
+				else {
+					emailErrorText.setVisible(false);
+					email = textFieldEmail.getText();
+					ValidationFlag++;
+				}
 			}
 			
 			//check for correct phone number format
@@ -285,7 +300,7 @@ public class SignUpController implements Initializable {
 				numberErrorText.setVisible(true);
 			}
 			else if(!patternMatches(textFieldNumber.getText(), phoneNumRegexPattern)){ 
-				numberErrorText.setText("Please enter a valid phone number.");
+				numberErrorText.setText("Valid format is 999-999-9999.");
 				numberErrorText.setStyle("-fx-font-weight: bold");
 				numberErrorText.setVisible(true);
 			}
@@ -313,9 +328,16 @@ public class SignUpController implements Initializable {
 				passwordErrorText.setVisible(true);
 			}
 			else {
-				passwordErrorText.setVisible(false);
-				pWrd = passwordFieldOne.getText();
-				ValidationFlag++;
+				if(passwordFieldOne.getText().length() > 255) {
+					passwordErrorText.setText("Invalid password length.");
+					passwordErrorText.setStyle("-fx-font-weight: bold");
+					passwordErrorText.setVisible(true);
+				}
+				else {
+					passwordErrorText.setVisible(false);
+					pWrd = passwordFieldOne.getText();
+					ValidationFlag++;
+				}
 			}
 			
 			//check for account selection

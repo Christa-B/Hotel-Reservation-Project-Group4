@@ -63,9 +63,9 @@
                   <Font name="Yu Gothic Regular" size="20.0" />
                </font>
             </Hyperlink>
-            <Label fx:id="welcome_label" layoutX="573.0" layoutY="230.0" prefHeight="79.0" prefWidth="791.0" text="Welcome, ______" textFill="WHITE">
+            <Label fx:id="welcome_label" alignment="CENTER" layoutX="103.0" layoutY="230.0" prefHeight="79.0" prefWidth="1736.0" text="Welcome, ______. Would you like to make a reservation?" textFill="WHITE">
                <font>
-                  <Font name="Corbel Light" size="48.0" />
+                  <Font size="36.0" />
                </font>
             </Label>
             <Hyperlink fx:id="nomadplus_link" focusTraversable="false" layoutX="33.0" layoutY="34.0" onAction="#handleBackToHomePage" text="Nomad+" textFill="#f8f8f8">
@@ -146,11 +146,6 @@
                   <Font name="Yu Gothic Regular" size="20.0" />
                </font>
             </Hyperlink>
-            <Label fx:id="label11" layoutX="934.0" layoutY="237.0" prefHeight="79.0" prefWidth="791.0" text="Would you like to make a reservation?" textFill="WHITE">
-               <font>
-                  <Font name="Corbel Light" size="24.0" />
-               </font>
-            </Label>
             <Label layoutX="700.0" layoutY="810.0" text="Need more room?" textFill="#fff675">
                <font>
                   <Font name="System Bold Italic" size="16.0" />

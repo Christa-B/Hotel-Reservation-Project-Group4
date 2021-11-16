@@ -143,7 +143,7 @@ public class CustomerLoggedInController implements Initializable{
 	    
 	    //Indicates user logged in
 	    String firstname = LoginController.curUser.getFirstName();
-	    welcome_label.setText("Welcome, " + firstname);
+	    welcome_label.setText("Welcome, " + firstname + ". Would you like to make a reservation?");
 	}
 	
 	/**
