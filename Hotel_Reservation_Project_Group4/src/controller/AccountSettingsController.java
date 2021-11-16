@@ -51,6 +51,12 @@ public class AccountSettingsController implements Initializable {
 	@FXML
 	private Button submit_button; // Submit changes submit_button
 	
+	@FXML
+	private Button delete_account_button; // Delete account delete_account_button
+	
+	@FXML
+	private Button confirm_button; // confirmation of deletion confirm_button
+	
 	// Labels
 	@FXML
 	private Label user_details_label; // User details
@@ -154,9 +160,6 @@ public class AccountSettingsController implements Initializable {
 	    String phone_num = LoginController.curUser.getPhoneNum();
 	    phone_num_textfield.setText(phone_num);
 	    
-	    String oldPass = LoginController.curUser.getPassW();
-	    old_passwordfield.setText(oldPass);
-	    
 	}
 	
 	/**
@@ -183,7 +186,7 @@ public class AccountSettingsController implements Initializable {
 			
 			int thisUsrId = LoginController.curUser.getUserId();
 			int nameFlag = 0;
-			int ValidationFlag = 0;
+			int errorFlag = 0;
 			String fstNm = "";
 			String lstNm = "";
 			String email = "";
@@ -194,7 +197,6 @@ public class AccountSettingsController implements Initializable {
 			//check for correct naming format
 			if(first_name_textfield.getText() == null || first_name_textfield.getText().isEmpty()) {
 				fstNm = LoginController.curUser.getFirstName();
-				ValidationFlag++;
 			}
 			else {
 				nameFlag++;
@@ -202,7 +204,6 @@ public class AccountSettingsController implements Initializable {
 			
 			if(last_name_textfield.getText() == null || last_name_textfield.getText().isEmpty()) {
 				lstNm = LoginController.curUser.getLastName();
-				ValidationFlag++;
 			}
 			else {
 				nameFlag++;
@@ -213,38 +214,35 @@ public class AccountSettingsController implements Initializable {
 				overallNameErrorText.setText("Please only enter letters and apostrophes. Titles like 'the third' should be entered as 'III'.");
 				overallNameErrorText.setStyle("-fx-font-weight: bold");
 				overallNameErrorText.setVisible(true);
+				errorFlag++;
 			}
 			else {
 				overallNameErrorText.setVisible(false);
 				
 				if(first_name_textfield.getText() == null || first_name_textfield.getText().isEmpty()) {
 					fstNm = LoginController.curUser.getFirstName();
-					ValidationFlag++;
 				}
 				else {
 					fstNm = first_name_textfield.getText();
-					ValidationFlag++;
 				}
 				
 				if(last_name_textfield.getText() == null || last_name_textfield.getText().isEmpty()) {
 					lstNm = LoginController.curUser.getLastName();
-					ValidationFlag++;
 				}
 				else {
 					lstNm = last_name_textfield.getText();
-					ValidationFlag++;
 				}
 			}
 		
 			//check for correct email format
 			if(email_textfield.getText() == null || email_textfield.getText().isEmpty()) {
 				email = LoginController.curUser.getEmailAd();
-				ValidationFlag++;
 			}
 			else if(!patternMatches(email_textfield.getText(), emailRegexPattern)){ 
 				emailErrorText.setText("Please enter a valid email.");
 				emailErrorText.setStyle("-fx-font-weight: bold");
 				emailErrorText.setVisible(true);
+				errorFlag++;
 			}
 			else {
 				emailErrorText.setVisible(false);
@@ -255,19 +253,17 @@ public class AccountSettingsController implements Initializable {
 				else {
 					email = email_textfield.getText();
 				}
-				
-				ValidationFlag++;
 			}
 		
 			//check for correct phone number format
 			if(phone_num_textfield.getText() == null || phone_num_textfield.getText().isEmpty()) {
 				phnNum = LoginController.curUser.getPhoneNum();
-				ValidationFlag++;
 			}
 			else if(!patternMatches(phone_num_textfield.getText(), phoneNumRegexPattern)){ 
 				numberErrorText.setText("Please enter a valid phone number.");
 				numberErrorText.setStyle("-fx-font-weight: bold");
 				numberErrorText.setVisible(true);
+				errorFlag++;
 			}
 			else {
 				numberErrorText.setVisible(false);
@@ -278,50 +274,43 @@ public class AccountSettingsController implements Initializable {
 				else {
 					phnNum = phone_num_textfield.getText();
 				}
-				
-				ValidationFlag++;
 			}
 			
+			//check for correct password format
 			if(old_passwordfield.getText() == null || old_passwordfield.getText().isEmpty()) {
-				if(new_passwordfield.getText() != null || !new_passwordfield.getText().isEmpty()) {
-					passwordErrorText.setText("Enter old password first.");
-					passwordErrorText.setStyle("-fx-font-weight: bold");
-					passwordErrorText.setVisible(true);
-				}
-				else {
 					pWrd = LoginController.curUser.getPassW();
-					ValidationFlag++;
-				}
 			}
 			else if(!old_passwordfield.getText().equals(LoginController.curUser.getPassW())){
 				passwordErrorText.setText("Incorrect old password.");
 				passwordErrorText.setStyle("-fx-font-weight: bold");
 				passwordErrorText.setVisible(true);
+				errorFlag++;
 			}
 			else {
-				//check for correct password format
-				if(!patternMatches(new_passwordfield.getText(), passwordRegexPattern)){ 
+				if(!patternMatches(new_passwordfield.getText(), passwordRegexPattern)){
 					passwordErrorText.setText("Passwords must be 8 characters or longer. Must have one digit, one lowercase letter, one uppercase letter, one special character"
 							+ " and no whitespaces.");
 					passwordErrorText.setStyle("-fx-font-weight: bold");
 					passwordErrorText.setVisible(true);
+					errorFlag++;
 				}
 				else if(!new_passwordfield.getText().equals(confirm_passwordfield.getText())){
 					passwordErrorText.setText("Please confirm your new password.");
 					passwordErrorText.setStyle("-fx-font-weight: bold");
 					passwordErrorText.setVisible(true);
+					errorFlag++;
 				}
 				else {
 					passwordErrorText.setVisible(false);
 					pWrd = new_passwordfield.getText();
-					ValidationFlag++;
 				}
 			}
 			
-			if(ValidationFlag == 5) {
-				if(LoginController.curUser.getAcctType().equals("Admin")) { //admin case
-					userDataAccessor.updateUser(thisUsrId, fstNm, lstNm, phnNum, email, pWrd, acctType);
-					LoginController.curUser = userDataAccessor.getUser(email_textfield.getText(), new_passwordfield.getText());
+			if(errorFlag == 0) {
+				userDataAccessor.updateUser(thisUsrId, fstNm, lstNm, phnNum, email, pWrd, acctType);
+				LoginController.curUser = userDataAccessor.getUser(email, pWrd);
+				
+				if(LoginController.curUser.getAcctType().equals("Admin")) {
 					// Loads the FXML document for home_page and displays it
 					Parent root = FXMLLoader.load(getClass().getResource("/application/home_page_admin_loggedin.fxml"));
 					Stage window = (Stage)submit_button.getScene().getWindow();
@@ -329,15 +318,12 @@ public class AccountSettingsController implements Initializable {
 					window.setScene(new Scene (root, 1920, 1220));
 				}
 				else { //customer case
-					userDataAccessor.updateUser(thisUsrId, fstNm, lstNm, phnNum, email, pWrd, acctType);
-					LoginController.curUser = userDataAccessor.getUser(email_textfield.getText(), new_passwordfield.getText());
 					Parent root = FXMLLoader.load(getClass().getResource("/application/home_page_customer_loggedin.fxml"));
 					Stage window = (Stage)submit_button.getScene().getWindow();
 					window.setScene(new Scene (root, 1920, 1260));
 					window.setMaximized(true);	
 				}	
 			}
-			
 			
 		} catch (ClassNotFoundException e1) {
 			// TODO Auto-generated catch block
@@ -347,6 +333,56 @@ public class AccountSettingsController implements Initializable {
 			e1.printStackTrace();
 		}
 		
+	}
+	
+	/**
+	 * Changes view to the HOME PAGE after submit_button is clicked and credentials are verified
+	 * 
+	 * @param event	 event in which user clicks on the LOGIN submit_button
+	 * @throws IOException	if a file is unable to be read
+	 * @throws ClassNotFoundException	if a class cannot be found
+	 * @throws SQLException	if SQL Database cannot be reached
+	 */
+	@FXML
+	public void handleDeleteAccount( ActionEvent event ) throws IOException {
+		confirm_button.setVisible(true);
+	}
+	
+	/**
+	 * Changes view to the HOME PAGE after submit_button is clicked and credentials are verified
+	 * 
+	 * @param event	 event in which user clicks on the LOGIN submit_button
+	 * @throws IOException	if a file is unable to be read
+	 * @throws ClassNotFoundException	if a class cannot be found
+	 * @throws SQLException	if SQL Database cannot be reached
+	 */
+	@FXML
+	public void handleDeleteConfirmation( ActionEvent event ) throws IOException {
+		try {
+			// Initialize data accessor via link to DB
+			UserDataAccessor userDataAccessor = new UserDataAccessor( 
+					"jdbc:mysql://awsmysql-nomadplus.c8lezqhu83hc.us-east-2.rds.amazonaws.com:3306"
+					+ "/userData?autoReconnect=true&useSSL=false", "admin", "adminthisisjustaproject92521");
+			
+			int thisUsrId = LoginController.curUser.getUserId();
+			String email = LoginController.curUser.getEmailAd();
+			String pWrd = LoginController.curUser.getPassW();
+			
+			userDataAccessor.deleteUser(thisUsrId, email, pWrd);
+			
+			// Loads the FXML document for home_page and displays it
+			Parent root = FXMLLoader.load(getClass().getResource("/application/home_page.fxml"));
+			Stage window = (Stage)submit_button.getScene().getWindow();
+			window.setMaximized(true);
+			window.setScene(new Scene (root, 1920, 1220));
+			
+			} catch (ClassNotFoundException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 	}
 	
 	

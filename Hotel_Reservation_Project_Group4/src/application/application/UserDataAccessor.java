@@ -150,6 +150,18 @@ public class UserDataAccessor {
             e.printStackTrace();
         } 
     }
+    
+    public void deleteUser(int userId, String emailAd, String passW) {
+    	String query = "DELETE FROM usrData WHERE userId = ? AND emailAd = ? AND passW = ?;";
+    	try(PreparedStatement preparedStatement = connection.prepareStatement(query);){
+    		preparedStatement.setObject(1, userId);
+    		preparedStatement.setString(2, emailAd);
+    		preparedStatement.setString(3, passW);
+    		preparedStatement.executeUpdate();
+    	} catch (SQLException e) {
+            e.printStackTrace();
+        } 
+    }
         
 
     // other methods, eg. addUser(...) etc

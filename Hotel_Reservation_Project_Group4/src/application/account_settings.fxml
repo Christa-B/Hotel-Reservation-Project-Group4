@@ -92,10 +92,15 @@
                </font>
             </Label>
             <Label fx:id="overallNameErrorText" alignment="CENTER" contentDisplay="CENTER" ellipsisString="" layoutX="811.0" layoutY="180.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="126.0" prefWidth="259.0" text="This text will display name errors." textAlignment="JUSTIFY" textFill="#eeff04" textOverrun="CLIP" visible="false" wrapText="true" />
-            <Label fx:id="emailErrorText" alignment="CENTER" contentDisplay="CENTER" ellipsisString="" layoutX="534.0" layoutY="392.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="25.0" prefWidth="273.0" text="This text will display email errors." textAlignment="JUSTIFY" textFill="#eeff04" textOverrun="CLIP" visible="false" wrapText="true" />
-            <Label fx:id="numberErrorText" alignment="CENTER" contentDisplay="CENTER" ellipsisString="" layoutX="534.0" layoutY="486.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="25.0" prefWidth="273.0" text="This text will display phone number errors." textAlignment="JUSTIFY" textFill="#eeff04" textOverrun="CLIP" visible="false" wrapText="true" />
-            <Label fx:id="passwordErrorText" alignment="CENTER" contentDisplay="CENTER" ellipsisString="" layoutX="1365.0" layoutY="193.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="126.0" prefWidth="259.0" text="This text will display password errors." textAlignment="JUSTIFY" textFill="#eeff04" textOverrun="CLIP" visible="false" wrapText="true" />
-            <Button fx:id="delete_account_button" layoutX="961.0" layoutY="770.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="277.0" style="-fx-background-color: red; -fx-background-radius: 20;" text="DELETE ACCOUNT" textFill="WHITE">
+            <Label fx:id="emailErrorText" alignment="CENTER" contentDisplay="CENTER" ellipsisString="" layoutX="536.0" layoutY="423.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="25.0" prefWidth="273.0" text="This text will display email errors." textAlignment="JUSTIFY" textFill="#eeff04" textOverrun="CLIP" visible="false" wrapText="true" />
+            <Label fx:id="numberErrorText" alignment="CENTER" contentDisplay="CENTER" ellipsisString="" layoutX="536.0" layoutY="511.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="25.0" prefWidth="273.0" text="This text will display phone number errors." textAlignment="JUSTIFY" textFill="#eeff04" textOverrun="CLIP" visible="false" wrapText="true" />
+            <Label fx:id="passwordErrorText" alignment="CENTER" contentDisplay="CENTER" ellipsisString="" layoutX="1364.0" layoutY="212.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="126.0" prefWidth="259.0" text="This text will display password errors." textAlignment="JUSTIFY" textFill="#eeff04" textOverrun="CLIP" visible="false" wrapText="true" />
+            <Button fx:id="delete_account_button" layoutX="961.0" layoutY="770.0" mnemonicParsing="false" onAction="#handleDeleteAccount" prefHeight="28.0" prefWidth="277.0" style="-fx-background-color: red; -fx-background-radius: 20;" text="DELETE ACCOUNT" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Button>
+            <Button fx:id="confirm_button" layoutX="954.0" layoutY="768.0" mnemonicParsing="false" onAction="#handleDeleteConfirmation" prefHeight="42.0" prefWidth="284.0" style="-fx-background-color: red; -fx-background-radius: 20;" text="ARE YOU SURE?" textFill="WHITE" visible="false">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
