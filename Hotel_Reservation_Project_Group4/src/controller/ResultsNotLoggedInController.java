@@ -100,6 +100,14 @@ public class ResultsNotLoggedInController implements Initializable{
 	// Static variables to set style for search_button when mouse is away/hovering
 	private static String normal_button_style = "-fx-background-color: white; -fx-background-radius: 20";
 	private static String hovered_button_style = "-fx-background-color: #d3d3d3; -fx-background-radius: 20;";
+	private static String normal_login_button_style = "-fx-text-fill: white; -fx-font-size: 20;";
+	private static String hovered_login_button_style = "-fx-text-fill: deepskyblue; -fx-font-weight: bold";
+	private static String normal_signup_button_style = "-fx-text-fill: white; -fx-font-size: 20";
+	private static String hovered_signup_button_style = "-fx-text-fill: deepskyblue; -fx-font-weight: bold;";
+	private static String normal_nomadplus_link_style = "-fx-text-fill: white; -fx-text-size: 48;";
+	private static String hovered_nomadplus_link_style = "-fx-text-fill: deepskyblue; -fx-font-weight: bold;";
+	private static String normal_go_back_link_style = "-fx-text-fill: #91cd75; -fx-text-size: 16;";
+	private static String hovered_go_back_link_style = "-fx-text-fill: white; -fx-font-weight: bold;";
 	
 	/**
 	 * Initializes items for Number of Rooms and Price Range ComboBoxes
@@ -133,12 +141,41 @@ public class ResultsNotLoggedInController implements Initializable{
 		
 		// Normal search_button style set to white
 	    search_button.setStyle(normal_button_style);
+	    login_link.setStyle(normal_login_button_style);
+	    signup_link.setStyle(normal_signup_button_style);
+	    nomadplus_link.setStyle(normal_nomadplus_link_style);
+	    go_back_link.setStyle(normal_go_back_link_style);
+	    
 	    
 	    // Changes to hovered search_button style, set to a light grey
 	    search_button.setOnMouseEntered(e -> search_button.setStyle(hovered_button_style));
+	    login_link.setOnMouseEntered(e -> login_link.setStyle(hovered_login_button_style));
+	    signup_link.setOnMouseEntered(e -> signup_link.setStyle(hovered_signup_button_style));
+	    nomadplus_link.setOnMouseEntered(e -> nomadplus_link.setStyle(hovered_nomadplus_link_style));
+	    go_back_link.setOnMouseEntered(e -> go_back_link.setStyle(hovered_go_back_link_style));
 	    
 	    // Changes back to normal search_button style when mouse stops hovering
 	    search_button.setOnMouseExited(e -> search_button.setStyle(normal_button_style));
+	    login_link.setOnMouseExited(e -> login_link.setStyle(normal_login_button_style));
+	    signup_link.setOnMouseExited(e -> signup_link.setStyle(normal_signup_button_style));
+	    nomadplus_link.setOnMouseExited(e -> nomadplus_link.setStyle(normal_nomadplus_link_style));
+	    go_back_link.setOnMouseExited(e -> go_back_link.setStyle(normal_go_back_link_style));
+	    
+	    // Sets to normal style to fix resizing
+	    login_link.setOnMouseClicked(e -> login_link.setStyle(normal_login_button_style));
+	    signup_link.setOnMouseClicked(e -> signup_link.setStyle(normal_signup_button_style));
+	    nomadplus_link.setOnMouseClicked(e -> nomadplus_link.setStyle(normal_nomadplus_link_style));
+	    go_back_link.setOnMouseClicked(e -> go_back_link.setStyle(normal_go_back_link_style));
+	    
+	    login_link.setOnMousePressed(e -> login_link.setStyle(normal_login_button_style));
+	    signup_link.setOnMousePressed(e -> signup_link.setStyle(normal_signup_button_style));
+	    nomadplus_link.setOnMousePressed(e -> nomadplus_link.setStyle(normal_nomadplus_link_style));
+	    go_back_link.setOnMousePressed(e -> go_back_link.setStyle(normal_go_back_link_style));
+	    
+	    login_link.setOnMouseReleased(e -> login_link.setStyle(normal_login_button_style));
+	    signup_link.setOnMouseReleased(e -> signup_link.setStyle(normal_signup_button_style));
+	    nomadplus_link.setOnMouseReleased(e -> nomadplus_link.setStyle(normal_nomadplus_link_style));
+	    go_back_link.setOnMouseReleased(e -> go_back_link.setStyle(normal_go_back_link_style));
 	}
 
 	/**

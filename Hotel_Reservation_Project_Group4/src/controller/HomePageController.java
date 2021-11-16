@@ -101,10 +101,12 @@ public class HomePageController implements Initializable{
 	// Static variables to set style for button/labels when mouse is away/hovering
 	private static String normal_button_style = "-fx-background-color: white; -fx-background-radius: 20";
 	private static String hovered_button_style = "-fx-background-color: #d3d3d3; -fx-background-radius: 20;";
-	private static String normal_login_button_style = "-fx-text-fill: white;";
+	private static String normal_login_button_style = "-fx-text-fill: white; -fx-font-size: 20;";
 	private static String hovered_login_button_style = "-fx-text-fill: deepskyblue; -fx-font-weight: bold";
-	private static String normal_signup_button_style = "-fx-text-fill: white;";
+	private static String normal_signup_button_style = "-fx-text-fill: white; -fx-font-size: 20";
 	private static String hovered_signup_button_style = "-fx-text-fill: deepskyblue; -fx-font-weight: bold;";
+	private static String normal_nomadplus_link_style = "-fx-text-fill: white; -fx-text-size: 48;";
+	private static String hovered_nomadplus_link_style = "-fx-text-fill: deepskyblue; -fx-font-weight: bold;";
 	
 	/**
 	 * Initializes items for Number of Rooms and Price Range ComboBoxes
@@ -140,16 +142,32 @@ public class HomePageController implements Initializable{
 	    button.setStyle(normal_button_style);
 	    login_link.setStyle(normal_login_button_style);
 	    signup_link.setStyle(normal_signup_button_style);
+	    nomadplus_link.setStyle(normal_nomadplus_link_style);
 	    
 	    // Changes to hovered button/hyperlink style, set to a light grey and deep sky blue respectively
 	    button.setOnMouseEntered(e -> button.setStyle(hovered_button_style));
 	    login_link.setOnMouseEntered(e -> login_link.setStyle(hovered_login_button_style));
 	    signup_link.setOnMouseEntered(e -> signup_link.setStyle(hovered_signup_button_style));
+	    nomadplus_link.setOnMouseEntered(e -> nomadplus_link.setStyle(hovered_nomadplus_link_style));
 	    
 	    // Changes back to normal button style when mouse stops hovering
 	    button.setOnMouseExited(e -> button.setStyle(normal_button_style));
 	    login_link.setOnMouseExited(e -> login_link.setStyle(normal_login_button_style));
 	    signup_link.setOnMouseExited(e -> signup_link.setStyle(normal_signup_button_style));
+	    nomadplus_link.setOnMouseExited(e -> nomadplus_link.setStyle(normal_nomadplus_link_style));
+	    
+	    // Changes to normal button style when mouse is clicked to fix it getting small for no reason
+	    login_link.setOnMouseClicked(e -> login_link.setStyle(normal_login_button_style));
+	    signup_link.setOnMouseClicked(e -> signup_link.setStyle(normal_signup_button_style));
+	    nomadplus_link.setOnMouseClicked(e -> nomadplus_link.setStyle(normal_nomadplus_link_style));
+	    
+	    login_link.setOnMousePressed(e -> login_link.setStyle(normal_login_button_style));
+	    signup_link.setOnMousePressed(e -> signup_link.setStyle(normal_signup_button_style));
+	    nomadplus_link.setOnMousePressed(e -> nomadplus_link.setStyle(normal_nomadplus_link_style));
+	    
+	    login_link.setOnMouseReleased(e -> login_link.setStyle(normal_login_button_style));
+	    signup_link.setOnMouseReleased(e -> signup_link.setStyle(normal_signup_button_style));
+	    nomadplus_link.setOnMouseReleased(e -> nomadplus_link.setStyle(normal_nomadplus_link_style));
 	}
 	
 	/**

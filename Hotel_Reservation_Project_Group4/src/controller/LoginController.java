@@ -96,7 +96,7 @@ public class LoginController implements Initializable {
 	private static String normal_signup_button_style = "-fx-text-fill: #91cd75;";
 	private static String hovered_signup_button_style = "-fx-text-fill: white; -fx-font-weight: bold;";
 	private static String normal_homehandler_button_style = "-fx-text-fill: white;";
-	private static String hovered_homehandler_button_style = "-fx-text-fill: white; -fx-font-weight: bold;";
+	private static String hovered_homehandler_button_style = "-fx-text-fill: deepskyblue; -fx-font-weight: bold;";
 	private static String normal_goback_button_style = "-fx-text-fill: #91cd75;";
 	private static String hovered_goback_button_style = "-fx-text-fill: white; -fx-font-weight: bold;";
 	
@@ -125,6 +125,19 @@ public class LoginController implements Initializable {
 	    hyperlink.setOnMouseExited(e -> hyperlink.setStyle(normal_signup_button_style));
 	    homehandler.setOnMouseExited(e -> homehandler.setStyle(normal_homehandler_button_style));
 	    hyperlink2.setOnMouseExited(e -> hyperlink2.setStyle(normal_goback_button_style));
+	    
+	    // Sets to normal to fix the resizing when selecting a hyperlink
+	    hyperlink.setOnMouseClicked(e -> hyperlink.setStyle(normal_signup_button_style));
+	    hyperlink2.setOnMouseClicked(e -> hyperlink2.setStyle(normal_goback_button_style));
+	    homehandler.setOnMouseClicked(e -> homehandler.setStyle(normal_homehandler_button_style));
+	    
+	    hyperlink.setOnMousePressed(e -> hyperlink.setStyle(normal_signup_button_style));
+	    hyperlink2.setOnMousePressed(e -> hyperlink2.setStyle(normal_goback_button_style));
+	    homehandler.setOnMousePressed(e -> homehandler.setStyle(normal_homehandler_button_style));
+	    
+	    hyperlink.setOnMouseReleased(e -> hyperlink.setStyle(normal_signup_button_style));
+	    hyperlink2.setOnMouseReleased(e -> hyperlink2.setStyle(normal_goback_button_style));
+	    homehandler.setOnMouseReleased(e -> homehandler.setStyle(normal_homehandler_button_style));
 	}
 
 	

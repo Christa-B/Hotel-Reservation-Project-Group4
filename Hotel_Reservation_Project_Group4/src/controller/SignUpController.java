@@ -176,6 +176,19 @@ public class SignUpController implements Initializable {
 	    hyperlink.setOnMouseExited(e -> hyperlink.setStyle(normal_login_button_style));
 	    hyperlink2.setOnMouseExited(e -> hyperlink2.setStyle(normal_goback_button_style));
 	    homehandler.setOnMouseExited(e -> homehandler.setStyle(normal_homehandler_button_style));
+	    
+	    // Sets style to normal after clicked, pressed or released to fix resizing
+	    hyperlink.setOnMouseClicked(e -> hyperlink.setStyle(normal_login_button_style));
+	    hyperlink2.setOnMouseClicked(e -> hyperlink2.setStyle(normal_goback_button_style));
+	    homehandler.setOnMouseClicked(e -> homehandler.setStyle(normal_homehandler_button_style));
+	    
+	    hyperlink.setOnMousePressed(e -> hyperlink.setStyle(normal_login_button_style));
+	    hyperlink2.setOnMousePressed(e -> hyperlink2.setStyle(normal_goback_button_style));
+	    homehandler.setOnMousePressed(e -> homehandler.setStyle(normal_homehandler_button_style));
+	    
+	    hyperlink.setOnMouseReleased(e -> hyperlink.setStyle(normal_login_button_style));
+	    hyperlink2.setOnMouseReleased(e -> hyperlink2.setStyle(normal_goback_button_style));
+	    homehandler.setOnMouseReleased(e -> homehandler.setStyle(normal_homehandler_button_style));
 	}
 	
 	

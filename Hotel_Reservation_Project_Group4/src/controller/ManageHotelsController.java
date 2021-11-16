@@ -76,6 +76,27 @@ public class ManageHotelsController implements Initializable{
 	private static String normal_button_style = "-fx-background-color: white; -fx-background-radius: 20";
 	private static String hovered_button_style = "-fx-background-color: #d3d3d3; -fx-background-radius: 20;";
 	
+	private static String normal_nomadplus_link_style = "-fx-text-fill: white; -fx-font-size: 48;";
+	private static String hovered_nomadplus_link_style = "-fx-text-fill: deepskyblue; -fx-font-weight: bold;";
+	
+	private static String normal_manage_hotels_link_style = "-fx-text-fill: white; -fx-font-size: 20;";
+	private static String hovered_manage_hotels_link_style = "-fx-text-fill: deepskyblue; -fx-font-weight: bold;";
+	
+	private static String normal_manage_reservations_link_style = "-fx-text-fill: white; -fx-font-size: 20;";
+	private static String hovered_manage_reservations_link_style = "-fx-text-fill: deepskyblue; -fx-font-weight: bold;";
+	
+	private static String normal_my_reservation_link_style = "-fx-text-fill: white; -fx-font-size: 20;";
+	private static String hovered_my_reservation_link_style = "-fx-text-fill: deepskyblue; -fx-font-weight: bold;";
+	
+	private static String normal_account_settings_link_style = "-fx-text-fill: white; -fx-font-size: 20;";
+	private static String hovered_account_settings_link_style = "-fx-text-fill: deepskyblue; -fx-font-weight: bold;";
+	
+	private static String normal_logout_link_style = "-fx-text-fill: white; -fx-font-size: 20;";
+	private static String hovered_logout_link_style = "-fx-text-fill: deepskyblue; -fx-font-weight: bold;";
+	
+	private static String normal_go_back_link_style = "-fx-text-fill: #91cd75; -fx-font-size: 20;";
+	private static String hovered_go_back_link_style = "-fx-text-fill: white; -fx-font-weight: bold;";
+	
 	
 	/**
 	 * Initializes items for Number of Rooms and Price Range ComboBoxes
@@ -88,15 +109,63 @@ public class ManageHotelsController implements Initializable{
 		// Normal button style set to white
 	    button1.setStyle(normal_button_style);
 	    button2.setStyle(normal_button_style);
+	    hyperlink1.setStyle(normal_nomadplus_link_style);
+	    hyperlink2.setStyle(normal_manage_hotels_link_style);
+	    hyperlink3.setStyle(normal_manage_reservations_link_style);
+	    hyperlink4.setStyle(normal_my_reservation_link_style);
+	    hyperlink5.setStyle(normal_account_settings_link_style);
+	    hyperlink6.setStyle(normal_logout_link_style);
+	    hyperlink7.setStyle(normal_go_back_link_style);
 	    
 	    // Changes to hovered button style, set to a light grey
 	    button1.setOnMouseEntered(e -> button1.setStyle(hovered_button_style));
 	    button2.setOnMouseEntered(e -> button2.setStyle(hovered_button_style));
 	    
+	    hyperlink1.setOnMouseEntered(e -> hyperlink1.setStyle(hovered_nomadplus_link_style));
+	    hyperlink2.setOnMouseEntered(e -> hyperlink2.setStyle(hovered_manage_hotels_link_style));
+	    hyperlink3.setOnMouseEntered(e -> hyperlink3.setStyle(hovered_manage_reservations_link_style));
+	    hyperlink4.setOnMouseEntered(e -> hyperlink4.setStyle(hovered_my_reservation_link_style));
+	    hyperlink5.setOnMouseEntered(e -> hyperlink5.setStyle(hovered_account_settings_link_style));
+	    hyperlink6.setOnMouseEntered(e -> hyperlink6.setStyle(hovered_logout_link_style));
+	    hyperlink7.setOnMouseEntered(e -> hyperlink7.setStyle(hovered_go_back_link_style));
+	    
 	    // Changes back to normal button style when mouse stops hovering
 	    button1.setOnMouseExited(e -> button1.setStyle(normal_button_style));  
 	    button2.setOnMouseExited(e -> button2.setStyle(normal_button_style));
 	    
+	    hyperlink1.setOnMouseExited(e -> hyperlink1.setStyle(normal_nomadplus_link_style));
+	    hyperlink2.setOnMouseExited(e -> hyperlink2.setStyle(normal_manage_hotels_link_style));
+	    hyperlink3.setOnMouseExited(e -> hyperlink3.setStyle(normal_manage_reservations_link_style));
+	    hyperlink4.setOnMouseExited(e -> hyperlink4.setStyle(normal_my_reservation_link_style));
+	    hyperlink5.setOnMouseExited(e -> hyperlink5.setStyle(normal_account_settings_link_style));
+	    hyperlink6.setOnMouseExited(e -> hyperlink6.setStyle(normal_logout_link_style));
+	    hyperlink7.setOnMouseExited(e -> hyperlink7.setStyle(normal_go_back_link_style));
+	    
+	    // Sets to normal style for resizing
+	    
+	    hyperlink1.setOnMouseClicked(e -> hyperlink1.setStyle(normal_nomadplus_link_style));
+	    hyperlink2.setOnMouseClicked(e -> hyperlink2.setStyle(normal_manage_hotels_link_style));
+	    hyperlink3.setOnMouseClicked(e -> hyperlink3.setStyle(normal_manage_reservations_link_style));
+	    hyperlink4.setOnMouseClicked(e -> hyperlink4.setStyle(normal_my_reservation_link_style));
+	    hyperlink5.setOnMouseClicked(e -> hyperlink5.setStyle(normal_account_settings_link_style));
+	    hyperlink6.setOnMouseClicked(e -> hyperlink6.setStyle(normal_logout_link_style));
+	    hyperlink7.setOnMouseClicked(e -> hyperlink7.setStyle(normal_go_back_link_style));
+	    
+	    hyperlink1.setOnMousePressed(e -> hyperlink1.setStyle(normal_nomadplus_link_style));
+	    hyperlink2.setOnMousePressed(e -> hyperlink2.setStyle(normal_manage_hotels_link_style));
+	    hyperlink3.setOnMousePressed(e -> hyperlink3.setStyle(normal_manage_reservations_link_style));
+	    hyperlink4.setOnMousePressed(e -> hyperlink4.setStyle(normal_my_reservation_link_style));
+	    hyperlink5.setOnMousePressed(e -> hyperlink5.setStyle(normal_account_settings_link_style));
+	    hyperlink6.setOnMousePressed(e -> hyperlink6.setStyle(normal_logout_link_style));
+	    hyperlink7.setOnMousePressed(e -> hyperlink7.setStyle(normal_go_back_link_style));
+	    
+	    hyperlink1.setOnMouseReleased(e -> hyperlink1.setStyle(normal_nomadplus_link_style));
+	    hyperlink2.setOnMouseReleased(e -> hyperlink2.setStyle(normal_manage_hotels_link_style));
+	    hyperlink3.setOnMouseReleased(e -> hyperlink3.setStyle(normal_manage_reservations_link_style));
+	    hyperlink4.setOnMouseReleased(e -> hyperlink4.setStyle(normal_my_reservation_link_style));
+	    hyperlink5.setOnMouseReleased(e -> hyperlink5.setStyle(normal_account_settings_link_style));
+	    hyperlink6.setOnMouseReleased(e -> hyperlink6.setStyle(normal_logout_link_style));
+	    hyperlink7.setOnMouseReleased(e -> hyperlink7.setStyle(normal_go_back_link_style));
 	}
 	
 	
