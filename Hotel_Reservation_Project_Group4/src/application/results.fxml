@@ -25,6 +25,27 @@
                         <Font size="16.0" />
                      </font>
                   </Hyperlink>
+                  <ScrollPane layoutX="615.0" layoutY="278.0" prefHeight="468.0" prefWidth="1264.0">
+                     <content>
+                        <TableView prefHeight="462.0" prefWidth="1252.0">
+                          <columns>
+                            <TableColumn prefWidth="75.0" text="hotel name" />
+                            <TableColumn prefWidth="75.0" text="room type(s)?" />
+                              <TableColumn prefWidth="75.0" text="pool" />
+                              <TableColumn prefWidth="75.0" text="gym" />
+                              <TableColumn prefWidth="75.0" text="spa" />
+                              <TableColumn prefWidth="75.0" text="business office" />
+                              <TableColumn prefWidth="75.0" text="wifi" />
+                              <TableColumn prefWidth="75.0" text="total rooms" />
+                              <TableColumn prefWidth="75.0" text="location" />
+                              <TableColumn prefWidth="75.0" text="price per day" />
+                              <TableColumn prefWidth="75.0" text="weekend differential" />
+                              <TableColumn prefWidth="75.0" text="total price" />
+                              <TableColumn prefWidth="75.0" text="reserve?" />
+                          </columns>
+                        </TableView>
+                     </content>
+                  </ScrollPane>
                </children></Pane>
             <BorderPane id="borderpane" layoutY="-4.0" opacity="0.0" prefHeight="119.0" prefWidth="1920.0" stylesheets="@../../../../git/Project-Nomad/Hotel_Reservation_Project_Group4/src/application/style.css">
                <opaqueInsets>

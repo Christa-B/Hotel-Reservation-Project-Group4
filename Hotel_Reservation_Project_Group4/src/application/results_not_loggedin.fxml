@@ -30,6 +30,27 @@
                         <Font size="16.0" />
                      </font>
                   </Hyperlink>
+                  <ScrollPane layoutX="368.0" layoutY="159.0" prefHeight="676.0" prefWidth="1524.0">
+                     <content>
+                        <TableView prefHeight="676.0" prefWidth="1532.0">
+                          <columns>
+                            <TableColumn prefWidth="235.0" text="Hotel Name" />
+                            <TableColumn prefWidth="87.0" text="Room Types Available/Selected(?)" />
+                              <TableColumn prefWidth="71.0" text="pool" />
+                              <TableColumn prefWidth="51.0" text="gym" />
+                              <TableColumn prefWidth="55.0" text="spa" />
+                              <TableColumn prefWidth="105.0" text="business office" />
+                              <TableColumn prefWidth="79.0" text="wifi" />
+                              <TableColumn prefWidth="79.0" text="total rooms" />
+                              <TableColumn prefWidth="185.0" text="Location" />
+                              <TableColumn prefWidth="101.0" text="Price per day" />
+                              <TableColumn prefWidth="149.0" text="Weekend differential" />
+                              <TableColumn prefWidth="127.0" text="total price" />
+                              <TableColumn prefWidth="199.0" text="Reserve?" />
+                          </columns>
+                        </TableView>
+                     </content>
+                  </ScrollPane>
                </children></Pane>
             <BorderPane id="borderpane" layoutY="-4.0" opacity="0.0" prefHeight="119.0" prefWidth="1920.0" stylesheets="@../../../../git/Project-Nomad/Hotel_Reservation_Project_Group4/src/application/style.css">
                <opaqueInsets>
