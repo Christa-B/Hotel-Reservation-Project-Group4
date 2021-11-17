@@ -138,12 +138,12 @@ public class SignUpController implements Initializable {
 	// Static variables to set style for button/hyperlinks when mouse is away/hovering
 	private static String normal_button_style = "-fx-background-color: white; -fx-background-radius: 20;";
 	private static String hovered_button_style = "-fx-background-color: #d3d3d3; -fx-background-radius: 20;";
-	private static String normal_login_button_style = "-fx-text-fill: #91cd75;";
-	private static String hovered_login_button_style = "-fx-text-fill: white; -fx-font-weight: bold;";
-	private static String normal_goback_button_style = "-fx-text-fill: #91cd75;";
-	private static String hovered_goback_button_style = "-fx-text-fill: white; -fx-font-weight: bold;";
-	private static String normal_homehandler_button_style = "-fx-text-fill: white;";
-	private static String hovered_homehandler_button_style = "-fx-text-fill: deepskyblue; -fx-font-weight: bold;";
+	private static String normal_login_button_style = "-fx-text-fill: #91cd75; -fx-underline: false;";
+	private static String hovered_login_button_style = "-fx-text-fill: white; -fx-font-weight: bold; -fx-underline: false;";
+	private static String normal_goback_button_style = "-fx-text-fill: #91cd75; -fx-underline: false;";
+	private static String hovered_goback_button_style = "-fx-text-fill: white; -fx-font-weight: bold; -fx-underline: false;";
+	private static String normal_homehandler_button_style = "-fx-text-fill: white; -fx-underline: false;";
+	private static String hovered_homehandler_button_style = "-fx-text-fill: deepskyblue; -fx-font-weight: bold; -fx-underline: false;";
 	
 	// List of items for ComboBoxes (prices and rooms)
 	ObservableList<String> list1 = FXCollections.observableArrayList("Customer", "Admin");

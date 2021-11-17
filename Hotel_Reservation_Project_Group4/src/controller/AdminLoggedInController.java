@@ -116,23 +116,23 @@ public class AdminLoggedInController implements Initializable{
 	private static String normal_search_button_style = "-fx-background-color: white; -fx-background-radius: 20";
 	private static String hovered_search_button_style = "-fx-background-color: #d3d3d3; -fx-background-radius: 20;";
 	
-	private static String normal_nomadplus_link_style = "-fx-text-fill: white; -fx-text-size: 48;";
-	private static String hovered_nomadplus_link_style = "-fx-text-fill: deepskyblue; -fx-font-weight: bold;";
+	private static String normal_nomadplus_link_style = "-fx-text-fill: white; -fx-text-size: 48; -fx-underline: false;";
+	private static String hovered_nomadplus_link_style = "-fx-text-fill: deepskyblue; -fx-font-weight: bold; -fx-underline: false;";
 	
-	private static String normal_manage_hotels_link_style = "-fx-text-fill: white; -fx-font-size: 20;";
-	private static String hovered_manage_hotels_link_style = "-fx-text-fill: deepskyblue; -fx-font-weight: bold;";
+	private static String normal_manage_hotels_link_style = "-fx-text-fill: white; -fx-font-size: 20; -fx-underline: false;";
+	private static String hovered_manage_hotels_link_style = "-fx-text-fill: deepskyblue; -fx-font-weight: bold; -fx-underline: false;";
 	
-	private static String normal_manage_reservations_link_style = "-fx-text-fill: white; -fx-font-size: 20;";
-	private static String hovered_manage_reservations_link_style = "-fx-text-fill: deepskyblue; -fx-font-weight: bold;";
+	private static String normal_manage_reservations_link_style = "-fx-text-fill: white; -fx-font-size: 20; -fx-underline: false;";
+	private static String hovered_manage_reservations_link_style = "-fx-text-fill: deepskyblue; -fx-font-weight: bold; -fx-underline: false;";
 	
-	private static String normal_my_reservation_link_style = "-fx-text-fill: white; -fx-font-size: 20;";
-	private static String hovered_my_reservation_link_style = "-fx-text-fill: deepskyblue; -fx-font-weight: bold;";
+	private static String normal_my_reservation_link_style = "-fx-text-fill: white; -fx-font-size: 20; -fx-underline: false;";
+	private static String hovered_my_reservation_link_style = "-fx-text-fill: deepskyblue; -fx-font-weight: bold; -fx-underline: false;";
 	
-	private static String normal_account_settings_link_style = "-fx-text-fill: white; -fx-font-size: 20;";
-	private static String hovered_account_settings_link_style = "-fx-text-fill: deepskyblue; -fx-font-weight: bold;";
+	private static String normal_account_settings_link_style = "-fx-text-fill: white; -fx-font-size: 20; -fx-underline: false;";
+	private static String hovered_account_settings_link_style = "-fx-text-fill: deepskyblue; -fx-font-weight: bold; -fx-underline: false;";
 	
-	private static String normal_logout_link_style = "-fx-text-fill: white; -fx-font-size: 20;";
-	private static String hovered_logout_link_style = "-fx-text-fill: deepskyblue; -fx-font-weight: bold;";
+	private static String normal_logout_link_style = "-fx-text-fill: white; -fx-font-size: 20; -fx-underline: false;";
+	private static String hovered_logout_link_style = "-fx-text-fill: deepskyblue; -fx-font-weight: bold; -fx-underline: false;";
 	
 	
 	/**

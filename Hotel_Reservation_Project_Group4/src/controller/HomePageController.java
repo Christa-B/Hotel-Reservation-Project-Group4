@@ -120,12 +120,12 @@ public class HomePageController implements Initializable{
 	// Static variables to set style for button/labels when mouse is away/hovering
 	private static String normal_button_style = "-fx-background-color: white; -fx-background-radius: 20";
 	private static String hovered_button_style = "-fx-background-color: #d3d3d3; -fx-background-radius: 20;";
-	private static String normal_login_button_style = "-fx-text-fill: white; -fx-font-size: 20;";
-	private static String hovered_login_button_style = "-fx-text-fill: deepskyblue; -fx-font-weight: bold";
-	private static String normal_signup_button_style = "-fx-text-fill: white; -fx-font-size: 20";
-	private static String hovered_signup_button_style = "-fx-text-fill: deepskyblue; -fx-font-weight: bold;";
-	private static String normal_nomadplus_link_style = "-fx-text-fill: white; -fx-text-size: 48;";
-	private static String hovered_nomadplus_link_style = "-fx-text-fill: deepskyblue; -fx-font-weight: bold;";
+	private static String normal_login_button_style = "-fx-text-fill: white; -fx-font-size: 20; -fx-underline: false;";
+	private static String hovered_login_button_style = "-fx-text-fill: deepskyblue; -fx-font-weight: bold; -fx-underline: false;";
+	private static String normal_signup_button_style = "-fx-text-fill: white; -fx-font-size: 20; -fx-underline: false;";
+	private static String hovered_signup_button_style = "-fx-text-fill: deepskyblue; -fx-font-weight: bold; -fx-underline: false;";
+	private static String normal_nomadplus_link_style = "-fx-text-fill: white; -fx-text-size: 48; -fx-underline: false;";
+	private static String hovered_nomadplus_link_style = "-fx-text-fill: deepskyblue; -fx-font-weight: bold; -fx-underline: false;";
 	
 	/**
 	 * Initializes items for Number of Rooms and Price Range ComboBoxes

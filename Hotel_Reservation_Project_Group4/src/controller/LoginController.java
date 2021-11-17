@@ -93,12 +93,12 @@ public class LoginController implements Initializable {
 	// Static variables to set style for button when mouse is away/hovering
 	private static String normal_button_style = "-fx-background-color: white; -fx-background-radius: 20;";
 	private static String hovered_button_style = "-fx-background-color: #d3d3d3; -fx-background-radius: 20;";
-	private static String normal_signup_button_style = "-fx-text-fill: #91cd75;";
-	private static String hovered_signup_button_style = "-fx-text-fill: white; -fx-font-weight: bold;";
-	private static String normal_homehandler_button_style = "-fx-text-fill: white;";
-	private static String hovered_homehandler_button_style = "-fx-text-fill: deepskyblue; -fx-font-weight: bold;";
-	private static String normal_goback_button_style = "-fx-text-fill: #91cd75;";
-	private static String hovered_goback_button_style = "-fx-text-fill: white; -fx-font-weight: bold;";
+	private static String normal_signup_button_style = "-fx-text-fill: #91cd75; -fx-underline: false;";
+	private static String hovered_signup_button_style = "-fx-text-fill: white; -fx-font-weight: bold; -fx-underline: false;";
+	private static String normal_homehandler_button_style = "-fx-text-fill: white; -fx-underline: false;";
+	private static String hovered_homehandler_button_style = "-fx-text-fill: deepskyblue; -fx-font-weight: bold; -fx-underline: false;";
+	private static String normal_goback_button_style = "-fx-text-fill: #91cd75; -fx-underline: false;";
+	private static String hovered_goback_button_style = "-fx-text-fill: white; -fx-font-weight: bold; -fx-underline: false;";
 	
 	/**
 	 * This method will set a different style for button depending on whether or not mouse hovers it
