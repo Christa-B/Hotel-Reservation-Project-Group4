@@ -180,7 +180,7 @@ public class LoginController implements Initializable {
 						errorText.setVisible(true);
 					} // Check if password is correct
 					else if(curUser.getFirstName() == "exists-but-passW-is-wrong") {
-						errorText.setText("Your username and/or password is incorrect.");
+						errorText.setText("Your email and/or password is incorrect.");
 						errorText.setStyle("-fx-font-weight: bold");
 						errorText.setVisible(true);
 					} // If credentials are valid, loads the FXML document for home_page and display it
@@ -276,7 +276,6 @@ public class LoginController implements Initializable {
 					if (stopFlag == false) {
 						// Initialize User, retrieve data from DB
 						curUser = new User();
-						//User currentUser = new User();
 						curUser = userDataAccessor.getUser(textField.getText(), passwordField.getText());
 						// Check if user record exists
 						if (curUser == null) {
@@ -285,28 +284,25 @@ public class LoginController implements Initializable {
 							errorText.setVisible(true);
 						} // Check if password is correct
 						else if(curUser.getFirstName() == "exists-but-passW-is-wrong") {
-							errorText.setText("Your username and/or password is incorrect.");
+							errorText.setText("Your email and/or password is incorrect.");
 							errorText.setStyle("-fx-font-weight: bold");
 							errorText.setVisible(true);
 						} // If credentials are valid, loads the FXML document for home_page and display it
 						else if (textField.getText().equals(curUser.getEmailAd()) &&
 						passwordField.getText().equals(curUser.getPassW())) {
-							
-							System.out.println(curUser.getAcctType());
-							
-							if(curUser.getAcctType() == "Customer") {
+							if(curUser.getAcctType().equals("Customer")) {
 								Parent root = FXMLLoader.load(getClass().getResource("/application/home_page_customer_loggedin.fxml"));
 								Stage window = (Stage)button.getScene().getWindow();
-								window.setScene(new Scene (root));
+								window.setScene(new Scene (root, 1920, 1260));
 								window.setMaximized(true);	
 							}
 							
-							if(curUser.getAcctType() == "Admin") {
+							if(curUser.getAcctType().equals("Admin")) {
 								Parent root = FXMLLoader.load(getClass().getResource("/application/home_page_admin_loggedin.fxml"));
 								Stage window = (Stage)button.getScene().getWindow();
 								window.setScene(new Scene (root));
 								window.setMaximized(true);	
-							}
+							}	
 						}
 					}
 				} else { // Run if one or more fields are empty
@@ -320,7 +316,7 @@ public class LoginController implements Initializable {
 			} catch (SQLException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
-			} 
+			}
 	    }
 	}
 	

@@ -280,7 +280,7 @@ public class AccountSettingsController implements Initializable {
 			
 			
 			if((nameFlag >= 1) && (!patternMatches(first_name_textfield.getText(), nameRegexPattern) || !patternMatches(last_name_textfield.getText(), nameRegexPattern))){ 
-				overallNameErrorText.setText("Please only enter letters and apostrophes. Titles like 'the third' should be entered as 'III'.");
+				overallNameErrorText.setText("Please only enter letters, apostrophes, dashes, or periods for special cases/suffixes.");
 				overallNameErrorText.setStyle("-fx-font-weight: bold");
 				overallNameErrorText.setVisible(true);
 				errorFlag++;
