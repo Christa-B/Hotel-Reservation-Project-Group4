@@ -38,14 +38,14 @@
                             <TableColumn fx:id="room_type" prefWidth="91.0" text="Room Type" />
                               <TableColumn fx:id="amenity_pool" prefWidth="71.0" text="pool" />
                               <TableColumn fx:id="amenity_gym" prefWidth="51.0" text="gym" />
-                              <TableColumn prefWidth="55.0" text="spa" />
-                              <TableColumn prefWidth="105.0" text="business office" />
-                              <TableColumn prefWidth="79.0" text="wifi" />
-                              <TableColumn prefWidth="112.0" text="Available rooms" />
-                              <TableColumn prefWidth="152.0" text="Location" />
-                              <TableColumn prefWidth="101.0" text="Price per day" />
-                              <TableColumn prefWidth="149.0" text="Weekend differential" />
-                              <TableColumn prefWidth="127.0" text="Total price" />
+                              <TableColumn fx:id="amenity_spa" prefWidth="55.0" text="spa" />
+                              <TableColumn fx:id="amenity_business_office" prefWidth="105.0" text="business office" />
+                              <TableColumn fx:id="amenity_wifi" prefWidth="79.0" text="wifi" />
+                              <TableColumn fx:id="available_rooms" prefWidth="112.0" text="Available rooms" />
+                              <TableColumn fx:id="hotel_location" prefWidth="152.0" text="Location" />
+                              <TableColumn fx:id="price_per_day" prefWidth="101.0" text="Price per day" />
+                              <TableColumn fx:id="weekend_differential" prefWidth="149.0" text="Weekend differential" />
+                              <TableColumn fx:id="total_price" prefWidth="127.0" text="Total price" />
                               <TableColumn prefWidth="199.0" text="Reserve?" />
                           </columns>
                         </TableView>

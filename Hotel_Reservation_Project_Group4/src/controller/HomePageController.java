@@ -7,6 +7,8 @@
 package controller;
 
 import application.Main;
+import application.application.Hotel;
+import application.application.HotelDataAccessor;
 import application.application.Reservation;
 import application.application.User;
 
@@ -18,6 +20,7 @@ import java.sql.SQLException;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.ZoneId;
+import java.util.List;
 import java.util.ResourceBundle;
 import javafx.util.Callback;
 import javafx.collections.FXCollections;
@@ -49,6 +52,13 @@ import javafx.scene.input.*;
 public class HomePageController implements Initializable{
 	
 	public static Reservation currentReservation;
+	
+	public static List<Hotel> hotelList;
+	
+	public static String pricingChoice;
+	
+	public static String hotelLocation;
+	
 	// Buttons
 	@FXML
 	private Button button; // Search Button
@@ -216,9 +226,11 @@ public class HomePageController implements Initializable{
 	 * 
 	 * @param event  event in which user clicks SEARCH button
 	 * @throws IOException  if a file is unable to be read
+	 * @throws SQLException 
+	 * @throws ClassNotFoundException 
 	 */
 	@FXML
-	public void handleSearch(ActionEvent event) throws IOException {
+	public void handleSearch(ActionEvent event) throws IOException, ClassNotFoundException, SQLException {
 		int validFlag1 = 0, validFlag2 = 0, validFlag3 = 0;
 		// Begin form validation, check if location_input is not blank
 		if (location_input.getText() != null) {
@@ -236,12 +248,21 @@ public class HomePageController implements Initializable{
 		} else {
 		// TODO: check_out_date_picker error label "Please enter a check out date"
 		}
-		
 		if (validFlag1 == 1 && validFlag2 == 1 && validFlag3 == 1) {
 			java.util.Date check_in_date = java.util.Date.from(check_in_datepicker.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant());
 			java.util.Date check_out_date = java.util.Date.from(check_out_datepicker.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant());
-			currentReservation = new Reservation(0, 0, "", check_in_date, check_out_date, Integer.valueOf(num_rooms_combobox.getValue().charAt(0)), room_type_combobox.getValue(), 0, Integer.valueOf(num_guests_combobox.getValue().charAt(0)), 0);
+			int numRooms = Character.getNumericValue(num_rooms_combobox.getValue().charAt(0));
+			if (Character.getNumericValue(num_rooms_combobox.getValue().charAt(1)) == 0) { numRooms = 10; }
+			int partySize = Character.getNumericValue(num_guests_combobox.getValue().charAt(0));
+			if (Character.getNumericValue(num_guests_combobox.getValue().charAt(1)) == 0) { partySize = 10; }
+			pricingChoice = price_range_combobox.getValue();
+			hotelLocation = location_input.getText();
+			currentReservation = new Reservation(0, 0, location_input.getText(), check_in_date, check_out_date, numRooms, room_type_combobox.getValue(), 0, partySize, 0);
 			if (currentReservation != null) {
+				HotelDataAccessor hotelDataAccessor = new HotelDataAccessor( 
+						"jdbc:mysql://awsmysql-nomadplus.c8lezqhu83hc.us-east-2.rds.amazonaws.com:3306"
+								+ "/hotelData?autoReconnect=true&useSSL=false", "admin", "adminthisisjustaproject92521");
+				hotelList = hotelDataAccessor.getHotels(location_input.getText());
 				Parent root = FXMLLoader.load(getClass().getResource("/application/results_not_loggedin.fxml"));
 				Stage window = (Stage)button.getScene().getWindow();
 				window.setScene(new Scene (root));

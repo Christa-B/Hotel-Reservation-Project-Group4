@@ -136,8 +136,4 @@ public class Reservation {
     	setPartySize(partySize);
     	setHotelId(hotelId);
     }
-	public Reservation(int i, int j, String string, java.util.Date check_in_date, java.util.Date check_out_date,
-			Integer valueOf, String value, int k, Integer valueOf2, int l) {
-		// TODO Auto-generated constructor stub
-	}
 }
