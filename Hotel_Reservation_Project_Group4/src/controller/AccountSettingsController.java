@@ -249,7 +249,8 @@ public class AccountSettingsController implements Initializable {
 			// Make regex for ensuring secure user input
 			String nameRegexPattern = "(?i)(^[A-Za-zÀ-ÖØ-öø-ÿ])((?![ .,'-]$)[A-Za-zÀ-ÖØ-öø-ÿ .,'-]){0,254}[\\.]{0,1}$"; //Can take most special names, even accented ones
 			String emailRegexPattern = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$"; // Even reads cases like MyNavyFederal@email.nfcu.org
-			String phoneNumRegexPattern = "^\\D?(\\d{3})\\D?\\D?(\\d{3})\\D?(\\d{4})$"; // takes the variations 9999999999, 999-999-9999, and (999) 999-9999
+			String phoneNumRegexPattern = "^(1-)?\\d{3}-\\d{3}-\\d{4}$"; // takes only 999-999-9999 format
+			//^\\D?(\\d{3})\\D?\\D?(\\d{3})\\D?(\\d{4})$ Old phone number regex
 			String passwordRegexPattern = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_=+])(?=\\S+$).{8,254}$"; //requirements listed in error message
 			
 			int thisUsrId = LoginController.curUser.getUserId();
@@ -328,7 +329,7 @@ public class AccountSettingsController implements Initializable {
 				phnNum = LoginController.curUser.getPhoneNum();
 			}
 			else if(!patternMatches(phone_num_textfield.getText(), phoneNumRegexPattern)){ 
-				numberErrorText.setText("Please enter a valid phone number.");
+				numberErrorText.setText("Valid format is 999-999-9999.");
 				numberErrorText.setStyle("-fx-font-weight: bold");
 				numberErrorText.setVisible(true);
 				errorFlag++;
