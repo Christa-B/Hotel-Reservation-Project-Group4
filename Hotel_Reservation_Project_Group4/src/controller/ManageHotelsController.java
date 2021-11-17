@@ -178,7 +178,7 @@ public class ManageHotelsController implements Initializable{
 	@FXML
 	public void handleManageReservations(ActionEvent event) throws IOException {
 		// Loads the FXML document for manage_reservations and displays it
-		Parent root = FXMLLoader.load(getClass().getResource("/application/manage_reservations.fxml"));
+		Parent root = FXMLLoader.load(Main.class.getResource("/application/manage_reservations.fxml"));
 		Stage window = (Stage)hyperlink3.getScene().getWindow();
 		window.setScene(new Scene (root));
 		window.setMaximized(true);
@@ -194,7 +194,7 @@ public class ManageHotelsController implements Initializable{
 	@FXML
 	public void handleManageHotels(ActionEvent event) throws IOException {
 		// Loads the FXML document for manage_hotels and displays it
-		Parent root = FXMLLoader.load(getClass().getResource("/application/manage_hotels.fxml"));
+		Parent root = FXMLLoader.load(Main.class.getResource("/application/manage_hotels.fxml"));
 		Stage window = (Stage)hyperlink2.getScene().getWindow();
 		window.setScene(new Scene (root));
 		window.setMaximized(true);
@@ -210,7 +210,7 @@ public class ManageHotelsController implements Initializable{
 	@FXML
 	public void handleMyReservation(ActionEvent event) throws IOException {
 		// Loads the FXML document for my_account and displays it
-		Parent root = FXMLLoader.load(getClass().getResource("/application/my_reservation.fxml"));
+		Parent root = FXMLLoader.load(Main.class.getResource("/application/my_reservation.fxml"));
 		Stage window = (Stage)hyperlink4.getScene().getWindow();
 		window.setScene(new Scene (root));
 		window.setMaximized(true);
@@ -226,7 +226,7 @@ public class ManageHotelsController implements Initializable{
 	@FXML
 	public void handleAccountSettings(ActionEvent event) throws IOException {
 		// Loads the FXML document for account_settings and displays it
-		Parent root = FXMLLoader.load(getClass().getResource("/application/account_settings.fxml"));
+		Parent root = FXMLLoader.load(Main.class.getResource("/application/account_settings.fxml"));
 		Stage window = (Stage)hyperlink5.getScene().getWindow();
 		window.setScene(new Scene (root));
 		window.setMaximized(true);
@@ -242,7 +242,7 @@ public class ManageHotelsController implements Initializable{
 	@FXML
 	public void handleBackToHomePage( ActionEvent event ) throws IOException {
 		// Loads the FXML document for home_page_admin_loggedin and displays it
-		Parent root = FXMLLoader.load(getClass().getResource("/application/home_page_admin_loggedin.fxml"));
+		Parent root = FXMLLoader.load(Main.class.getResource("/application/home_page_admin_loggedin.fxml"));
 		Stage window = (Stage)hyperlink1.getScene().getWindow();
 		window.setMaximized(true);
 		window.setScene(new Scene (root, 1920, 1220));
@@ -259,7 +259,7 @@ public class ManageHotelsController implements Initializable{
 	public void handleLogout( ActionEvent event ) throws IOException {
 		LoginController.curUser = null; //Cancels out the user session
 		// Loads the FXML document for home_page and displays it
-		Parent root = FXMLLoader.load(getClass().getResource("/application/home_page.fxml"));
+		Parent root = FXMLLoader.load(Main.class.getResource("/application/home_page.fxml"));
 		Stage window = (Stage)hyperlink6.getScene().getWindow();
 		window.setMaximized(true);
 		window.setScene(new Scene (root, 1920, 1050));
