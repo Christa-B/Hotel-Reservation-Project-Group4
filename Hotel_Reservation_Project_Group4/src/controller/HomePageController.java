@@ -179,7 +179,7 @@ public class HomePageController implements Initializable{
 	@FXML
 	public void handleLogin(ActionEvent event) throws IOException {
 		// Loads the FXML document for login_screen and displays it
-		Parent root = FXMLLoader.load(Main.class.getResource("/application/login_screen.fxml"));
+		Parent root = FXMLLoader.load(getClass().getResource("/application/login_screen.fxml"));
 		Stage window = (Stage)login_link.getScene().getWindow();
 		window.setScene(new Scene (root));
 		window.setMaximized(true);
@@ -195,7 +195,7 @@ public class HomePageController implements Initializable{
 	@FXML
 	public void handleSignUp(ActionEvent event) throws IOException {
 		// Loads the FXML document for login_screen and displays it
-		Parent root = FXMLLoader.load(Main.class.getResource("/application/signup_screen.fxml"));
+		Parent root = FXMLLoader.load(getClass().getResource("/application/signup_screen.fxml"));
 		Stage window = (Stage)signup_link.getScene().getWindow();
 		window.setScene(new Scene (root));
 		window.setMaximized(true);
@@ -212,7 +212,7 @@ public class HomePageController implements Initializable{
 	public void handleSearch(ActionEvent event) throws IOException {
 		// Loads the FXML document for search results and displays it
 		if (true) {
-		Parent root = FXMLLoader.load(Main.class.getResource("/application/results_not_loggedin.fxml"));
+		Parent root = FXMLLoader.load(getClass().getResource("/application/results_not_loggedin.fxml"));
 		Stage window = (Stage)button.getScene().getWindow();
 		window.setScene(new Scene (root));
 		window.setMaximized(true);

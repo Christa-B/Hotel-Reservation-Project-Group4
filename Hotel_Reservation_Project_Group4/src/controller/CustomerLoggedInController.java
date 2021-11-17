@@ -196,7 +196,7 @@ public class CustomerLoggedInController implements Initializable{
 	@FXML
 	public void handleMyReservation(ActionEvent event) throws IOException {
 		// Loads the FXML document for account_settings and displays it
-		Parent root = FXMLLoader.load(Main.class.getResource("/application/my_reservation.fxml"));
+		Parent root = FXMLLoader.load(getClass().getResource("/application/my_reservation.fxml"));
 		Stage window = (Stage)my_reservation_link.getScene().getWindow();
 		window.setScene(new Scene (root));
 		window.setMaximized(true);
@@ -212,7 +212,7 @@ public class CustomerLoggedInController implements Initializable{
 	@FXML
 	public void handleAccountSettings(ActionEvent event) throws IOException {
 		// Loads the FXML document for account_settings and displays it
-		Parent root = FXMLLoader.load(Main.class.getResource("/application/account_settings.fxml"));
+		Parent root = FXMLLoader.load(getClass().getResource("/application/account_settings.fxml"));
 		Stage window = (Stage)account_settings_link.getScene().getWindow();
 		window.setScene(new Scene (root));
 	}
@@ -227,7 +227,7 @@ public class CustomerLoggedInController implements Initializable{
 	@FXML
 	public void handleSearch(ActionEvent event) throws IOException {
 		// Loads the FXML document for search results and displays it
-		Parent root = FXMLLoader.load(Main.class.getResource("/application/results.fxml"));
+		Parent root = FXMLLoader.load(getClass().getResource("/application/results.fxml"));
 		Stage window = (Stage)search_button.getScene().getWindow();
 		window.setScene(new Scene (root));
 		window.setMaximized(true);
@@ -244,7 +244,7 @@ public class CustomerLoggedInController implements Initializable{
 	@FXML
 	public void handleBackToHomePage( ActionEvent event ) throws IOException {
 		// Loads the FXML document for home_page_customer_loggedin and displays it
-		Parent root = FXMLLoader.load(Main.class.getResource("/application/home_page_customer_loggedin.fxml"));
+		Parent root = FXMLLoader.load(getClass().getResource("/application/home_page_customer_loggedin.fxml"));
 		Stage window = (Stage)nomadplus_link.getScene().getWindow();
 		window.setMaximized(true);
 		window.setScene(new Scene (root, 1920, 1260));
@@ -262,7 +262,7 @@ public class CustomerLoggedInController implements Initializable{
 	public void handleLogout( ActionEvent event ) throws IOException {
 		LoginController.curUser = null; //Cancels out the user session
 		// Loads the FXML document for home_page and displays it
-		Parent root = FXMLLoader.load(Main.class.getResource("/application/home_page.fxml"));
+		Parent root = FXMLLoader.load(getClass().getResource("/application/home_page.fxml"));
 		Stage window = (Stage)logout_link.getScene().getWindow();
 		window.setMaximized(true);
 		window.setScene(new Scene (root, 1920, 1050));

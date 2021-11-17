@@ -187,7 +187,7 @@ public class ResultsNotLoggedInController implements Initializable{
 	@FXML
 	public void handleLogin(ActionEvent event) throws IOException {
 		// Loads the FXML document for login_screen and displays it
-		Parent root = FXMLLoader.load(Main.class.getResource("/application/login_screen.fxml"));
+		Parent root = FXMLLoader.load(getClass().getResource("/application/login_screen.fxml"));
 		Stage window = (Stage)login_link.getScene().getWindow();
 		window.setScene(new Scene (root));
 		window.setMaximized(true);
@@ -203,7 +203,7 @@ public class ResultsNotLoggedInController implements Initializable{
 	@FXML
 	public void handleSignUp(ActionEvent event) throws IOException {
 		// Loads the FXML document for signup_screen and displays it
-		Parent root = FXMLLoader.load(Main.class.getResource("/application/signup_screen.fxml"));
+		Parent root = FXMLLoader.load(getClass().getResource("/application/signup_screen.fxml"));
 		Stage window = (Stage)signup_link.getScene().getWindow();
 		window.setScene(new Scene (root));
 		window.setMaximized(true);
@@ -219,7 +219,7 @@ public class ResultsNotLoggedInController implements Initializable{
 	@FXML
 	public void handleSearch(ActionEvent event) throws IOException {
 		// Loads the FXML document for search results and displays it
-		Parent root = FXMLLoader.load(Main.class.getResource("/application/results_not_loggedin.fxml"));
+		Parent root = FXMLLoader.load(getClass().getResource("/application/results_not_loggedin.fxml"));
 		Stage window = (Stage)search_button.getScene().getWindow();
 		window.setScene(new Scene (root));
 		window.setMaximized(true);
@@ -236,7 +236,7 @@ public class ResultsNotLoggedInController implements Initializable{
 	@FXML
 	public void handleBackToHomePage( ActionEvent event ) throws IOException {
 		// Loads the FXML document for home_page and displays it
-		Parent root = FXMLLoader.load(Main.class.getResource("/application/home_page.fxml"));
+		Parent root = FXMLLoader.load(getClass().getResource("/application/home_page.fxml"));
 		Stage window = (Stage)nomadplus_link.getScene().getWindow();
 		window.setMaximized(true);
 		window.setScene(new Scene (root, 1920, 1050));

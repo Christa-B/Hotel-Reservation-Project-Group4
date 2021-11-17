@@ -187,14 +187,14 @@ public class LoginController implements Initializable {
 					else if (textField.getText().equals(curUser.getEmailAd()) &&
 					passwordField.getText().equals(curUser.getPassW())) {
 						if(curUser.getAcctType().equals("Customer")) {
-							Parent root = FXMLLoader.load(Main.class.getResource("/application/home_page_customer_loggedin.fxml"));
+							Parent root = FXMLLoader.load(getClass().getResource("/application/home_page_customer_loggedin.fxml"));
 							Stage window = (Stage)button.getScene().getWindow();
 							window.setScene(new Scene (root, 1920, 1260));
 							window.setMaximized(true);	
 						}
 						
 						if(curUser.getAcctType().equals("Admin")) {
-							Parent root = FXMLLoader.load(Main.class.getResource("/application/home_page_admin_loggedin.fxml"));
+							Parent root = FXMLLoader.load(getClass().getResource("/application/home_page_admin_loggedin.fxml"));
 							Stage window = (Stage)button.getScene().getWindow();
 							window.setScene(new Scene (root));
 							window.setMaximized(true);	
@@ -225,7 +225,7 @@ public class LoginController implements Initializable {
 	@FXML
 	public void handleBackToHomePage( ActionEvent event ) throws IOException {
 		// Loads the FXML document for home_page and displays it
-		Parent root = FXMLLoader.load(Main.class.getResource("/application/home_page.fxml"));
+		Parent root = FXMLLoader.load(getClass().getResource("/application/home_page.fxml"));
 		Stage window = (Stage)homehandler.getScene().getWindow();
 		window.setMaximized(true);
 		window.setScene(new Scene (root, 1920, 1050));	//Weird solution to fix scrollpane issue.
@@ -240,7 +240,7 @@ public class LoginController implements Initializable {
 	 */
 	public void handleSignUp( ActionEvent event ) throws IOException {
 		// Loads the FXML document for the signup_screen and displays it
-		Parent root = FXMLLoader.load(Main.class.getResource("/application/signup_screen.fxml"));
+		Parent root = FXMLLoader.load(getClass().getResource("/application/signup_screen.fxml"));
 		Stage window = (Stage)hyperlink.getScene().getWindow();
 		window.setScene(new Scene (root));
 	}
@@ -295,14 +295,14 @@ public class LoginController implements Initializable {
 							System.out.println(curUser.getAcctType());
 							
 							if(curUser.getAcctType() == "Customer") {
-								Parent root = FXMLLoader.load(Main.class.getResource("/application/home_page_customer_loggedin.fxml"));
+								Parent root = FXMLLoader.load(getClass().getResource("/application/home_page_customer_loggedin.fxml"));
 								Stage window = (Stage)button.getScene().getWindow();
 								window.setScene(new Scene (root));
 								window.setMaximized(true);	
 							}
 							
 							if(curUser.getAcctType() == "Admin") {
-								Parent root = FXMLLoader.load(Main.class.getResource("/application/home_page_admin_loggedin.fxml"));
+								Parent root = FXMLLoader.load(getClass().getResource("/application/home_page_admin_loggedin.fxml"));
 								Stage window = (Stage)button.getScene().getWindow();
 								window.setScene(new Scene (root));
 								window.setMaximized(true);	
