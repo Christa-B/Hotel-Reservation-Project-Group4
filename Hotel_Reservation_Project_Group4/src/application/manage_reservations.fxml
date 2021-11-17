@@ -9,90 +9,90 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<ScrollPane hbarPolicy="NEVER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1422.0" prefWidth="1920.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ManageReservationsController">
-   <content>
-      <AnchorPane fx:id="anchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1422.0" prefWidth="1920.0" stylesheets="@style.css">
+
+<AnchorPane fx:id="anchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ManageReservationsController">
+   <children>
+      <Pane layoutX="-4.0" layoutY="118.0" prefHeight="973.0" prefWidth="1924.0" style="-fx-background-color: #212121;">
          <children>
-            <Pane layoutX="-4.0" layoutY="118.0" prefHeight="1057.0" prefWidth="1924.0" style="-fx-background-color: #212121;">
-               <children>
-                  <Label fx:id="label11" layoutX="107.0" layoutY="50.0" prefHeight="79.0" prefWidth="1190.0" text="Manage reservations-- cancel reservations, edit check-in &amp; out dates ONLY IF the desired hotel room is available" textFill="WHITE">
-                     <font>
-                        <Font name="Corbel Light" size="24.0" />
-                     </font>
-                  </Label>
-                  <Button fx:id="button" layoutX="129.0" layoutY="490.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="354.0" style="-fx-background-color: white; -fx-background-radius: 20;" text="Make changes" textFill="#ff3366">
-                     <font>
-                        <Font name="System Bold" size="18.0" />
-                     </font>
-                  </Button>
-                  <ScrollPane hbarPolicy="NEVER" layoutX="1055.0" layoutY="222.0" prefHeight="414.0" prefWidth="457.0">
-                     <content>
-                        <TableView prefHeight="592.0" prefWidth="449.0">
-                          <columns>
-                            <TableColumn prefWidth="75.0" text="Hotel" />
-                              <TableColumn prefWidth="75.0" text="Room" />
-                              <TableColumn prefWidth="75.0" text="Room type" />
-                            <TableColumn prefWidth="75.0" text="Check in" />
-                              <TableColumn prefWidth="75.0" text="Check out" />
-                              <TableColumn prefWidth="75.0" text="First name" />
-                              <TableColumn prefWidth="75.0" text="Last name" />
-                          </columns>
-                        </TableView>
-                     </content>
-                  </ScrollPane>
-                  <Hyperlink fx:id="go_back_link" focusTraversable="false" layoutX="1542.0" layoutY="78.0" onAction="#handleBackToHomePage" text="Go back" textFill="#91cd75">
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                  </Hyperlink>
-               </children></Pane>
-            <BorderPane id="borderpane" layoutX="-10.0" opacity="0.0" prefHeight="119.0" prefWidth="1920.0" stylesheets="@style.css">
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-            </BorderPane>
-            <BorderPane layoutY="114.0" style="-fx-background-color: black;">
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-            </BorderPane>
-            <Hyperlink fx:id="my_reservation_link" focusTraversable="false" layoutX="1415.0" layoutY="70.0" onAction="#handleMyReservation" text="My Reservation" textFill="WHITE">
+            <Label fx:id="label11" layoutX="413.0" layoutY="62.0" prefHeight="79.0" prefWidth="1130.0" text="Manage Reservations:" textFill="WHITE">
                <font>
-                  <Font name="Yu Gothic Regular" size="20.0" />
+                  <Font name="Corbel Italic" size="36.0" />
+               </font>
+            </Label>
+            <Button fx:id="button" layoutX="781.0" layoutY="756.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="354.0" style="-fx-background-color: white; -fx-background-radius: 20;" text="Make changes" textFill="#ff3366">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Button>
+            <ScrollPane hbarPolicy="NEVER" layoutX="418.0" layoutY="179.0" prefHeight="495.0" prefWidth="1086.0">
+               <content>
+                  <TableView prefHeight="564.0" prefWidth="1088.0">
+                    <columns>
+                      <TableColumn prefWidth="221.0" text="Hotel" />
+                        <TableColumn minWidth="0.0" prefWidth="134.66668701171875" text="Number of Rooms" />
+                        <TableColumn minWidth="0.0" prefWidth="116.33331298828125" text="Room Type" />
+                      <TableColumn minWidth="7.0" prefWidth="88.0" text="Check in" />
+                        <TableColumn minWidth="3.0" prefWidth="93.0" text="Check out" />
+                        <TableColumn minWidth="0.0" prefWidth="72.6666259765625" text="Guests" />
+                        <TableColumn prefWidth="125.333251953125" text="First Name" />
+                        <TableColumn prefWidth="114.666748046875" text="Last name" />
+                        <TableColumn prefWidth="99.6666259765625" text="Payment" />
+                    </columns>
+                  </TableView>
+               </content>
+            </ScrollPane>
+            <Hyperlink fx:id="go_back_link" focusTraversable="false" layoutX="920.0" layoutY="810.0" onAction="#handleBackToHomePage" text="Go back" textFill="#91cd75">
+               <font>
+                  <Font size="16.0" />
                </font>
             </Hyperlink>
-            <Hyperlink fx:id="account_settings_link" focusTraversable="false" layoutX="1600.0" layoutY="70.0" onAction="#handleAccountSettings" text="Account Settings" textFill="WHITE">
-               <font>
-                  <Font name="Yu Gothic Regular" size="20.0" />
-               </font>
-            </Hyperlink>
-            <Hyperlink fx:id="nomadplus_link" focusTraversable="false" layoutX="33.0" layoutY="34.0" onAction="#handleBackToHomePage" text="Nomad+" textFill="#f8f8f8">
-               <font>
-                  <Font size="48.0" />
-               </font>
-            </Hyperlink>
-            <BorderPane id="accentborder" layoutY="113.0" prefHeight="11.0" prefWidth="1920.0" style="-fx-background-color: darkorange;" />
-            <Hyperlink fx:id="logout_link" focusTraversable="false" layoutX="1800.0" layoutY="70.0" onAction="#handleLogout" text="Logout" textFill="WHITE">
-               <font>
-                  <Font name="Yu Gothic Regular" size="20.0" />
-               </font>
-            </Hyperlink>
-            <Pane layoutX="-22.0" layoutY="1157.0" prefHeight="66.0" prefWidth="1952.0" style="-fx-background-color: #121212;">
+            <Pane layoutX="-14.0" layoutY="890.0" prefHeight="82.0" prefWidth="1952.0" style="-fx-background-color: #121212;">
                <children>
                   <Label layoutX="887.0" layoutY="21.0" text="2021 Copyright: NomadPlus.com" textFill="WHITE" />
                </children>
             </Pane>
-            <Hyperlink fx:id="manage_reservations_link" focusTraversable="false" layoutX="1170.0" layoutY="70.0" onAction="#handleManageReservations" text="Manage Reservations" textFill="WHITE">
-               <font>
-                  <Font name="Yu Gothic Regular" size="20.0" />
-               </font>
-            </Hyperlink>
-            <Hyperlink fx:id="manage_hotels_link" focusTraversable="false" layoutX="990.0" layoutY="70.0" onAction="#handleManageHotels" text="Manage Hotels" textFill="WHITE">
-               <font>
-                  <Font name="Yu Gothic Regular" size="20.0" />
-               </font>
-            </Hyperlink>
          </children>
-      </AnchorPane>
-   </content>
-</ScrollPane>
+      </Pane>
+      <BorderPane id="borderpane" layoutX="-10.0" opacity="0.0" prefHeight="119.0" prefWidth="1920.0" stylesheets="@style.css">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </BorderPane>
+      <BorderPane layoutY="114.0" style="-fx-background-color: black;">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </BorderPane>
+      <Hyperlink fx:id="my_reservation_link" focusTraversable="false" layoutX="1415.0" layoutY="70.0" onAction="#handleMyReservation" text="My Reservation" textFill="WHITE">
+         <font>
+            <Font name="Yu Gothic Regular" size="20.0" />
+         </font>
+      </Hyperlink>
+      <Hyperlink fx:id="account_settings_link" focusTraversable="false" layoutX="1600.0" layoutY="70.0" onAction="#handleAccountSettings" text="Account Settings" textFill="WHITE">
+         <font>
+            <Font name="Yu Gothic Regular" size="20.0" />
+         </font>
+      </Hyperlink>
+      <Hyperlink fx:id="nomadplus_link" focusTraversable="false" layoutX="33.0" layoutY="34.0" onAction="#handleBackToHomePage" text="Nomad+" textFill="#f8f8f8">
+         <font>
+            <Font size="48.0" />
+         </font>
+      </Hyperlink>
+      <BorderPane id="accentborder" layoutY="113.0" prefHeight="11.0" prefWidth="1920.0" style="-fx-background-color: darkorange;" />
+      <Hyperlink fx:id="logout_link" focusTraversable="false" layoutX="1800.0" layoutY="70.0" onAction="#handleLogout" text="Logout" textFill="WHITE">
+         <font>
+            <Font name="Yu Gothic Regular" size="20.0" />
+         </font>
+      </Hyperlink>
+      <Hyperlink fx:id="manage_reservations_link" focusTraversable="false" layoutX="1170.0" layoutY="70.0" onAction="#handleManageReservations" text="Manage Reservations" textFill="WHITE">
+         <font>
+            <Font name="Yu Gothic Regular" size="20.0" />
+         </font>
+      </Hyperlink>
+      <Hyperlink fx:id="manage_hotels_link" focusTraversable="false" layoutX="990.0" layoutY="70.0" onAction="#handleManageHotels" text="Manage Hotels" textFill="WHITE">
+         <font>
+            <Font name="Yu Gothic Regular" size="20.0" />
+         </font>
+      </Hyperlink>
+   </children>
+</AnchorPane>
