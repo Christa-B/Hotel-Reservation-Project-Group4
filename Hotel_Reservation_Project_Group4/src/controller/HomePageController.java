@@ -7,11 +7,17 @@
 package controller;
 
 import application.Main;
+import application.application.Reservation;
+import application.application.User;
+
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Date;
 import java.sql.SQLException;
+import java.time.Instant;
 import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.ResourceBundle;
 import javafx.util.Callback;
 import javafx.collections.FXCollections;
@@ -41,6 +47,8 @@ import javafx.scene.input.*;
  * @author Christa Baca
  */
 public class HomePageController implements Initializable{
+	
+	public static Reservation currentReservation;
 	// Buttons
 	@FXML
 	private Button button; // Search Button
@@ -49,7 +57,8 @@ public class HomePageController implements Initializable{
 	@FXML
 	private Label label1; // Find the best hotels at the best price, here
 	
-	// Textfields
+	// TextFields
+	@FXML
 	private TextField location_input;
 	
 	// HyperLinks
@@ -210,12 +219,34 @@ public class HomePageController implements Initializable{
 	 */
 	@FXML
 	public void handleSearch(ActionEvent event) throws IOException {
-		// Loads the FXML document for search results and displays it
-		if (true) {
-		Parent root = FXMLLoader.load(getClass().getResource("/application/results_not_loggedin.fxml"));
-		Stage window = (Stage)button.getScene().getWindow();
-		window.setScene(new Scene (root));
-		window.setMaximized(true);
+		int validFlag1 = 0, validFlag2 = 0, validFlag3 = 0;
+		// Begin form validation, check if location_input is not blank
+		if (location_input.getText() != null) {
+			validFlag1 = 1;
+		} else {
+			// TODO: location_input error label "Please enter a Destination"
+		}
+		if (check_in_datepicker.getValue() != null) {
+			validFlag2 = 1;
+		} else {
+		// TODO: check_in_date_picker error label "Please enter a check in date"
+		}
+		if (check_out_datepicker.getValue() != null) {
+			validFlag3 = 1;
+		} else {
+		// TODO: check_out_date_picker error label "Please enter a check out date"
+		}
+		
+		if (validFlag1 == 1 && validFlag2 == 1 && validFlag3 == 1) {
+			java.util.Date check_in_date = java.util.Date.from(check_in_datepicker.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant());
+			java.util.Date check_out_date = java.util.Date.from(check_out_datepicker.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant());
+			currentReservation = new Reservation(0, 0, "", check_in_date, check_out_date, Integer.valueOf(num_rooms_combobox.getValue().charAt(0)), room_type_combobox.getValue(), 0, Integer.valueOf(num_guests_combobox.getValue().charAt(0)), 0);
+			if (currentReservation != null) {
+				Parent root = FXMLLoader.load(getClass().getResource("/application/results_not_loggedin.fxml"));
+				Stage window = (Stage)button.getScene().getWindow();
+				window.setScene(new Scene (root));
+				window.setMaximized(true);
+			}
 		}
 	}
 }

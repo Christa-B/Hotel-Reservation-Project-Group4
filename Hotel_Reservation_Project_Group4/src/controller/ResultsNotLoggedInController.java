@@ -27,6 +27,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuButton;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
@@ -40,6 +41,14 @@ import javafx.scene.input.*;
  * @author Christa Baca
  */
 public class ResultsNotLoggedInController implements Initializable{
+	// TableView
+	@FXML
+	private TableView<?> results_table;
+	
+	// TableColumn
+	//@FXML
+	
+	
 	// Buttons
 	@FXML
 	private Button search_button; // Search Button
@@ -48,7 +57,7 @@ public class ResultsNotLoggedInController implements Initializable{
 	@FXML
 	private Label label1; 
 	
-	// Textfields
+	// TextFields
 	private TextField location_input;
 	
 	// HyperLinks
@@ -117,6 +126,9 @@ public class ResultsNotLoggedInController implements Initializable{
 	 */
 	@Override
 	public void initialize( URL location, ResourceBundle resources ) {
+		// Populate resultsTable
+		//results_table.
+		
 		// Sets list items for ComboBoxes
 		num_guests_combobox.setItems(list1);
 		num_rooms_combobox.setItems(list2);
