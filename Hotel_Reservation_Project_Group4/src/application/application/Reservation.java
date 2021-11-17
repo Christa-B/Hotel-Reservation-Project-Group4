@@ -45,25 +45,25 @@ public class Reservation {
     	hotelNameProperty().set(firstName);
     }
     // Date checkInDate
-    private final ObjectProperty<Date> checkInDate = new SimpleObjectProperty<Date>(this, "checkInDate");
-    public ObjectProperty<Date> checkInDateProperty() {
+    private final ObjectProperty<java.util.Date> checkInDate = new SimpleObjectProperty<java.util.Date>(this, "checkInDate");
+    public ObjectProperty<java.util.Date> checkInDateProperty() {
         return checkInDate;
     }
-    public final Date getCheckInDate() {
+    public final java.util.Date getCheckInDate() {
         return checkInDateProperty().get();
     }
-    public final void setCheckInDate(Date checkInDate) {
+    public final void setCheckInDate(java.util.Date checkInDate) {
     	checkInDateProperty().set(checkInDate);
     }
     // Date checkOutDate
-    private final ObjectProperty<Date> checkOutDate = new SimpleObjectProperty<Date>(this, "checkOutDate");
-    public ObjectProperty<Date> checkOutDateProperty() {
+    private final ObjectProperty<java.util.Date> checkOutDate = new SimpleObjectProperty<java.util.Date>(this, "checkOutDate");
+    public ObjectProperty<java.util.Date> checkOutDateProperty() {
         return checkOutDate;
     }
-    public final Date getCheckOutDate() {
+    public final java.util.Date getCheckOutDate() {
         return checkOutDateProperty().get();
     }
-    public final void setCheckOutDate(Date checkOutDate) {
+    public final void setCheckOutDate(java.util.Date checkOutDate) {
     	checkOutDateProperty().set(checkOutDate);
     }
     // int numRoomSel
@@ -124,7 +124,7 @@ public class Reservation {
     
     public Reservation() {}
     
-    public Reservation(int resId, int userId, String hotelName, Date checkInDate, Date checkOutDate, int numRoomSel, String typeRoom, int finalPayment, int partySize, int hotelId) {
+    public Reservation(int resId, int userId, String hotelName, java.util.Date checkInDate, java.util.Date checkOutDate, int numRoomSel, String typeRoom, int finalPayment, int partySize, int hotelId) {
     	setResId(resId);
     	setUserId(userId);
     	setHotelName(hotelName);
@@ -136,4 +136,8 @@ public class Reservation {
     	setPartySize(partySize);
     	setHotelId(hotelId);
     }
+	public Reservation(int i, int j, String string, java.util.Date check_in_date, java.util.Date check_out_date,
+			Integer valueOf, String value, int k, Integer valueOf2, int l) {
+		// TODO Auto-generated constructor stub
+	}
 }

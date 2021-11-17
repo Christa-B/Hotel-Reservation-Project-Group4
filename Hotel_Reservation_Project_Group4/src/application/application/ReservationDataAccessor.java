@@ -9,6 +9,7 @@ import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class ReservationDataAccessor {
@@ -73,6 +74,40 @@ public class ReservationDataAccessor {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+    }
+    
+    public int getAvailableRooms(int hotelId, String roomType) throws SQLException {
+    	String query = "SELECT COUNT(*) FROM resData WHERE hotelId = ? AND typeRoom = ?";
+    	String roomQuery = "SELECT * FROM hotelData WHERE hotelId = ?";
+    	try (
+    		PreparedStatement preparedStatementCount = connection.prepareStatement(query);
+    		PreparedStatement preparedStatementRooms = connection.prepareStatement(roomQuery);
+    		ResultSet rsCount = preparedStatementCount.executeQuery();
+    		ResultSet rsRooms = preparedStatementRooms.executeQuery();
+    		
+    	){
+    		List<String> roomsArray = new ArrayList<>();
+    		int totalRooms = 0;
+    		if(rsRooms.next()) {
+    			roomsArray = Arrays.asList(rsRooms.getString("numRoomType").split(","));
+    		}
+    		int count = 0;
+    		while(rsCount.next()) {
+    			count++;
+    		}
+    		if (roomType.equals("Standard")) {
+    			totalRooms = Integer.parseInt(roomsArray.get(0));
+    			return totalRooms - count;
+    		} else if (roomType.equals("Queen")) {
+    			totalRooms = Integer.parseInt(roomsArray.get(1));
+    			return totalRooms - count;
+    		} else if (roomType.equals("King")) {
+    			totalRooms = Integer.parseInt(roomsArray.get(2));
+    			return totalRooms - count;
+    		} else { return 0; }
+    		
+    	}
+    		
     }
     
     public int makeNewId() throws SQLException {

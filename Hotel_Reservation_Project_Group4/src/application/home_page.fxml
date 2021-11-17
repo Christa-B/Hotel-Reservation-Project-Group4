@@ -36,7 +36,13 @@
                   </ImageView>
                </top>
             </BorderPane>
+            <TextField fx:id="location_input" layoutX="554.0" layoutY="375.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="32.0" prefWidth="222.0" promptText="Where are we going?" style="-fx-background-color: white; -fx-background-radius: 0;" stylesheets="@style.css" />
             <DatePicker fx:id="check_in_datepicker" focusTraversable="false" layoutX="786.0" layoutY="375.0" prefHeight="32.0" prefWidth="100.0" promptText="Check in" style="-fx-background-color: white; -fx-background-radius: 0;" />
+            <DatePicker fx:id="check_out_datepicker" focusTraversable="false" layoutX="896.0" layoutY="375.0" prefHeight="32.0" prefWidth="100.0" promptText="Check out" style="-fx-background-color: white; -fx-background-radius: 0;" />
+            <ComboBox fx:id="num_guests_combobox" editable="true" layoutX="1006.0" layoutY="375.0" prefHeight="32.0" prefWidth="170.0" promptText="Guests" style="-fx-background-color: white; -fx-background-radius: 0;" />
+            <ComboBox fx:id="num_rooms_combobox" editable="true" layoutX="1186.0" layoutY="375.0" prefHeight="32.0" prefWidth="170.0" promptText="1 Room" style="-fx-background-color: white; -fx-background-radius: 0;" />
+            <ComboBox fx:id="room_type_combobox" editable="true" layoutX="693.0" layoutY="480.0" prefHeight="32.0" prefWidth="170.0" promptText="Room Type" style="-fx-background-color: white; -fx-background-radius: 0;" />
+            <ComboBox fx:id="price_range_combobox" editable="true" layoutX="873.0" layoutY="480.0" prefHeight="32.0" prefWidth="170.0" promptText="Price range" style="-fx-background-color: white; -fx-background-radius: 0;" />
             <MenuButton fx:id="amenities_menu" layoutX="1053.0" layoutY="480.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="170.0" style="-fx-background-color: white; -fx-background-radius: 0;" text="Amenities">
               <items>
                   <CheckMenuItem fx:id="checkmenuitem1" mnemonicParsing="false" text="Gym" />
@@ -46,8 +52,6 @@
                   <CheckMenuItem fx:id="checkmenuitem5" mnemonicParsing="false" text="Wifi" />
               </items>
             </MenuButton>
-            <ComboBox fx:id="num_rooms_combobox" editable="true" layoutX="1186.0" layoutY="375.0" prefHeight="32.0" prefWidth="170.0" promptText="1 Room" style="-fx-background-color: white; -fx-background-radius: 0;" />
-            <ComboBox fx:id="num_guests_combobox" editable="true" layoutX="1006.0" layoutY="375.0" prefHeight="32.0" prefWidth="170.0" promptText="Guests" style="-fx-background-color: white; -fx-background-radius: 0;" />
             <Button fx:id="button" layoutX="783.0" layoutY="570.0" mnemonicParsing="false" onAction="#handleSearch" prefHeight="39.0" prefWidth="354.0" style="-fx-background-color: white; -fx-background-radius: 20;" text="SEARCH" textFill="#ff3366">
                <font>
                   <Font name="System Bold" size="18.0" />
@@ -68,16 +72,12 @@
                   <Font size="48.0" />
                </font>
             </Hyperlink>
-            <ComboBox fx:id="price_range_combobox" editable="true" layoutX="873.0" layoutY="480.0" prefHeight="32.0" prefWidth="170.0" promptText="Price range" style="-fx-background-color: white; -fx-background-radius: 0;" />
-            <TextField fx:id="location_input" layoutX="554.0" layoutY="375.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="32.0" prefWidth="222.0" promptText="Where are we going?" style="-fx-background-color: white; -fx-background-radius: 0;" stylesheets="@style.css" />
-            <ComboBox fx:id="room_type_combobox" editable="true" layoutX="693.0" layoutY="480.0" prefHeight="32.0" prefWidth="170.0" promptText="Room Type" style="-fx-background-color: white; -fx-background-radius: 0;" />
             <BorderPane id="accentborder" layoutY="113.0" prefHeight="11.0" prefWidth="1920.0" style="-fx-background-color: darkorange;" />
             <Hyperlink fx:id="signup_link" focusTraversable="false" layoutX="1800.0" layoutY="70.0" onAction="#handleSignUp" text="Sign up" textFill="WHITE">
                <font>
                   <Font name="Yu Gothic Regular" size="20.0" />
                </font>
             </Hyperlink>
-            <DatePicker fx:id="datepicker2" focusTraversable="false" layoutX="896.0" layoutY="375.0" prefHeight="32.0" prefWidth="100.0" promptText="Check out" style="-fx-background-color: white; -fx-background-radius: 0;" />
             <Pane layoutX="-4.0" layoutY="920.0" prefHeight="255.0" prefWidth="1924.0" style="-fx-background-color: #212121;">
                <children>
                   <Label layoutX="107.0" layoutY="90.0" prefHeight="0.0" prefWidth="708.0" text="At Nomad+, we believe that travel should always be made easy-peasy, lemon-squeezy." textFill="WHITE">
