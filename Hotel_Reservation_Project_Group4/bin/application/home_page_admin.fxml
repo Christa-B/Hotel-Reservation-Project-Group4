@@ -9,7 +9,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane fx:id="anchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" stylesheets="@../application/style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AdminHomePageController">
+<AnchorPane fx:id="anchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1020.0" prefWidth="1920.0" stylesheets="@../application/style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AdminHomePageController">
    <children>
       <BorderPane layoutY="114.0" prefHeight="451.0" prefWidth="900.0" style="-fx-background-color: black;">
          <opaqueInsets>
@@ -69,7 +69,7 @@
             <Font name="Corbel" size="22.0" />
          </font>
       </Hyperlink>
-      <Hyperlink fx:id="hyperlink1" focusTraversable="false" layoutX="28.0" layoutY="21.0" onAction="#handleBackToHomePage" text="PROJECT NAME">
+      <Hyperlink fx:id="hyperlink1" focusTraversable="false" layoutX="28.0" layoutY="21.0" onAction="#handleBackToHomePage" text="NOMAD+" textFill="WHITE">
          <font>
             <Font name="Javanese Text" size="34.0" />
          </font>

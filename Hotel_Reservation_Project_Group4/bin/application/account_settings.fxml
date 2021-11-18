@@ -9,73 +9,149 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane fx:id="anchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" stylesheets="@../application/style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AccountSettingsController">
+<AnchorPane fx:id="anchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AccountSettingsController">
    <children>
-      <Hyperlink fx:id="hyperlink1" focusTraversable="false" layoutX="28.0" layoutY="21.0" onAction="#handleBackToHomePage" text="PROJECT NAME">
+      <Pane layoutX="-4.0" layoutY="116.0" prefHeight="971.0" prefWidth="1924.0" style="-fx-background-color: #212121;">
+         <children>
+            <Pane layoutX="232.0" layoutY="29.0" prefHeight="676.0" prefWidth="1422.0" style="-fx-background-color: #383838; -fx-background-radius: 6;">
+               <children>
+                  <Label layoutX="440.0" layoutY="21.0" prefHeight="42.0" prefWidth="602.0" text="Enter new account details at your leisure." textFill="WHITE">
+                     <font>
+                        <Font name="Corbel Light Italic" size="36.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane layoutX="232.0" layoutY="722.0" prefHeight="138.0" prefWidth="1422.0" style="-fx-background-color: #616161; -fx-background-radius: 6;">
+               <children>
+                  <Button fx:id="delete_account_button" layoutX="346.0" layoutY="58.0" mnemonicParsing="false" onAction="#handleDeleteAccount" prefHeight="28.0" prefWidth="277.0" style="-fx-background-color: #dc143c; -fx-background-radius: 20;" text="DELETE ACCOUNT" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="confirm_button" layoutX="346.0" layoutY="55.0" mnemonicParsing="false" onAction="#handleDeleteConfirmation" prefHeight="42.0" prefWidth="284.0" style="-fx-background-color: #dc143c; -fx-background-radius: 20;" text="ARE YOU SURE?" textFill="WHITE" visible="false">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Button>
+                  <Label fx:id="label12" layoutX="647.0" layoutY="43.0" prefHeight="60.0" prefWidth="431.0" text="Remember, deleting your account cannot be undone." textFill="WHITE">
+                     <font>
+                        <Font name="Yu Gothic Regular" size="16.0" />
+                     </font>
+                  </Label>
+               </children></Pane>
+            <Label fx:id="user_details_label" layoutX="536.0" layoutY="115.0" prefHeight="54.0" prefWidth="130.0" text="User details:" textFill="WHITE">
+               <font>
+                  <Font name="Corbel Bold" size="24.0" />
+               </font>
+            </Label>
+            <Button fx:id="submit_button" layoutX="797.0" layoutY="573.0" mnemonicParsing="false" onAction="#handleSubmitChanges" prefHeight="39.0" prefWidth="354.0" style="-fx-background-color: white; -fx-background-radius: 20;" text="SUBMIT CHANGES" textFill="#ff3366">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Button>
+            <TextField fx:id="first_name_textfield" layoutX="536.0" layoutY="216.0" prefHeight="32.0" prefWidth="273.0" style="-fx-background-radius: 0; -fx-background-color: white;" />
+            <TextField fx:id="last_name_textfield" layoutX="536.0" layoutY="305.0" prefHeight="32.0" prefWidth="273.0" style="-fx-background-radius: 0; -fx-background-color: white;" />
+            <TextField fx:id="email_textfield" layoutX="536.0" layoutY="391.0" prefHeight="32.0" prefWidth="273.0" style="-fx-background-radius: 0; -fx-background-color: white;" />
+            <TextField fx:id="phone_num_textfield" layoutX="536.0" layoutY="479.0" prefHeight="32.0" prefWidth="273.0" style="-fx-background-radius: 0; -fx-background-color: white;" />
+            <Pane layoutY="890.0" prefHeight="80.0" prefWidth="1930.0" style="-fx-background-color: #121212;">
+               <children>
+                  <Label layoutX="887.0" layoutY="21.0" text="2021 Copyright: NomadPlus.com" textFill="WHITE" />
+               </children>
+            </Pane>
+            <Hyperlink fx:id="go_back_link" focusTraversable="false" layoutX="931.0" layoutY="623.0" onAction="#handleBackToHomePage" text="Go back" textFill="#91cd75">
+               <font>
+                  <Font size="16.0" />
+               </font></Hyperlink>
+            <Label layoutX="536.0" layoutY="186.0" prefHeight="25.0" prefWidth="146.0" text="First Name" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="536.0" layoutY="275.0" prefHeight="25.0" prefWidth="146.0" text="Last Name" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="536.0" layoutY="361.0" prefHeight="25.0" prefWidth="146.0" text="Email" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="536.0" layoutY="448.0" prefHeight="25.0" prefWidth="162.0" text="Phone Number" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="1088.0" layoutY="186.0" prefHeight="25.0" prefWidth="146.0" text="Old Password" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="1088.0" layoutY="275.0" prefHeight="25.0" prefWidth="146.0" text="New Password" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="1088.0" layoutY="361.0" prefHeight="25.0" prefWidth="196.0" text="Confirm New Password" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <PasswordField fx:id="old_passwordfield" layoutX="1088.0" layoutY="216.0" prefHeight="32.0" prefWidth="273.0" style="-fx-background-color: white; -fx-background-radius: 0;" />
+            <PasswordField fx:id="new_passwordfield" layoutX="1088.0" layoutY="305.0" prefHeight="32.0" prefWidth="273.0" style="-fx-background-color: white; -fx-background-radius: 0;" />
+            <PasswordField fx:id="confirm_passwordfield" layoutX="1088.0" layoutY="391.0" prefHeight="32.0" prefWidth="273.0" style="-fx-background-color: white; -fx-background-radius: 0;" />
+            <Label fx:id="change_pass_label" layoutX="1088.0" layoutY="115.0" prefHeight="54.0" prefWidth="441.0" text="Change password:" textFill="WHITE">
+               <font>
+                  <Font name="Corbel Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="overallNameErrorText" alignment="CENTER" contentDisplay="CENTER" ellipsisString="" layoutX="821.0" layoutY="165.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="126.0" prefWidth="259.0" text="This text will display name errors." textAlignment="JUSTIFY" textFill="#eeff04" textOverrun="CLIP" visible="false" wrapText="true" />
+            <Label fx:id="emailErrorText" alignment="CENTER" contentDisplay="CENTER" ellipsisString="" layoutX="536.0" layoutY="423.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="25.0" prefWidth="273.0" text="This text will display email errors." textAlignment="JUSTIFY" textFill="#eeff04" textOverrun="CLIP" visible="false" wrapText="true" />
+            <Label fx:id="numberErrorText" alignment="CENTER" contentDisplay="CENTER" ellipsisString="" layoutX="536.0" layoutY="511.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="25.0" prefWidth="273.0" text="This text will display phone number errors." textAlignment="JUSTIFY" textFill="#eeff04" textOverrun="CLIP" visible="false" wrapText="true" />
+            <Label fx:id="passwordErrorText" alignment="CENTER" contentDisplay="CENTER" ellipsisString="" layoutX="1374.0" layoutY="262.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="126.0" prefWidth="259.0" text="This text will display password errors." textAlignment="JUSTIFY" textFill="#eeff04" textOverrun="CLIP" visible="false" wrapText="true" />
+         </children>
+      </Pane>
+      <BorderPane id="borderpane" layoutY="-4.0" opacity="0.0" prefHeight="119.0" prefWidth="1920.0" stylesheets="@../../../../git/Project-Nomad/Hotel_Reservation_Project_Group4/src/application/style.css">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </BorderPane>
+      <BorderPane layoutY="114.0" style="-fx-background-color: black;">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </BorderPane>
+      <Hyperlink fx:id="my_reservation_link" focusTraversable="false" layoutX="1415.0" layoutY="70.0" onAction="#handleMyReservation" text="My Reservation" textFill="WHITE">
          <font>
-            <Font name="Javanese Text" size="34.0" />
+            <Font name="Yu Gothic Regular" size="20.0" />
          </font>
       </Hyperlink>
-      <Hyperlink fx:id="hyperlink2" focusTraversable="false" layoutX="436.0" layoutY="61.0" onAction="#handleMyReservation" text="My Reservation" textFill="#91cd75">
+      <Hyperlink fx:id="account_settings_link" focusTraversable="false" layoutX="1600.0" layoutY="70.0" onAction="#handleAccountSettings" text="Account Settings" textFill="WHITE">
          <font>
-            <Font name="Corbel" size="22.0" />
+            <Font name="Yu Gothic Regular" size="20.0" />
          </font>
       </Hyperlink>
-      <Hyperlink fx:id="hyperlink4" focusTraversable="false" layoutX="788.0" layoutY="61.0" onAction="#handleLogout" text="Logout" textFill="#91cd75">
+      <Hyperlink fx:id="nomadplus_link" focusTraversable="false" layoutX="33.0" layoutY="34.0" onAction="#handleBackToHomePage" text="Nomad+" textFill="#f8f8f8">
          <font>
-            <Font name="Corbel" size="22.0" />
+            <Font size="48.0" />
          </font>
       </Hyperlink>
-      <Hyperlink fx:id="hyperlink3" focusTraversable="false" layoutX="605.0" layoutY="61.0" text="Account Settings" textFill="#91cd75">
+      <BorderPane id="accentborder" layoutY="113.0" prefHeight="11.0" prefWidth="1920.0" style="-fx-background-color: darkorange;" />
+      <Hyperlink fx:id="logout_link" focusTraversable="false" layoutX="1800.0" layoutY="70.0" onAction="#handleLogout" text="Logout" textFill="WHITE">
          <font>
-            <Font name="Corbel" size="22.0" />
+            <Font name="Yu Gothic Regular" size="20.0" />
          </font>
       </Hyperlink>
-      <Label fx:id="label1" layoutX="85.0" layoutY="145.0" text="Account Settings:" textFill="WHITE">
+      <Hyperlink fx:id="manage_reservations_link" focusTraversable="false" layoutX="1170.0" layoutY="70.0" onAction="#handleManageReservations" text="Manage Reservations" textFill="WHITE">
          <font>
-            <Font name="Corbel Light" size="33.0" />
+            <Font name="Yu Gothic Regular" size="20.0" />
          </font>
-      </Label>
-      <Button fx:id="button" layoutX="439.0" layoutY="389.0" mnemonicParsing="false" onAction="#handleBackToHomePage" prefHeight="39.0" prefWidth="273.0" style="-fx-background-color: white; -fx-background-radius: 20;" text="SAVE CHANGES" textFill="#ff3366">
+      </Hyperlink>
+      <Hyperlink fx:id="manage_hotels_link" focusTraversable="false" layoutX="990.0" layoutY="70.0" onAction="#handleManageHotels" text="Manage Hotels" textFill="WHITE">
          <font>
-            <Font name="System Bold" size="18.0" />
+            <Font name="Yu Gothic Regular" size="20.0" />
          </font>
-      </Button>
-      <Label fx:id="label3" layoutX="85.0" layoutY="287.0" text="last name" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="14.0" />
-         </font>
-      </Label>
-      <Label fx:id="label2" layoutX="85.0" layoutY="205.0" text="first name" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="14.0" />
-         </font>
-      </Label>
-      <TextField fx:id="textfield" layoutX="85.0" layoutY="228.0" prefHeight="39.0" prefWidth="273.0" />
-      <PasswordField fx:id="passwordfield" layoutX="85.0" layoutY="310.0" prefHeight="39.0" prefWidth="273.0" />
-      <PasswordField fx:id="passwordfield1" layoutX="85.0" layoutY="474.0" prefHeight="39.0" prefWidth="273.0" />
-      <TextField fx:id="textfield1" layoutX="85.0" layoutY="392.0" prefHeight="39.0" prefWidth="273.0" />
-      <Label fx:id="label4" layoutX="85.0" layoutY="369.0" text="email" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="14.0" />
-         </font>
-      </Label>
-      <Label fx:id="label5" layoutX="85.0" layoutY="451.0" text="phone number" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="14.0" />
-         </font>
-      </Label>
-      <Label fx:id="label6" layoutX="439.0" layoutY="205.0" text="password" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="14.0" />
-         </font>
-      </Label>
-      <PasswordField fx:id="passwordfield11" layoutX="439.0" layoutY="228.0" prefHeight="39.0" prefWidth="273.0" />
-      <PasswordField fx:id="passwordfield111" layoutX="439.0" layoutY="310.0" prefHeight="39.0" prefWidth="273.0" />
-      <Label fx:id="label7" layoutX="439.0" layoutY="287.0" text="new password" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="14.0" />
-         </font>
-      </Label>
+      </Hyperlink>
    </children>
 </AnchorPane>

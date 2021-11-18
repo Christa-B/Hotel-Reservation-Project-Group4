@@ -428,6 +428,7 @@ public class ResultsNotLoggedInController implements Initializable{
 	
 	public void populateTableView() {
 		int i = 0;
+		int thisFlag = 0;
 		boolean continueFlag = false;
 		// Initialize ListIterator to go through hotels returned for the search
 		for (ListIterator<Hotel> iter = HomePageController.hotelList.listIterator(); continueFlag = iter.hasNext(); ) {
@@ -441,32 +442,49 @@ public class ResultsNotLoggedInController implements Initializable{
 			// Take the full string of a hotels room prices (e.g. Standard, Queen, King) and parse it into an array as a list
 			List<String> hotelRoomTypes = Arrays.asList(HomePageController.hotelList.get(i).getRoom_type().split(", "));
 			// Check which room type is being used by the current Reservation and run it through cases to adjust values accordingly on the hotel's object
-			
-			if (hotelRoomTypes.contains("King")) {
-				switch (HomePageController.currentReservation.getTypeRoom()) {
-				case "Standard" : HomePageController.hotelList.get(i).setPrice_per_day(hotelPrices.get(0));
-							  	  HomePageController.hotelList.get(i).setRoom_type("Standard");
-							  	  break;
-				case "Queen" : HomePageController.hotelList.get(i).setPrice_per_day(hotelPrices.get(1));
-			  			   	   HomePageController.hotelList.get(i).setRoom_type("Queen");
-			  			   	   break;
-				case "King" : HomePageController.hotelList.get(i).setPrice_per_day(hotelPrices.get(2));
-			  			  	  HomePageController.hotelList.get(i).setRoom_type("King");
-			  			  	  break;
+			switch (HomePageController.currentReservation.getTypeRoom()) {
+			case "Standard" : HomePageController.hotelList.get(i).setPrice_per_day(hotelPrices.get(0));
+							  HomePageController.hotelList.get(i).setRoom_type("Standard");
+				break;
+			case "Queen" : 
+				if(hotelPrices.size() > 1) {
+					HomePageController.hotelList.get(i).setPrice_per_day(hotelPrices.get(1));
+				  	HomePageController.hotelList.get(i).setRoom_type("Queen");
 				}
-			} else if (hotelRoomTypes.contains("Queen")) {
-				switch (HomePageController.currentReservation.getTypeRoom()) {
-				case "Standard" : HomePageController.hotelList.get(i).setPrice_per_day(hotelPrices.get(0));
-							  	  HomePageController.hotelList.get(i).setRoom_type("Standard");
-							  	  break;
-				case "Queen" : HomePageController.hotelList.get(i).setPrice_per_day(hotelPrices.get(1));
-			  			   	   HomePageController.hotelList.get(i).setRoom_type("Queen");
-			  			   	   break;
+				else {
+					if(HomePageController.hotelList.get(i).getHotel_name().equals("HomeAway Inn")) {
+						HomePageController.hotelList.get(i).setPrice_per_day("$0");
+						HomePageController.hotelList.get(i).setRoom_type("N/A");
+					}
+					
+					if(HomePageController.hotelList.get(i).getHotel_name().equals("The Comfy Motel Place")) {
+						HomePageController.hotelList.get(i).setPrice_per_day("%0");
+						HomePageController.hotelList.get(i).setRoom_type("Queen");
+					}
 				}
-			} else {
-				HomePageController.hotelList.get(i).setPrice_per_day(hotelPrices.get(0));
-				//System.out.println(hotelPrices.get(1));
-			  	HomePageController.hotelList.get(i).setRoom_type("Standard");
+				break;
+			case "King" : 
+				if(hotelPrices.size() == 3) {
+					HomePageController.hotelList.get(i).setPrice_per_day(hotelPrices.get(2));
+				  	HomePageController.hotelList.get(i).setRoom_type("King");
+				}
+				else {
+					if(HomePageController.hotelList.get(i).getHotel_name().equals("The Comfy Motel Place")) {
+						HomePageController.hotelList.get(i).setPrice_per_day("$0");
+						HomePageController.hotelList.get(i).setRoom_type("N/A");
+					}
+					
+					if(HomePageController.hotelList.get(i).getHotel_name().equals("HomeAway Inn")) {
+						HomePageController.hotelList.get(i).setPrice_per_day("$0");
+						HomePageController.hotelList.get(i).setRoom_type("N/A");
+					}
+					
+					if(HomePageController.hotelList.get(i).getHotel_name().equals("Town Inn Budget Rooms")) {
+						HomePageController.hotelList.get(i).setPrice_per_day("$0");
+						HomePageController.hotelList.get(i).setRoom_type("N/A");
+					}
+				}
+				break;
 			}
 			int totalPrice = (int)betweenDays * Integer.valueOf(HomePageController.hotelList.get(i).getPrice_per_day().trim().substring(1)) * HomePageController.currentReservation.getNumRoomSel();
 			HomePageController.hotelList.get(i).setTotal_price(Integer.toString(totalPrice));
