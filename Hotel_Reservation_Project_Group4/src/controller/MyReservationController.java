@@ -37,7 +37,7 @@ import javafx.scene.input.*;
  * MyReservationController is a class that handles events that occur when the user
  * interacts with my_reservation.fxml
  * 
- * @author Christa Baca
+ * 
  */
 public class MyReservationController implements Initializable{
 	// Buttons
