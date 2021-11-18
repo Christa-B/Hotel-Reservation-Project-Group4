@@ -15,8 +15,6 @@ import javafx.scene.layout.AnchorPane;
 
 /**
  * Main is a class containing the main method to run Hotel Reservation Project
- * 
- * @author Christa Baca 
  */
 public class Main extends Application {
 	
