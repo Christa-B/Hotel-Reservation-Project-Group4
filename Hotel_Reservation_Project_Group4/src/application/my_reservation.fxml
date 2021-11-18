@@ -54,16 +54,16 @@
                   <Font size="16.0" />
                </font>
             </Hyperlink>
-            <Pane layoutY="890.0" prefHeight="82.0" prefWidth="1952.0" style="-fx-background-color: #121212;">
+            <Pane layoutY="870.0" prefHeight="102.0" prefWidth="1952.0" style="-fx-background-color: #121212;">
                <children>
                   <Label layoutX="887.0" layoutY="21.0" text="2021 Copyright: NomadPlus.com" textFill="WHITE" />
                </children>
             </Pane>
-            <DatePicker layoutX="598.0" layoutY="363.0" prefHeight="32.0" prefWidth="120.0" style="-fx-background-color: white; -fx-background-radius: 0;" />
-            <DatePicker layoutX="748.0" layoutY="363.0" prefHeight="32.0" prefWidth="120.0" style="-fx-background-color: white; -fx-background-radius: 0;" />
-            <TextField layoutX="313.0" layoutY="363.0" prefHeight="32.0" prefWidth="250.0" style="-fx-background-color: white; -fx-background-radius: 0;" />
-            <ComboBox layoutX="898.0" layoutY="363.0" prefHeight="32.0" prefWidth="150.0" style="-fx-background-color: white; -fx-background-radius: 0;" />
-            <ComboBox layoutX="1078.0" layoutY="363.0" prefHeight="32.0" prefWidth="150.0" style="-fx-background-color: white; -fx-background-radius: 0;" />
+            <DatePicker fx:id="check_in_datepicker" layoutX="598.0" layoutY="363.0" prefHeight="32.0" prefWidth="120.0" style="-fx-background-color: white; -fx-background-radius: 0;" />
+            <DatePicker fx:id="check_out_datepicker" layoutX="748.0" layoutY="363.0" prefHeight="32.0" prefWidth="120.0" style="-fx-background-color: white; -fx-background-radius: 0;" />
+            <TextField fx:id="hotel_name" layoutX="313.0" layoutY="363.0" prefHeight="32.0" prefWidth="250.0" style="-fx-background-color: white; -fx-background-radius: 0;" />
+            <ComboBox fx:id="room_type_combobox" layoutX="898.0" layoutY="363.0" prefHeight="32.0" prefWidth="150.0" style="-fx-background-color: white; -fx-background-radius: 0;" />
+            <ComboBox fx:id="num_guests_combobox" layoutX="1078.0" layoutY="363.0" prefHeight="32.0" prefWidth="150.0" style="-fx-background-color: white; -fx-background-radius: 0;" />
             <Label layoutX="313.0" layoutY="328.0" text="Hotel:" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="16.0" />
@@ -94,8 +94,8 @@
                   <Font name="System Bold" size="16.0" />
                </font>
             </Label>
-            <TextField layoutX="1258.0" layoutY="363.0" prefHeight="32.0" prefWidth="200.0" style="-fx-background-color: white; -fx-background-radius: 0;" />
-            <TextField layoutX="1488.0" layoutY="363.0" prefHeight="32.0" prefWidth="120.0" style="-fx-background-color: white; -fx-background-radius: 0;" />
+            <TextField fx:id="location" layoutX="1258.0" layoutY="363.0" prefHeight="32.0" prefWidth="200.0" style="-fx-background-color: white; -fx-background-radius: 0;" />
+            <TextField fx:id="payment" layoutX="1488.0" layoutY="363.0" prefHeight="32.0" prefWidth="120.0" style="-fx-background-color: white; -fx-background-radius: 0;" />
          </children>
       </Pane>
       <Hyperlink fx:id="nomadplus_link" focusTraversable="false" layoutX="33.0" layoutY="34.0" onAction="#handleBackToHomePage" text="Nomad+" textFill="#f8f8f8">
