@@ -30,7 +30,7 @@ import javafx.stage.*;
  * UserReservationController is a class that handles events that occur when the user
  * interacts with user_reservation.fxml
  * 
- * @author Christa
+ * 
  */
 public class UserReservationController implements Initializable {
 	// Buttons
