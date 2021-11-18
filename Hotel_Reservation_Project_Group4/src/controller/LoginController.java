@@ -41,7 +41,7 @@ import javafx.stage.*;
  * LoginController is a class that handles events that occur when the user
  * interacts with login_screen.fxml
  * 
- * @author Christa
+ * 
  */
 public class LoginController implements Initializable {
 	
