@@ -36,7 +36,7 @@ import javafx.scene.input.*;
  * ManageHotels is a class that handles events that occur when the user
  * interacts with manage_hotels.fxml
  * 
- * @author Christa Baca
+ * 
  */
 public class ManageHotelsController implements Initializable{
 	// Buttons
