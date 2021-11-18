@@ -108,7 +108,7 @@ public class MyReservationController implements Initializable{
 	public void initialize( URL location, ResourceBundle resources ) {
 		// Normal button style set to white
 	    submit_changes_button.setStyle(normal_button_style);
-	    cancel_reservation_button.setStyle(normal_button_style);
+	   // cancel_reservation_button.setStyle(normal_button_style); //override in fxml
 	    nomadplus_link.setStyle(normal_nomadplus_link_style);
 	    manage_hotels_link.setStyle(normal_manage_hotels_link_style);
 	    manage_reservations_link.setStyle(normal_manage_reservations_link_style);
@@ -119,7 +119,7 @@ public class MyReservationController implements Initializable{
 	    
 	    // Changes to hovered button style, set to a light grey
 	    submit_changes_button.setOnMouseEntered(e -> submit_changes_button.setStyle(hovered_button_style));
-	    cancel_reservation_button.setOnMouseEntered(e -> cancel_reservation_button.setStyle(hovered_button_style));
+	    //cancel_reservation_button.setOnMouseEntered(e -> cancel_reservation_button.setStyle(hovered_button_style)); //override in fxml
 	    nomadplus_link.setOnMouseEntered(e -> nomadplus_link.setStyle(hovered_nomadplus_link_style));
 	    manage_hotels_link.setOnMouseEntered(e -> manage_hotels_link.setStyle(hovered_manage_hotels_link_style));
 	    manage_reservations_link.setOnMouseEntered(e -> manage_reservations_link.setStyle(hovered_manage_reservations_link_style));
