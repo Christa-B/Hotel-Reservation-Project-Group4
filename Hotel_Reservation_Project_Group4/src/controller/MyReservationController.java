@@ -130,7 +130,7 @@ public class MyReservationController implements Initializable{
 	    
 	    // Changes back to normal button style when mouse stops hovering
 	    submit_changes_button.setOnMouseExited(e -> submit_changes_button.setStyle(normal_button_style));
-	    cancel_reservation_button.setOnMouseExited(e -> cancel_reservation_button.setStyle(normal_button_style));
+	    //cancel_reservation_button.setOnMouseExited(e -> cancel_reservation_button.setStyle(normal_button_style));
 	    nomadplus_link.setOnMouseExited(e -> nomadplus_link.setStyle(normal_nomadplus_link_style));
 	    manage_hotels_link.setOnMouseExited(e -> manage_hotels_link.setStyle(normal_manage_hotels_link_style));
 	    manage_reservations_link.setOnMouseExited(e -> manage_reservations_link.setStyle(normal_manage_reservations_link_style));
