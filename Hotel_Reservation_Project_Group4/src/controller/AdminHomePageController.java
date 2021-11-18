@@ -36,7 +36,7 @@ import javafx.scene.input.*;
  * AdminHomePageController is a class that handles events that occur when the user
  * interacts with home_page.fxml
  * 
- * @author Christa Baca
+ * 
  */
 public class AdminHomePageController implements Initializable{
 	// Buttons
