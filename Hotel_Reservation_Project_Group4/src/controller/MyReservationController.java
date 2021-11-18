@@ -105,6 +105,9 @@ public class MyReservationController implements Initializable{
 	private static String normal_button_style = "-fx-background-color: white; -fx-background-radius: 20";
 	private static String hovered_button_style = "-fx-background-color: #d3d3d3; -fx-background-radius: 20;";
 	
+	private static String normal_cancel_reservation_button_style = "-fx-background-color: orange; -fx-background-radius: 20;";
+	private static String hovered_cancel_reservation_button_style = "-fx-background-color: #b37400; -fx-background-radius: 20;";
+	
 	private static String normal_nomadplus_link_style = "-fx-text-fill: white; -fx-font-size: 48; -fx-underline: false;";
 	private static String hovered_nomadplus_link_style = "-fx-text-fill: deepskyblue; -fx-font-weight: bold; -fx-underline: false;";
 	
@@ -124,7 +127,7 @@ public class MyReservationController implements Initializable{
 	private static String hovered_logout_link_style = "-fx-text-fill: deepskyblue; -fx-font-weight: bold; -fx-underline: false;";
 	
 	private static String normal_go_back_link_style = "-fx-text-fill: #91cd75; -fx-font-size: 20; -fx-underline: false;";
-	private static String hovered_go_back_link_style = "-fx-text-fill: white; -fx-font-weight: bold; -fx-underline: false;";
+	private static String hovered_go_back_link_style = "-fx-text-fill: white; -fx-font-size: 20; -fx-font-weight: bold; -fx-underline: false;";
 	
 	
 	/**
@@ -141,7 +144,9 @@ public class MyReservationController implements Initializable{
 		
 		// Normal button style set to white
 	    submit_changes_button.setStyle(normal_button_style);
-	   // cancel_reservation_button.setStyle(normal_button_style); //override in fxml
+	    cancel_reservation_button.setStyle(normal_cancel_reservation_button_style);
+	    
+	    // link style set to normal
 	    nomadplus_link.setStyle(normal_nomadplus_link_style);
 	    manage_hotels_link.setStyle(normal_manage_hotels_link_style);
 	    manage_reservations_link.setStyle(normal_manage_reservations_link_style);
@@ -152,7 +157,7 @@ public class MyReservationController implements Initializable{
 	    
 	    // Changes to hovered button style, set to a light grey
 	    submit_changes_button.setOnMouseEntered(e -> submit_changes_button.setStyle(hovered_button_style));
-	    //cancel_reservation_button.setOnMouseEntered(e -> cancel_reservation_button.setStyle(hovered_button_style)); //override in fxml
+	    cancel_reservation_button.setOnMouseEntered(e -> cancel_reservation_button.setStyle(hovered_cancel_reservation_button_style));
 	    nomadplus_link.setOnMouseEntered(e -> nomadplus_link.setStyle(hovered_nomadplus_link_style));
 	    manage_hotels_link.setOnMouseEntered(e -> manage_hotels_link.setStyle(hovered_manage_hotels_link_style));
 	    manage_reservations_link.setOnMouseEntered(e -> manage_reservations_link.setStyle(hovered_manage_reservations_link_style));
@@ -163,7 +168,7 @@ public class MyReservationController implements Initializable{
 	    
 	    // Changes back to normal button style when mouse stops hovering
 	    submit_changes_button.setOnMouseExited(e -> submit_changes_button.setStyle(normal_button_style));
-	    //cancel_reservation_button.setOnMouseExited(e -> cancel_reservation_button.setStyle(normal_button_style));
+	    cancel_reservation_button.setOnMouseExited(e -> cancel_reservation_button.setStyle(normal_cancel_reservation_button_style));
 	    nomadplus_link.setOnMouseExited(e -> nomadplus_link.setStyle(normal_nomadplus_link_style));
 	    manage_hotels_link.setOnMouseExited(e -> manage_hotels_link.setStyle(normal_manage_hotels_link_style));
 	    manage_reservations_link.setOnMouseExited(e -> manage_reservations_link.setStyle(normal_manage_reservations_link_style));

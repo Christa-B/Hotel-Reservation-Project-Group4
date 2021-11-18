@@ -124,6 +124,9 @@ public class AccountSettingsController implements Initializable {
 	private static String normal_submit_button_style = "-fx-background-color: white; -fx-background-radius: 20";
 	private static String hovered_submit_button_style = "-fx-background-color: #d3d3d3; -fx-background-radius: 20;";
 	
+	private static String normal_delete_account_button_style = "-fx-background-color: #dc143c; -fx-background-radius:20;";
+	private static String hovered_delete_account_button_style = "-fx-background-color: #ad102f; -fx-background-radius:20;";
+	
 	private static String normal_nomadplus_link_style = "-fx-text-fill: white; -fx-font-size: 48; -fx-underline: false;";
 	private static String hovered_nomadplus_link_style = "-fx-text-fill: deepskyblue; -fx-font-weight: bold; -fx-underline: false;";
 	
@@ -143,7 +146,7 @@ public class AccountSettingsController implements Initializable {
 	private static String hovered_logout_link_style = "-fx-text-fill: deepskyblue; -fx-font-weight: bold; -fx-underline: false;";
 	
 	private static String normal_go_back_link_style = "-fx-text-fill: #91cd75; -fx-font-size: 20; -fx-underline: false;";
-	private static String hovered_go_back_link_style = "-fx-text-fill: white; -fx-font-weight: bold; -fx-underline: false;";
+	private static String hovered_go_back_link_style = "-fx-text-fill: white; -fx-font-size: 20; -fx-font-weight: bold; -fx-underline: false;";
 	
 	/**
 	 * Initializes items for Number of Rooms and Price Range ComboBoxes
@@ -155,6 +158,7 @@ public class AccountSettingsController implements Initializable {
 	public void initialize( URL location, ResourceBundle resources ) {
 		// Normal submit_button style set to white
 	    submit_button.setStyle(normal_submit_button_style);
+	    delete_account_button.setStyle(normal_delete_account_button_style);
 	    nomadplus_link.setStyle(normal_nomadplus_link_style);
 	    manage_hotels_link.setStyle(normal_manage_hotels_link_style);
 	    manage_reservations_link.setStyle(normal_manage_reservations_link_style);
@@ -165,6 +169,7 @@ public class AccountSettingsController implements Initializable {
 	    
 	    // Changes to hovered submit_button style, set to a light grey
 	    submit_button.setOnMouseEntered(e -> submit_button.setStyle(hovered_submit_button_style));
+	    delete_account_button.setOnMouseEntered(e -> delete_account_button.setStyle(hovered_delete_account_button_style));
 	    nomadplus_link.setOnMouseEntered(e -> nomadplus_link.setStyle(hovered_nomadplus_link_style));
 	    manage_hotels_link.setOnMouseEntered(e -> manage_hotels_link.setStyle(hovered_manage_hotels_link_style));
 	    manage_reservations_link.setOnMouseEntered(e -> manage_reservations_link.setStyle(hovered_manage_reservations_link_style));
@@ -175,6 +180,7 @@ public class AccountSettingsController implements Initializable {
 	    
 	    // Changes back to normal submit_button style when mouse stops hovering
 	    submit_button.setOnMouseExited(e -> submit_button.setStyle(normal_submit_button_style));
+	    delete_account_button.setOnMouseExited(e -> delete_account_button.setStyle(normal_delete_account_button_style));
 	    nomadplus_link.setOnMouseExited(e -> nomadplus_link.setStyle(normal_nomadplus_link_style));
 	    manage_hotels_link.setOnMouseExited(e -> manage_hotels_link.setStyle(normal_manage_hotels_link_style));
 	    manage_reservations_link.setOnMouseExited(e -> manage_reservations_link.setStyle(normal_manage_reservations_link_style));
