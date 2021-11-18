@@ -27,6 +27,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuButton;
+import javafx.scene.control.TextField;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.DateCell;
@@ -71,7 +72,32 @@ public class MyReservationController implements Initializable{
 	
 	@FXML
 	private Hyperlink go_back_link; // Go back
-
+	
+	@FXML
+	private TextField hotel_name;
+	
+	@FXML
+	private TextField location;
+	
+	@FXML
+	private TextField payment;
+	
+	@FXML
+	private ComboBox<String> room_type_combobox; // Room types
+	
+	@FXML
+	private ComboBox<String> num_guests_combobox; // # of Guests (adults)
+	
+	@FXML
+	private DatePicker check_in_datepicker; // Check-in
+	
+	@FXML
+	private DatePicker check_out_datepicker;	//check-out
+	
+	// Add combobox items
+	ObservableList<String> guestList = FXCollections.observableArrayList("1 - 2 Guests", "3 Guests", "4 Guests", "5 Guests", "6 Guests", "7 Guests", "8 Guests", "9 Guests", "10 Guests");
+	ObservableList<String> roomTypeList = FXCollections.observableArrayList("Standard", "Queen", "King");
+	
 	// Static variables to set style for button when mouse is away/hovering
 	private static String normal_button_style = "-fx-background-color: white; -fx-background-radius: 20";
 	private static String hovered_button_style = "-fx-background-color: #d3d3d3; -fx-background-radius: 20;";
@@ -106,6 +132,10 @@ public class MyReservationController implements Initializable{
 	 */
 	@Override
 	public void initialize( URL location, ResourceBundle resources ) {
+		// Add list content to combobox
+		num_guests_combobox.setItems(guestList);
+		room_type_combobox.setItems(roomTypeList);
+		
 		// Normal button style set to white
 	    submit_changes_button.setStyle(normal_button_style);
 	   // cancel_reservation_button.setStyle(normal_button_style); //override in fxml
