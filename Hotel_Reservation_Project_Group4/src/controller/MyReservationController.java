@@ -83,6 +83,9 @@ public class MyReservationController implements Initializable{
 	private TextField payment;
 	
 	@FXML
+	private TextField num_rooms;
+	
+	@FXML
 	private ComboBox<String> room_type_combobox; // Room types
 	
 	@FXML
