@@ -174,9 +174,6 @@ public class ResultsNotLoggedInController implements Initializable{
 	 */
 	@Override
 	public void initialize( URL location, ResourceBundle resources ) {	
-		// Populate resultsTable
-		populateTableView();
-		
 		// Sets list items for ComboBoxes
 		num_guests_combobox.setItems(list1);
 		num_rooms_combobox.setItems(list2);
@@ -308,6 +305,9 @@ public class ResultsNotLoggedInController implements Initializable{
 	    signup_link.setOnMouseReleased(e -> signup_link.setStyle(normal_signup_button_style));
 	    nomadplus_link.setOnMouseReleased(e -> nomadplus_link.setStyle(normal_nomadplus_link_style));
 	    go_back_link.setOnMouseReleased(e -> go_back_link.setStyle(normal_go_back_link_style));
+	
+	    initializeTableView();
+	    initializeTableView();
 	}
 	
 		private ObservableList<Hotel> hotel = FXCollections.observableArrayList(
@@ -387,7 +387,7 @@ public class ResultsNotLoggedInController implements Initializable{
 				HomePageController.hotelList = hotelDataAccessor.getHotels(location_input.getText());
 			}
 			
-			populateTableView();
+			initializeTableView();
 		}
 	}
 	
@@ -407,27 +407,68 @@ public class ResultsNotLoggedInController implements Initializable{
 		window.setScene(new Scene (root, 1920, 1050));
 	}
 	
+	public void initializeTableView() {
+		populateTableView();
+		hotel_name.setCellValueFactory(new PropertyValueFactory<>("Hotel_name"));
+		room_type.setCellValueFactory(new PropertyValueFactory<>("Room_type"));
+		amenity_pool.setCellValueFactory(new PropertyValueFactory<>("Amenity_pool"));
+		amenity_gym.setCellValueFactory(new PropertyValueFactory<>("Amenity_gym"));
+		amenity_spa.setCellValueFactory(new PropertyValueFactory<>("Amenity_spa"));
+		amenity_business_office.setCellValueFactory(new PropertyValueFactory<>("Amenity_business_office"));
+		amenity_wifi.setCellValueFactory(new PropertyValueFactory<>("Amenity_wifi"));
+		available_rooms.setCellValueFactory(new PropertyValueFactory<>("Available_rooms"));
+		hotel_location.setCellValueFactory(new PropertyValueFactory<>("Hotel_location"));
+		price_per_day.setCellValueFactory(new PropertyValueFactory<>("Price_per_day"));
+		weekend_differential.setCellValueFactory(new PropertyValueFactory<>("Weekend_differential"));
+		total_price.setCellValueFactory(new PropertyValueFactory<>("Total_price"));
+		results_table.setItems(hotel);
+	    hotel = FXCollections.observableArrayList(
+            	HomePageController.hotelList);
+	}
+	
 	public void populateTableView() {
 		int i = 0;
-		//ListIterator<Hotel> iter = HomePageController.hotelList.listIterator();
 		boolean continueFlag = false;
+		// Initialize ListIterator to go through hotels returned for the search
 		for (ListIterator<Hotel> iter = HomePageController.hotelList.listIterator(); continueFlag = iter.hasNext(); ) {
 			if (HomePageController.hotelList.size() == i || continueFlag == false) { break; }
 			if (continueFlag == true) {
-			long noOfDaysBetween = ChronoUnit.DAYS.between(convertToLocalDateViaInstant(HomePageController.currentReservation.getCheckInDate()), convertToLocalDateViaInstant(HomePageController.currentReservation.getCheckOutDate()));
-			List<String> hotelPrices = Arrays.asList(HomePageController.hotelList.get(i).getPrice_per_day().split(","));
-			switch (HomePageController.currentReservation.getTypeRoom()) {
-			case "Standard" : HomePageController.hotelList.get(i).setPrice_per_day(hotelPrices.get(0));
-							  HomePageController.hotelList.get(i).setRoom_type("Standard");
-				break;
-			case "Queen" : HomePageController.hotelList.get(i).setPrice_per_day(hotelPrices.get(1));
-			  			   HomePageController.hotelList.get(i).setRoom_type("Queen");
-				break;
-			case "King" : HomePageController.hotelList.get(i).setPrice_per_day(hotelPrices.get(2));
-			  			  HomePageController.hotelList.get(i).setRoom_type("King");
-				break;
+			// Caculate days between two given dates and record the number in betweenDays
+			long betweenDays = ChronoUnit.DAYS.between(convertToLocalDateViaInstant(HomePageController.currentReservation.getCheckInDate()), convertToLocalDateViaInstant(HomePageController.currentReservation.getCheckOutDate()));
+			// Take the full string of a hotels room prices (e.g. $10, $20, $30) and parse it into an array as a list
+			String hotelPricesString[] = HomePageController.hotelList.get(i).getPrice_per_day().split(", ");
+			List<String> hotelPrices = Arrays.asList(hotelPricesString);
+			// Take the full string of a hotels room prices (e.g. Standard, Queen, King) and parse it into an array as a list
+			List<String> hotelRoomTypes = Arrays.asList(HomePageController.hotelList.get(i).getRoom_type().split(", "));
+			// Check which room type is being used by the current Reservation and run it through cases to adjust values accordingly on the hotel's object
+			
+			if (hotelRoomTypes.contains("King")) {
+				switch (HomePageController.currentReservation.getTypeRoom()) {
+				case "Standard" : HomePageController.hotelList.get(i).setPrice_per_day(hotelPrices.get(0));
+							  	  HomePageController.hotelList.get(i).setRoom_type("Standard");
+							  	  break;
+				case "Queen" : HomePageController.hotelList.get(i).setPrice_per_day(hotelPrices.get(1));
+			  			   	   HomePageController.hotelList.get(i).setRoom_type("Queen");
+			  			   	   break;
+				case "King" : HomePageController.hotelList.get(i).setPrice_per_day(hotelPrices.get(2));
+			  			  	  HomePageController.hotelList.get(i).setRoom_type("King");
+			  			  	  break;
+				}
+			} else if (hotelRoomTypes.contains("Queen")) {
+				switch (HomePageController.currentReservation.getTypeRoom()) {
+				case "Standard" : HomePageController.hotelList.get(i).setPrice_per_day(hotelPrices.get(0));
+							  	  HomePageController.hotelList.get(i).setRoom_type("Standard");
+							  	  break;
+				case "Queen" : HomePageController.hotelList.get(i).setPrice_per_day(hotelPrices.get(1));
+			  			   	   HomePageController.hotelList.get(i).setRoom_type("Queen");
+			  			   	   break;
+				}
+			} else {
+				HomePageController.hotelList.get(i).setPrice_per_day(hotelPrices.get(0));
+				//System.out.println(hotelPrices.get(1));
+			  	HomePageController.hotelList.get(i).setRoom_type("Standard");
 			}
-			int totalPrice = (int)noOfDaysBetween * Integer.valueOf(HomePageController.hotelList.get(i).getPrice_per_day().trim().substring(1));
+			int totalPrice = (int)betweenDays * Integer.valueOf(HomePageController.hotelList.get(i).getPrice_per_day().trim().substring(1)) * HomePageController.currentReservation.getNumRoomSel();
 			HomePageController.hotelList.get(i).setTotal_price(Integer.toString(totalPrice));
 			//System.out.println(price_range_combobox.getSelectionModel().getSelectedIndex());
 			//System.out.println(Integer.valueOf(HomePageController.hotelList.get(i).getPrice_per_day().trim().substring(1)));
@@ -448,7 +489,7 @@ public class ResultsNotLoggedInController implements Initializable{
 			  }
 			  break;
 			case "$150+": if (Integer.valueOf(HomePageController.hotelList.get(i).getPrice_per_day().trim().substring(1)) < 150) {
-			  	if(Integer.valueOf(iter.next().getPrice_per_day().trim().substring(1)) > 75){
+			  	if(Integer.valueOf(iter.next().getPrice_per_day().trim().substring(1)) < 150){
 			  		iter.remove();
 			  	}
 			  i--;
@@ -459,21 +500,6 @@ public class ResultsNotLoggedInController implements Initializable{
 			i++;
 			}
 		}
-		hotel_name.setCellValueFactory(new PropertyValueFactory<>("Hotel_name"));
-		room_type.setCellValueFactory(new PropertyValueFactory<>("Room_type"));
-		amenity_pool.setCellValueFactory(new PropertyValueFactory<>("Amenity_pool"));
-		amenity_gym.setCellValueFactory(new PropertyValueFactory<>("Amenity_gym"));
-		amenity_spa.setCellValueFactory(new PropertyValueFactory<>("Amenity_spa"));
-		amenity_business_office.setCellValueFactory(new PropertyValueFactory<>("Amenity_business_office"));
-		amenity_wifi.setCellValueFactory(new PropertyValueFactory<>("Amenity_wifi"));
-		available_rooms.setCellValueFactory(new PropertyValueFactory<>("Available_rooms"));
-		hotel_location.setCellValueFactory(new PropertyValueFactory<>("Hotel_location"));
-		price_per_day.setCellValueFactory(new PropertyValueFactory<>("Price_per_day"));
-		weekend_differential.setCellValueFactory(new PropertyValueFactory<>("Weekend_differential"));
-		total_price.setCellValueFactory(new PropertyValueFactory<>("Total_price"));
-		results_table.setItems(hotel);
-	    hotel = FXCollections.observableArrayList(
-            	HomePageController.hotelList);
 	}
 	
 	public LocalDate convertToLocalDateViaInstant(Date dateToConvert) {
