@@ -37,7 +37,7 @@ import javafx.scene.input.*;
  * ResultsController is a class that handles events that occur when the user
  * interacts with results.fxml. **NOTE: This results page is AFTER BEING LOGGED IN
  * 
- * @author Christa Baca
+ * 
  */
 public class ResultsController implements Initializable{
 	// Buttons
