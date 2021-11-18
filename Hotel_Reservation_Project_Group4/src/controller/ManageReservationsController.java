@@ -36,7 +36,7 @@ import javafx.scene.input.*;
  * ManageReservationsController is a class that handles events that occur when the user
  * interacts with manage_reservations.fxml
  * 
- * @author Christa Baca
+ * 
  */
 public class ManageReservationsController implements Initializable{
 	// Buttons
