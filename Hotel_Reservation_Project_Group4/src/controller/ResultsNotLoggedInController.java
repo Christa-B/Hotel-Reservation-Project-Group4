@@ -52,7 +52,7 @@ import javafx.scene.input.*;
  * ResultsNotLoggedInController is a class that handles events that occur when the user
  * interacts with results_not_loggedin.fxml
  * 
- * @author Christa Baca
+ * 
  */
 public class ResultsNotLoggedInController implements Initializable{
 	// TableView
