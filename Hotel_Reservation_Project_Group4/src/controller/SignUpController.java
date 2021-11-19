@@ -222,7 +222,7 @@ public class SignUpController implements Initializable {
 				+ "/userData?autoReconnect=true&useSSL=false", "admin", "adminthisisjustaproject92521");
 		
 		// Make regex for ensuring secure user input
-		String nameRegexPattern = "(?i)(^[A-Za-zÃ€-Ã–Ã˜-Ã¶Ã¸-Ã¿])((?![ .,'-]$)[A-Za-zÃ€-Ã–Ã˜-Ã¶Ã¸-Ã¿ .,'-]){0,254}[\\.]{0,1}$"; //Can take most special names, even accented ones
+		String nameRegexPattern = "(?i)(^[A-Za-zÀ-ÖØ-öø-ÿ])((?![ .,'-]$)[A-Za-zÀ-ÖØ-öø-ÿ .,'-]){0,254}[\\.]{0,1}$"; //Can take most special names, even accented ones
 		String emailRegexPattern = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$"; // Even reads cases like MyNavyFederal@email.nfcu.org
 		String phoneNumRegexPattern = "^(1-)?\\d{3}-\\d{3}-\\d{4}$"; // takes only 999-999-9999 format
 				//^\\D?(\\d{3})\\D?\\D?(\\d{3})\\D?(\\d{4})$ Old phone number regex
